@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,interview,HTML,CSS,CSS3,HTML5,闭包,作用域，作用域链,继承,SASS,LESS,React.js," />
+  <meta name="keywords" content="interview,HTML,CSS,CSS3,HTML5,JavaScript,闭包,作用域，作用域链,继承,SASS,LESS,React.js," />
 
 
 
@@ -68,11 +68,13 @@ HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物
 <meta property="og:site_name" content="Candice Yu_个人博客">
 <meta property="og:description" content="HTML
 HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物理学家，在80年代后期设计了一种能在网路上分享文档的方式。在这之前，网路上沟通的方式仅限于纯文本传递，比如：电子邮件、FTP(文件传输协议)和Usenet讨论版。HTML是利用内容档案储存至中央服务器的方式，然后再将内容透过浏览器传递至本机工作站。 它简化了内容存取的方式，也让更多丰富内容能够显示（诸如较复杂的文本格式与图">
-<meta property="og:updated_time" content="2017-04-10T08:54:35.902Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-a7deb0ab923b239d.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-04-10T08:56:01.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端知识总结">
 <meta name="twitter:description" content="HTML
 HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物理学家，在80年代后期设计了一种能在网路上分享文档的方式。在这之前，网路上沟通的方式仅限于纯文本传递，比如：电子邮件、FTP(文件传输协议)和Usenet讨论版。HTML是利用内容档案储存至中央服务器的方式，然后再将内容透过浏览器传递至本机工作站。 它简化了内容存取的方式，也让更多丰富内容能够显示（诸如较复杂的文本格式与图">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5285574-a7deb0ab923b239d.gif?imageMogr2/auto-orient/strip">
 
 
 
@@ -449,7 +451,365 @@ HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物
 <li>不要在注释内容中使“–”</li>
 <li>图片必须有说明文字</li>
 </ol>
-
+<hr>
+<h1 id="CSS篇"><a href="#CSS篇" class="headerlink" title="CSS篇"></a>CSS篇</h1><hr>
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><blockquote>
+<p>文档中的每个元素被描绘为矩形盒子。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。在CSS中，这些矩形盒子用标准盒模型来描述。这个模型描述了一个元素所占用的空间。每一个盒子有四条边界：外边距边界margin, 边框边界border, 内边距边界padding与内容边界content。</p>
+</blockquote>
+<h3 id="介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？"><a href="#介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？" class="headerlink" title="介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？"></a>介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？</h3><p>１．有两种， IE 盒子模型、W3C 盒子模型；<br>２．盒模型： 内容(content)、填充(padding)、边界(margin)、 边框(border)；<br>３．区　别： IE的content部分把 border 和 padding计算了进去;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5285574-a7deb0ab923b239d.gif?imageMogr2/auto-orient/strip" alt="cmd-markdown-logo"></p>
+<blockquote>
+<p>● 在W3C模型中: 总宽度 = margin-left + border-left + padding-left + width + padding-right + border-right + margin-right<br>● 在IE模型中: 总宽度 = margin-left + width + margin-right</p>
+</blockquote>
+<h3 id="在CSS3中引入了box-sizing属性-它可以允许改变默认的CSS盒模型对元素宽高的计算方式"><a href="#在CSS3中引入了box-sizing属性-它可以允许改变默认的CSS盒模型对元素宽高的计算方式" class="headerlink" title="在CSS3中引入了box-sizing属性,它可以允许改变默认的CSS盒模型对元素宽高的计算方式."></a>在CSS3中引入了box-sizing属性,它可以允许改变默认的CSS盒模型对元素宽高的计算方式.</h3><blockquote>
+<p>● content-box：标准盒模型，CSS定义的宽高只包含content的宽高<br>● border-box：IE盒模型，CSS定义的宽高包括了content，padding和border</p>
+</blockquote>
+<h3 id="弹性盒子（Flex布局）"><a href="#弹性盒子（Flex布局）" class="headerlink" title="弹性盒子（Flex布局）"></a>弹性盒子（Flex布局）</h3><ol>
+<li>我们在移动端开发的时候，由于手机的大小都各不相同，所以我们的元素不能定宽，要用弹性盒子来按照百分比分配元素的宽度。</li>
+<li>我们给父级的display设置成flex之后，就让父元素变成了一个弹性盒子，里面的子元素都可以使用flex属性了。</li>
+<li>这个时候，所有的元素会自动变成一行，因为加上display：flex之后还会默认加上一个flex-wrap：nowrap，即不换行，这个时候如果子元素的总宽度大于父元素的宽度，就会压缩子元素，让它们可以在父级容器中排成一行。如果改成wrap值，那么超过容器的宽度之后就会换行了</li>
+</ol>
+<h4 id="flex属性是一个复合属性，它包括flex-grow、flex-shrink、flex-basis"><a href="#flex属性是一个复合属性，它包括flex-grow、flex-shrink、flex-basis" class="headerlink" title="flex属性是一个复合属性，它包括flex-grow、flex-shrink、flex-basis"></a>flex属性是一个复合属性，它包括flex-grow、flex-shrink、flex-basis</h4><ul>
+<li>flex-grow  按比例分配剩余空间。</li>
+<li>flex-shrink 设置收缩比例，多出盒子的部分按照比例的大小去掉相应的大小，比例越大，削减的越多，具体的削减数值有一个复杂的计算公式：</li>
+<li>flex-basis 伸缩基准值。该属性设置元素的宽度，如果同时出现了width和该属性，那么会覆盖掉width属性的值。</li>
+<li>justify-content:center , align-items:center 这两个属性同时在父级中设置的时候，会让子元素在父级中水平垂直居中，其中justify-content是设置水平方向，align-item是设置垂直方向。</li>
+</ul>
+<h2 id="CSS选择符有哪些？哪些属性可以继承？"><a href="#CSS选择符有哪些？哪些属性可以继承？" class="headerlink" title="CSS选择符有哪些？哪些属性可以继承？"></a>CSS选择符有哪些？哪些属性可以继承？</h2><ol>
+<li>id选择器（ # myid）</li>
+<li>类选择器（.myclassname）</li>
+<li>标签选择器（div, h1, p）</li>
+<li>相邻选择器（h1 + p）</li>
+<li>子选择器（ul &gt; li）</li>
+<li>后代选择器（li a）</li>
+<li>通配符选择器（ * ）</li>
+<li>属性选择器（a[rel = “external”]）</li>
+<li>伪类选择器（a:hover, li:nth-child）</li>
+</ol>
+<ul>
+<li>可继承的样式： font-size font-family color, UL LI DL DD DT</li>
+<li>不可继承的样式：border padding margin width height</li>
+</ul>
+<h2 id="页面导入样式时，使用link和-import有什么区别？"><a href="#页面导入样式时，使用link和-import有什么区别？" class="headerlink" title="页面导入样式时，使用link和@import有什么区别？"></a>页面导入样式时，使用link和@import有什么区别？</h2><ol>
+<li>link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS,支持使用javascript改变样式 ;</li>
+<li>页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;</li>
+<li>import是CSS2.1 提出的，只在IE5以上才能被识别，而link是XHTML标签，无兼容问题,不支持使用javascript改变样式;</li>
+<li>link写在html页面中，@import写在CSS页面中</li>
+</ol>
+<h2 id="对BFC规范的理解？"><a href="#对BFC规范的理解？" class="headerlink" title="对BFC规范的理解？"></a>对BFC规范的理解？</h2><ol>
+<li>BFC，块级格式化上下文，一个创建了新的BFC的盒子是独立布局的，盒子里面的子元素的样式不会影响到外面的元素。在同一个BFC中的两个毗邻的块级盒在垂直方向（和布局方向有关系）的margin会发生折叠。</li>
+<li>W3C CSS 2.1 规范中的一个概念，它决定了元素如何对其内容进行布局，以及与其他元素的关系和相互作用。 </li>
+<li>在CSS3 中，BFC 叫做Flow Root。在早期的ie中也有类似的概念haslayout IE6、7的很多布局产生的bug（如3px间隙、绝对定位的继承宽度）都可以通过触发hasLayout修复，比较推荐的方法为zoom:1与height:1%，不会破坏已有的样式</li>
+</ol>
+<h3 id="说说触发BFC的几种方式"><a href="#说说触发BFC的几种方式" class="headerlink" title="说说触发BFC的几种方式"></a>说说触发BFC的几种方式</h3><ol>
+<li>设置除 float:none 以外的属性值（如：left | right）就会触发BFC</li>
+<li>设置除 overflow: visible 以外的属性值（如： hidden | auto | scroll）就会触发BFC</li>
+<li>设置 display属性值为: inline-block | flex | inline-flex | table-cell | table-caption 就会触发BFＣ</li>
+<li>设置 position 属性值为：absolute | fixed 就会触发BFC</li>
+<li>使用 fieldset 元素（可以给表单元素设置环绕边框的html元素）也会触发BFC</li>
+</ol>
+<h3 id="BFC的特性"><a href="#BFC的特性" class="headerlink" title="BFC的特性"></a>BFC的特性</h3><blockquote>
+<p>● 边缘不和浮动元素重叠。<br>● 不存在collapsing margins问题</p>
+<ul>
+<li>第一个特性特别有用，因为元素触发了BFC的话，就不会被float元素覆盖，当子元素全部浮动的时候也能够正确地包含了</li>
+<li>第二个margin不会叠加的特性，可以理解为两个处于普通流的盒子，会有margin叠加的问题，是因为他们属于相同的BFC，当他自身创建了一个新的BFC时，这个问题就不存在了</li>
+</ul>
+</blockquote>
+<h3 id="BFC的常见应用"><a href="#BFC的常见应用" class="headerlink" title="BFC的常见应用"></a>BFC的常见应用</h3><ol>
+<li>通过边缘不和浮动元素重叠的特性，实现两栏结构。 </li>
+<li>清除元素内部浮动</li>
+<li>解决合并外边距的问题</li>
+</ol>
+<h2 id="对一个DOM设置它的CSS样式的方式？"><a href="#对一个DOM设置它的CSS样式的方式？" class="headerlink" title="对一个DOM设置它的CSS样式的方式？　"></a>对一个DOM设置它的CSS样式的方式？　</h2><ol>
+<li>外部样式表，引入一个外部css文件</li>
+<li>内部样式表，将css代码放在 <head> 标签内部</head></li>
+<li>内联样式，将css样式直接定义在 HTML 元素内部</li>
+</ol>
+<h2 id="CSS选择符有哪些-哪些属性可以继承-优先级算法如何计算-内联和important哪个优先级高"><a href="#CSS选择符有哪些-哪些属性可以继承-优先级算法如何计算-内联和important哪个优先级高" class="headerlink" title="CSS选择符有哪些?哪些属性可以继承?优先级算法如何计算?内联和important哪个优先级高?"></a>CSS选择符有哪些?哪些属性可以继承?优先级算法如何计算?内联和important哪个优先级高?</h2><ol>
+<li>CSS选择符: 类选择器 、 标签名选择器、 ID选择器 、 后代选择器（派生选择器）、 群组选择器</li>
+<li>可以继承： 类选择器 、 标签名选择器、 后代选择器（派生选择器）、群组选择器</li>
+<li>优先级算法：<br>优先级就近原则，同权重情况下样式定义最近者为准;载入样式以最后载入的定位为准;</li>
+<li>优先级为:<br>!important &gt;  id &gt; class &gt; tag</li>
+<li>标签内直接定义：1000；  ID选择器：100；  类选择器：10；  标签名选择器：1<br>   ○ div.test1 .span var 优先级 1+10 +10 +1<br>   ○ span#xxx .songs li 优先级1+100 + 10 + 1<br>   ○ #xxx li 优先级 100 +1</li>
+<li>内联和important中，important优先级高</li>
+<li>样式定义在文件中的先后顺序有关，即是后面的覆盖前面的</li>
+</ol>
+<h2 id="定位机制"><a href="#定位机制" class="headerlink" title="定位机制"></a>定位机制</h2><blockquote>
+<p>css有三种基本定位机制: 标准文档流(Normal flow), 浮动(Floats)和绝对定位(Absolute positioning)。</p>
+</blockquote>
+<h3 id="标准文档流"><a href="#标准文档流" class="headerlink" title="标准文档流"></a>标准文档流</h3><blockquote>
+<p>● 从左到右，从上向下，输出文档内容<br>● 由块级元素(从左到右撑满页面，独占一行，触碰到页面边缘时自动换行的元素, 如div, ul, li, dl, dt, p)和行级元素组成(能在同一行内显示并且不会改变HTML文档结构，如span, input)</p>
+</blockquote>
+<h3 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h3><blockquote>
+<p>设置为浮动的元素将会往左(float:left)或者往右(float:right)漂移, 直到遇到阻挡其他浮动元素或者父元素的边框。浮动元素不在标准文档流中占据空间,但会对其后的浮动元素造成影响。</p>
+</blockquote>
+<h3 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h3><blockquote>
+<p>设置为绝对定位的元素(posistion:absolute)将从标准文档流中删除，其所占据的标准流空间也不存在。然后通过top,left,right,bottom属性对其相对父元素进行定位。</p>
+</blockquote>
+<h2 id="网页布局"><a href="#网页布局" class="headerlink" title="网页布局"></a>网页布局</h2><h3 id="流动布局"><a href="#流动布局" class="headerlink" title="流动布局"></a>流动布局</h3><blockquote>
+<p>需了解实现块居中常见的几种方式</p>
+</blockquote>
+<h4 id="说说常见的将元素垂直水平居中的方法"><a href="#说说常见的将元素垂直水平居中的方法" class="headerlink" title="说说常见的将元素垂直水平居中的方法"></a>说说常见的将元素垂直水平居中的方法</h4><ol>
+<li>知道父级大小<pre><code>#div1{
+   background-color:#6699FF;
+   width:200px;
+   height:200px;
+   position: absolute; //父元素需要相对定位
+   top: 50%;
+   left: 50%;
+   margin-top:-100px ;  //二分之一的height，width
+   margin-left: -100px;
+}
+</code></pre></li>
+<li>不知道宽高  transform:translateX(-50%)translateY (-50%);</li>
+<li>flex 布局 ：在父级上<pre><code>position:absolute;
+display:flex;
+justify-content:center;//水平
+aligin-items:center;//竖直
+</code></pre></li>
+<li>行内元素水平居中 ： text-align: center;</li>
+<li>定宽高 父级定宽高 子级一个绝对定位<br>子集里面 left:0 right:0 bottom:0 top:0 margin:0<br>定宽 用margin：auto；</li>
+</ol>
+<h4 id="如何垂直居中一个img"><a href="#如何垂直居中一个img" class="headerlink" title="如何垂直居中一个img?"></a>如何垂直居中一个img?</h4><pre><code>#container{  //&lt;img&gt;的容器设置如下
+   display:table-cell;
+   text-align:center;
+   vertical-align:middle;
+}
+</code></pre><h3 id="浮动布局"><a href="#浮动布局" class="headerlink" title="浮动布局"></a>浮动布局</h3><ol>
+<li>当设置float:left或者float:right时, 元素会左移或右移直到触碰到容器位置，仍然处于标准文档流中。当元素没有设置宽度值，而设置了浮动属性，元素的宽度随内容的变化而变化。当元素设置为浮动属性后，会对紧邻之后的元素造成影响，紧邻之后的元素会紧挨着该元素显示。当父元素包含块缩成一条时，用clear:both方法无效，它一般用于紧邻后面的元素的清除浮动，要用overflow属性。</li>
+<li>清除浮动的方法有两种:使用clear属性 - clear: both; 同时设置width:100%(或固定宽度) + overflow:hidden。</li>
+<li>浮动布局可实现横向多列布局</li>
+</ol>
+<h4 id="为什么要清除浮动？"><a href="#为什么要清除浮动？" class="headerlink" title="为什么要清除浮动？"></a>为什么要清除浮动？</h4><ol>
+<li>浮动起来的元素不会脱离文字流 但是会脱离文档流</li>
+<li>不脱离文字流：display属性是inline和inline-block的元素还是可以看见他的  文字本身是inline属性</li>
+<li>脱离文档流的意思是 正常元素看不见他了  类似absolute属性 内部改元素的样式display：inline-block;</li>
+</ol>
+<h3 id="不清除浮动的效果"><a href="#不清除浮动的效果" class="headerlink" title="不清除浮动的效果"></a>不清除浮动的效果</h3><blockquote>
+<p>border不能被撑开 背景不能显示  margin设置值不能正确显示</p>
+</blockquote>
+<h3 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h3><ol>
+<li>底下添加新的元素 ，应用 clear：both;</li>
+<li>父级属性：overflow：hidden;</li>
+<li>可以在外层套一个标签<p> 设置属性 clear:both;</p></li>
+<li><p>添加一个after<br> xxx:after{<br>   content: ‘’;<br>   clear:both;<br>   display: block;<br> }<br> //IE67触发haslayout ：wrapper{ zoom：1}<br> “原理”：他就是在最后加了一个伪元素,这个元素不是浮动的，他是抗浮动的，所以能看到浮动元素来定位自己的位置,然后父级元素能看到这个伪元素,所以他只是按照这个伪元素的位置来改变自己的宽高。</p>
+<p> “clear解释”：该属性的值指出了不允许有浮动对象的边情况，又对象左边不允许有浮动、右边不允许有浮动、不允许有浮动对象</p>
+</li>
+</ol>
+<h3 id="为什么给父级元素设置overflow属性会去除浮动，具体说说内部机制"><a href="#为什么给父级元素设置overflow属性会去除浮动，具体说说内部机制" class="headerlink" title="为什么给父级元素设置overflow属性会去除浮动，具体说说内部机制"></a>为什么给父级元素设置overflow属性会去除浮动，具体说说内部机制</h3><ol>
+<li>overflow属性相当于给父级元素定型了，必须有参数的</li>
+<li>overflow:hidden属性相当于是让父级紧贴内容，这样即可紧贴其对象内内容</li>
+<li>overflow也可以清除浮动是因为当在父级元素设置overflow时候，除了visible，就是只有auto,hidden或者scroll时候，也会建立新的块级格式给他的子元素, 从而起到清楚浮动效果</li>
+</ol>
+<h3 id="绝对定位布局"><a href="#绝对定位布局" class="headerlink" title="绝对定位布局"></a>绝对定位布局</h3><p>position：static, relative, absolute, fixed</p>
+<h4 id="static是默认值"><a href="#static是默认值" class="headerlink" title="static是默认值"></a>static是默认值</h4><h4 id="相对定位relative"><a href="#相对定位relative" class="headerlink" title="相对定位relative"></a>相对定位relative</h4><ul>
+<li>相对于自身原有位置进行偏移</li>
+<li>仍处于标准文档流中</li>
+<li>随即拥有偏移属性和z-index属性</li>
+</ul>
+<h4 id="固定定位fixed"><a href="#固定定位fixed" class="headerlink" title="固定定位fixed"></a>固定定位fixed</h4><ul>
+<li>一个固定定位（position属性的值为fixed）元素会相对于视窗来定位,这意味着即便页面滚动，它还是会停留在相同的位置。一个固定定位元素不会保留它原本在页面应有的空隙。</li>
+</ul>
+<h4 id="绝对定位absolute"><a href="#绝对定位absolute" class="headerlink" title="绝对定位absolute"></a>绝对定位absolute</h4><ul>
+<li>相对于最近的已定位的祖先元素, 有已定位(指position不是static的元素)祖先元素, 以最近的祖先元素为参考标准。如果无已定位祖先元素, 以body元素为偏移参照基准, 并且它会随着页面滚动而移动。</li>
+<li>完全脱离了标准文档流。</li>
+<li>随即拥有偏移属性和z-index属性。</li>
+</ul>
+<h4 id="sticky新的css3属性"><a href="#sticky新的css3属性" class="headerlink" title="sticky新的css3属性"></a>sticky新的css3属性</h4><ul>
+<li>它的表现类似position:relative和position:fixed的合体，在目标区域在屏幕中可见时，它的行为就像position:relative; 而当页面滚动超出目标区域时，它的表现就像position:fixed，它会固定在目标位置。</li>
+</ul>
+<h4 id="继承父级的定位inherit"><a href="#继承父级的定位inherit" class="headerlink" title="继承父级的定位inherit"></a>继承父级的定位inherit</h4><h4 id="实现横向两列布局"><a href="#实现横向两列布局" class="headerlink" title="实现横向两列布局"></a>实现横向两列布局</h4><p>  ■ 常用于一列固定宽度，另一列宽度自适应的情况<br>  ■ relative - 父元素相对定位<br>  ■ absolute - 自适应宽度元素定位</p>
+<h3 id="如果position设置成absolute属性该元素的display属性会变成什么"><a href="#如果position设置成absolute属性该元素的display属性会变成什么" class="headerlink" title="如果position设置成absolute属性该元素的display属性会变成什么"></a>如果position设置成absolute属性该元素的display属性会变成什么</h3><blockquote>
+<p>position:absolute和float会隐式的改变display类型，不论之前是什么类型的元素（display:none除外），只要设置了position:absolute或float，都会让元素以display:inline-block的方式显示，可以设置长宽，默认宽度并不占满父元素，就算是显示的设置display:inline或display:block，仍然无效。</p>
+</blockquote>
+<h3 id="position-absolute和float属性的异同"><a href="#position-absolute和float属性的异同" class="headerlink" title="position:absolute和float属性的异同"></a>position:absolute和float属性的异同</h3><blockquote>
+<p> ● 共同点：对内联元素设置float和absolute属性，可以让元素脱离文档流，并且可以设置其宽高。</p>
+<p> ● 不同点：float仍会占据位置，absolute会覆盖文档流中的其他元素。</p>
+</blockquote>
+<h2 id="两栏布局类比三栏布局"><a href="#两栏布局类比三栏布局" class="headerlink" title="两栏布局类比三栏布局"></a>两栏布局类比三栏布局</h2><ol>
+<li>columns width：宽度列  count：列数</li>
+<li>浮动  左定宽高 浮动 右边设置margin-left<pre><code>.left{
+width:100px;
+height:100px;
+background-color: red;
+float:left;
+ }
+.right{
+height:100px;
+background-color:green;
+margin-left: 100px;
+}
+</code></pre></li>
+<li>定位 ：左边定宽高 设置定位position absolute left 0 ;<pre><code> .left{
+ width:100px;
+ height:100px;
+ background-color: red;
+ position:absolute;
+ left:0;
+ }
+ .right{
+ height:100px;
+ background-color:green;     
+ right:0;
+}
+</code></pre></li>
+<li>flex 布局   外容器设置display：block;<pre><code> .wrapper{
+ display:flex;
+}
+.left{
+ width:100px;
+ height:100px;
+ background-color: red;
+}
+ .right{
+ height:100px;
+ &quot; flex-grow:1;&quot;
+ background-color:green;     
+ }
+</code></pre></li>
+</ol>
+<h2 id="三列布局"><a href="#三列布局" class="headerlink" title="三列布局"></a>三列布局</h2><ol>
+<li>flex布局<br> .wrapper{ display:flex}<br> .left.right{定宽高 背景色}<br> .middle{flex-grow:1;定高}<br> middle必须放在中间布局</li>
+<li>浮动<br> .left{float:left}  ——-&gt; 定宽高<br> .right{float:right} ——&gt;定宽高<br> .middle{定高,margin-left margin-right}</li>
+<li>定位<br> .right{position:absolute;right:0}—定宽高<br> .left{position:absolute;left:0}—–定宽高<br> .middle{定高}</li>
+<li>columns属性</li>
+</ol>
+<h2 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a>三栏布局</h2><blockquote>
+<p> ● 左右两侧的div先用absolute定位，再给中间的div加margin-left和margin-right（值分别是两个div的宽度）<br> ● 用flaot替换上面的absolute就行</p>
+</blockquote>
+<pre><code>.left {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+}
+.right {
+    float: right;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+.mid {
+    height: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: blue;
+}
+</code></pre><h2 id="什么是外边距重叠？重叠的结果是什么？"><a href="#什么是外边距重叠？重叠的结果是什么？" class="headerlink" title="什么是外边距重叠？重叠的结果是什么？"></a>什么是外边距重叠？重叠的结果是什么？</h2><ol>
+<li>外边距重叠就是margin-collapse。</li>
+<li>在CSS当中，相邻的两个盒子（可能是兄弟关系也可能是祖先关系）的外边距可以结合成一个单独的外边距。这种合并外边距的方式被称为折叠，并且因而所结合成的外边距称为折叠外边距。</li>
+<li>折叠结果遵循下列计算规则：<ul>
+<li>两个相邻的外边距都是正数时，折叠结果是它们两者之间较大的值。</li>
+<li>两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值。</li>
+<li>两个外边距一正一负时，折叠结果是两者的相加的和。</li>
+</ul>
+</li>
+<li>对于父块DIV内含子块DIV的情况，解决父子DIV中顶部margin cllapse的问题，需要给父div设置：<ul>
+<li>边框，当然可以设置边框为透明;</li>
+<li>为父DIV添加padding，或者至少添加padding-top;</li>
+<li>还可以通过over-flow来解决，给父DIV写入： over-flow:hidden;</li>
+</ul>
+</li>
+</ol>
+<h2 id="关于伪元素你了解多少，那么伪类呢？列举一下"><a href="#关于伪元素你了解多少，那么伪类呢？列举一下" class="headerlink" title="关于伪元素你了解多少，那么伪类呢？列举一下"></a>关于伪元素你了解多少，那么伪类呢？列举一下</h2><blockquote>
+<p> ● 伪元素是相当于添加一个元素 伪类相当于是在元素上添加样式 这俩都不实际存于在dom树中,用来格式化文档流之外的东西<br> ● 伪类则是像真正的类一样发挥着类的作用，没有数量上的限制，只要不是相互排斥的伪类，也可以同时使用在相同的元素上<br>伪元素：：first-line  :first-letter :last-letter :before :after<br>伪类：:first-child :link :visitive :hover :active :focus :lang </p>
+</blockquote>
+<h2 id="px和em的区别。"><a href="#px和em的区别。" class="headerlink" title="px和em的区别。"></a>px和em的区别。</h2><blockquote>
+<p>px和em都是长度单位，区别是，px的值是固定的，指定是多少就是多少，计算比较容易。em得值不是固定的，并且em会继承父级元素的字体大小。<br>浏览器的默认字体高都是16px。所以未经调整的浏览器都符合: 1em=16px。</p>
+</blockquote>
+<h2 id="display有哪些值？说明他们的作用。"><a href="#display有哪些值？说明他们的作用。" class="headerlink" title="display有哪些值？说明他们的作用。"></a>display有哪些值？说明他们的作用。</h2><ol>
+<li>block        象块类型元素一样显示。</li>
+<li>none         缺省值。象行内元素类型一样显示。</li>
+<li>inline-block  象行内元素一样显示，但其内容象块类型元素一样显示。</li>
+<li>list-item    象块类型元素一样显示，并添加样式列表标记。</li>
+<li>table        此元素会作为块级表格来显示</li>
+<li>inherit      规定应该从父元素继承 display 属性的值</li>
+</ol>
+<h2 id="css中可以让文字在垂直和水平方向上重叠的两个属性是什么？"><a href="#css中可以让文字在垂直和水平方向上重叠的两个属性是什么？" class="headerlink" title="css中可以让文字在垂直和水平方向上重叠的两个属性是什么？"></a>css中可以让文字在垂直和水平方向上重叠的两个属性是什么？</h2><blockquote>
+<p> ● 垂直方向：line-height<br> ● 水平方向：letter-spacing 用于消除inline-block元素间的换行符空格间隙问题</p>
+</blockquote>
+<h2 id="原生JS的offsetwidth求得的宽度包括什么"><a href="#原生JS的offsetwidth求得的宽度包括什么" class="headerlink" title="原生JS的offsetwidth求得的宽度包括什么"></a>原生JS的offsetwidth求得的宽度包括什么</h2><ol>
+<li>原生JS的offsetwidth求得的宽度包括什么:  content   padding   border </li>
+<li>css(‘width’)求得的宽度包括什么： content     padding   border </li>
+<li>jq的innerWidth求得的宽度包括什么:   content   padding</li>
+</ol>
+<h2 id="CSS中使得一个DOM元素不显示在浏览器可视范围内？"><a href="#CSS中使得一个DOM元素不显示在浏览器可视范围内？" class="headerlink" title="CSS中使得一个DOM元素不显示在浏览器可视范围内？"></a>CSS中使得一个DOM元素不显示在浏览器可视范围内？</h2><blockquote>
+<p> ● 最基本的：<br>设置display属性为none，或者设置visibility属性为hidden<br> ● 技巧性：<br>设置宽高为0，设置透明度为0，设置z-index位置在-1000</p>
+</blockquote>
+<h2 id="display-none与visibility-hidden的区别是什么？"><a href="#display-none与visibility-hidden的区别是什么？" class="headerlink" title=".display:none与visibility:hidden的区别是什么？"></a>.display:none与visibility:hidden的区别是什么？</h2><blockquote>
+<p> ● display : 隐藏对应的元素但不挤占该元素原来的空间。<br> ● visibility: 隐藏对应的元素并且挤占该元素原来的空间。<br>即是，使用CSS display:none属性后，HTML元素（对象）的宽度、高度等各种属性值都将“丢失”;而使用visibility:hidden属性后，HTML元素（对象）仅仅是在视觉上看不见（完全透明），而它所占据的空间位置仍然存在。</p>
+</blockquote>
+<h2 id="超链接访问过后hover样式就不出现的问题是什么？如何解决？"><a href="#超链接访问过后hover样式就不出现的问题是什么？如何解决？" class="headerlink" title="超链接访问过后hover样式就不出现的问题是什么？如何解决？"></a>超链接访问过后hover样式就不出现的问题是什么？如何解决？</h2><blockquote>
+<p>被点击访问过的超链接样式不在具有hover和active了,解决方法是改变CSS属性的排列顺序: L-V-H-A（link,visited,hover,active）</p>
+</blockquote>
+<h2 id="rgba-和opacity的透明效果有什么不同？"><a href="#rgba-和opacity的透明效果有什么不同？" class="headerlink" title="rgba()和opacity的透明效果有什么不同？"></a>rgba()和opacity的透明效果有什么不同？</h2><blockquote>
+<p>rgba()和opacity都能实现透明效果，但最大的不同是opacity作用于元素，以及元素内的所有内容的透明度，而rgba()只作用于元素的颜色或其背景色。（设置rgba透明的元素的子元素不会继承透明效果！）</p>
+</blockquote>
+<h2 id="用纯CSS创建一个三角形的原理是什么？"><a href="#用纯CSS创建一个三角形的原理是什么？" class="headerlink" title="用纯CSS创建一个三角形的原理是什么？"></a>用纯CSS创建一个三角形的原理是什么？</h2><blockquote>
+<p>把上、左、右三条边隐藏掉（颜色设为 transparent）</p>
+</blockquote>
+<pre><code>#demo {
+  width: 0;
+  height: 0;
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+}
+</code></pre><h2 id="描述css-reset的作用和用途。"><a href="#描述css-reset的作用和用途。" class="headerlink" title="描述css reset的作用和用途。"></a>描述css reset的作用和用途。</h2><blockquote>
+<p>Reset重置浏览器的css默认属性 浏览器的品种不同，样式不同，然后重置，让他们统一</p>
+</blockquote>
+<h2 id="解释css-sprites如何使用。"><a href="#解释css-sprites如何使用。" class="headerlink" title="解释css sprites如何使用。"></a>解释css sprites如何使用。</h2><blockquote>
+<p>CSS精灵 把一堆小的图片整合到一张大的图片上，减轻服务器对图片的请求数量,CSS Sprites一般只能使用到固定大小的盒子（box）里，这样才能够遮挡住不应该看到的部分,通过调整background-position的数值，背景图片就能以不同的面貌出现在你眼前。</p>
+</blockquote>
+<h2 id="什么是Css-Hack？ie6-7-8的hack分别是什么？"><a href="#什么是Css-Hack？ie6-7-8的hack分别是什么？" class="headerlink" title="什么是Css Hack？ie6,7,8的hack分别是什么？"></a>什么是Css Hack？ie6,7,8的hack分别是什么？</h2><p>答案：针对不同的浏览器写不同的CSS code的过程，就是CSS hack。<br>示例如下：</p>
+<pre><code>#test  { 
+ width:300px; 
+ height:300px; 
+ background-color:blue; /*firefox*/
+ background-color:red\9; /*all ie*/
+ background-color:yellow; /*ie8*/
+ +background-color:pink; /*ie7*/
+ _background-color:orange;  /*ie6*/ 
+ } 
+ :root #test { background-color:purple\9; } /*ie9*/
+ @media all and (min-width:0px){ #test{background-color:black;} } /*opera*/
+ @media screen and (-webkit-min-device-pixel-ratio:0){ #test {background-color:gray;} }  /*chrome and safari*/
+</code></pre><h2 id="请用Css写一个简单的幻灯片效果页面"><a href="#请用Css写一个简单的幻灯片效果页面" class="headerlink" title="请用Css写一个简单的幻灯片效果页面"></a>请用Css写一个简单的幻灯片效果页面</h2><blockquote>
+<p>知道是要用css3。使用animation动画实现一个简单的幻灯片效果。</p>
+</blockquote>
+<pre><code>/**HTML**/
+&amp;lt;div class=&quot;ani&quot;&gt;&amp;lt;/div&gt;
+/**css**/
+.ani{
+  width:480px;
+  height:320px;
+  margin:50px auto;
+  overflow: hidden;
+  box-shadow:0 0 5px rgba(0,0,0,1);
+  background-size: cover;
+  background-position: center;
+  -webkit-animation-name: &quot;loops&quot;;
+  -webkit-animation-duration: 20s;
+  -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes &quot;loops&quot; {
+  0% {
+    background:url(xx.jpg) no-repeat; 
+  }
+  25% {
+   background:url(xx.jpg) no-repeat;
+  }
+  50% {
+    background:url(xx.jpg) no-repeat;
+  }
+  75% {
+    background:url(xx.jpg) no-repeat;
+  }
+  100% {
+    background:url(xx.jpg) no-repeat;
+  }
+}
+</code></pre>
       
     </div>
 
@@ -492,8 +852,6 @@ HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
-          
             <a href="/tags/interview/" rel="tag">#interview</a>
           
             <a href="/tags/HTML/" rel="tag">#HTML</a>
@@ -503,6 +861,8 @@ HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物
             <a href="/tags/CSS3/" rel="tag">#CSS3</a>
           
             <a href="/tags/HTML5/" rel="tag">#HTML5</a>
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
             <a href="/tags/闭包/" rel="tag">#闭包</a>
           
@@ -700,7 +1060,7 @@ HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML简史"><span class="nav-text">HTML简史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-HTML？"><span class="nav-text">什么是 HTML？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-DOCTYPE-gt-标签的定义与用法。"><span class="nav-text"><!DOCTYPE>标签的定义与用法。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><span class="nav-text">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是怪异模式和标准模式呢？"><span class="nav-text">什么是怪异模式和标准模式呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怪异模式和标准模式的区别？"><span class="nav-text">怪异模式和标准模式的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们如何变成怪异模式呢？"><span class="nav-text">我们如何变成怪异模式呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断怪异模式还是标准模式？"><span class="nav-text">如何判断怪异模式还是标准模式？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级元素和行内元素都有哪些？"><span class="nav-text">块级元素和行内元素都有哪些？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？"><span class="nav-text">浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8-以下）？"><span class="nav-text">行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8 以下）？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述一下你对HTML语义化的理解？"><span class="nav-text">简述一下你对HTML语义化的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对WEB标准以及W3C的理解与认识"><span class="nav-text">对WEB标准以及W3C的理解与认识?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iframe的优缺点？"><span class="nav-text">iframe的优缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？"><span class="nav-text">title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#div-css的布局较table布局有什么优点？"><span class="nav-text">div+css的布局较table布局有什么优点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你能描述一下渐进增强和优雅降级之间的不同吗"><span class="nav-text">你能描述一下渐进增强和优雅降级之间的不同吗?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#现在产品经理看到IE6-7-8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？"><span class="nav-text">现在产品经理看到IE6,7,8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述一下src与href的区别？"><span class="nav-text">简述一下src与href的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知道的网页制作会用到的图片格式有哪些？"><span class="nav-text">知道的网页制作会用到的图片格式有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xhtml和html有什么区别"><span class="nav-text">xhtml和html有什么区别?</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML简史"><span class="nav-text">HTML简史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-HTML？"><span class="nav-text">什么是 HTML？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-DOCTYPE-gt-标签的定义与用法。"><span class="nav-text"><!DOCTYPE>标签的定义与用法。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><span class="nav-text">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是怪异模式和标准模式呢？"><span class="nav-text">什么是怪异模式和标准模式呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怪异模式和标准模式的区别？"><span class="nav-text">怪异模式和标准模式的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们如何变成怪异模式呢？"><span class="nav-text">我们如何变成怪异模式呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断怪异模式还是标准模式？"><span class="nav-text">如何判断怪异模式还是标准模式？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级元素和行内元素都有哪些？"><span class="nav-text">块级元素和行内元素都有哪些？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？"><span class="nav-text">浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8-以下）？"><span class="nav-text">行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8 以下）？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述一下你对HTML语义化的理解？"><span class="nav-text">简述一下你对HTML语义化的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对WEB标准以及W3C的理解与认识"><span class="nav-text">对WEB标准以及W3C的理解与认识?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iframe的优缺点？"><span class="nav-text">iframe的优缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？"><span class="nav-text">title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#div-css的布局较table布局有什么优点？"><span class="nav-text">div+css的布局较table布局有什么优点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你能描述一下渐进增强和优雅降级之间的不同吗"><span class="nav-text">你能描述一下渐进增强和优雅降级之间的不同吗?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#现在产品经理看到IE6-7-8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？"><span class="nav-text">现在产品经理看到IE6,7,8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述一下src与href的区别？"><span class="nav-text">简述一下src与href的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知道的网页制作会用到的图片格式有哪些？"><span class="nav-text">知道的网页制作会用到的图片格式有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xhtml和html有什么区别"><span class="nav-text">xhtml和html有什么区别?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS篇"><span class="nav-text">CSS篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型"><span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？"><span class="nav-text">介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在CSS3中引入了box-sizing属性-它可以允许改变默认的CSS盒模型对元素宽高的计算方式"><span class="nav-text">在CSS3中引入了box-sizing属性,它可以允许改变默认的CSS盒模型对元素宽高的计算方式.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹性盒子（Flex布局）"><span class="nav-text">弹性盒子（Flex布局）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#flex属性是一个复合属性，它包括flex-grow、flex-shrink、flex-basis"><span class="nav-text">flex属性是一个复合属性，它包括flex-grow、flex-shrink、flex-basis</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS选择符有哪些？哪些属性可以继承？"><span class="nav-text">CSS选择符有哪些？哪些属性可以继承？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面导入样式时，使用link和-import有什么区别？"><span class="nav-text">页面导入样式时，使用link和@import有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对BFC规范的理解？"><span class="nav-text">对BFC规范的理解？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#说说触发BFC的几种方式"><span class="nav-text">说说触发BFC的几种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC的特性"><span class="nav-text">BFC的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC的常见应用"><span class="nav-text">BFC的常见应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对一个DOM设置它的CSS样式的方式？"><span class="nav-text">对一个DOM设置它的CSS样式的方式？　</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS选择符有哪些-哪些属性可以继承-优先级算法如何计算-内联和important哪个优先级高"><span class="nav-text">CSS选择符有哪些?哪些属性可以继承?优先级算法如何计算?内联和important哪个优先级高?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位机制"><span class="nav-text">定位机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标准文档流"><span class="nav-text">标准文档流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动"><span class="nav-text">浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对定位"><span class="nav-text">绝对定位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网页布局"><span class="nav-text">网页布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流动布局"><span class="nav-text">流动布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说说常见的将元素垂直水平居中的方法"><span class="nav-text">说说常见的将元素垂直水平居中的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何垂直居中一个img"><span class="nav-text">如何垂直居中一个img?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动布局"><span class="nav-text">浮动布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要清除浮动？"><span class="nav-text">为什么要清除浮动？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不清除浮动的效果"><span class="nav-text">不清除浮动的效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除浮动的方法"><span class="nav-text">清除浮动的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么给父级元素设置overflow属性会去除浮动，具体说说内部机制"><span class="nav-text">为什么给父级元素设置overflow属性会去除浮动，具体说说内部机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对定位布局"><span class="nav-text">绝对定位布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#static是默认值"><span class="nav-text">static是默认值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相对定位relative"><span class="nav-text">相对定位relative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#固定定位fixed"><span class="nav-text">固定定位fixed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绝对定位absolute"><span class="nav-text">绝对定位absolute</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sticky新的css3属性"><span class="nav-text">sticky新的css3属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承父级的定位inherit"><span class="nav-text">继承父级的定位inherit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现横向两列布局"><span class="nav-text">实现横向两列布局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果position设置成absolute属性该元素的display属性会变成什么"><span class="nav-text">如果position设置成absolute属性该元素的display属性会变成什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#position-absolute和float属性的异同"><span class="nav-text">position:absolute和float属性的异同</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两栏布局类比三栏布局"><span class="nav-text">两栏布局类比三栏布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三列布局"><span class="nav-text">三列布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三栏布局"><span class="nav-text">三栏布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是外边距重叠？重叠的结果是什么？"><span class="nav-text">什么是外边距重叠？重叠的结果是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于伪元素你了解多少，那么伪类呢？列举一下"><span class="nav-text">关于伪元素你了解多少，那么伪类呢？列举一下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#px和em的区别。"><span class="nav-text">px和em的区别。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#display有哪些值？说明他们的作用。"><span class="nav-text">display有哪些值？说明他们的作用。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css中可以让文字在垂直和水平方向上重叠的两个属性是什么？"><span class="nav-text">css中可以让文字在垂直和水平方向上重叠的两个属性是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原生JS的offsetwidth求得的宽度包括什么"><span class="nav-text">原生JS的offsetwidth求得的宽度包括什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS中使得一个DOM元素不显示在浏览器可视范围内？"><span class="nav-text">CSS中使得一个DOM元素不显示在浏览器可视范围内？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#display-none与visibility-hidden的区别是什么？"><span class="nav-text">.display:none与visibility:hidden的区别是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超链接访问过后hover样式就不出现的问题是什么？如何解决？"><span class="nav-text">超链接访问过后hover样式就不出现的问题是什么？如何解决？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rgba-和opacity的透明效果有什么不同？"><span class="nav-text">rgba()和opacity的透明效果有什么不同？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用纯CSS创建一个三角形的原理是什么？"><span class="nav-text">用纯CSS创建一个三角形的原理是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#描述css-reset的作用和用途。"><span class="nav-text">描述css reset的作用和用途。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解释css-sprites如何使用。"><span class="nav-text">解释css sprites如何使用。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Css-Hack？ie6-7-8的hack分别是什么？"><span class="nav-text">什么是Css Hack？ie6,7,8的hack分别是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请用Css写一个简单的幻灯片效果页面"><span class="nav-text">请用Css写一个简单的幻灯片效果页面</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
