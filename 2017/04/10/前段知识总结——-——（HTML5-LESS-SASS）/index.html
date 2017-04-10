@@ -83,7 +83,7 @@ HTML5 中的一些有趣的新特性：
 
 HTML5 视频(Video)音频(audio)&amp;lt">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-030cfbb0a5f5ff5c.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-04-10T12:43:56.121Z">
+<meta property="og:updated_time" content="2017-04-10T15:41:10.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前段知识总结 ——（HTML5,LESS,SASS）">
 <meta name="twitter:description" content="HTML5篇
@@ -492,21 +492,313 @@ ctx.fillRect(10,10,150,80);
 </code></pre><h2 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h2><blockquote>
 <p>SVG 指可伸缩矢量图形 (Scalable Vector Graphics)用于定义用于网络的基于矢量的图形,使用 XML 格式定义图形, 图像在放大或改变尺寸的情况下其图形质量不会有损失,是万维网联盟的标准<br>优势: 图像可通过文本编辑器来创建和修改,图像可被搜索、索引、脚本化或压缩,是可伸缩的,可在任何的分辨率下被高质量地打印,可在图像质量不下降的情况下被放大</p>
 </blockquote>
-<h3 id="SVG-在-HTML-页面"><a href="#SVG-在-HTML-页面" class="headerlink" title="SVG 在 HTML 页面"></a>SVG 在 HTML 页面</h3><h4 id="直接在HTML嵌入SVG代码"><a href="#直接在HTML嵌入SVG代码" class="headerlink" title="直接在HTML嵌入SVG代码"></a>直接在HTML嵌入SVG代码</h4><blockquote>
+<h3 id="直接在HTML嵌入SVG代码"><a href="#直接在HTML嵌入SVG代码" class="headerlink" title="直接在HTML嵌入SVG代码"></a>直接在HTML嵌入SVG代码</h3><blockquote>
 <p>SVG不能直接嵌入到Opera。</p>
 </blockquote>
 <pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
   &lt;circle cx=&quot;100&quot; cy=&quot;50&quot; r=&quot;40&quot; stroke=&quot;black&quot;
   stroke-width=&quot;2&quot; fill=&quot;red&quot;/&gt;
 &lt;/svg&gt;
-</code></pre><h4 id="链接到SVG文件"><a href="#链接到SVG文件" class="headerlink" title="链接到SVG文件"></a>链接到SVG文件</h4><blockquote>
-<p>用&lt;a&gt;标签链接到一个SVG文件<br>&lt;a href=”XX.svg”&gt;View SVG file</p>
+</code></pre><h3 id="SVG矩形"><a href="#SVG矩形" class="headerlink" title="SVG矩形"></a>SVG矩形</h3><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;rect x=&quot;50&quot; y=&quot;20&quot; rx=&quot;20&quot; ry=&quot;20&quot; width=&quot;150&quot; height=&quot;150&quot; style=&quot;fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>fill 属性定义矩形的填充颜色</li>
+<li>stroke 属性定义矩形边框的颜色</li>
+<li>stroke-width 属性定义矩形边框的宽度</li>
+<li>rect 元素的 width 和 height 属性可定义矩形的高度和宽度</li>
+<li>x 属性定义矩形的左侧位置（例如，x=”0” 定义矩形到浏览器窗口左侧的距离是 0px）</li>
+<li>y 属性定义矩形的顶端位置（例如，y=”0” 定义矩形到浏览器窗口顶端的距离是 0px）</li>
+<li>CSS 的 fill-opacity 属性定义填充颜色透明度（合法的范围是：0 - 1）</li>
+<li>CSS 的 stroke-opacity 属性定义笔触颜色的透明度（合法的范围是：0 - 1）</li>
+<li>rx 和 ry 属性可使矩形产生圆角。</li>
+<li>strokelinecap属性定义不同类型的开放路径的终结</li>
+</ol>
+<h3 id="SVG-圆形-lt-circle-gt"><a href="#SVG-圆形-lt-circle-gt" class="headerlink" title="SVG 圆形 - &lt;circle&gt;"></a>SVG 圆形 - &lt;circle&gt;</h3><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;circle cx=&quot;100&quot; cy=&quot;50&quot; r=&quot;40&quot; stroke=&quot;black&quot;
+  stroke-width=&quot;2&quot; fill=&quot;red&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><blockquote>
+<p>cx和cy属性定义圆点的x和y坐标。如果省略cx和cy，圆的中心会被设置为(0, 0)<br>r属性定义圆的半径</p>
 </blockquote>
-<h4 id="使用-lt-object-gt-标签"><a href="#使用-lt-object-gt-标签" class="headerlink" title="使用&lt;object&gt; 标签"></a>使用&lt;object&gt; 标签</h4><blockquote>
-<p>所有主要浏览器都支持，并支持HTML4，XHTML和HTML5标准。不允许使用脚本<br>&lt;object data=”circle1.svg” type=”image/svg+xml”&gt;</p>
+<h3 id="SVG-椭圆-lt-ellipse-gt"><a href="#SVG-椭圆-lt-ellipse-gt" class="headerlink" title="SVG 椭圆 - &lt;ellipse&gt;"></a>SVG 椭圆 - &lt;ellipse&gt;</h3><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;ellipse cx=&quot;300&quot; cy=&quot;80&quot; rx=&quot;100&quot; ry=&quot;50&quot;
+  style=&quot;fill:yellow;stroke:purple;stroke-width:2&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>CX属性定义的椭圆中心的x坐标</li>
+<li>CY属性定义的椭圆中心的y坐标</li>
+<li>RX属性定义的水平半径</li>
+<li>RY属性定义的垂直半径</li>
+</ol>
+<h3 id="SVG-直线-lt-line-gt"><a href="#SVG-直线-lt-line-gt" class="headerlink" title="SVG 直线 - &lt;line&gt;"></a>SVG 直线 - &lt;line&gt;</h3><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;line x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;200&quot; y2=&quot;200&quot;
+  style=&quot;stroke:rgb(255,0,0);stroke-width:2&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>x1 属性在 x 轴定义线条的开始</li>
+<li>y1 属性在 y 轴定义线条的开始</li>
+<li>x2 属性在 x 轴定义线条的结束</li>
+<li>y2 属性在 y 轴定义线条的结束</li>
+</ol>
+<h3 id="SVG-路径-lt-path-gt"><a href="#SVG-路径-lt-path-gt" class="headerlink" title="SVG 路径 - &lt;path&gt;"></a>SVG 路径 - &lt;path&gt;</h3><blockquote>
+<p>路径数据 大写表示绝对定位，小写表示相对定位</p>
+<ul>
+<li>M = moveto</li>
+<li>L = lineto</li>
+<li>H = horizontal lineto</li>
+<li>V = vertical lineto</li>
+<li>C = curveto</li>
+<li>S = smooth curveto</li>
+<li>Q = quadratic Bézier curve</li>
+<li>T = smooth quadratic Bézier curveto</li>
+<li>A = elliptical Arc</li>
+<li>Z = closepath</li>
+</ul>
 </blockquote>
-<h4 id="使用-lt-iframe-gt-标签"><a href="#使用-lt-iframe-gt-标签" class="headerlink" title="使用 &lt;iframe&gt; 标签"></a>使用 &lt;iframe&gt; 标签</h4><blockquote>
-<p>所有主要浏览器都支持，并允许使用脚本,不推荐在HTML4和XHTML中使用（但在HTML5允许）</p>
+<p>开始于位置150 0，到达位置75 200，然后从那里开始到225 200，最后在150 0关闭路径。</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;path d=&quot;M150 0 L75 200 L225 200 Z&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><h3 id="SVG-线性渐变-lt-linearGradient-gt"><a href="#SVG-线性渐变-lt-linearGradient-gt" class="headerlink" title="SVG 线性渐变 - &lt;linearGradient&gt;"></a>SVG 线性渐变 - &lt;linearGradient&gt;</h3><blockquote>
+<p>&lt;linearGradient&gt;元素用于定义线性渐变。&lt;linearGradient&gt;标签必须嵌套在&lt;defs&gt;的内部。&lt;defs&gt;标签是definitions的缩写，它可对诸如渐变之类的特殊元素进行定义。</p>
+</blockquote>
+<p> 水平线性渐变从黄色到红色的椭圆形</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;defs&gt;
+    &lt;linearGradient id=&quot;grad1&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;0%&quot;&gt;
+      &lt;stop offset=&quot;0%&quot; style=&quot;stop-color:rgb(255,255,0);stop-opacity:1&quot; /&gt;
+      &lt;stop offset=&quot;100%&quot; style=&quot;stop-color:rgb(255,0,0);stop-opacity:1&quot; /&gt;
+    &lt;/linearGradient&gt;
+  &lt;/defs&gt;
+  &lt;ellipse cx=&quot;200&quot; cy=&quot;70&quot; rx=&quot;85&quot; ry=&quot;55&quot; fill=&quot;url(#grad1)&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>&lt;linearGradient&gt;标签的id属性可为渐变定义一个唯一的名称</li>
+<li>&lt;linearGradient&gt;标签的X1，X2，Y1，Y2属性定义渐变开始和结束位置</li>
+<li>渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个<stop></stop>标签来规定。offset属性用来定义渐变的开始和结束位置。</li>
+<li>填充属性把 ellipse 元素链接到此渐变</li>
+</ol>
+<h3 id="SVG-放射性渐变-lt-radialGradient-gt"><a href="#SVG-放射性渐变-lt-radialGradient-gt" class="headerlink" title="SVG 放射性渐变 - &lt;radialGradient&gt;"></a>SVG 放射性渐变 - &lt;radialGradient&gt;</h3><blockquote>
+<p>&lt;radialGradient&gt;元素用于定义放射性渐变。</p>
+</blockquote>
+<p> 定义一个放射性渐变从白色到蓝色椭圆</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;defs&gt;
+    &lt;radialGradient id=&quot;grad1&quot; cx=&quot;50%&quot; cy=&quot;50%&quot; r=&quot;50%&quot; fx=&quot;50%&quot; fy=&quot;50%&quot;&gt;
+      &lt;stop offset=&quot;0%&quot; style=&quot;stop-color:rgb(255,255,255);
+      stop-opacity:0&quot; /&gt;
+      &lt;stop offset=&quot;100%&quot; style=&quot;stop-color:rgb(0,0,255);stop-opacity:1&quot; /&gt;
+    &lt;/radialGradient&gt;
+  &lt;/defs&gt;
+  &lt;ellipse cx=&quot;200&quot; cy=&quot;70&quot; rx=&quot;85&quot; ry=&quot;55&quot; fill=&quot;url(#grad1)&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>&lt;radialGradient&gt;标签的 id 属性可为渐变定义一个唯一的名称</li>
+<li>CX，CY和r属性定义的最外层圆和Fx和Fy定义的最内层圆</li>
+<li>渐变颜色范围可以由两个或两个以上的颜色组成。每种颜色用一个&lt;stop&gt;标签指定。offset属性用来定义渐变色开始和结束</li>
+<li>填充属性把ellipse元素链接到此渐变</li>
+</ol>
+<h2 id="SVG-与-Canvas两者间的区别"><a href="#SVG-与-Canvas两者间的区别" class="headerlink" title="SVG 与 Canvas两者间的区别"></a>SVG 与 Canvas两者间的区别</h2><ol>
+<li>SVG 是一种使用 XML 描述 2D 图形的语言。Canvas 通过 JavaScript 来绘制 2D 图形。</li>
+<li>SVG 基于 XML，这意味着 SVG DOM 中的每个元素都是可用的。您可以为某个元素附加 JavaScript 事件处理器。</li>
+<li>在 SVG 中，每个被绘制的图形均被视为对象。如果 SVG 对象的属性发生变化，那么浏览器能够自动重现图形。<br>Canvas 是逐像素进行渲染的。在 canvas 中，一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象。</li>
+</ol>
+<h2 id="新的-Input-类型"><a href="#新的-Input-类型" class="headerlink" title="新的 Input 类型"></a>新的 Input 类型</h2><ul>
+<li>color 选取颜色</li>
+<li>date 定义一个时间控制器</li>
+<li>datetime 定义一个日期和时间控制器（本地时间）</li>
+<li>datetime-local 定义一个日期和时间 (无时区)</li>
+<li>email 包含 e-mail 地址的输入域</li>
+<li>month 定义月与年 (无时区) </li>
+<li>number 定义一个数值输入域(限定)</li>
+<li>range 定义一个不需要非常精确的数值（类似于滑块控制）</li>
+<li>search 定义一个搜索字段</li>
+<li>tel 定义输入电话号码字段</li>
+<li>time 定义可输入时间控制器（无时区）</li>
+<li>url 在提交表单时，会自动验证 url 域的值</li>
+<li>week 定义周和年 (无时区)</li>
+</ul>
+<hr>
+<h1 id="LESS篇"><a href="#LESS篇" class="headerlink" title="LESS篇"></a>LESS篇</h1><blockquote>
+<p>CSS 预处理器用一种专门的编程语言，进行 Web 页面样式设计，然后再编译成正常的 CSS 文件，以供项目使用。CSS 预处理器为 CSS 增加一些编程的特性，无需考虑浏览器的兼容性问题”，例如你可以在 CSS 中使用变量、简单的逻辑程序、函数（如右侧代码编辑器中就使用了变量$color）等等在编程语言中的一些基本特性，可以让你的 CSS 更加简洁、适应性更强、可读性更佳，更易于代码的维护等诸多好处。</p>
+<p>Less css是一种动态样式语言，属于CSS预处理语言的一种，它使用类似CSS的语法，为CSS赋予了动态语言的特性，如变量，继承，运算，函数等，更方便CSS编写和维护。</p>
+</blockquote>
+<h3 id="维护也要维护less"><a href="#维护也要维护less" class="headerlink" title="维护也要维护less"></a>维护也要维护less</h3><h3 id="注释-不会编译处理-会编译处理"><a href="#注释-不会编译处理-会编译处理" class="headerlink" title="注释 //不会编译处理            /会编译处理/"></a>注释 //不会编译处理            /<em>会编译处理</em>/</h3><h3 id="变量-变量名-test-width-300px"><a href="#变量-变量名-test-width-300px" class="headerlink" title="变量  @变量名 @test_width:300px;"></a>变量  @变量名 @test_width:300px;</h3><h3 id="混合-mixin"><a href="#混合-mixin" class="headerlink" title="混合(mixin)"></a>混合(mixin)</h3><h4 id="可不带括号调用-border-border-，"><a href="#可不带括号调用-border-border-，" class="headerlink" title="可不带括号调用.border  .border{};，"></a>可不带括号调用.border  .border{};，</h4><h4 id="可带参数-border-02-border-width-传参调用-border-02-30px-，"><a href="#可带参数-border-02-border-width-传参调用-border-02-30px-，" class="headerlink" title="可带参数.border_02(@border_width) 传参调用.border_02(30px);，"></a>可带参数.border_02(@border_width) 传参调用.border_02(30px);，</h4><h4 id="可带默认参数-border-03-border-width-10px-调用-border-03"><a href="#可带默认参数-border-03-border-width-10px-调用-border-03" class="headerlink" title="可带默认参数.border_03(@border_width:10px) 调用.border_03();"></a>可带默认参数.border_03(@border_width:10px) 调用.border_03();</h4><h3 id="匹配模式-一定要带上的代码"><a href="#匹配模式-一定要带上的代码" class="headerlink" title="匹配模式  //一定要带上的代码  @_"></a>匹配模式  //一定要带上的代码  @_</h3><pre><code>.triangle(@_,@w:5px,@c:#ccc){}
+.triangle(left,@w:5px,@c:#ccc){
+    border-width: @w;
+    border-color: transparent @c transparent transparent;
+    border-style: dashed solid dashed dashed; 
+}
+</code></pre><h3 id="运算"><a href="#运算" class="headerlink" title="运算 +-*/"></a>运算 +-*/</h3><h3 id="嵌套-amp-代表它的上一层选择器"><a href="#嵌套-amp-代表它的上一层选择器" class="headerlink" title="嵌套  //&amp;代表它的上一层选择器"></a>嵌套  //&amp;代表它的上一层选择器</h3><pre><code>&amp;:hover{
+    color: red;
+}
+</code></pre><h3 id="arguments-获得所有参数"><a href="#arguments-获得所有参数" class="headerlink" title="@arguments 获得所有参数"></a>@arguments 获得所有参数</h3><h3 id="避免编译"><a href="#避免编译" class="headerlink" title="避免编译"></a>避免编译</h3><pre><code>//避免编译 cale浏览器计算，不用less，不进行编译
+.test_03{
+    width:~&apos;cale(300px-30px)&apos;;
+}
+</code></pre><hr>
+<h1 id="Syntactically-Awesome-StyleSheets篇"><a href="#Syntactically-Awesome-StyleSheets篇" class="headerlink" title="Syntactically Awesome StyleSheets篇"></a>Syntactically Awesome StyleSheets篇</h1><blockquote>
+<p>Sass 是采用 Ruby 语言编写的一款 CSS 预处理语言，它诞生于2007年，是最大的成熟的 CSS 预处理语言。最初它是为了配合 HAML（一种缩进式 HTML 预编译器）而设计的，因此有着和 HTML 一样的缩进式风格。</p>
+</blockquote>
+<h2 id="为什么早期不如-LESS-普及？"><a href="#为什么早期不如-LESS-普及？" class="headerlink" title="为什么早期不如 LESS 普及？"></a>为什么早期不如 LESS 普及？</h2><blockquote>
+<p>虽然缩进式风格可以有效缩减代码量，强制规范编码风格，但它一方面并不为大多数程序接受，另一方面无法兼容已有的 CSS 代码。（sass编译成css之后，无法反编译成sass了）这也是 Sass 虽然出现得最早，但远不如 LESS 普及的原因</p>
+</blockquote>
+<h2 id="Sass-和-SCSS"><a href="#Sass-和-SCSS" class="headerlink" title="Sass 和 SCSS"></a>Sass 和 SCSS</h2><blockquote>
+<p>Sass 和 SCSS其实是同一种东西,两者之间不同之处有以下两点<br>● 文件扩展名不同，Sass 是以“.sass”后缀为扩展名，而 SCSS 是以“.scss”后缀为扩展名<br>● 语法书写方式不同，Sass是以严格的缩进式语法规则来书写，不带大括号({})和分号(;)，而 SCSS 的语法书写和我们的 CSS 语法书写方式非常类似。</p>
+</blockquote>
+<h2 id="变量-变量名-值"><a href="#变量-变量名-值" class="headerlink" title="变量 $变量名:值"></a>变量 $变量名:值</h2><blockquote>
+<p>sass 的默认变量仅需要在值后面加上 !default 即可。sass 的默认变量一般是用来设置默认值，然后根据需求来覆盖的，覆盖的方式也很简单，只需要在默认变量之前重新声明下变量即可。</p>
+</blockquote>
+<h2 id="什么时候声明变量"><a href="#什么时候声明变量" class="headerlink" title="什么时候声明变量?"></a>什么时候声明变量?</h2><ol>
+<li>该值至少重复出现了两次；</li>
+<li>该值至少可能会被更新一次；</li>
+<li>该值所有的表现都与变量有关（非巧合）。</li>
+</ol>
+<h2 id="Sass嵌套"><a href="#Sass嵌套" class="headerlink" title="Sass嵌套"></a>Sass嵌套</h2><blockquote>
+<p>Sass 中还提供了选择器嵌套功能，但这也并不意味着你在 Sass 中的嵌套是无节制的，因为你嵌套的层级越深，编译出来的 CSS 代码的选择器层级将越深，这往往是大家不愿意看到的一点。这个特性现在正被众多开发者滥用。</p>
+</blockquote>
+<ol>
+<li><p>选择器嵌套</p>
+<pre><code>nav {   
+  a {
+    color: red;
+
+    header &amp; {
+      color:green;
+    }
+  }  
+}   /*选择器嵌套*/
+</code></pre></li>
+<li><p>属性嵌套</p>
+<pre><code>.box_01 {
+  border: {
+   top: 1px solid red;
+   bottom: 1px solid green;
+  }
+  width:100px;
+  height:100px;
+} /*属性嵌套*/
+</code></pre></li>
+<li><p>伪类嵌套</p>
+<pre><code>.clearfix{
+&amp;:before,
+&amp;:after {
+    content:&quot;&quot;;
+    display: table;
+  }
+&amp;:after {
+    clear:both;
+    overflow: hidden;
+  }
+} /*伪元素嵌套*/
+</code></pre></li>
+</ol>
+<h2 id="混合宏-mixin"><a href="#混合宏-mixin" class="headerlink" title="混合宏 @mixin"></a>混合宏 @mixin</h2><blockquote>
+<p>当需要重复使用大段的样式时，使用变量就无法达到我们目了。这个时候 Sass 中的混合宏很方便使用。</p>
+</blockquote>
+<ol>
+<li>可不带参数<pre><code>@mixin border-radius{
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+button {
+    @include border-radius;
+}
+</code></pre></li>
+<li>可带一个参数            <pre><code>@mixin border-radius($radius:6px){
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+.btn {
+  @include border-radius;
+}
+</code></pre></li>
+<li>可带多个参数<pre><code>@mixin center($width,$height){
+  width: $width;
+  height: $height
+}
+.box-center {
+  @include center(500px,300px);
+}
+</code></pre></li>
+<li>在 Sass 中，使用“@mixin”来声明一个混合宏。</li>
+<li>Sass在调用相同的混合宏时，并不能智能的将相同的样式代码块合并在一起。对于复用重复代码块。但其最大的不足之处是会生成冗余的代码块。</li>
+</ol>
+<h2 id="继承-extend"><a href="#继承-extend" class="headerlink" title="继承 @extend"></a>继承 @extend</h2><blockquote>
+<p>在 Sass 中也具有继承一说，也是继承类中的样式代码块。在 Sass 中是通过关键词 “@extend”来继承已存在的类样式块，从而实现代码的继承。</p>
+</blockquote>
+<pre><code>.btn {
+  border: 1px solid #ccc;
+}
+.btn-primary {
+  background-color: #f36;
+  @extend .btn;
+}
+</code></pre><h2 id="占位符-placeholder"><a href="#占位符-placeholder" class="headerlink" title="占位符 %placeholder"></a>占位符 %placeholder</h2><blockquote>
+<p>可以取代以前 CSS 中的基类造成的代码冗余的情形。因为 %placeholder 声明的代码，如果不被 @extend 调用的话，不会产生任何代码。</p>
+</blockquote>
+<pre><code>%mt5 {
+  margin-top: 5px;
+}
+.btn {
+  @extend %mt5;
+} /*不被@extend调用的话，不会产生代码*/
+</code></pre><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ol>
+<li>类似 CSS 的注释方式，使用 ”/<em> ”开头，结属使用 ”</em>/ ”</li>
+<li>类似 JavaScript 的注释方式，使用“//”,编译出来的 CSS 中不会显示</li>
+</ol>
+<h2 id="Sass运算"><a href="#Sass运算" class="headerlink" title="Sass运算+-*/"></a>Sass运算+-*/</h2><blockquote>
+<p>对于携带不同类型的单位时，在 Sass 中计算会报错</p>
+</blockquote>
+<h3 id="”-”符号被当作除法运算符时有以下几种情况："><a href="#”-”符号被当作除法运算符时有以下几种情况：" class="headerlink" title="”/ ”符号被当作除法运算符时有以下几种情况："></a>”/ ”符号被当作除法运算符时有以下几种情况：</h3><ul>
+<li>如果“/”符号在已有的数学表达式中时，也会被认作除法符号。</li>
+<li>当用变量，函数进行除法运算时，“/”符号也会自动被识别成除法</li>
+<li>如果数值被圆括号包围。</li>
+<li>如果数值是另一个数学表达式的一部分。</li>
+<li>在除法运算”/“时，如果两个值带有相同的单位值时，除法运算之后会得到一个不带单位的数值。</li>
+</ul>
+<h2 id="字符运算"><a href="#字符运算" class="headerlink" title="字符运算"></a>字符运算</h2><ol>
+<li>通过加法符号“+”来对字符串进行连接</li>
+<li>还可以直接通过 +，把字符连接在一起</li>
+<li>如果有引号的字符串被添加了一个没有引号的字符串 （也就是，带引号的字符串在 + 符号左侧）， 结果会是一个有引号的字符串。 同样的，如果一个没有引号的字符串被添加了一个有引号的字符串 （没有引号的字符串在 + 符号左侧）， 结果将是一个没有引号的字符串。</li>
+</ol>
+<h2 id="判断-if"><a href="#判断-if" class="headerlink" title="判断@if"></a>判断@if</h2><blockquote>
+<p>@if 指令是一个 SassScript，它可以根据条件来处理样式块，如果条件为 true 返回一个样式块，反之 false 返回另一个样式块。</p>
+</blockquote>
+<pre><code>@for $i from 1 through 3 {
+      .item-#{$i} { width: 2em * $i; }
+    }
+</code></pre><h2 id="循环-for"><a href="#循环-for" class="headerlink" title="循环@for"></a>循环@for</h2><p>.col1~.col12 样式在 Sass 中，可以使用 @for 循环来完成。<br>@for 循环中有两种方式：</p>
+<blockquote>
+<p>● @for $i from <start> through <end><br>● @for $i from <start> to <end></end></start></end></start></p>
+</blockquote>
+<ol>
+<li>$i 表示变量</li>
+<li>start 表示起始值</li>
+<li>end 表示结束值</li>
+<li><p>这两个的区别是关键字 through 表示包括 end 这个数，而 to 则不包括 end 这个数。</p>
+<pre><code>$grid-prefix: span !default;
+$grid-width: 60px !default;
+$grid-gutter: 20px !default;
+%grid {
+  float: left;
+  margin-left: $grid-gutter / 2;
+  margin-right: $grid-gutter / 2;
+}
+@for $i from 1 through 12 {
+  .#{$grid-prefix}#{$i}{
+    width: $grid-width * $i + $grid-gutter * ($i - 1);
+    @extend %grid;
+  }  
+}/*@for应用在网格系统生成各个格子 class 的代码：*/
+</code></pre></li>
+</ol>
+<h2 id="循环-while"><a href="#循环-while" class="headerlink" title="循环@while"></a>循环@while</h2><blockquote>
+<p>@while 指令也需要 SassScript 表达式（像其他指令一样），并且会生成不同的样式块，直到表达式值为 false 时停止循环。这个和 @for 指令很相似，只要 @while 后面的条件为 true 就会执行。</p>
+</blockquote>
+<h2 id="循环-each"><a href="#循环-each" class="headerlink" title="循环@each"></a>循环@each</h2><blockquote>
+<p>@each 循环就是去遍历一个列表，然后从列表中取出对应的值。@each 循环指令的形式：@each $var in &lt;list&gt;</p>
 </blockquote>
 
       
@@ -741,7 +1033,7 @@ ctx.fillRect(10,10,150,80);
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML5篇"><span class="nav-text">HTML5篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5-中的一些有趣的新特性："><span class="nav-text">HTML5 中的一些有趣的新特性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5-视频-Video-音频-audio"><span class="nav-text">HTML5 视频(Video)音频(audio)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拖放（Drag-和-drop）"><span class="nav-text">拖放（Drag 和 drop）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Canvas"><span class="nav-text">Canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-Canvas-元素"><span class="nav-text">创建 Canvas 元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-JavaScript-来绘制"><span class="nav-text">通过 JavaScript 来绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径"><span class="nav-text">路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描边样式"><span class="nav-text">描边样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填充样式"><span class="nav-text">填充样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制曲线"><span class="nav-text">绘制曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas中绘制圆形"><span class="nav-text">canvas中绘制圆形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载图片"><span class="nav-text">加载图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用背景图片替代颜色线条"><span class="nav-text">使用背景图片替代颜色线条</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas-变换"><span class="nav-text">canvas - 变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Canvas-文本"><span class="nav-text">Canvas - 文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Canvas-渐变"><span class="nav-text">Canvas - 渐变</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVG"><span class="nav-text">SVG</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-在-HTML-页面"><span class="nav-text">SVG 在 HTML 页面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#直接在HTML嵌入SVG代码"><span class="nav-text">直接在HTML嵌入SVG代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链接到SVG文件"><span class="nav-text">链接到SVG文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-lt-object-gt-标签"><span class="nav-text">使用<object> 标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-lt-iframe-gt-标签"><span class="nav-text">使用 <iframe> 标签</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML5篇"><span class="nav-text">HTML5篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5-中的一些有趣的新特性："><span class="nav-text">HTML5 中的一些有趣的新特性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5-视频-Video-音频-audio"><span class="nav-text">HTML5 视频(Video)音频(audio)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拖放（Drag-和-drop）"><span class="nav-text">拖放（Drag 和 drop）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Canvas"><span class="nav-text">Canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-Canvas-元素"><span class="nav-text">创建 Canvas 元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-JavaScript-来绘制"><span class="nav-text">通过 JavaScript 来绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径"><span class="nav-text">路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描边样式"><span class="nav-text">描边样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填充样式"><span class="nav-text">填充样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制曲线"><span class="nav-text">绘制曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas中绘制圆形"><span class="nav-text">canvas中绘制圆形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载图片"><span class="nav-text">加载图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用背景图片替代颜色线条"><span class="nav-text">使用背景图片替代颜色线条</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas-变换"><span class="nav-text">canvas - 变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Canvas-文本"><span class="nav-text">Canvas - 文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Canvas-渐变"><span class="nav-text">Canvas - 渐变</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVG"><span class="nav-text">SVG</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#直接在HTML嵌入SVG代码"><span class="nav-text">直接在HTML嵌入SVG代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG矩形"><span class="nav-text">SVG矩形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-圆形-lt-circle-gt"><span class="nav-text">SVG 圆形 - <circle></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-椭圆-lt-ellipse-gt"><span class="nav-text">SVG 椭圆 - <ellipse></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-直线-lt-line-gt"><span class="nav-text">SVG 直线 - <line></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-路径-lt-path-gt"><span class="nav-text">SVG 路径 - <path></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-线性渐变-lt-linearGradient-gt"><span class="nav-text">SVG 线性渐变 - <linearGradient></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-放射性渐变-lt-radialGradient-gt"><span class="nav-text">SVG 放射性渐变 - <radialGradient></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVG-与-Canvas两者间的区别"><span class="nav-text">SVG 与 Canvas两者间的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新的-Input-类型"><span class="nav-text">新的 Input 类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LESS篇"><span class="nav-text">LESS篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#维护也要维护less"><span class="nav-text">维护也要维护less</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释-不会编译处理-会编译处理"><span class="nav-text">注释 //不会编译处理            /会编译处理/</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量-变量名-test-width-300px"><span class="nav-text">变量  @变量名 @test_width:300px;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合-mixin"><span class="nav-text">混合(mixin)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可不带括号调用-border-border-，"><span class="nav-text">可不带括号调用.border  .border{};，</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可带参数-border-02-border-width-传参调用-border-02-30px-，"><span class="nav-text">可带参数.border_02(@border_width) 传参调用.border_02(30px);，</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可带默认参数-border-03-border-width-10px-调用-border-03"><span class="nav-text">可带默认参数.border_03(@border_width:10px) 调用.border_03();</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配模式-一定要带上的代码"><span class="nav-text">匹配模式  //一定要带上的代码  @_</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算"><span class="nav-text">运算 +-*/</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套-amp-代表它的上一层选择器"><span class="nav-text">嵌套  //&代表它的上一层选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#arguments-获得所有参数"><span class="nav-text">@arguments 获得所有参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免编译"><span class="nav-text">避免编译</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntactically-Awesome-StyleSheets篇"><span class="nav-text">Syntactically Awesome StyleSheets篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么早期不如-LESS-普及？"><span class="nav-text">为什么早期不如 LESS 普及？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sass-和-SCSS"><span class="nav-text">Sass 和 SCSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量-变量名-值"><span class="nav-text">变量 $变量名:值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么时候声明变量"><span class="nav-text">什么时候声明变量?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sass嵌套"><span class="nav-text">Sass嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合宏-mixin"><span class="nav-text">混合宏 @mixin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承-extend"><span class="nav-text">继承 @extend</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#占位符-placeholder"><span class="nav-text">占位符 %placeholder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sass运算"><span class="nav-text">Sass运算+-*/</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#”-”符号被当作除法运算符时有以下几种情况："><span class="nav-text">”/ ”符号被当作除法运算符时有以下几种情况：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符运算"><span class="nav-text">字符运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断-if"><span class="nav-text">判断@if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环-for"><span class="nav-text">循环@for</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环-while"><span class="nav-text">循环@while</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环-each"><span class="nav-text">循环@each</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
