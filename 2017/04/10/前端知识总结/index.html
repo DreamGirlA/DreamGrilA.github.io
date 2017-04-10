@@ -1,0 +1,815 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端 blog  JS 阅读" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Candice Yu_个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="HTML
+HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物理学家，在80年代后期设计了一种能在网路上分享文档的方式。在这之前，网路上沟通的方式仅限于纯文本传递，比如：电子邮件、FTP(文件传输协议)和Usenet讨论版。HTML是利用内容档案储存至中央服务器的方式，然后再将内容透过浏览器传递至本机工作站。 它简化了内容存取的方式，也让更多丰富内容能够显示（诸如较复杂的文本格式与图">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 前端知识总结">
+<meta property="og:url" content="http://candiceyu.com/2017/04/10/前端知识总结/index.html">
+<meta property="og:site_name" content="Candice Yu_个人博客">
+<meta property="og:description" content="HTML
+HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物理学家，在80年代后期设计了一种能在网路上分享文档的方式。在这之前，网路上沟通的方式仅限于纯文本传递，比如：电子邮件、FTP(文件传输协议)和Usenet讨论版。HTML是利用内容档案储存至中央服务器的方式，然后再将内容透过浏览器传递至本机工作站。 它简化了内容存取的方式，也让更多丰富内容能够显示（诸如较复杂的文本格式与图">
+<meta property="og:updated_time" content="2017-04-10T08:15:31.535Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" 前端知识总结">
+<meta name="twitter:description" content="HTML
+HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物理学家，在80年代后期设计了一种能在网路上分享文档的方式。在这之前，网路上沟通的方式仅限于纯文本传递，比如：电子邮件、FTP(文件传输协议)和Usenet讨论版。HTML是利用内容档案储存至中央服务器的方式，然后再将内容透过浏览器传递至本机工作站。 它简化了内容存取的方式，也让更多丰富内容能够显示（诸如较复杂的文本格式与图">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://candiceyu.com/2017/04/10/前端知识总结/"/>
+
+  <title>  前端知识总结 | Candice Yu_个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?516d783fb114015b9b38b2ce58b5fe15";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Candice Yu_个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Candice Yu</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/aboutMe" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                 前端知识总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-10T16:06:41+08:00" content="2017-04-10">
+              2017-04-10
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/10/前端知识总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/10/前端知识总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><hr>
+<h2 id="HTML简史"><a href="#HTML简史" class="headerlink" title="HTML简史"></a>HTML简史</h2><p>蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物理学家，在80年代后期设计了一种能在网路上分享文档的方式。在这之前，网路上沟通的方式仅限于纯文本传递，比如：电子邮件、FTP(文件传输协议)和Usenet讨论版。HTML是利用内容档案储存至中央服务器的方式，然后再将内容透过浏览器传递至本机工作站。 它简化了内容存取的方式，也让更多丰富内容能够显示（诸如较复杂的文本格式与图片的显示）。HTML 源自于SGML——它是一种复杂的文档结构定义和内容描述（文本或图像）语法；从HTML5起，HTML不再坚守SGML的语法。<br>(<br>HTML5 为什么只需要写 &lt;!DOCTYPE HTML&gt;？<br>● HTML5不基于SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）。<br>● 而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。<br>)</p>
+<h2 id="什么是-HTML？"><a href="#什么是-HTML？" class="headerlink" title="什么是 HTML？"></a>什么是 HTML？</h2><p>HTML 是一种<strong>标记语言</strong>（markup language）。它<strong>告诉浏览器如何显示内容</strong>。HTML把内容（文字，图片，语言，影片等等）和「presentation」（这个内容是如何显示，比如文字用什么颜色显示等等）分开。HTML使用<strong>预先定义的元素集合来识别内容形态</strong>。 元素包含一个以上的标记来包含或者表达内容。<strong>标记利用尖括号表示</strong>，而结束标记（用来指示内容尾端）则在前面加上斜线。</p>
+<h2 id="lt-DOCTYPE-gt-标签的定义与用法。"><a href="#lt-DOCTYPE-gt-标签的定义与用法。" class="headerlink" title="&lt;!DOCTYPE&gt;标签的定义与用法。"></a>&lt;!DOCTYPE&gt;标签的定义与用法。</h2><p>定义和用法<br>&lt;!DOCTYPE&gt;声明位于文档中的最前面的位置，处于&lt;html&gt; 标签之前。此标签可告知浏览器文档使用哪种 HTML 或 XHTML 规范。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。 </p>
+<ol>
+<li>该标签可声明三种 DTD HTML1.0规定了三种文档类型：<strong>严格版本、过渡版本以及基于框架的 HTML 文档</strong>。（ DTD（英文：Document Type Definition，中文：文档类型定义）是一套关于标记符的语法规则，是标准通用标记语言和扩展标记语言1.0版规格的一部分，是文档的验证机制，也是一个美国信息交换标准代码文本文件。）<ul>
+<li><strong>HTML Strict DTD （严格版本）</strong><br>如果您需要干净的标记，免于表现层的混乱，请使用此类型。与层叠样式表（CSS）配合使用</li>
+<li><strong>HTML Transitional DTD（过渡版本）</strong><br>Transitional DTD 可包含 W3C 所期望移入样式表的呈现属性和元素。如果您的读者使用了不支持层叠样式表（CSS）的浏览器以至于您不得不使用 HTML 的呈现特性时</li>
+<li><strong>Frameset DTD（基于框架的 HTML 文档）</strong><br>Frameset DTD 应当被用于带有框架的文档。除 frameset 元素取代了 body 元素之外，Frameset DTD 等同于 Transitional DTD<br><br> </li>
+</ul>
+</li>
+<li>以下面这个 &lt;!DOCTYPE&gt; 标签为例：<br>&lt;!DOCTYPEhtmlPUBLIC”-//W3C//DTDXHTML1.0Strict//EN””<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;" target="_blank" rel="external">http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</a><br>在上面的声明中，声明了文档的根元素是 html，它在公共标识符被定义为 “-//W3C//DTD XHTML 1.0 Strict//EN” 的 DTD 中进行了定义。浏览器将明白如何寻找匹配此公共标识符的 DTD。如果找不到，浏览器将使用公共标识符后面的 URL 作为寻找 DTD 的位置。<br>注释：&lt;!DOCTYPE&gt; 标签没有结束标签！</li>
+<li>标准模式的排版和JS运作模式都是以该浏览器支持的<strong>最高标准运行</strong>。</li>
+<li>在兼容模式中，页面以宽松的向后兼容的方式显示,<strong>模拟老式浏览器</strong>的行为以防止站点无法工作。</li>
+</ol>
+<h3 id="Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><a href="#Doctype作用-严格模式与混杂模式如何区分？它们有何意义" class="headerlink" title="Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?"></a>Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</h3><ol>
+<li>&lt;!DOCTYPE&gt; 声明位于文档中的最前面，处于 &lt;html&gt; 标签之前。告知浏览器以何种模式来渲染文档。 </li>
+<li>严格模式的排版和 JS 运作模式是  以该浏览器支持的最高标准运行。</li>
+<li>在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。</li>
+<li>DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。 </li>
+</ol>
+<h2 id="什么是怪异模式和标准模式呢？"><a href="#什么是怪异模式和标准模式呢？" class="headerlink" title="什么是怪异模式和标准模式呢？"></a>什么是怪异模式和标准模式呢？</h2><blockquote>
+<p>浏览器的渲染模式有两种：标准模式和怪异模式。<br>我们常用的是标准模式，怪异模式是防止浏览器升级版本过高对后面版本的代码不兼容，让浏览器可以向后兼容其他低版本的代码的法规则，比如IE6的怪异模式下可以兼容IE5个IE4的语法。</p>
+</blockquote>
+<h3 id="怪异模式和标准模式的区别？"><a href="#怪异模式和标准模式的区别？" class="headerlink" title="怪异模式和标准模式的区别？"></a>怪异模式和标准模式的区别？</h3><ol>
+<li>盒模型：在W3C标准中，如果设置一个元素的宽度和高度，指的是元素内容的宽度和高度，而在Quirks模式下，IE的宽度和高度还包含了padding和border。</li>
+<li>设置行内元素的高宽：在Standards模式下，给<span>等行内元素设置wdith和height都不会生效，而在quirks模式下，则会生效。</span></li>
+<li>设置百分比的高度：在standards模式下，一个元素的高度是由其包含的内容来决定的，如果父元素没有设置百分比的高度，子元素设置一个百分比的高度是无效的,而在quirks模式下，则会生效。</li>
+<li>设置水平居中：使用margin:0 auto在standards模式下可以使元素水平居中，但在quirks模式下却会失效。</li>
+</ol>
+<h3 id="我们如何变成怪异模式呢？"><a href="#我们如何变成怪异模式呢？" class="headerlink" title="我们如何变成怪异模式呢？"></a>我们如何变成怪异模式呢？</h3><blockquote>
+<p>其实很简单，只需要把我们html代码的第一行的&lt;!DOCTYPE HTML&gt;去掉就可以变成怪异模式了，而加上这一行代码就可以变成标准模式。</p>
+</blockquote>
+<h3 id="如何判断怪异模式还是标准模式？"><a href="#如何判断怪异模式还是标准模式？" class="headerlink" title="如何判断怪异模式还是标准模式？"></a>如何判断怪异模式还是标准模式？</h3><blockquote>
+<p>document上中有一个方法叫做compatMode，当浏览器处于怪异模式的时候会返回字符串“BackCompat”，在标准模式下可以返回“CSS1Compat”，通过这个方法我们就可以判断了。</p>
+</blockquote>
+<h2 id="块级元素和行内元素都有哪些？"><a href="#块级元素和行内元素都有哪些？" class="headerlink" title="块级元素和行内元素都有哪些？"></a>块级元素和行内元素都有哪些？</h2><pre><code>块元素(block element)    
+   　　* p - 段落    
+   　　* dl - 定义列表   
+   　　* ol - 排序表单   
+   　　* dir - 目录列表   
+   　　* div - 常用块级，也是css layout的主要标签
+   　　* table - 表格   
+   　　* ul - 非排序列表   
+   　　* h1~h6 - 标题    
+   　　* address - 地址   
+   　　* blockquote - 块引用   
+   　　* center - 居中对齐块   
+   　　* form - 交互表单    
+   　　* menu - 菜单列表   
+   　　* fieldset - form控制组   
+   　　* pre - 格式化文本    被包围在 pre 元素中的文本通常会保留空格和换行符
+
+ 内联元素(inline element)   
+   　 　* span - 常用内联容器，定义文本内区块
+   　 　* a - 锚点     
+   　 　* b - 粗体(不推荐)   
+   　 　* big - 大字体   
+  　  　* br - 换行   
+   　 　* em - 强调     
+  　  　* i - 斜体     
+  　  　* sub - 下标   
+   　 　* sup - 上标         
+  　  　* select - 项目选择   
+   　 　* small - 小字体文本  
+  　  　* strong - 粗体强调     
+  　 　 * u - 下划线  
+   　 　* font - 字体设定(不推荐) 
+   　 　* abbr - 缩写   
+   　 　* cite - 引用    
+   　 　* dfn - 定义字段   
+   　 　* s - 中划线(不推荐)   
+  　  　* q - 短引用   
+  　  　* var - 定义变量        
+  　  　
+</code></pre><h3 id="浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？"><a href="#浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？" class="headerlink" title="浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？"></a>浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？</h3><p>答案：&lt;input&gt; 、&lt;img&gt; 、&lt;button&gt; 、&lt;texterea&gt; 、&lt;label&gt;。    
+      　  　</p>
+<h3 id="行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8-以下）？"><a href="#行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8-以下）？" class="headerlink" title="行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8 以下）？"></a>行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8 以下）？</h3><ol>
+<li>块级元素(block)特性：<ul>
+<li>总是独占一行，表现为另起一行开始，而且其后的元素也必须另起一行显示;</li>
+<li>宽度(width)、高度(height)、内边距(padding)和外边距(margin)都可控制;</li>
+</ul>
+</li>
+<li>内联元素(inline)特性：<ul>
+<li>和相邻的内联元素在同一行;</li>
+<li>宽度(width)、高度(height)、内边距的top/bottom(padding-top/padding-bottom)和外边距的top/bottom(margin-top/margin-bottom)都不可改变（也就是padding和margin的left和right是可以设置的），就是里面文字或图片的大小。     　  　</li>
+</ul>
+</li>
+<li>兼容性：display:inline-block;display:inline;*zoom:1;
+   　  　<h2 id="简述一下你对HTML语义化的理解？"><a href="#简述一下你对HTML语义化的理解？" class="headerlink" title="简述一下你对HTML语义化的理解？"></a>简述一下你对HTML语义化的理解？</h2><ol>
+<li>用正确的标签做正确的事情。</li>
+<li>html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;</li>
+<li>即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;</li>
+<li>搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于SEO;</li>
+<li>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。</li>
+</ol>
+</li>
+</ol>
+<h2 id="对WEB标准以及W3C的理解与认识"><a href="#对WEB标准以及W3C的理解与认识" class="headerlink" title="对WEB标准以及W3C的理解与认识?"></a>对WEB标准以及W3C的理解与认识?</h2><blockquote>
+<p>标签闭合、标签小写、不乱嵌套、提高搜索机器人搜索几率、使用外 链css和js脚本、结构行为表现的分离、文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，容易维 护、改版方便，不需要变动页面内容、提供打印版本而不需要复制内容、提高网站易用性；</p>
+</blockquote>
+<h2 id="iframe的优缺点？"><a href="#iframe的优缺点？" class="headerlink" title="iframe的优缺点？"></a>iframe的优缺点？</h2><ul>
+<li>优点：<ul>
+<li>并行加载脚本</li>
+<li>解决加载缓慢的第三方内容如图标和广告等的加载问题</li>
+<li>重载页面时不需要重载整个页面，只需要重载页面中的一个框架页(减少了数据的传输，增加了网页下载速度)</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>iframe会阻塞主页面的Onload事件</li>
+<li>即时内容为空，加载也需要时间</li>
+<li>搜索引擎的检索程序无法解读这种页面，不利于SEO</li>
+<li>iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载</li>
+<li>如果需要使用iframe，最好是通过javascript动态给iframe添加src属性值，这样可以绕开以上两个问题。</li>
+</ul>
+</li>
+</ul>
+<h2 id="title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？"><a href="#title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？" class="headerlink" title="title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？"></a>title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？</h2><ol>
+<li>title属性没有明确意义只表示是个标题，H1则表示层次明确的标题，对页面信息的抓取也有很大的影响；</li>
+<li>alt(alt text):为不能显示图像、窗体或applets的用户代理，alt属性用来指定替换文字；title:该属性为设置该属性的元素提供建议性的信息</li>
+<li>strong是标明重点内容，有语气加强的含义，使用阅读设备阅读网络时：&lt;strong&gt;会重读，而&lt;B&gt;是展示强调内容。</li>
+<li>i内容展示为斜体，em表示强调的文本；</li>
+</ol>
+<h2 id="div-css的布局较table布局有什么优点？"><a href="#div-css的布局较table布局有什么优点？" class="headerlink" title="div+css的布局较table布局有什么优点？"></a>div+css的布局较table布局有什么优点？</h2><ol>
+<li>改版的时候更方便 只要改css文件。</li>
+<li>页面加载速度更快、结构化清晰、页面显示简洁。</li>
+<li>表现与结构相分离。</li>
+<li>易于优化（seo）搜索引擎更友好，排名更容易靠前。</li>
+</ol>
+<h2 id="你能描述一下渐进增强和优雅降级之间的不同吗"><a href="#你能描述一下渐进增强和优雅降级之间的不同吗" class="headerlink" title="你能描述一下渐进增强和优雅降级之间的不同吗?"></a>你能描述一下渐进增强和优雅降级之间的不同吗?</h2><ol>
+<li>渐进增强 progressive enhancement：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</li>
+<li>优雅降级 graceful degradation：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</li>
+<li>区别：优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带。</li>
+</ol>
+<h3 id="现在产品经理看到IE6-7-8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？"><a href="#现在产品经理看到IE6-7-8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？" class="headerlink" title="现在产品经理看到IE6,7,8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？"></a>现在产品经理看到IE6,7,8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？</h3><blockquote>
+<p>● 优雅降级：Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会针对旧版本的IE进行降级处理了,使之在旧式浏览器上以某种形式降级体验却不至于完全不能用。<br>如：border-shadow<br>● 渐进增强：从被所有浏览器支持的基本功能开始，逐步地添加那些只有新版本浏览器才支持的功能,向页面增加不影响基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用。<br>如：默认使用flash上传，但如果浏览器支持 HTML5 的文件上传功能，则使用HTML5实现更好的体验；</p>
+</blockquote>
+<h2 id="简述一下src与href的区别？"><a href="#简述一下src与href的区别？" class="headerlink" title="简述一下src与href的区别？"></a>简述一下src与href的区别？</h2><ol>
+<li>src用于替换当前元素，href用于在当前文档和引用资源之间确立联系。 </li>
+<li>src是source的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，<br>例如js脚本，img图片和frame等元素。&lt;script src =”js.js”&gt;<br>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</li>
+<li>href是Hypertext Reference的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加<br>&lt;link href=”common.css” rel=”stylesheet”/&gt;那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用link方式来加载css，而不是使用@import方式。</li>
+</ol>
+<h2 id="知道的网页制作会用到的图片格式有哪些？"><a href="#知道的网页制作会用到的图片格式有哪些？" class="headerlink" title="知道的网页制作会用到的图片格式有哪些？"></a>知道的网页制作会用到的图片格式有哪些？</h2><ol>
+<li>png-8，png-24，jpg，gif，svg。</li>
+<li>Webp（新技术）：WebP格式，谷歌（google）开发的一种旨在加快图片加载速度的图片格式。图片压缩体积大约只有JPEG的2/3，并能节省大量的服务器带宽资源和数据空间。Facebook Ebay等知名网站已经开始测试并使用WebP格式。</li>
+<li>在质量相同的情况下，WebP格式图像的体积要比JPEG格式图像小40%</li>
+</ol>
+<h2 id="xhtml和html有什么区别"><a href="#xhtml和html有什么区别" class="headerlink" title="xhtml和html有什么区别?"></a>xhtml和html有什么区别?</h2><ol>
+<li>HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的置标语言.</li>
+<li><strong>XHTML元素必须被关闭。XHTML文档必须拥有根元素</strong>。</li>
+<li>所有标签的元素和属性的名字都必须使用小写</li>
+<li>所有的属性必须用引号””括起来</li>
+<li>把所有&lt;和&amp;特殊符号用编码表示</li>
+<li>给所有属性赋一个值</li>
+<li>不要在注释内容中使“–”</li>
+<li>图片必须有说明文字</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>博主会持续更新，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixinprice.png" alt="Candice Yu WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zhifubaoprice.jpg" alt="Candice Yu Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/06/面试知识点总结/" rel="next" title="面试知识点总结">
+                <i class="fa fa-chevron-left"></i> 面试知识点总结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/10/前端知识总结/"
+           data-title=" 前端知识总结" data-url="http://candiceyu.com/2017/04/10/前端知识总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Candice Yu" />
+          <p class="site-author-name" itemprop="name">Candice Yu</p>
+          <p class="site-description motion-element" itemprop="description">I don’t want to earn my living; i want to live.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/dreamgirla" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/c52ebbdb79a3/timeline" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-jianshu"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/candiceyu" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://carryguan.me/" title="Carry" target="_blank">Carry</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yuanguangxin.me/" title="yuanguangxin" target="_blank">yuanguangxin</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML简史"><span class="nav-text">HTML简史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-HTML？"><span class="nav-text">什么是 HTML？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-DOCTYPE-gt-标签的定义与用法。"><span class="nav-text"><!DOCTYPE>标签的定义与用法。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><span class="nav-text">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是怪异模式和标准模式呢？"><span class="nav-text">什么是怪异模式和标准模式呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怪异模式和标准模式的区别？"><span class="nav-text">怪异模式和标准模式的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们如何变成怪异模式呢？"><span class="nav-text">我们如何变成怪异模式呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断怪异模式还是标准模式？"><span class="nav-text">如何判断怪异模式还是标准模式？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级元素和行内元素都有哪些？"><span class="nav-text">块级元素和行内元素都有哪些？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？"><span class="nav-text">浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8-以下）？"><span class="nav-text">行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8 以下）？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述一下你对HTML语义化的理解？"><span class="nav-text">简述一下你对HTML语义化的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对WEB标准以及W3C的理解与认识"><span class="nav-text">对WEB标准以及W3C的理解与认识?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iframe的优缺点？"><span class="nav-text">iframe的优缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？"><span class="nav-text">title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#div-css的布局较table布局有什么优点？"><span class="nav-text">div+css的布局较table布局有什么优点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你能描述一下渐进增强和优雅降级之间的不同吗"><span class="nav-text">你能描述一下渐进增强和优雅降级之间的不同吗?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#现在产品经理看到IE6-7-8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？"><span class="nav-text">现在产品经理看到IE6,7,8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述一下src与href的区别？"><span class="nav-text">简述一下src与href的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知道的网页制作会用到的图片格式有哪些？"><span class="nav-text">知道的网页制作会用到的图片格式有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xhtml和html有什么区别"><span class="nav-text">xhtml和html有什么区别?</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Candice Yu</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"candiceyu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+</body>
+</html>
