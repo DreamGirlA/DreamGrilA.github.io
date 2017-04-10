@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="interview,HTML,CSS,CSS3,HTML5,JavaScript,闭包,作用域，作用域链,继承,SASS,LESS,React.js," />
+  <meta name="keywords" content="JavaScript,interview,HTML,CSS,CSS3,HTML5,闭包,作用域，作用域链,继承,SASS,LESS,React.js," />
 
 
 
@@ -69,7 +69,8 @@ HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物
 <meta property="og:description" content="HTML篇
 HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物理学家，在80年代后期设计了一种能在网路上分享文档的方式。在这之前，网路上沟通的方式仅限于纯文本传递，比如：电子邮件、FTP(文件传输协议)和Usenet讨论版。HTML是利用内容档案储存至中央服务器的方式，然后再将内容透过浏览器传递至本机工作站。 它简化了内容存取的方式，也让更多丰富内容能够显示（诸如较复杂的文本格式与">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-a7deb0ab923b239d.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-04-10T08:59:07.715Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-030cfbb0a5f5ff5c.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-04-10T09:01:24.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端知识总结">
 <meta name="twitter:description" content="HTML篇
@@ -954,6 +955,320 @@ word-break: break-all;
 <h2 id="用css3的时候动画卡了怎么解决？"><a href="#用css3的时候动画卡了怎么解决？" class="headerlink" title="用css3的时候动画卡了怎么解决？"></a>用css3的时候动画卡了怎么解决？</h2><blockquote>
 <p>transform: transition3d(0, 0, 0);<br>  transform: translateZ(0);<br>  这两个属性可以开启GPU加速模式。（原理）这两个属性都会开启GPU硬件加速模式，从而让浏览器在渲染动画的时候从CPU转向GPU。</p>
 </blockquote>
+<hr>
+<h1 id="HTML5篇"><a href="#HTML5篇" class="headerlink" title="HTML5篇"></a>HTML5篇</h1><hr>
+<h2 id="HTML5-中的一些有趣的新特性："><a href="#HTML5-中的一些有趣的新特性：" class="headerlink" title="HTML5 中的一些有趣的新特性："></a>HTML5 中的一些有趣的新特性：</h2><ol>
+<li>用于绘画的 canvas 元素</li>
+<li>用于媒介回放的 video 和 audio 元素</li>
+<li>对本地离线存储的更好的支持</li>
+<li>新的特殊内容元素，比如 article、footer、header、nav、section</li>
+<li>新的表单控件，比如 calendar、date、time、email、url、search</li>
+</ol>
+<h2 id="HTML5-视频-Video-音频-audio"><a href="#HTML5-视频-Video-音频-audio" class="headerlink" title="HTML5 视频(Video)音频(audio)"></a>HTML5 视频(Video)音频(audio)</h2><pre><code>&lt;video src=&quot;movie.ogg&quot; width=&quot;320&quot; height=&quot;240&quot; controls=&quot;controls&quot;&gt;
+Your browser does not support the video tag.
+&lt;/video&gt;
+&lt;audio controls=&quot;controls&quot;&gt;
+  &lt;source src=&quot;song.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+  &lt;source src=&quot;song.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+Your browser does not support the audio tag.
+&lt;/audio&gt;
+</code></pre><ol>
+<li>video 与 video 之间插入的内容是供不支持video元素的浏览器显示的（audio同样）</li>
+<li>video 元素允许多个 source 元素。（audio同样）</li>
+<li>src url 要播放的视频的 URL。（3-6音频视频属性）</li>
+<li>autoplay 如果出现该属性，则视频在就绪后马上播放。</li>
+<li>controls 如果出现该属性，则向用户显示控件，比如播放按钮。</li>
+<li>loop 如果出现该属性，则当媒介文件完成播放后再次开始播放。<br>7.muted muted 规定视频输出应该被静音。（音频属性）</li>
+<li>preload 如果出现该属性，则视频在页面加载时进行加载，并预备播放。如果使用 “autoplay”，则忽略该属性。<br>9.. load() 更改视频来源，并重载视频（8-11音频方法）</li>
+<li>play() 方法开始播放当前的音频或视频。</li>
+<li>pause() 方法停止（暂停）当前播放的音频或视频，paused已暂停<pre><code>var myVideo=document.getElementById(&quot;video1&quot;);
+function playVid()
+  {
+  myVideo.play();
+  }
+function pauseVid()
+  {
+  myVideo.pause();
+  }
+</code></pre></li>
+<li>canPlayType() 方法浏览器是否能播放指定的音频/视频类型<br>  myVid=document.createElement(‘video’);<br>  isSupp=myVid.canPlayType(vidType+’;codecs=”‘+codType+’”‘);</li>
+</ol>
+<h2 id="拖放（Drag-和-drop）"><a href="#拖放（Drag-和-drop）" class="headerlink" title="拖放（Drag 和 drop）"></a>拖放（Drag 和 drop）</h2><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+  function allowDrop(ev)
+  {
+    ev.preventDefault();
+  }
+
+  function drag(ev)
+  {
+   ev.dataTransfer.setData(&quot;Text&quot;,ev.target.id);
+  }
+
+  function drop(ev)
+  {
+    ev.preventDefault();
+    var data=ev.dataTransfer.getData(&quot;Text&quot;);
+    ev.target.appendChild(document.getElementById(data));
+  }
+&lt;/script&gt;
+
+&lt;div id=&quot;div1&quot; ondrop=&quot;drop(event)&quot;
+ondragover=&quot;allowDrop(event)&quot;&gt;&lt;/div&gt;
+&lt;img id=&quot;drag1&quot; src=&quot;img_logo.gif&quot; draggable=&quot;true&quot;
+ondragstart=&quot;drag(event)&quot; width=&quot;336&quot; height=&quot;69&quot; /&gt;
+</code></pre><ol>
+<li><p>设置元素为可拖放</p>
+<blockquote>
+<p>为了使元素可拖动，把 draggable 属性设置为 true </p>
+</blockquote>
+</li>
+<li><p>拖动什么 - ondragstart 和 setData()</p>
+<blockquote>
+<p>ondragstart 属性调用了一个函数，drag(event)，它规定了被拖动的数据 dataTransfer.setData() 方法设置被拖数据的数据类型和值。 数据类型是 “Text”，值是可拖动元素的 id (“drag1”)</p>
+</blockquote>
+</li>
+<li><p>放到何处 - ondragover</p>
+<blockquote>
+<p>ondragover 事件规定在何处放置被拖动的数据。默认法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式。调用 ondragover 事件的 event.preventDefault() 方法</p>
+</blockquote>
+</li>
+<li><p>进行放置 - ondrop</p>
+<blockquote>
+<p>当放置被拖数据时，会发生 drop 事件。把被拖元素追加到放置元素（目标元素）中</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h2><blockquote>
+<p>canvas 元素使用 JavaScript 在网页上绘制图像。画布是一个矩形区域，您可以控制其每一像素。拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。默认宽300px，高150px<br>优势：不需要将所绘制图像中的每个图元当做对象存储，执行性能很好。在其他变成语言现有的优秀二维绘图API的基础上实现canvas API相对来说简单</p>
+</blockquote>
+<h3 id="创建-Canvas-元素"><a href="#创建-Canvas-元素" class="headerlink" title="创建 Canvas 元素"></a>创建 Canvas 元素</h3><blockquote>
+<p> &lt;canvas id=”myCanvas” width=”200” height=”100”&gt;不支持HTML5 canvasAPI的某些特性，写在这替代&lt;/canvas&gt;</p>
+</blockquote>
+<h3 id="通过-JavaScript-来绘制"><a href="#通过-JavaScript-来绘制" class="headerlink" title="通过 JavaScript 来绘制"></a>通过 JavaScript 来绘制</h3><ol>
+<li>canvas 元素本身是没有绘图能力的。所有的绘制工作必须在 JavaScript 内部完成   <script type="text/javascript">
+     var c=document.getElementById("myCanvas");
+     var cxt=c.getContext("2d");
+     cxt.fillStyle="#FF0000";
+     cxt.fillRect(0,0,150,75);
+   </script></li>
+<li>JavaScript 使用 id 来寻找 canvas 元素<br>   var c=document.getElementById(“myCanvas”);</li>
+<li>创建 context 对象<br>   var cxt=c.getContext(“2d”); //是内建的 HTML5 对象</li>
+<li>绘制一个红色的矩形<br>   cxt.fillStyle=”#FF0000”; //方法将其染成红色，<br>   cxt.fillRect(0,0,150,75); //方法规定了形状、位置和尺寸，在画布上绘制 150x75 的矩形，从左上角开始 (0,0)</li>
+</ol>
+<h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><blockquote>
+<p>在Canvas上画线，我们将使用以下两种方法：<br>● moveTo(x,y) 定义线条开始坐标<br>● lineTo(x,y) 定义线条结束坐标</p>
+</blockquote>
+<pre><code>var c=document.getElementById(&quot;myCanvas&quot;);//通过ID找到并访问canvas对象
+var ctx=c.getContext(&quot;2d&quot;);//调用canvas对象的getContext函数获取上下文对象
+cxt.save();//保存尚未修改的cxt，这样即使进行了绘制和变换操作，也可以恢复到初始化状态
+cxt.beginPath();//canvas需要根据此来计算图形的内部和外部范围，以便完成后续的描边和填充
+ctx.moveTo(0,0);//绘制的起点的原点，但是不绘制，只是将当前位置移动到心得目标(x,y)，路径移动到画布中的指定点
+ctx.lineTo(70,-70);
+cxt.closePath();//会将路径的起始坐标自动作为目标坐标，通知canvas绘制的图形已经闭合或形成了完全封闭的区域
+ctx.stroke(); //显示在canvas上
+cxt.restore();//恢复原有的绘图状态
+</code></pre><h3 id="描边样式"><a href="#描边样式" class="headerlink" title="描边样式"></a>描边样式</h3><ol>
+<li>加宽线条：cxt.linewidth = 4;</li>
+<li>平滑路径的结合点：cxt.lineJoin = ‘round’;</li>
+<li>将颜色改成棕色：cxt.strokeStyle = ‘#663300’;</li>
+<li>绘制：cxt.stroke();</li>
+<li>线条末端样式：lineCap:butt|square|round;</li>
+</ol>
+<h3 id="填充样式"><a href="#填充样式" class="headerlink" title="填充样式"></a>填充样式</h3><ol>
+<li>cxt.fillStyle = ‘#339900’; //填充颜色</li>
+<li>cxt.fil();先描边填充，填充覆盖一部分描边路径，希望看到完整的描边路径，可在绘制路径(cxt.stroke())之前填充调用(cxt.fill())</li>
+<li>fillRect() 画一个有填充色的矩形</li>
+<li>strokeRect() 基于给出的位置和坐标画出矩形的轮廓</li>
+<li>clearRect() 清除矩形区域内的所有内容并将它恢复到初始状态，透明色</li>
+</ol>
+<h3 id="绘制曲线"><a href="#绘制曲线" class="headerlink" title="绘制曲线"></a>绘制曲线</h3><blockquote>
+<p>quadraticCurreTo(控制点,终点);二次贝塞尔曲线</p>
+</blockquote>
+<pre><code>cxt.moveTo(20,20);
+cxt.quadraticCurreTo(220,100,200,20);
+</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/5285574-030cfbb0a5f5ff5c.gif?imageMogr2/auto-orient/strip" alt="cmd-markdown-logo"></p>
+<h3 id="canvas中绘制圆形"><a href="#canvas中绘制圆形" class="headerlink" title="canvas中绘制圆形"></a>canvas中绘制圆形</h3><blockquote>
+<p>cxt.arc(中心点,半径,起始角度,结束角度,顺/逆时针);</p>
+</blockquote>
+<pre><code>arc(100,75,50,0*Math.PI,1.5*Math.PI);
+</code></pre><h3 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h3><pre><code>var bark = new Image();
+bark.src = &quot;XX.jpg&quot;;
+//加载图片完成之后，将其显示在canvas上
+bark.onload = function(){ drawTrails(); }
+//用图片背景进行填充
+cxt.drawImage(img,剪切的x,y标位置,被剪切图像的宽高度);
+</code></pre><h3 id="使用背景图片替代颜色线条"><a href="#使用背景图片替代颜色线条" class="headerlink" title="使用背景图片替代颜色线条"></a>使用背景图片替代颜色线条</h3><pre><code>cxt.strokeStyle = cxt.createPattern(img,图片平铺方式);
+cxt.lineWidth = 20;
+cxt.stroke();
+cxt.scale()
+</code></pre><h3 id="canvas-变换"><a href="#canvas-变换" class="headerlink" title="canvas - 变换"></a>canvas - 变换</h3><ol>
+<li>缩放 cxt.scale(x缩放当前绘图的宽度(1=100%,2=200%),y);</li>
+<li>旋转 cxt.rotate(弧度);</li>
+<li>重新映射 context.translate(添加到水平坐标（x）上的值,y);</li>
+<li>允许缩放、旋转、移动并倾斜当前的环境 cxt.transform(水平缩放,水平倾斜,垂直倾斜,垂直缩放,水平移动,垂直移动);</li>
+</ol>
+<h3 id="Canvas-文本"><a href="#Canvas-文本" class="headerlink" title="Canvas - 文本"></a>Canvas - 文本</h3><blockquote>
+<p>font - 定义字体<br>fillText(text,x,y) - 在 canvas 上绘制实心的文本<br>strokeText(text,x,y) - 在 canvas 上绘制空心的文本</p>
+</blockquote>
+<pre><code>ctx.font=&quot;30px Arial&quot;;  
+ctx.fillText(&quot;Hello World&quot;,10,50); //使用 &quot;Arial&quot; 字体在画布上绘制一个高 30px 的文字（实心）
+ctx.strokeText(&quot;Hello World&quot;,10,50); 使用 &quot;Arial&quot; 字体在画布上绘制一个高 30px 的文字（空心）
+</code></pre><h3 id="Canvas-渐变"><a href="#Canvas-渐变" class="headerlink" title="Canvas - 渐变"></a>Canvas - 渐变</h3><blockquote>
+<p>渐变可以填充在矩形, 圆形, 线条, 文本等等,各种形状可以自己定义不同的颜色。使用渐变对象，必须使用两种或两种以上的停止颜色。</p>
+<ol>
+<li>首先，创建渐变对象</li>
+<li>其次，为渐变对象设置颜色指明过度方式</li>
+<li>在cxt上为填充样式或者描边样式设置渐变 </li>
+</ol>
+</blockquote>
+<pre><code>// 创建渐变对象
+var grd=ctx.createLinearGradient(渐变开始点坐标，结束点坐标);//创建一个线性渐变。使用渐变填充矩形
+var grd=ctx.createRadialGradient(渐变开始圆的x,y坐标,开始圆的半径,渐变结束圆的半径,结束圆半径);//创建一个径向/圆渐变。使用渐变填充矩形
+grd.addColorStop(0,&quot;red&quot;);//指定颜色停止，参数使用坐标来描述，可以是0至1.
+grd.addColorStop(1,&quot;white&quot;);
+
+// 使用渐变，设置fillStyle或strokeStyle的值为 渐变，然后绘制形状，如矩形，文本，或一条线。
+ctx.fillStyle=grd;
+ctx.fillRect(10,10,150,80);
+</code></pre><h2 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h2><blockquote>
+<p>SVG 指可伸缩矢量图形 (Scalable Vector Graphics)用于定义用于网络的基于矢量的图形,使用 XML 格式定义图形, 图像在放大或改变尺寸的情况下其图形质量不会有损失,是万维网联盟的标准<br>优势: 图像可通过文本编辑器来创建和修改,图像可被搜索、索引、脚本化或压缩,是可伸缩的,可在任何的分辨率下被高质量地打印,可在图像质量不下降的情况下被放大</p>
+</blockquote>
+<h3 id="SVG-在-HTML-页面"><a href="#SVG-在-HTML-页面" class="headerlink" title="SVG 在 HTML 页面"></a>SVG 在 HTML 页面</h3><h4 id="直接在HTML嵌入SVG代码"><a href="#直接在HTML嵌入SVG代码" class="headerlink" title="直接在HTML嵌入SVG代码"></a>直接在HTML嵌入SVG代码</h4><blockquote>
+<p>SVG不能直接嵌入到Opera。</p>
+</blockquote>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;circle cx=&quot;100&quot; cy=&quot;50&quot; r=&quot;40&quot; stroke=&quot;black&quot;
+  stroke-width=&quot;2&quot; fill=&quot;red&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><h4 id="链接到SVG文件"><a href="#链接到SVG文件" class="headerlink" title="链接到SVG文件"></a>链接到SVG文件</h4><blockquote>
+<p>用&lt;a&gt;标签链接到一个SVG文件<br>&lt;a href=”XX.svg”&gt;View SVG file</p>
+</blockquote>
+<h4 id="使用-lt-object-gt-标签"><a href="#使用-lt-object-gt-标签" class="headerlink" title="使用&lt;object&gt; 标签"></a>使用&lt;object&gt; 标签</h4><blockquote>
+<p>所有主要浏览器都支持，并支持HTML4，XHTML和HTML5标准。不允许使用脚本<br>&lt;object data=”circle1.svg” type=”image/svg+xml”&gt;</p>
+</blockquote>
+<h4 id="使用-lt-iframe-gt-标签"><a href="#使用-lt-iframe-gt-标签" class="headerlink" title="使用 &lt;iframe&gt; 标签"></a>使用 &lt;iframe&gt; 标签</h4><blockquote>
+<p>所有主要浏览器都支持，并允许使用脚本,不推荐在HTML4和XHTML中使用（但在HTML5允许）<br>&lt;iframe src=”circle1.svg”&gt;</p>
+</blockquote>
+<h3 id="SVG矩形"><a href="#SVG矩形" class="headerlink" title="SVG矩形"></a>SVG矩形</h3><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;rect x=&quot;50&quot; y=&quot;20&quot; rx=&quot;20&quot; ry=&quot;20&quot; width=&quot;150&quot; height=&quot;150&quot; style=&quot;fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>fill 属性定义矩形的填充颜色</li>
+<li>stroke 属性定义矩形边框的颜色</li>
+<li>stroke-width 属性定义矩形边框的宽度</li>
+<li>rect 元素的 width 和 height 属性可定义矩形的高度和宽度</li>
+<li>x 属性定义矩形的左侧位置（例如，x=”0” 定义矩形到浏览器窗口左侧的距离是 0px）</li>
+<li>y 属性定义矩形的顶端位置（例如，y=”0” 定义矩形到浏览器窗口顶端的距离是 0px）</li>
+<li>CSS 的 fill-opacity 属性定义填充颜色透明度（合法的范围是：0 - 1）</li>
+<li>CSS 的 stroke-opacity 属性定义笔触颜色的透明度（合法的范围是：0 - 1）</li>
+<li>rx 和 ry 属性可使矩形产生圆角。</li>
+<li>strokelinecap属性定义不同类型的开放路径的终结</li>
+</ol>
+<h3 id="SVG-圆形-lt-circle-gt"><a href="#SVG-圆形-lt-circle-gt" class="headerlink" title="SVG 圆形 - &lt;circle&gt;"></a>SVG 圆形 - &lt;circle&gt;</h3><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;circle cx=&quot;100&quot; cy=&quot;50&quot; r=&quot;40&quot; stroke=&quot;black&quot;
+  stroke-width=&quot;2&quot; fill=&quot;red&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><blockquote>
+<p>cx和cy属性定义圆点的x和y坐标。如果省略cx和cy，圆的中心会被设置为(0, 0)<br>r属性定义圆的半径</p>
+</blockquote>
+<h3 id="SVG-椭圆-lt-ellipse-gt"><a href="#SVG-椭圆-lt-ellipse-gt" class="headerlink" title="SVG 椭圆 - &lt;ellipse&gt;"></a>SVG 椭圆 - &lt;ellipse&gt;</h3><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;ellipse cx=&quot;300&quot; cy=&quot;80&quot; rx=&quot;100&quot; ry=&quot;50&quot;
+  style=&quot;fill:yellow;stroke:purple;stroke-width:2&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>CX属性定义的椭圆中心的x坐标</li>
+<li>CY属性定义的椭圆中心的y坐标</li>
+<li>RX属性定义的水平半径</li>
+<li>RY属性定义的垂直半径</li>
+</ol>
+<h3 id="SVG-直线-lt-line-gt"><a href="#SVG-直线-lt-line-gt" class="headerlink" title="SVG 直线 - &lt;line&gt;"></a>SVG 直线 - &lt;line&gt;</h3><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;line x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;200&quot; y2=&quot;200&quot;
+  style=&quot;stroke:rgb(255,0,0);stroke-width:2&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>x1 属性在 x 轴定义线条的开始</li>
+<li>y1 属性在 y 轴定义线条的开始</li>
+<li>x2 属性在 x 轴定义线条的结束</li>
+<li>y2 属性在 y 轴定义线条的结束</li>
+</ol>
+<h3 id="SVG-路径-lt-path-gt"><a href="#SVG-路径-lt-path-gt" class="headerlink" title="SVG 路径 - &lt;path&gt;"></a>SVG 路径 - &lt;path&gt;</h3><blockquote>
+<p>路径数据 大写表示绝对定位，小写表示相对定位</p>
+<ul>
+<li>M = moveto</li>
+<li>L = lineto</li>
+<li>H = horizontal lineto</li>
+<li>V = vertical lineto</li>
+<li>C = curveto</li>
+<li>S = smooth curveto</li>
+<li>Q = quadratic Bézier curve</li>
+<li>T = smooth quadratic Bézier curveto</li>
+<li>A = elliptical Arc</li>
+<li>Z = closepath</li>
+</ul>
+</blockquote>
+<p>开始于位置150 0，到达位置75 200，然后从那里开始到225 200，最后在150 0关闭路径。</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;path d=&quot;M150 0 L75 200 L225 200 Z&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><h3 id="SVG-线性渐变-lt-linearGradient-gt"><a href="#SVG-线性渐变-lt-linearGradient-gt" class="headerlink" title="SVG 线性渐变 - &lt;linearGradient&gt;"></a>SVG 线性渐变 - &lt;linearGradient&gt;</h3><blockquote>
+<p>&lt;linearGradient&gt;元素用于定义线性渐变。&lt;linearGradient&gt;标签必须嵌套在&lt;defs&gt;的内部。&lt;defs&gt;标签是definitions的缩写，它可对诸如渐变之类的特殊元素进行定义。</p>
+</blockquote>
+<p> 水平线性渐变从黄色到红色的椭圆形</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;defs&gt;
+    &lt;linearGradient id=&quot;grad1&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;0%&quot;&gt;
+      &lt;stop offset=&quot;0%&quot; style=&quot;stop-color:rgb(255,255,0);stop-opacity:1&quot; /&gt;
+      &lt;stop offset=&quot;100%&quot; style=&quot;stop-color:rgb(255,0,0);stop-opacity:1&quot; /&gt;
+    &lt;/linearGradient&gt;
+  &lt;/defs&gt;
+  &lt;ellipse cx=&quot;200&quot; cy=&quot;70&quot; rx=&quot;85&quot; ry=&quot;55&quot; fill=&quot;url(#grad1)&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>&lt;linearGradient&gt;标签的id属性可为渐变定义一个唯一的名称</li>
+<li>&lt;linearGradient&gt;标签的X1，X2，Y1，Y2属性定义渐变开始和结束位置</li>
+<li>渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个<stop></stop>标签来规定。offset属性用来定义渐变的开始和结束位置。</li>
+<li>填充属性把 ellipse 元素链接到此渐变</li>
+</ol>
+<h3 id="SVG-放射性渐变-lt-radialGradient-gt"><a href="#SVG-放射性渐变-lt-radialGradient-gt" class="headerlink" title="SVG 放射性渐变 - &lt;radialGradient&gt;"></a>SVG 放射性渐变 - &lt;radialGradient&gt;</h3><blockquote>
+<p>&lt;radialGradient&gt;元素用于定义放射性渐变。</p>
+</blockquote>
+<p> 定义一个放射性渐变从白色到蓝色椭圆</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;defs&gt;
+    &lt;radialGradient id=&quot;grad1&quot; cx=&quot;50%&quot; cy=&quot;50%&quot; r=&quot;50%&quot; fx=&quot;50%&quot; fy=&quot;50%&quot;&gt;
+      &lt;stop offset=&quot;0%&quot; style=&quot;stop-color:rgb(255,255,255);
+      stop-opacity:0&quot; /&gt;
+      &lt;stop offset=&quot;100%&quot; style=&quot;stop-color:rgb(0,0,255);stop-opacity:1&quot; /&gt;
+    &lt;/radialGradient&gt;
+  &lt;/defs&gt;
+  &lt;ellipse cx=&quot;200&quot; cy=&quot;70&quot; rx=&quot;85&quot; ry=&quot;55&quot; fill=&quot;url(#grad1)&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>&lt;radialGradient&gt;标签的 id 属性可为渐变定义一个唯一的名称</li>
+<li>CX，CY和r属性定义的最外层圆和Fx和Fy定义的最内层圆</li>
+<li>渐变颜色范围可以由两个或两个以上的颜色组成。每种颜色用一个&lt;stop&gt;标签指定。offset属性用来定义渐变色开始和结束</li>
+<li>填充属性把ellipse元素链接到此渐变</li>
+</ol>
+<h2 id="SVG-与-Canvas两者间的区别"><a href="#SVG-与-Canvas两者间的区别" class="headerlink" title="SVG 与 Canvas两者间的区别"></a>SVG 与 Canvas两者间的区别</h2><ol>
+<li>SVG 是一种使用 XML 描述 2D 图形的语言。Canvas 通过 JavaScript 来绘制 2D 图形。</li>
+<li>SVG 基于 XML，这意味着 SVG DOM 中的每个元素都是可用的。您可以为某个元素附加 JavaScript 事件处理器。</li>
+<li>在 SVG 中，每个被绘制的图形均被视为对象。如果 SVG 对象的属性发生变化，那么浏览器能够自动重现图形。<br>Canvas 是逐像素进行渲染的。在 canvas 中，一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象。</li>
+</ol>
+<h2 id="新的-Input-类型"><a href="#新的-Input-类型" class="headerlink" title="新的 Input 类型"></a>新的 Input 类型</h2><ul>
+<li>color 选取颜色</li>
+<li>date 定义一个时间控制器</li>
+<li>datetime 定义一个日期和时间控制器（本地时间）</li>
+<li>datetime-local 定义一个日期和时间 (无时区)</li>
+<li>email 包含 e-mail 地址的输入域</li>
+<li>month 定义月与年 (无时区) </li>
+<li>number 定义一个数值输入域(限定)</li>
+<li>range 定义一个不需要非常精确的数值（类似于滑块控制）</li>
+<li>search 定义一个搜索字段</li>
+<li>tel 定义输入电话号码字段</li>
+<li>time 定义可输入时间控制器（无时区）</li>
+<li>url 在提交表单时，会自动验证 url 域的值</li>
+<li>week 定义周和年 (无时区)</li>
+</ul>
 
       
     </div>
@@ -997,6 +1312,8 @@ word-break: break-all;
       
         <div class="post-tags">
           
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
             <a href="/tags/interview/" rel="tag">#interview</a>
           
             <a href="/tags/HTML/" rel="tag">#HTML</a>
@@ -1006,8 +1323,6 @@ word-break: break-all;
             <a href="/tags/CSS3/" rel="tag">#CSS3</a>
           
             <a href="/tags/HTML5/" rel="tag">#HTML5</a>
-          
-            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
             <a href="/tags/闭包/" rel="tag">#闭包</a>
           
@@ -1205,7 +1520,7 @@ word-break: break-all;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML篇"><span class="nav-text">HTML篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML简史"><span class="nav-text">HTML简史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-HTML？"><span class="nav-text">什么是 HTML？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-DOCTYPE-gt-标签的定义与用法。"><span class="nav-text"><!DOCTYPE>标签的定义与用法。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><span class="nav-text">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是怪异模式和标准模式呢？"><span class="nav-text">什么是怪异模式和标准模式呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怪异模式和标准模式的区别？"><span class="nav-text">怪异模式和标准模式的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们如何变成怪异模式呢？"><span class="nav-text">我们如何变成怪异模式呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断怪异模式还是标准模式？"><span class="nav-text">如何判断怪异模式还是标准模式？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级元素和行内元素都有哪些？"><span class="nav-text">块级元素和行内元素都有哪些？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？"><span class="nav-text">浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8-以下）？"><span class="nav-text">行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8 以下）？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述一下你对HTML语义化的理解？"><span class="nav-text">简述一下你对HTML语义化的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对WEB标准以及W3C的理解与认识"><span class="nav-text">对WEB标准以及W3C的理解与认识?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iframe的优缺点？"><span class="nav-text">iframe的优缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？"><span class="nav-text">title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#div-css的布局较table布局有什么优点？"><span class="nav-text">div+css的布局较table布局有什么优点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你能描述一下渐进增强和优雅降级之间的不同吗"><span class="nav-text">你能描述一下渐进增强和优雅降级之间的不同吗?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#现在产品经理看到IE6-7-8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？"><span class="nav-text">现在产品经理看到IE6,7,8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述一下src与href的区别？"><span class="nav-text">简述一下src与href的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知道的网页制作会用到的图片格式有哪些？"><span class="nav-text">知道的网页制作会用到的图片格式有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xhtml和html有什么区别"><span class="nav-text">xhtml和html有什么区别?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS篇"><span class="nav-text">CSS篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型"><span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？"><span class="nav-text">介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在CSS3中引入了box-sizing属性-它可以允许改变默认的CSS盒模型对元素宽高的计算方式"><span class="nav-text">在CSS3中引入了box-sizing属性,它可以允许改变默认的CSS盒模型对元素宽高的计算方式.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹性盒子（Flex布局）"><span class="nav-text">弹性盒子（Flex布局）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#flex属性是一个复合属性，它包括flex-grow、flex-shrink、flex-basis"><span class="nav-text">flex属性是一个复合属性，它包括flex-grow、flex-shrink、flex-basis</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS选择符有哪些？哪些属性可以继承？"><span class="nav-text">CSS选择符有哪些？哪些属性可以继承？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面导入样式时，使用link和-import有什么区别？"><span class="nav-text">页面导入样式时，使用link和@import有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对BFC规范的理解？"><span class="nav-text">对BFC规范的理解？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#说说触发BFC的几种方式"><span class="nav-text">说说触发BFC的几种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC的特性"><span class="nav-text">BFC的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC的常见应用"><span class="nav-text">BFC的常见应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对一个DOM设置它的CSS样式的方式？"><span class="nav-text">对一个DOM设置它的CSS样式的方式？　</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS选择符有哪些-哪些属性可以继承-优先级算法如何计算-内联和important哪个优先级高"><span class="nav-text">CSS选择符有哪些?哪些属性可以继承?优先级算法如何计算?内联和important哪个优先级高?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位机制"><span class="nav-text">定位机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标准文档流"><span class="nav-text">标准文档流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动"><span class="nav-text">浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对定位"><span class="nav-text">绝对定位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网页布局"><span class="nav-text">网页布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流动布局"><span class="nav-text">流动布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说说常见的将元素垂直水平居中的方法"><span class="nav-text">说说常见的将元素垂直水平居中的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何垂直居中一个img"><span class="nav-text">如何垂直居中一个img?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动布局"><span class="nav-text">浮动布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要清除浮动？"><span class="nav-text">为什么要清除浮动？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不清除浮动的效果"><span class="nav-text">不清除浮动的效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除浮动的方法"><span class="nav-text">清除浮动的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么给父级元素设置overflow属性会去除浮动，具体说说内部机制"><span class="nav-text">为什么给父级元素设置overflow属性会去除浮动，具体说说内部机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对定位布局"><span class="nav-text">绝对定位布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#static是默认值"><span class="nav-text">static是默认值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相对定位relative"><span class="nav-text">相对定位relative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#固定定位fixed"><span class="nav-text">固定定位fixed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绝对定位absolute"><span class="nav-text">绝对定位absolute</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sticky新的css3属性"><span class="nav-text">sticky新的css3属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承父级的定位inherit"><span class="nav-text">继承父级的定位inherit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现横向两列布局"><span class="nav-text">实现横向两列布局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果position设置成absolute属性该元素的display属性会变成什么"><span class="nav-text">如果position设置成absolute属性该元素的display属性会变成什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#position-absolute和float属性的异同"><span class="nav-text">position:absolute和float属性的异同</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两栏布局类比三栏布局"><span class="nav-text">两栏布局类比三栏布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三列布局"><span class="nav-text">三列布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三栏布局"><span class="nav-text">三栏布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是外边距重叠？重叠的结果是什么？"><span class="nav-text">什么是外边距重叠？重叠的结果是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于伪元素你了解多少，那么伪类呢？列举一下"><span class="nav-text">关于伪元素你了解多少，那么伪类呢？列举一下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#px和em的区别。"><span class="nav-text">px和em的区别。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#display有哪些值？说明他们的作用。"><span class="nav-text">display有哪些值？说明他们的作用。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css中可以让文字在垂直和水平方向上重叠的两个属性是什么？"><span class="nav-text">css中可以让文字在垂直和水平方向上重叠的两个属性是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原生JS的offsetwidth求得的宽度包括什么"><span class="nav-text">原生JS的offsetwidth求得的宽度包括什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS中使得一个DOM元素不显示在浏览器可视范围内？"><span class="nav-text">CSS中使得一个DOM元素不显示在浏览器可视范围内？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#display-none与visibility-hidden的区别是什么？"><span class="nav-text">.display:none与visibility:hidden的区别是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超链接访问过后hover样式就不出现的问题是什么？如何解决？"><span class="nav-text">超链接访问过后hover样式就不出现的问题是什么？如何解决？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rgba-和opacity的透明效果有什么不同？"><span class="nav-text">rgba()和opacity的透明效果有什么不同？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用纯CSS创建一个三角形的原理是什么？"><span class="nav-text">用纯CSS创建一个三角形的原理是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#描述css-reset的作用和用途。"><span class="nav-text">描述css reset的作用和用途。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解释css-sprites如何使用。"><span class="nav-text">解释css sprites如何使用。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Css-Hack？ie6-7-8的hack分别是什么？"><span class="nav-text">什么是Css Hack？ie6,7,8的hack分别是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请用Css写一个简单的幻灯片效果页面"><span class="nav-text">请用Css写一个简单的幻灯片效果页面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS3篇"><span class="nav-text">CSS3篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3兼容"><span class="nav-text">CSS3兼容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对浏览器内核的理解？"><span class="nav-text">对浏览器内核的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边框属性"><span class="nav-text">边框属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#border-radius-元素添加圆角边框"><span class="nav-text">border-radius 元素添加圆角边框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#box-shadow-属性向框添加一个或多个阴影"><span class="nav-text">box-shadow 属性向框添加一个或多个阴影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#border-image-将图片规定为包围元素的边框"><span class="nav-text">border-image 将图片规定为包围元素的边框</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3选择器"><span class="nav-text">CSS3选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性选择器"><span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类选择器"><span class="nav-text">伪类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件选择器"><span class="nav-text">条件选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪元素选择器"><span class="nav-text">伪元素选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background新增属性"><span class="nav-text">background新增属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Box-属性"><span class="nav-text">Box 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多列属性（Multi-column）"><span class="nav-text">多列属性（Multi-column）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-文本属性（Text）"><span class="nav-text">CSS 文本属性（Text）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#word-wrap-amp-text-overflow的区别？"><span class="nav-text">word-wrap & text-overflow的区别？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2D-3D-转换属性（Transform）"><span class="nav-text">2D/3D 转换属性（Transform）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transform属性"><span class="nav-text">transform属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#translate-origin"><span class="nav-text">translate-origin</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过渡属性（Transition）"><span class="nav-text">过渡属性（Transition）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transition属性"><span class="nav-text">transition属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3二维动画——animation"><span class="nav-text">CSS3二维动画——animation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用css3的时候动画卡了怎么解决？"><span class="nav-text">用css3的时候动画卡了怎么解决？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML篇"><span class="nav-text">HTML篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML简史"><span class="nav-text">HTML简史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-HTML？"><span class="nav-text">什么是 HTML？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-DOCTYPE-gt-标签的定义与用法。"><span class="nav-text"><!DOCTYPE>标签的定义与用法。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><span class="nav-text">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是怪异模式和标准模式呢？"><span class="nav-text">什么是怪异模式和标准模式呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怪异模式和标准模式的区别？"><span class="nav-text">怪异模式和标准模式的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们如何变成怪异模式呢？"><span class="nav-text">我们如何变成怪异模式呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断怪异模式还是标准模式？"><span class="nav-text">如何判断怪异模式还是标准模式？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级元素和行内元素都有哪些？"><span class="nav-text">块级元素和行内元素都有哪些？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？"><span class="nav-text">浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8-以下）？"><span class="nav-text">行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8 以下）？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述一下你对HTML语义化的理解？"><span class="nav-text">简述一下你对HTML语义化的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对WEB标准以及W3C的理解与认识"><span class="nav-text">对WEB标准以及W3C的理解与认识?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iframe的优缺点？"><span class="nav-text">iframe的优缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？"><span class="nav-text">title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#div-css的布局较table布局有什么优点？"><span class="nav-text">div+css的布局较table布局有什么优点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你能描述一下渐进增强和优雅降级之间的不同吗"><span class="nav-text">你能描述一下渐进增强和优雅降级之间的不同吗?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#现在产品经理看到IE6-7-8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？"><span class="nav-text">现在产品经理看到IE6,7,8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述一下src与href的区别？"><span class="nav-text">简述一下src与href的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知道的网页制作会用到的图片格式有哪些？"><span class="nav-text">知道的网页制作会用到的图片格式有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xhtml和html有什么区别"><span class="nav-text">xhtml和html有什么区别?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS篇"><span class="nav-text">CSS篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型"><span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？"><span class="nav-text">介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在CSS3中引入了box-sizing属性-它可以允许改变默认的CSS盒模型对元素宽高的计算方式"><span class="nav-text">在CSS3中引入了box-sizing属性,它可以允许改变默认的CSS盒模型对元素宽高的计算方式.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹性盒子（Flex布局）"><span class="nav-text">弹性盒子（Flex布局）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#flex属性是一个复合属性，它包括flex-grow、flex-shrink、flex-basis"><span class="nav-text">flex属性是一个复合属性，它包括flex-grow、flex-shrink、flex-basis</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS选择符有哪些？哪些属性可以继承？"><span class="nav-text">CSS选择符有哪些？哪些属性可以继承？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面导入样式时，使用link和-import有什么区别？"><span class="nav-text">页面导入样式时，使用link和@import有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对BFC规范的理解？"><span class="nav-text">对BFC规范的理解？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#说说触发BFC的几种方式"><span class="nav-text">说说触发BFC的几种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC的特性"><span class="nav-text">BFC的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC的常见应用"><span class="nav-text">BFC的常见应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对一个DOM设置它的CSS样式的方式？"><span class="nav-text">对一个DOM设置它的CSS样式的方式？　</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS选择符有哪些-哪些属性可以继承-优先级算法如何计算-内联和important哪个优先级高"><span class="nav-text">CSS选择符有哪些?哪些属性可以继承?优先级算法如何计算?内联和important哪个优先级高?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位机制"><span class="nav-text">定位机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标准文档流"><span class="nav-text">标准文档流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动"><span class="nav-text">浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对定位"><span class="nav-text">绝对定位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网页布局"><span class="nav-text">网页布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流动布局"><span class="nav-text">流动布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说说常见的将元素垂直水平居中的方法"><span class="nav-text">说说常见的将元素垂直水平居中的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何垂直居中一个img"><span class="nav-text">如何垂直居中一个img?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动布局"><span class="nav-text">浮动布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要清除浮动？"><span class="nav-text">为什么要清除浮动？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不清除浮动的效果"><span class="nav-text">不清除浮动的效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除浮动的方法"><span class="nav-text">清除浮动的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么给父级元素设置overflow属性会去除浮动，具体说说内部机制"><span class="nav-text">为什么给父级元素设置overflow属性会去除浮动，具体说说内部机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对定位布局"><span class="nav-text">绝对定位布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#static是默认值"><span class="nav-text">static是默认值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相对定位relative"><span class="nav-text">相对定位relative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#固定定位fixed"><span class="nav-text">固定定位fixed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绝对定位absolute"><span class="nav-text">绝对定位absolute</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sticky新的css3属性"><span class="nav-text">sticky新的css3属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承父级的定位inherit"><span class="nav-text">继承父级的定位inherit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现横向两列布局"><span class="nav-text">实现横向两列布局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果position设置成absolute属性该元素的display属性会变成什么"><span class="nav-text">如果position设置成absolute属性该元素的display属性会变成什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#position-absolute和float属性的异同"><span class="nav-text">position:absolute和float属性的异同</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两栏布局类比三栏布局"><span class="nav-text">两栏布局类比三栏布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三列布局"><span class="nav-text">三列布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三栏布局"><span class="nav-text">三栏布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是外边距重叠？重叠的结果是什么？"><span class="nav-text">什么是外边距重叠？重叠的结果是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于伪元素你了解多少，那么伪类呢？列举一下"><span class="nav-text">关于伪元素你了解多少，那么伪类呢？列举一下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#px和em的区别。"><span class="nav-text">px和em的区别。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#display有哪些值？说明他们的作用。"><span class="nav-text">display有哪些值？说明他们的作用。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css中可以让文字在垂直和水平方向上重叠的两个属性是什么？"><span class="nav-text">css中可以让文字在垂直和水平方向上重叠的两个属性是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原生JS的offsetwidth求得的宽度包括什么"><span class="nav-text">原生JS的offsetwidth求得的宽度包括什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS中使得一个DOM元素不显示在浏览器可视范围内？"><span class="nav-text">CSS中使得一个DOM元素不显示在浏览器可视范围内？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#display-none与visibility-hidden的区别是什么？"><span class="nav-text">.display:none与visibility:hidden的区别是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超链接访问过后hover样式就不出现的问题是什么？如何解决？"><span class="nav-text">超链接访问过后hover样式就不出现的问题是什么？如何解决？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rgba-和opacity的透明效果有什么不同？"><span class="nav-text">rgba()和opacity的透明效果有什么不同？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用纯CSS创建一个三角形的原理是什么？"><span class="nav-text">用纯CSS创建一个三角形的原理是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#描述css-reset的作用和用途。"><span class="nav-text">描述css reset的作用和用途。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解释css-sprites如何使用。"><span class="nav-text">解释css sprites如何使用。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Css-Hack？ie6-7-8的hack分别是什么？"><span class="nav-text">什么是Css Hack？ie6,7,8的hack分别是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请用Css写一个简单的幻灯片效果页面"><span class="nav-text">请用Css写一个简单的幻灯片效果页面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS3篇"><span class="nav-text">CSS3篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3兼容"><span class="nav-text">CSS3兼容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对浏览器内核的理解？"><span class="nav-text">对浏览器内核的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边框属性"><span class="nav-text">边框属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#border-radius-元素添加圆角边框"><span class="nav-text">border-radius 元素添加圆角边框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#box-shadow-属性向框添加一个或多个阴影"><span class="nav-text">box-shadow 属性向框添加一个或多个阴影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#border-image-将图片规定为包围元素的边框"><span class="nav-text">border-image 将图片规定为包围元素的边框</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3选择器"><span class="nav-text">CSS3选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性选择器"><span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类选择器"><span class="nav-text">伪类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件选择器"><span class="nav-text">条件选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪元素选择器"><span class="nav-text">伪元素选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background新增属性"><span class="nav-text">background新增属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Box-属性"><span class="nav-text">Box 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多列属性（Multi-column）"><span class="nav-text">多列属性（Multi-column）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-文本属性（Text）"><span class="nav-text">CSS 文本属性（Text）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#word-wrap-amp-text-overflow的区别？"><span class="nav-text">word-wrap & text-overflow的区别？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2D-3D-转换属性（Transform）"><span class="nav-text">2D/3D 转换属性（Transform）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transform属性"><span class="nav-text">transform属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#translate-origin"><span class="nav-text">translate-origin</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过渡属性（Transition）"><span class="nav-text">过渡属性（Transition）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transition属性"><span class="nav-text">transition属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3二维动画——animation"><span class="nav-text">CSS3二维动画——animation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用css3的时候动画卡了怎么解决？"><span class="nav-text">用css3的时候动画卡了怎么解决？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML5篇"><span class="nav-text">HTML5篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5-中的一些有趣的新特性："><span class="nav-text">HTML5 中的一些有趣的新特性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5-视频-Video-音频-audio"><span class="nav-text">HTML5 视频(Video)音频(audio)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拖放（Drag-和-drop）"><span class="nav-text">拖放（Drag 和 drop）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Canvas"><span class="nav-text">Canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-Canvas-元素"><span class="nav-text">创建 Canvas 元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-JavaScript-来绘制"><span class="nav-text">通过 JavaScript 来绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径"><span class="nav-text">路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描边样式"><span class="nav-text">描边样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填充样式"><span class="nav-text">填充样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制曲线"><span class="nav-text">绘制曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas中绘制圆形"><span class="nav-text">canvas中绘制圆形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载图片"><span class="nav-text">加载图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用背景图片替代颜色线条"><span class="nav-text">使用背景图片替代颜色线条</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas-变换"><span class="nav-text">canvas - 变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Canvas-文本"><span class="nav-text">Canvas - 文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Canvas-渐变"><span class="nav-text">Canvas - 渐变</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVG"><span class="nav-text">SVG</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-在-HTML-页面"><span class="nav-text">SVG 在 HTML 页面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#直接在HTML嵌入SVG代码"><span class="nav-text">直接在HTML嵌入SVG代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链接到SVG文件"><span class="nav-text">链接到SVG文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-lt-object-gt-标签"><span class="nav-text">使用<object> 标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-lt-iframe-gt-标签"><span class="nav-text">使用 <iframe> 标签</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG矩形"><span class="nav-text">SVG矩形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-圆形-lt-circle-gt"><span class="nav-text">SVG 圆形 - <circle></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-椭圆-lt-ellipse-gt"><span class="nav-text">SVG 椭圆 - <ellipse></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-直线-lt-line-gt"><span class="nav-text">SVG 直线 - <line></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-路径-lt-path-gt"><span class="nav-text">SVG 路径 - <path></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-线性渐变-lt-linearGradient-gt"><span class="nav-text">SVG 线性渐变 - <linearGradient></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-放射性渐变-lt-radialGradient-gt"><span class="nav-text">SVG 放射性渐变 - <radialGradient></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVG-与-Canvas两者间的区别"><span class="nav-text">SVG 与 Canvas两者间的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新的-Input-类型"><span class="nav-text">新的 Input 类型</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
