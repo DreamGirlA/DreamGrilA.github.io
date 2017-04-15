@@ -62,39 +62,39 @@
 
 <meta name="description" content="HTML5篇
 HTML5 中的一些有趣的新特性
-用于绘画的 canvas 元素
-用于媒介回放的 video 和 audio 元素
-对本地离线存储的更好的支持
-新的特殊内容元素，比如 article、footer、header、nav、section
-新的表单控件，比如 calendar、date、time、email、url、search
-
-HTML5 视频(Video)音频(audio)&amp;lt;">
+拖拽释放(Drag and drop) API 
+语义化更好的内容标签（header,nav,footer,aside,article,section）
+音频、视频API(audio,video)
+画布(Canvas) API
+地理(Geolocation) API
+本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；
+se">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前段知识总结（HTML5,LESS,SASS）">
 <meta property="og:url" content="http://candiceyu.com/2017/04/10/前段知识总结（HTML5,LESS,SASS）/index.html">
 <meta property="og:site_name" content="Candice Yu_个人博客">
 <meta property="og:description" content="HTML5篇
 HTML5 中的一些有趣的新特性
-用于绘画的 canvas 元素
-用于媒介回放的 video 和 audio 元素
-对本地离线存储的更好的支持
-新的特殊内容元素，比如 article、footer、header、nav、section
-新的表单控件，比如 calendar、date、time、email、url、search
-
-HTML5 视频(Video)音频(audio)&amp;lt;">
+拖拽释放(Drag and drop) API 
+语义化更好的内容标签（header,nav,footer,aside,article,section）
+音频、视频API(audio,video)
+画布(Canvas) API
+地理(Geolocation) API
+本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；
+se">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-030cfbb0a5f5ff5c.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-04-15T13:25:48.141Z">
+<meta property="og:updated_time" content="2017-04-15T15:14:00.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前段知识总结（HTML5,LESS,SASS）">
 <meta name="twitter:description" content="HTML5篇
 HTML5 中的一些有趣的新特性
-用于绘画的 canvas 元素
-用于媒介回放的 video 和 audio 元素
-对本地离线存储的更好的支持
-新的特殊内容元素，比如 article、footer、header、nav、section
-新的表单控件，比如 calendar、date、time、email、url、search
-
-HTML5 视频(Video)音频(audio)&amp;lt;">
+拖拽释放(Drag and drop) API 
+语义化更好的内容标签（header,nav,footer,aside,article,section）
+音频、视频API(audio,video)
+画布(Canvas) API
+地理(Geolocation) API
+本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；
+se">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5285574-030cfbb0a5f5ff5c.gif?imageMogr2/auto-orient/strip">
 
 
@@ -317,12 +317,26 @@ HTML5 视频(Video)音频(audio)&amp;lt;">
       
         <h1 id="HTML5篇"><a href="#HTML5篇" class="headerlink" title="HTML5篇"></a>HTML5篇</h1><hr>
 <h2 id="HTML5-中的一些有趣的新特性"><a href="#HTML5-中的一些有趣的新特性" class="headerlink" title="HTML5 中的一些有趣的新特性"></a>HTML5 中的一些有趣的新特性</h2><ol>
-<li>用于绘画的 canvas 元素</li>
-<li>用于媒介回放的 video 和 audio 元素</li>
-<li>对本地离线存储的更好的支持</li>
-<li>新的特殊内容元素，比如 article、footer、header、nav、section</li>
-<li>新的表单控件，比如 calendar、date、time、email、url、search</li>
+<li>拖拽释放(Drag and drop) API </li>
+<li>语义化更好的内容标签（header,nav,footer,aside,article,section）</li>
+<li>音频、视频API(audio,video)</li>
+<li>画布(Canvas) API</li>
+<li>地理(Geolocation) API</li>
+<li>本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；</li>
+<li>sessionStorage 的数据在浏览器关闭后自动删除</li>
+<li>表单控件，calendar、date、time、email、url、search  </li>
+<li>新的技术webworker, websocket, Geolocation</li>
 </ol>
+<p>移除的元素：</p>
+<ol>
+<li>纯表现的元素：basefont，big，center，font, s，strike，tt，u；</li>
+<li>对可用性产生负面影响的元素：frame，frameset，noframes；</li>
+</ol>
+<p>支持HTML5新标签：</p>
+<ol>
+<li>IE8/IE7/IE6支持通过 document.createElement 方法产生的标签，可以利用这一特性让这些浏览器支持 HTML5 新标签，浏览器支持新标签后，还需要添加标签默认的样式（当然最好的方式是直接使用成熟的框架、使用最多的是html5shiv框架）<br>&lt;script&gt; src=”<a href="http://html5shiv.googlecode.com/svn/trunk/html5.js" target="_blank" rel="external">http://html5shiv.googlecode.com/svn/trunk/html5.js</a>“ </li>
+</ol>
+<p>如何区分：<br>DOCTYPE声明新增的结构元素、功能元素</p>
 <h2 id="HTML5-视频-Video-音频-audio"><a href="#HTML5-视频-Video-音频-audio" class="headerlink" title="HTML5 视频(Video)音频(audio)"></a>HTML5 视频(Video)音频(audio)</h2><pre><code>&lt;video src=&quot;movie.ogg&quot; width=&quot;320&quot; height=&quot;240&quot; controls=&quot;controls&quot;&gt;
 Your browser does not support the video tag.
 &lt;/video&gt;

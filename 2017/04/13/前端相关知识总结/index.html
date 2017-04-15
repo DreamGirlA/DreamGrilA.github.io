@@ -78,7 +78,7 @@
 通过DNS解析获取网址的IP地址，设置 UA 等信息发出第二个GET请求;
 进行HTTP协议会话，客户端发送报头(请求报头);
 进入到we">
-<meta property="og:updated_time" content="2017-04-15T15:05:41.417Z">
+<meta property="og:updated_time" content="2017-04-15T15:27:46.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端相关知识总结">
 <meta name="twitter:description" content="一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么详细版：
@@ -346,6 +346,13 @@
 <li>第三次挥手：被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。</li>
 <li>第四次挥手：主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。</li>
 </ol>
+<h2 id="线程与进程的区别"><a href="#线程与进程的区别" class="headerlink" title="线程与进程的区别"></a>线程与进程的区别</h2><ol>
+<li>一个程序至少有一个进程,一个进程至少有一个线程</li>
+<li>线程的划分尺度小于进程，使得多线程程序的并发性高</li>
+<li>另外，进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率</li>
+<li>线程在执行过程中与进程还是有区别的。每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制 </li>
+<li>从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。这就是进程和线程的重要区别</li>
+</ol>
 <h2 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h2><ol>
 <li>ＴCP（Transmission Control Protocol，传输控制协议）是基于连接的协议，也就是说，在正式收发数据前，必须和对方建立可靠的连接。一个TCP连接必须要经过三次“对话”才能建立起来</li>
 <li>UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议。它是面向非连接的协议，它不与对方建立连接，而是直接就把数据包发送过去！ UDP适用于一次只传送少量数据、对可靠性要求不高的应用环境。</li>
@@ -378,6 +385,51 @@
 <li>HTTP协议： 超文本传输协议，是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。</li>
 <li>DHCP协议： 动态主机配置协议，是一种让系统得以连接到网络上，并获取所需要的配置参数手段。</li>
 </ol>
+<h2 id="异步加载和延迟加载"><a href="#异步加载和延迟加载" class="headerlink" title="异步加载和延迟加载"></a>异步加载和延迟加载</h2><ol>
+<li>异步加载的方案： 动态插入 script 标签</li>
+<li>通过 ajax 去获取 js 代码，然后通过 eval 执行</li>
+<li>script 标签上添加 defer 或者 async 属性</li>
+<li>创建并插入 iframe，让它异步执行 js</li>
+<li>延迟加载：有些 js 代码并不是页面初始化的时候就立刻需要的，而稍后的某些情况才需要的</li>
+</ol>
+<h2 id="哪些地方会出现js阻塞？"><a href="#哪些地方会出现js阻塞？" class="headerlink" title="哪些地方会出现js阻塞？"></a>哪些地方会出现js阻塞？</h2><ol>
+<li>js 的阻塞特性：所有浏览器在下载 JS 的时候，会阻止一切其他活动，比如其他资源的下载，内容的呈现等等。直到 JS 下载、解析、执行完毕后才开始继续并行下载其他资源并呈现内容。为了提高用户体验，新一代浏览器都支持并行下载 JS，但是 JS 下载仍然会阻塞其它资源的下载（例如.图片，css文件等）。</li>
+<li>由于浏览器为了防止出现 JS 修改 DOM 树，需要重新构建 DOM 树的情况，所以就会阻塞其他的下载和呈现。</li>
+<li>嵌入 JS 会阻塞所有内容的呈现，而外部 JS 只会阻塞其后内容的显示，2 种方式都会阻塞其后资源的下载。也就是说外部样式不会阻塞外部脚本的加载，但会阻塞外部脚本的执行。</li>
+</ol>
+<h2 id="CSS-怎么会阻塞加载？"><a href="#CSS-怎么会阻塞加载？" class="headerlink" title="CSS 怎么会阻塞加载？"></a>CSS 怎么会阻塞加载？</h2><ol>
+<li>CSS 本来是可以并行下载的，在什么情况下会出现阻塞加载了(在测试观察中，IE6 下 CSS 都是阻塞加载）</li>
+<li>当 CSS 后面跟着嵌入的 JS 的时候，该 CSS 就会出现阻塞后面资源下载的情况。而当把嵌入 JS 放到 CSS 前面，就不会出现阻塞的情况了。</li>
+<li>根本原因：因为浏览器会维持 html 中 css 和 js 的顺序，样式表必须在嵌入的 JS 执行前先加载、解析完。而嵌入的 JS 会阻塞后面的资源加载，所以就会出现上面 CSS 阻塞下载的情况。</li>
+</ol>
+<h2 id="嵌入JS应该放在什么位置？"><a href="#嵌入JS应该放在什么位置？" class="headerlink" title="嵌入JS应该放在什么位置？"></a>嵌入JS应该放在什么位置？</h2><ol>
+<li>放在底部，虽然放在底部照样会阻塞所有呈现，但不会阻塞资源下载。</li>
+<li>如果嵌入JS放在head中，请把嵌入JS放在CSS头部。</li>
+<li>使用 defer（只支持IE）</li>
+<li>不要在嵌入的JS中调用运行时间较长的函数，如果一定要用，可以用 setTimeout 来调用</li>
+</ol>
+<h2 id="Javascript无阻塞加载具体方式"><a href="#Javascript无阻塞加载具体方式" class="headerlink" title="Javascript无阻塞加载具体方式"></a>Javascript无阻塞加载具体方式</h2><ol>
+<li>将脚本放在底部。<link>还是放在head中，用以保证在js加载前，能加载出正常显示的页面。<script>标签放在</body>前。</li>
+<li>阻塞脚本：由于每个<script>标签下载时阻塞页面解析过程，所以限制页面的<script>总数也可以改善性能。适用于内联脚本和外部脚本。</li>
+<li>非阻塞脚本：等页面完成加载后，再加载js代码。也就是，在 window.onload 事件发出后开始下载代码。</li>
+<li>defer属性：支持IE4和fierfox3.5更高版本浏览器</li>
+<li>动态脚本元素：文档对象模型（DOM）允许你使用js动态创建HTML的几乎全部文档内容。代码如下：<pre><code>&lt;script&gt;
+    var script=document.createElement(&quot;script&quot;);
+    script.type=&quot;text/javascript&quot;;
+    script.src=&quot;file.js&quot;;
+    document.getElementsByTagName(&quot;head&quot;)[0].appendChild(script);
+&lt;/script&gt;
+</code></pre>此技术的重点在于：无论在何处启动下载，文件额下载和运行都不会阻塞其他页面处理过程，即使在head里（除了用于下载文件的 http 链接）。</li>
+</ol>
+<h2 id="Node-js-的适用场景"><a href="#Node-js-的适用场景" class="headerlink" title="Node.js 的适用场景"></a>Node.js 的适用场景</h2><ol>
+<li>高并发  2. 聊天  3. 实时消息推送  </li>
+</ol>
+<h2 id="ie-各版本和-chrome-可以并行下载多少个资源"><a href="#ie-各版本和-chrome-可以并行下载多少个资源" class="headerlink" title="ie 各版本和 chrome 可以并行下载多少个资源"></a>ie 各版本和 chrome 可以并行下载多少个资源</h2><ol>
+<li>IE6 2 个并发</li>
+<li>iE7 升级之后的 6 个并发，之后版本也是 6 个</li>
+<li>Firefox，chrome 也是6个</li>
+</ol>
+<h2 id="为什么要有同源限制"><a href="#为什么要有同源限制" class="headerlink" title="为什么要有同源限制"></a>为什么要有同源限制</h2><p>比如一个黑客程序，他利用Iframe把真正的银行登录页面嵌到他的页面上，当你使用真实的用户名，密码登录时，他的页面就可以通过Javascript读取到你的表单中input中的内容，这样用户名，密码就轻松到手了。</p>
 <h2 id="webSocket如何兼容低浏览器"><a href="#webSocket如何兼容低浏览器" class="headerlink" title="webSocket如何兼容低浏览器"></a>webSocket如何兼容低浏览器</h2><ol>
 <li>Adobe Flash Socket     </li>
 <li>ActiveX HTMLFile (IE) </li>
@@ -387,6 +439,14 @@
 <h2 id="网页验证码的作用（为了解决什么安全问题）"><a href="#网页验证码的作用（为了解决什么安全问题）" class="headerlink" title="网页验证码的作用（为了解决什么安全问题）"></a>网页验证码的作用（为了解决什么安全问题）</h2><blockquote>
 <p>区分用户是计算机还是人的公共全自动程序。可以防止恶意破解密码、刷票、论坛灌水；<br>有效防止黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试。</p>
 </blockquote>
+<h2 id="减少页面加载时间的方法"><a href="#减少页面加载时间的方法" class="headerlink" title="减少页面加载时间的方法"></a>减少页面加载时间的方法</h2><ol>
+<li>优化图片 </li>
+<li>图像格式的选择（GIF：提供的颜色较少，可用在一些对颜色要求不高的地方） </li>
+<li>优化CSS（压缩合并css，如 margin-top, margin-left…) </li>
+<li>网址后加斜杠（如www.campr.com/目录，会判断这个目录是什么文件类型，或者是目录。） </li>
+<li>标明高度和宽度（如果浏览器没有找到这两个参数，它需要一边下载图片一边计算大小，如果图片很多，浏览器需要不断地调整页面。这不但影响速度，也影响浏览体验。 当浏览器知道了高度和宽度参数后，即使图片暂时无法显示，页面上也会腾出图片的空位，然后继续加载后面的内容。从而加载时间快了，浏览体验也更好了） </li>
+<li>减少http请求（合并文件，合并图片）</li>
+</ol>
 <h2 id="为什么利用多个域名来存储网站资源会更有效"><a href="#为什么利用多个域名来存储网站资源会更有效" class="headerlink" title="为什么利用多个域名来存储网站资源会更有效"></a>为什么利用多个域名来存储网站资源会更有效</h2><ol>
 <li>CDN缓存更方便</li>
 <li>突破浏览器并发限制</li>
@@ -403,6 +463,27 @@
 <h2 id="对网页标准和标准制定机构重要性的理解"><a href="#对网页标准和标准制定机构重要性的理解" class="headerlink" title="对网页标准和标准制定机构重要性的理解"></a>对网页标准和标准制定机构重要性的理解</h2><blockquote>
 <p>（无标准答案）网页标准和标准制定机构都是为了能让web发展的更‘健康’，开发者遵循统一的标准，降低开发难度，开发成本，SEO也会更好做，也不会因为滥用代码导致各种BUG、安全问题，最终提高网站易用性。</p>
 </blockquote>
+<h2 id="对网站重构的理解"><a href="#对网站重构的理解" class="headerlink" title="对网站重构的理解"></a>对网站重构的理解</h2><p>网站重构：在不改变外部行为的前提下，简化结构、添加可读性，而在网站前端保持一致的行为。也就是说是在不改变 UI 的情况下，对网站进行优化，在扩展的同时保持一致的 UI。</p>
+<p>对于传统的网站来说重构通常是：</p>
+<ol>
+<li>表格(table)布局改为 DIV + CSS</li>
+<li>使网站前端兼容于现代浏览器(针对于不合规范的CSS、如对 IE6 有效的)</li>
+<li>对于移动平台的优化</li>
+<li>针对于 SEO 进行优化</li>
+<li>深层次的网站重构应该考虑的方面</li>
+<li>减少代码间的耦合</li>
+<li>让代码保持弹性</li>
+<li>严格按规范编写代码</li>
+<li>设计可扩展的API</li>
+<li>代替旧有的框架、语言(如VB)</li>
+<li>增强用户体验</li>
+<li>通常来说对于速度的优化也包含在重构中</li>
+<li>压缩JS、CSS、image等前端资源(通常是由服务器来解决)</li>
+<li>程序的性能优化(如数据读写)</li>
+<li>采用CDN来加速资源加载</li>
+<li>对于JS DOM的优化</li>
+<li>HTTP服务器的文件缓存</li>
+</ol>
 <h2 id="有哪些地方会有缓存处理"><a href="#有哪些地方会有缓存处理" class="headerlink" title="有哪些地方会有缓存处理"></a>有哪些地方会有缓存处理</h2><blockquote>
 <p>　在css/js代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次js请求一般情况下有哪些地方会有缓存处理？<br>答案：dns缓存，cdn缓存，浏览器缓存，服务器缓存。</p>
 </blockquote>
@@ -538,6 +619,16 @@
 <ul>
 <li>客户端发起 HTTP GET 请求一个文件，注意这个时候客户端同时发送一个If-None-Match头，这个头的内容就是第一次请求时服务器返回的Etag：2e681a-6-5d0448402.服务器判断发送过来的Etag和计算出来的Etag匹配，因此If-None-Match为False，不返回200，返回304，客户端继续使用本地缓存</li>
 </ul>
+<h2 id="cache-control"><a href="#cache-control" class="headerlink" title="cache-control"></a>cache-control</h2><ol>
+<li>网页的缓存是由HTTP消息头中的“Cache-control”来控制的，常见的取值有private、no-cache、max-age、must-revalidate等，默认为private。</li>
+<li>Expires 头部字段提供一个日期和时间，响应在该日期和时间后被认为失效。允许客户端在这个时间之前不去检查（发请求），等同max-age的效果。但是如果同时存在，则被Cache-Control的max-age覆盖。</li>
+<li>Expires = “Expires” “:” HTTP-date<br>例如：<br>Expires: Thu, 01 Dec 1994 16:00:00 GMT （必须是GMT格式）<br>如果把它设置为-1，则表示立即过期<br>Expires 和 max-age 都可以用来指定文档的过期时间，但是二者有一些细微差别</li>
+<li>Expires在HTTP/1.0中已经定义，Cache-Control:max-age在HTTP/1.1中才有定义，为了向下兼容，仅使用max-age不够</li>
+<li>Expires指定一个绝对的过期时间(GMT格式),这么做会导致至少2个问题：<br> 2.1客户端和服务器时间不同步导致Expires的配置出现问题。<br> 2.2很容易在配置后忘记具体的过期时间，导致过期来临出现浪涌现象</li>
+<li>max-age 指定的是从文档被访问后的存活时间，这个时间是个相对值(比如:3600s)，相对的是文档第一次被请求时服务器记录的Request_time(请求时间)</li>
+<li>Expires 指定的时间可以是相对文件的最后访问时间(Atime)或者修改时间(MTime)，而max-age相对对的是文档的请求时间(Atime)</li>
+<li>如果值为 no-cache,那么每次都会访问服务器。如果值为max-age，则在过期之前不会重复访问服务器。</li>
+</ol>
 <h2 id="讲讲304缓存的原理"><a href="#讲讲304缓存的原理" class="headerlink" title="讲讲304缓存的原理"></a>讲讲304缓存的原理</h2><p>服务器首先产生ETag，服务器可在稍后使用它来判断页面是否已经被修改。本质上，客户端通过将该记号传回服务器要求服务器验证其（客户端）缓存。</p>
 <p>304是HTTP状态码，服务器用来标识这个文件没修改，不返回内容，浏览器在接收到个状态码后，会使用浏览器已缓存的文件</p>
 <p>客户端请求一个页面（A）。 服务器返回页面A，并在给A加上一个ETag。 客户端展现该页面，并将页面连同ETag一起缓存。 客户再次请求页面A，并将上次请求时服务器返回的ETag一起传递给服务器。 服务器检查该ETag，并判断出该页面自上次客户端请求之后还未被修改，直接返回响应304（未修改——Not Modified）和一个空的响应体。</p>
@@ -559,7 +650,28 @@
 <li>它增加了头压缩（header compression），因此即使非常小的请求，其请求和响应的header都只会占用很小比例的带宽。</li>
 </ol>
 <h2 id="http状态码有哪些？分别代表是什么意思？"><a href="#http状态码有哪些？分别代表是什么意思？" class="headerlink" title="http状态码有哪些？分别代表是什么意思？"></a>http状态码有哪些？分别代表是什么意思？</h2><p>100  Continue  继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息<br>200  OK         正常返回信息<br>201  Created    请求成功并且服务器创建了新的资源<br>202  Accepted   服务器已接受请求，但尚未处理<br>301  Moved Permanently  请求的网页已永久移动到新位置。<br>302  Found      临时性重定向。<br>303  See Other  临时性重定向，且总是使用 GET 请求新的 URI。<br>304  Not Modified 自从上次请求后，请求的网页未修改过。<br>400  Bad Request  服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。<br>401  Unauthorized 请求未授权。<br>403  Forbidden  禁止访问。<br>404  Not Found  找不到如何与 URI 相匹配的资源。<br>500  Internal Server Error  最常见的服务器端错误。<br>503  Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。</p>
-</script></head></p></blockquote>
+<h2 id="平时如何管理你的项目"><a href="#平时如何管理你的项目" class="headerlink" title="平时如何管理你的项目"></a>平时如何管理你的项目</h2><ol>
+<li>先期团队必须确定好全局样式（globe.css），编码模式(utf-8) 等</li>
+<li>编写习惯必须一致（例如都是采用继承式的写法，单样式都写成一行）</li>
+<li>标注样式编写人，各模块都及时标注（标注关键样式调用的地方）</li>
+<li>页面进行标注（例如 页面 模块 开始和结束）</li>
+<li>CSS 跟 HTML 分文件夹并行存放，命名都得统一（例如 style.css）</li>
+<li>JS 分文件夹存放 命名以该 JS 功能为准的英文翻译</li>
+<li>图片采用整合的 images.png png8 格式文件使用 尽量整合在一起使用方便将来的管理 </li>
+</ol>
+<h2 id="对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？"><a href="#对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？" class="headerlink" title="对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？"></a>对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？</h2><p>前端是最贴近用户的程序员，比后端、数据库、产品经理、运营、安全都近。</p>
+<ol>
+<li>实现界面交互</li>
+<li>提升用户体验</li>
+<li>有了Node.js，前端可以实现服务端的一些事情<h3 id="前景"><a href="#前景" class="headerlink" title="前景"></a>前景</h3></li>
+<li>前端是最贴近用户的程序员，前端的能力就是能让产品从 90分进化到 100 分，甚至更好</li>
+<li>参与项目，快速高质量完成实现效果图，精确到1px；</li>
+<li>与团队成员，UI设计，产品经理的沟通；</li>
+<li>做好的页面结构，页面重构和用户体验；</li>
+<li>处理hack，兼容、写出优美的代码格式；</li>
+<li>针对服务器的优化、拥抱最新前端技术。</li>
+</ol>
+</script></li></ol>
       
     </div>
 
@@ -790,7 +902,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么"><span class="nav-text">一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP传输的三次握手"><span class="nav-text">TCP传输的三次握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP传输的四次挥手策略"><span class="nav-text">TCP传输的四次挥手策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP和HTTPS"><span class="nav-text">HTTP和HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么HTTPS安全"><span class="nav-text">为什么HTTPS安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络分层里七层模型是哪七层"><span class="nav-text">网络分层里七层模型是哪七层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每一层的作用"><span class="nav-text">每一层的作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种协议"><span class="nav-text">各种协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webSocket如何兼容低浏览器"><span class="nav-text">webSocket如何兼容低浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网页验证码的作用（为了解决什么安全问题）"><span class="nav-text">网页验证码的作用（为了解决什么安全问题）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么利用多个域名来存储网站资源会更有效"><span class="nav-text">为什么利用多个域名来存储网站资源会更有效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对网站的文件和资源进行优化"><span class="nav-text">对网站的文件和资源进行优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对网页标准和标准制定机构重要性的理解"><span class="nav-text">对网页标准和标准制定机构重要性的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有哪些地方会有缓存处理"><span class="nav-text">有哪些地方会有缓存处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化图片的加载"><span class="nav-text">优化图片的加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理所有CSS文件、JS与图片"><span class="nav-text">管理所有CSS文件、JS与图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是FOUC（无样式内容闪烁）？你如何来避免-FOUC？"><span class="nav-text">什么是FOUC（无样式内容闪烁）？你如何来避免 FOUC？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么"><span class="nav-text">一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP传输的三次握手"><span class="nav-text">TCP传输的三次握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP传输的四次挥手策略"><span class="nav-text">TCP传输的四次挥手策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程与进程的区别"><span class="nav-text">线程与进程的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP和HTTPS"><span class="nav-text">HTTP和HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么HTTPS安全"><span class="nav-text">为什么HTTPS安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络分层里七层模型是哪七层"><span class="nav-text">网络分层里七层模型是哪七层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每一层的作用"><span class="nav-text">每一层的作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种协议"><span class="nav-text">各种协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步加载和延迟加载"><span class="nav-text">异步加载和延迟加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哪些地方会出现js阻塞？"><span class="nav-text">哪些地方会出现js阻塞？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-怎么会阻塞加载？"><span class="nav-text">CSS 怎么会阻塞加载？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌入JS应该放在什么位置？"><span class="nav-text">嵌入JS应该放在什么位置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript无阻塞加载具体方式"><span class="nav-text">Javascript无阻塞加载具体方式</span></a></li></ol></div>
             
           </div>
         </section>
