@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="计算机网络," />
+  <meta name="keywords" content="计算机网络,IE6兼容," />
 
 
 
@@ -78,13 +78,7 @@
 通过DNS解析获取网址的IP地址，设置 UA 等信息发出第二个GET请求;
 进行HTTP协议会话，客户端发送报头(请求报头);
 进入到we">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-d5744669e059a62a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-c9da2e7cc5794dc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-4e86b534bc0f46b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-7dbccd3666e5502a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-e6087060761e221d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-a02f4ea17feee9b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-04-13T12:06:27.531Z">
+<meta property="og:updated_time" content="2017-04-15T14:58:01.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端相关知识总结">
 <meta name="twitter:description" content="一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么详细版：
@@ -94,7 +88,6 @@
 通过DNS解析获取网址的IP地址，设置 UA 等信息发出第二个GET请求;
 进行HTTP协议会话，客户端发送报头(请求报头);
 进入到we">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5285574-d5744669e059a62a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -394,149 +387,179 @@
 <h2 id="网页验证码的作用（为了解决什么安全问题）"><a href="#网页验证码的作用（为了解决什么安全问题）" class="headerlink" title="网页验证码的作用（为了解决什么安全问题）"></a>网页验证码的作用（为了解决什么安全问题）</h2><blockquote>
 <p>区分用户是计算机还是人的公共全自动程序。可以防止恶意破解密码、刷票、论坛灌水；<br>有效防止黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试。</p>
 </blockquote>
-<h2 id="经常遇到的浏览器兼容问题"><a href="#经常遇到的浏览器兼容问题" class="headerlink" title="经常遇到的浏览器兼容问题"></a>经常遇到的浏览器兼容问题</h2><h4 id="不同浏览器的标签默认的外补丁和内补丁不同"><a href="#不同浏览器的标签默认的外补丁和内补丁不同" class="headerlink" title="不同浏览器的标签默认的外补丁和内补丁不同"></a>不同浏览器的标签默认的外补丁和内补丁不同</h4><ol>
-<li>随便写几个标签，不加样式控制的情况下，各自的margin 和padding差异较大。</li>
-<li>解决方案：CSS里   *{margin:0;padding:0;}</li>
+<h2 id="为什么利用多个域名来存储网站资源会更有效"><a href="#为什么利用多个域名来存储网站资源会更有效" class="headerlink" title="为什么利用多个域名来存储网站资源会更有效"></a>为什么利用多个域名来存储网站资源会更有效</h2><ol>
+<li>CDN缓存更方便</li>
+<li>突破浏览器并发限制</li>
+<li>节约cookie带宽</li>
+<li>节约主域名的连接数，优化页面响应速度</li>
+<li>防止不必要的安全问题</li>
 </ol>
-<h4 id="块属性标签float后，又有横行的margin情况下，在IE6显示margin比设置的大"><a href="#块属性标签float后，又有横行的margin情况下，在IE6显示margin比设置的大" class="headerlink" title="块属性标签float后，又有横行的margin情况下，在IE6显示margin比设置的大"></a>块属性标签float后，又有横行的margin情况下，在IE6显示margin比设置的大</h4><ol>
-<li>常见症状是IE6中后面的一块被顶到下一行</li>
-<li>解决方案：在float的标签样式控制中加入display:inline;将其转化为行内属性</li>
+<h2 id="对网站的文件和资源进行优化"><a href="#对网站的文件和资源进行优化" class="headerlink" title="对网站的文件和资源进行优化"></a>对网站的文件和资源进行优化</h2><ol>
+<li>文件合并</li>
+<li>文件最小化/文件压缩</li>
+<li>使用CDN托管</li>
+<li>缓存的使用</li>
 </ol>
-<h4 id="设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度"><a href="#设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度" class="headerlink" title="设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度"></a>设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度</h4><ol>
-<li>IE6、7和遨游里这个标签的高度不受控制，超出自己设置的高度。</li>
-<li>这种情况一般出现在我们设置小圆角背景的标签里。出现这个问题的原因是IE8之前的浏览器都会给标签一个最小默认的行高的高度。即使你的标签是空的，这个标签的高度还是会达到默认的行高。</li>
-<li>解决方案：给超出高度的标签设置overflow:hidden;或者设置行高line-height 小于你设置的高度。</li>
+<h2 id="对网页标准和标准制定机构重要性的理解"><a href="#对网页标准和标准制定机构重要性的理解" class="headerlink" title="对网页标准和标准制定机构重要性的理解"></a>对网页标准和标准制定机构重要性的理解</h2><blockquote>
+<p>（无标准答案）网页标准和标准制定机构都是为了能让web发展的更‘健康’，开发者遵循统一的标准，降低开发难度，开发成本，SEO也会更好做，也不会因为滥用代码导致各种BUG、安全问题，最终提高网站易用性。</p>
+</blockquote>
+<h2 id="有哪些地方会有缓存处理"><a href="#有哪些地方会有缓存处理" class="headerlink" title="有哪些地方会有缓存处理"></a>有哪些地方会有缓存处理</h2><blockquote>
+<p>　在css/js代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次js请求一般情况下有哪些地方会有缓存处理？<br>答案：dns缓存，cdn缓存，浏览器缓存，服务器缓存。</p>
+</blockquote>
+<h2 id="优化图片的加载"><a href="#优化图片的加载" class="headerlink" title="优化图片的加载"></a>优化图片的加载</h2><p>一个页面上有大量的图片（大型电商网站），加载很慢，你有哪些方法优化这些图片的加载，给用户更好的体验。</p>
+<ol>
+<li>图片懒加载，在页面上的未可视区域可以添加一个滚动条事件，判断图片位置与浏览器顶端的距离与页面的距离，如果前者小于后者，优先加载。</li>
+<li>如果为幻灯片、相册等，可以使用图片预加载技术，将当前展示图片的前一张和后一张优先下载。</li>
+<li>如果图片为css图片，可以使用CSSsprite，SVGsprite，Iconfont、Base64等技术。</li>
+<li>如果图片过大，可以使用特殊编码的图片，加载时会先加载一张压缩的特别厉害的缩略图，以提高用户体验。</li>
+<li>如果图片展示区域小于图片的真实大小，则因在服务器端根据业务需要先行进行图片压缩，图片压缩后大小与展示一致。</li>
 </ol>
-<h4 id="行内属性标签，设置display-block后采用float布局，又有横行的margin的情况，IE6间距bug"><a href="#行内属性标签，设置display-block后采用float布局，又有横行的margin的情况，IE6间距bug" class="headerlink" title="行内属性标签，设置display:block后采用float布局，又有横行的margin的情况，IE6间距bug"></a>行内属性标签，设置display:block后采用float布局，又有横行的margin的情况，IE6间距bug</h4><ol>
-<li>IE6里的间距比超过设置的间距</li>
-<li>行内属性标签，为了设置宽高，我们需要设置display:block;(除了input标签比较特殊)。在用float布局并有横向的margin后，在IE6下，他就具有了块属性float后的横向margin的bug。不过因为它本身就是行内属性标签，所以我们再加上display:inline的话，它的高宽就不可设了。这时候我们还需要在display:inline后面加入display:talbe。</li>
-<li>解决方案：在display:block;后面加入display:inline;display:table;</li>
+<h2 id="管理所有CSS文件、JS与图片"><a href="#管理所有CSS文件、JS与图片" class="headerlink" title="管理所有CSS文件、JS与图片"></a>管理所有CSS文件、JS与图片</h2><p>如果让你来制作一个访问量很高的大型网站，你会如何来管理所有CSS文件、JS与图片?</p>
+<ol>
+<li>把所有的CSS文件都放入一个样式表中,通过把所有的脚本放到一个文件中来减少HTTP请求的方法。</li>
+<li>js文件也采用同样的方法。</li>
+<li>把所有的背景图像都放到一个图片文件中，然后通过CSS的background-image和background-position属性来显示图片的不同部分。</li>
 </ol>
-<h4 id="图片默认有间距"><a href="#图片默认有间距" class="headerlink" title="图片默认有间距"></a>图片默认有间距</h4><ol>
-<li>几个img标签放在一起的时候，有些浏览器会有默认的间距，加了问题一中提到的通配符也不起作用。</li>
-<li>因为img标签是行内属性标签，所以只要不超出容器宽度，img标签都会排在一行里，但是部分浏览器的img标签之间会有个间距。去掉这个间距使用float是正道。</li>
-<li>解决方案：使用float属性为img布局</li>
+<h2 id="什么是FOUC（无样式内容闪烁）？你如何来避免-FOUC？"><a href="#什么是FOUC（无样式内容闪烁）？你如何来避免-FOUC？" class="headerlink" title="什么是FOUC（无样式内容闪烁）？你如何来避免 FOUC？"></a>什么是FOUC（无样式内容闪烁）？你如何来避免 FOUC？</h2><p>FOUC - Flash Of Unstyled Content 文档样式闪烁</p>
+<blockquote>
+<p>&lt;style type=”text/css” media=”all”&gt;@import “../fouc.css”;&lt;/style&gt;而引用CSS文件的@import就是造成这个问题的罪魁祸首。IE会先加载整个HTML文档的DOM，然后再去导入外部的CSS文件，因此，在页面DOM加载完成到CSS导入完成中间会有一段时间页面上的内容是没有样式的，这段时间的长短跟网速，电脑速度都有关系。<br>解决方法：只要在<head>之间加入一个<link>或者<script>元素就可以了。</p>
+</blockquote>
+<h2 id="Javascript垃圾回收方法"><a href="#Javascript垃圾回收方法" class="headerlink" title="Javascript垃圾回收方法"></a>Javascript垃圾回收方法</h2><h3 id="标记清除（mark-and-sweep）"><a href="#标记清除（mark-and-sweep）" class="headerlink" title="标记清除（mark and sweep）"></a>标记清除（mark and sweep）</h3><ol>
+<li>这是JavaScript最常见的垃圾回收方式，当变量进入执行环境的时候，比如函数中声明一个变量，垃圾回收器将其标记为“进入环境”，当变量离开环境的时候（函数执行结束）将其标记为“离开环境”。</li>
+<li>垃圾回收器会在运行的时候给存储在内存中的所有变量加上标记，然后去掉环境中的变量以及被环境中变量所引用的变量（闭包），在这些完成之后仍存在标记的就是要删除的变量了</li>
 </ol>
-<h4 id="标签最低高度设置min-height不兼容"><a href="#标签最低高度设置min-height不兼容" class="headerlink" title="标签最低高度设置min-height不兼容"></a>标签最低高度设置min-height不兼容</h4><ol>
-<li>因为min-height本身就是一个不兼容的CSS属性，所以设置min-height时不能很好的被各个浏览器兼容</li>
-<li>在B/S系统前端开时，有很多情况下我们又这种需求。当内容小于一个值（如300px）时。容器的高度为300px；当内容高度大于这个值时，容器高度被撑高，而不是出现滚动条。这时候我们就会面临这个兼容性问题。</li>
-<li>解决方案：如果我们要设置一个标签的最小高度200px，需要进行的设置为：{min-height:200px; height:auto !important; height:200px; overflow:visible;}</li>
+<h3 id="引用计数-reference-counting"><a href="#引用计数-reference-counting" class="headerlink" title="引用计数(reference counting)"></a>引用计数(reference counting)</h3><ol>
+<li>在低版本IE中经常会出现内存泄露，很多时候就是因为其采用引用计数方式进行垃圾回收。引用计数的策略是跟踪记录每个值被使用的次数，当声明了一个 变量并将一个引用类型赋值给该变量的时候这个值的引用次数就加1，如果该变量的值变成了另外一个，则这个值得引用次数减1，当这个值的引用次数变为0的时 候，说明没有变量在使用，这个值没法被访问了，因此可以将其占用的空间回收，这样垃圾回收器会在运行的时候清理掉引用次数为0的值占用的空间。</li>
+<li>在IE中虽然JavaScript对象通过标记清除的方式进行垃圾回收，但BOM与DOM对象却是通过引用计数回收垃圾的，也就是说只要涉及BOM及DOM就会出现循环引用问题。</li>
 </ol>
-<h4 id="min-height在IE6下不起作用"><a href="#min-height在IE6下不起作用" class="headerlink" title="min-height在IE6下不起作用"></a>min-height在IE6下不起作用</h4><p>解决方案:添加 height:auto !important;height:xxpx;其中xx就是min-height设置的值。</p>
-<h4 id="透明度的兼容CSS设置"><a href="#透明度的兼容CSS设置" class="headerlink" title="透明度的兼容CSS设置"></a>透明度的兼容CSS设置</h4><p>解决方案：IE用filter:Alpha(Opacity=60),其他主流浏览器用 opacity:0.6;</p>
-<h4 id="a-有href属性-标签嵌套下的img标签，在IE下会带有边框"><a href="#a-有href属性-标签嵌套下的img标签，在IE下会带有边框" class="headerlink" title="a(有href属性)标签嵌套下的img标签，在IE下会带有边框"></a>a(有href属性)标签嵌套下的img标签，在IE下会带有边框</h4><p>解决办法：加上a img{border:none;}样式。</p>
-<h4 id="border默认CSS样式"><a href="#border默认CSS样式" class="headerlink" title="border默认CSS样式"></a>border默认CSS样式</h4><ol>
-<li>ie6的默认CSS样式，涉及到border的有border-style:inset;border-width:2px;浏览器根据自己的内核解析规则，先解析自身的默认CSS，再解析开发者书写的CSS，达到渲染标签的目的。IE6对INPUT的渲染存在bug，border:none;不被解析，当有border-width或border-color设置的时候才会令IE6去解析border-style:none;。</li>
-<li>解决方案：border:0或border:0 none;或border:none:border-color:transparent;，推荐用第三种方案。</li>
+<h2 id="微格式"><a href="#微格式" class="headerlink" title="微格式"></a>微格式</h2><blockquote>
+<p>微格式（Microformats）是一种让机器可读的语义化XHTML词汇的集合，是结构化数据的开放标准。是为特殊应用而制定的特殊格式。<br>优点：将智能数据添加到网页上，让网站内容在搜索引擎结果界面可以显示额外的提示。</p>
+</blockquote>
+<h2 id="公钥加密和私钥加密"><a href="#公钥加密和私钥加密" class="headerlink" title="公钥加密和私钥加密"></a>公钥加密和私钥加密</h2><ol>
+<li>一般情况下是指私钥用于对数据进行签名，公钥用于对签名进行验证;</li>
+<li>HTTP网站在浏览器端用公钥加密敏感数据，然后在服务器端再用私钥解密。</li>
 </ol>
-<h4 id="父子标签间用margin的问题"><a href="#父子标签间用margin的问题" class="headerlink" title="父子标签间用margin的问题"></a>父子标签间用margin的问题</h4><ol>
-<li>表现在有时除IE(6/7)外的浏览器子标签margin转移到了父标签上，IE6&amp;7下没有转移<br>测试代码：<pre><code>&lt;body&gt;
-    &lt;style type=&quot;text/css&quot;&gt;
-        .box1{
-            height:150px;
-            background:red;
-        }
-        .box1_1{
-            height:50px;
-            margin-top:50px;
-            background:yellow;
-        }
-    &lt;/style&gt;
-    &lt;div class=&quot;box1&quot;&gt;
-        &lt;div class=&quot;box1_1&quot;&gt;123321&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-</code></pre></li>
+<h2 id="WEB应用从服务器主动推送Data到客户端有那些方式"><a href="#WEB应用从服务器主动推送Data到客户端有那些方式" class="headerlink" title="WEB应用从服务器主动推送Data到客户端有那些方式"></a>WEB应用从服务器主动推送Data到客户端有那些方式</h2><ol>
+<li>html5提供的Websocket</li>
+<li>不可见的iframe</li>
+<li>WebSocket通过Flash</li>
+<li>XHR长时间连接</li>
+<li>XHR Multipart Streaming</li>
+<li>&lt;script&gt;标签的长时间连接(可跨域)</li>
 </ol>
-<p>chrome &amp; FireFox &amp; IE8 &amp; IE9下的效果为：<br><img src="http://upload-images.jianshu.io/upload_images/5285574-d5744669e059a62a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd-markdown-logo"></p>
-<p>IE6 &amp; IE7 下的效果：<br><img src="http://upload-images.jianshu.io/upload_images/5285574-c9da2e7cc5794dc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd-markdown-logo"></p>
-<p>解决办法：父子标签间的间隔建议用padding，兄弟标签间用margin。</p>
-<h4 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h4><p>假设两块div，第一块浮动而第二块没有浮动，IE6下第二块就会跑到第一块边上，并且二者之间还留有间距，但标准浏览器中是第二块重合于第一块。</p>
-<p>测试代码：</p>
-<pre><code>&lt;style type=&quot;text/css&quot;&gt;
-    div{
-        width:100px;
-        height:100px;
-        border:1px solid #CCC;
-    }
-    .one{
-        float:left;
-        height:50px;
-        background-color: red;
-    }
-    .two{
-        background-color: yellow;
-    }                
-&lt;/style&gt;
-&lt;div class=&quot;one&quot;&gt;123&lt;/div&gt;
-&lt;div class=&quot;two&quot;&gt;321&lt;/div&gt;
-</code></pre><p>chrome &amp; FireFox &amp; IE8 &amp; IE9下的效果为：<br><img src="http://upload-images.jianshu.io/upload_images/5285574-4e86b534bc0f46b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd-markdown-logo"></p>
-<p>IE6 &amp; IE7 下的效果：<br><img src="http://upload-images.jianshu.io/upload_images/5285574-7dbccd3666e5502a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd-markdown-logo"><br>解决办法：改变设计思路，如果真有两个div重合的需求，可以用下面的代码实现</p>
-<pre><code>&lt;style type=&quot;text/css&quot;&gt;
-       div{
-           width:100px;
-           height:100px;
-           border:1px solid #CCC;
-       }
-       .parent{
-           position:relative;
-       }
-       .one{
-              background-color: red;
-           position:absolute;
-           left:0;
-           top:0;
-       }
-       .two{
-           background-color: yellow;
-       }
-   &lt;/style&gt;
-   &lt;div class=&quot;parent&quot;&gt;
-       &lt;div class=&quot;one&quot;&gt;123&lt;/div&gt;
-       &lt;div class=&quot;one&quot;&gt;321&lt;/div&gt;
-   &lt;/div&gt;
-</code></pre><h4 id="父子关系的标签，子标签浮动导致父标签不再包裹子标签"><a href="#父子关系的标签，子标签浮动导致父标签不再包裹子标签" class="headerlink" title="父子关系的标签，子标签浮动导致父标签不再包裹子标签"></a>父子关系的标签，子标签浮动导致父标签不再包裹子标签</h4><pre><code>&lt;style type=&quot;text/css&quot;&gt;
-       .parent{
-           background:red;
-           border:5px solid #888;
-       }
-       .one{
-           float:left;
-           width:100px;
-           height:100px;
-           background:yellow;
-       }
-   &lt;/style&gt;
-   &lt;div class=&quot;parent&quot;&gt;
-       &lt;div class=&quot;one&quot;&gt;123321&lt;/div&gt;
-   &lt;/div&gt;
-</code></pre><p>在IE、Chrome、Firefox下都是下面的效果：<br><img src="http://upload-images.jianshu.io/upload_images/5285574-e6087060761e221d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd-markdown-logo"></p>
-<p>可以看到父元素并没有包裹子元素，这是因为float造成的，解决方案是清除浮动就行了</p>
-<pre><code>&lt;style type=&quot;text/css&quot;&gt;
-        .parent{
-            background:red;
-            border:5px solid #888;
-            zoom:1;/*--for IE--*/
-        }
-        .parent:after{ /*--for other broswer--*/
-            content:&quot;.&quot;;
-            display:block;
-            line-height:0;
-            clear:both;
-            visibility:hidden;
-        }
-        .one{
-            float:left;
-            width:100px;
-            height:100px;
-            background:yellow;
-        }
-    &lt;/style&gt;
-    &lt;div class=&quot;parent&quot;&gt;
-        &lt;div class=&quot;one&quot;&gt;123321&lt;/div&gt;
-    &lt;/div&gt;
-</code></pre><p>解决方法后效果：<br><img src="http://upload-images.jianshu.io/upload_images/5285574-a02f4ea17feee9b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd-markdown-logo"></p>
-
+<h2 id="对Node的优点和缺点提出了自己的看法"><a href="#对Node的优点和缺点提出了自己的看法" class="headerlink" title="对Node的优点和缺点提出了自己的看法"></a>对Node的优点和缺点提出了自己的看法</h2><p>优点</p>
+<ol>
+<li>因为Node是基于事件驱动和无阻塞的，所以非常适合处理并发请求，因此构建在Node上的代理服务器相比其他技术实现（如Ruby）的服务器表现要好得多。</li>
+<li>此外，与Node代理服务器交互的客户端代码是由javascript语言编写的，因此客户端和服务器端都用同一种语言编写，这是非常美妙的事情。<br>缺点<br>Node是一个相对新的开源项目，所以不太稳定，它总是一直在变，而且缺少足够多的第三方库支持。看起来，就像是Ruby/Rails当年的样子。</li>
+</ol>
+<h2 id="你有用过哪些前端性能优化的方法"><a href="#你有用过哪些前端性能优化的方法" class="headerlink" title="你有用过哪些前端性能优化的方法"></a>你有用过哪些前端性能优化的方法</h2><ol>
+<li>请求带宽：压缩文件，开启GZIP<br>当需要设置的样式很多时设置className而不是直接操作style。</li>
+<li>图片预加载，将样式表放在顶部，将脚本放在底部，加上时间戳。</li>
+<li>减少http请求次数：CSS Sprites JS、CSS源码压缩、图片大小控制合适；网页Gzip，CDN托管，data缓存 ，图片服务器。</li>
+<li>避免在页面的主体布局中使用table，table要等其中的内容完全下载之后才会显示出来，显示比div+css布局慢。</li>
+<li>缓存利用：缓存Ajax，使用CDN，使用外部js和css文件以便缓存，添加Expires头，服务端配置Etag，减少DNS查找等 </li>
+<li>前端模板 JS+数据，减少由于HTML标签导致的带宽浪费，前端用变量保存AJAX请求结果，每次操作本地变量，不用请求，减少请求次数</li>
+</ol>
+<h3 id="代码层面的优化"><a href="#代码层面的优化" class="headerlink" title="代码层面的优化"></a>代码层面的优化</h3><ol>
+<li>少用全局变量</li>
+<li>避免全局查询</li>
+<li>缓存DOM节点查找的结果</li>
+<li>用hash-table来优化查找</li>
+<li>用setTimeout来避免页面失去响应</li>
+<li>尽量避免写在HTML标签中写Style属性</li>
+<li>避免使用with(with会创建自己的作用域，会增加作用域链长度</li>
+<li>避免使用CSS Expression(css表达式)又称Dynamic properties(动态属性)</li>
+<li>用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能</li>
+<li>避免图片和iFrame等的空Src。空Src会重新加载当前页面，影响速度和效率</li>
+</ol>
+<h2 id="普通的网站统一优化思路"><a href="#普通的网站统一优化思路" class="headerlink" title="普通的网站统一优化思路"></a>普通的网站统一优化思路</h2><blockquote>
+<p>尽量向前端优化、减少数据库操作、减少磁盘IO。向前端优化指的是，在不影响功能和体验的情况下，能在浏览器执行的不要在服务端执行，能在缓存服务器上直接返回的不要到应用服务器，程序能直接取得的结果不要到外部取得，本机内能取得的数据不要到远程取，内存能取到的不要到磁盘取，缓存中有的不要去数据库查询。减少数据库操作指减少更新次数、缓存结果减少查询次数、将数据库执行的操作尽可能的让你的程序完成（例如join查询），减少磁盘IO指尽量不使用文件系统作为缓存、减少读写文件次数等。程序优化永远要优化慢的部分，换语言是无法“优化”的。</p>
+</blockquote>
+<h2 id="常见web安全及防护原理"><a href="#常见web安全及防护原理" class="headerlink" title="常见web安全及防护原理"></a>常见web安全及防护原理</h2><h3 id="sql注入原理"><a href="#sql注入原理" class="headerlink" title="sql注入原理"></a>sql注入原理</h3><blockquote>
+<p>就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。</p>
+</blockquote>
+<p>总的来说有以下几点：</p>
+<ol>
+<li>永远不要信任用户的输入，要对用户的输入进行校验，可以通过正则表达式，或限制长度，对单引号和双”-“进行转换等。</li>
+<li>永远不要使用动态拼装SQL，可以使用参数化的SQL或者直接使用存储过程进行数据查询存取。</li>
+<li>永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。</li>
+<li>不要把机密信息明文存放，请加密或者hash掉密码和敏感的信息。</li>
+</ol>
+<h3 id="XSS原理及防范"><a href="#XSS原理及防范" class="headerlink" title="XSS原理及防范"></a>XSS原理及防范</h3><blockquote>
+<p>Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 html标签或者javascript代码。</p>
+</blockquote>
+<p>比如：攻击者在论坛中放一个,看似安全的链接，骗取用户点击后，窃取cookie中的用户私密信息；或者攻击者在论坛中加一个恶意表单，当用户提交表单的时候，却把信息传送到攻击者的服务器中，而不是用户原本以为的信任站点。</p>
+<h4 id="XSS防范方法"><a href="#XSS防范方法" class="headerlink" title="XSS防范方法"></a>XSS防范方法</h4><ol>
+<li>首先代码里对用户输入的地方和变量都需要仔细检查长度和对”&lt;”,”&gt;”,”;”,”’”等字符做过滤；其次任何内容写到页面之前都必须加以encode，避免不小心把html tag 弄出来。这一个层面做好，至少可以堵住超过一半的XSS 攻击。</li>
+<li>避免直接在cookie 中泄露用户隐私，例如email、密码等等。</li>
+<li>通过使cookie 和系统ip 绑定来降低cookie 泄露后的危险。这样攻击者得到的cookie 没有实际价值，不可能拿来重放。</li>
+<li>如果网站不需要再浏览器端对cookie 进行操作，可以在Set-Cookie末尾加上HttpOnly 来防止javascript 代码直接获取cookie 。</li>
+<li>尽量采用POST 而非GET 提交表单</li>
+</ol>
+<h3 id="XSS与CSRF有什么区别吗"><a href="#XSS与CSRF有什么区别吗" class="headerlink" title="XSS与CSRF有什么区别吗"></a>XSS与CSRF有什么区别吗</h3><ol>
+<li>XSS是获取信息，不需要提前知道其他用户页面的代码和数据包。</li>
+<li>CSRF是代替用户完成指定的动作，需要知道其他用户页面的代码和数据包。<br>要完成一次CSRF攻击，受害者必须依次完成两个步骤：</li>
+</ol>
+<ul>
+<li>登录受信任网站A，并在本地生成Cookie。</li>
+<li>在不登出A的情况下，访问危险网站B。</li>
+</ul>
+<h2 id="CSRF的防御"><a href="#CSRF的防御" class="headerlink" title="CSRF的防御"></a>CSRF的防御</h2><ol>
+<li>服务端的CSRF方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。</li>
+<li>通过验证码的方法</li>
+</ol>
+<h2 id="什么是Etag"><a href="#什么是Etag" class="headerlink" title="什么是Etag"></a>什么是Etag</h2><ol>
+<li>当发送一个服务器请求时，浏览器首先会进行缓存过期判断。浏览器根据缓存过期时间判断缓存文件是否过期。</li>
+</ol>
+<ul>
+<li>情景一：若没有过期，则不向服务器发送请求，直接使用缓存中的结果，此时我们在浏览器控制台中可以看到 200 OK(from cache) ，此时的情况就是完全使用缓存，浏览器和服务器没有任何交互的。</li>
+<li>情景二：若已过期，则向服务器发送请求，此时请求中会带上①中设置的文件修改时间，和Etag</li>
+</ul>
+<ol>
+<li>然后，进行资源更新判断。服务器根据浏览器传过来的文件修改时间，判断自浏览器上一次请求之后，文件是不是没有被修改过；根据Etag，判断文件内容自上一次请求之后，有没有发生变化</li>
+</ol>
+<ul>
+<li>情形一：若两种判断的结论都是文件没有被修改过，则服务器就不给浏览器发index.html的内容了，直接告诉它，文件没有被修改过，你用你那边的缓存吧—— 304 Not Modified，此时浏览器就会从本地缓存中获取index.html的内容。此时的情况叫协议缓存，浏览器和服务器之间有一次请求交互。</li>
+<li>情形二：若修改时间和文件内容判断有任意一个没有通过，则服务器会受理此次请求，之后的操作同①<br>① 只有get请求会被缓存，post请求不会</li>
+</ul>
+<h3 id="ETag应用"><a href="#ETag应用" class="headerlink" title="ETag应用"></a>ETag应用</h3><ol>
+<li>Etag由服务器端生成，客户端通过If-Match或者说If-None-Match这个条件判断请求来验证资源是否修改。常见的是使用If-None-Match。请求一个文件的流程可能如下：</li>
+</ol>
+<ul>
+<li>第一次请求<ul>
+<li>客户端发起 HTTP GET 请求一个文件；</li>
+<li>服务器处理请求，返回文件内容和一堆Header，当然包括Etag(例如”2e681a-6-5d044840”)(假设服务器支持Etag生成和已经开启了Etag).状态码200</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>第二次请求</li>
+</ol>
+<ul>
+<li>客户端发起 HTTP GET 请求一个文件，注意这个时候客户端同时发送一个If-None-Match头，这个头的内容就是第一次请求时服务器返回的Etag：2e681a-6-5d0448402.服务器判断发送过来的Etag和计算出来的Etag匹配，因此If-None-Match为False，不返回200，返回304，客户端继续使用本地缓存</li>
+</ul>
+<h2 id="讲讲304缓存的原理"><a href="#讲讲304缓存的原理" class="headerlink" title="讲讲304缓存的原理"></a>讲讲304缓存的原理</h2><p>服务器首先产生ETag，服务器可在稍后使用它来判断页面是否已经被修改。本质上，客户端通过将该记号传回服务器要求服务器验证其（客户端）缓存。</p>
+<p>304是HTTP状态码，服务器用来标识这个文件没修改，不返回内容，浏览器在接收到个状态码后，会使用浏览器已缓存的文件</p>
+<p>客户端请求一个页面（A）。 服务器返回页面A，并在给A加上一个ETag。 客户端展现该页面，并将页面连同ETag一起缓存。 客户再次请求页面A，并将上次请求时服务器返回的ETag一起传递给服务器。 服务器检查该ETag，并判断出该页面自上次客户端请求之后还未被修改，直接返回响应304（未修改——Not Modified）和一个空的响应体。</p>
+<h2 id="git-fetch和git-pull的区别"><a href="#git-fetch和git-pull的区别" class="headerlink" title="git fetch和git pull的区别"></a>git fetch和git pull的区别</h2><ol>
+<li>git pull：相当于是从远程获取最新版本并merge到本地</li>
+<li>git fetch：相当于是从远程获取最新版本到本地，不会自动merge</li>
+</ol>
+<h2 id="说说你对MVC和MVVM的理解"><a href="#说说你对MVC和MVVM的理解" class="headerlink" title="说说你对MVC和MVVM的理解"></a>说说你对MVC和MVVM的理解</h2><h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>View 传送指令到 Controller<br>Controller 完成业务逻辑后，要求 Model 改变状态<br>Model 将新的数据发送到 View，用户得到反馈<br>所有通信都是单向的。</p>
+<h3 id="MVVC"><a href="#MVVC" class="headerlink" title="MVVC"></a>MVVC</h3><p>Angular它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。<br>组成部分Model、View、ViewModel<br>View：UI界面<br>ViewModel：它是View的抽象，负责View与Model之间信息转换，将View的Command传送到Model；<br>Model：数据访问层</p>
+<h2 id="说说mongoDB和MySQL的区别"><a href="#说说mongoDB和MySQL的区别" class="headerlink" title="说说mongoDB和MySQL的区别"></a>说说mongoDB和MySQL的区别</h2><ol>
+<li>MySQL是传统的关系型数据库，MongoDB则是非关系型数据库</li>
+<li>mongodb以BSON结构（二进制）进行存储，对海量数据存储有着很明显的优势。</li>
+<li>对比传统关系型数据库,NoSQL有着非常显著的性能和扩展性优势，与关系型数据库相比，MongoDB的优点有：①弱一致性（最终一致），更能保证用户的访问速度： ②文档结构的存储方式，能够更便捷的获取数据。</li>
+</ol>
+<h2 id="关于Http-2-0-你知道多少"><a href="#关于Http-2-0-你知道多少" class="headerlink" title="关于Http 2.0 你知道多少"></a>关于Http 2.0 你知道多少</h2><ol>
+<li>HTTP/2引入了“服务端推（server push）”的概念，它允许服务端在客户端需要数据之前就主动地将数据发送到客户端缓存中，从而提高性能。</li>
+<li>HTTP/2提供更多的加密支持</li>
+<li>HTTP/2使用多路技术，允许多个消息在一个连接上同时交差。</li>
+<li>它增加了头压缩（header compression），因此即使非常小的请求，其请求和响应的header都只会占用很小比例的带宽。</li>
+</ol>
+<h2 id="http状态码有哪些？分别代表是什么意思？"><a href="#http状态码有哪些？分别代表是什么意思？" class="headerlink" title="http状态码有哪些？分别代表是什么意思？"></a>http状态码有哪些？分别代表是什么意思？</h2><p>100  Continue  继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息<br>200  OK         正常返回信息<br>201  Created    请求成功并且服务器创建了新的资源<br>202  Accepted   服务器已接受请求，但尚未处理<br>301  Moved Permanently  请求的网页已永久移动到新位置。<br>302  Found      临时性重定向。<br>303  See Other  临时性重定向，且总是使用 GET 请求新的 URI。<br>304  Not Modified 自从上次请求后，请求的网页未修改过。<br>400  Bad Request  服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。<br>401  Unauthorized 请求未授权。<br>403  Forbidden  禁止访问。<br>404  Not Found  找不到如何与 URI 相匹配的资源。<br>500  Internal Server Error  最常见的服务器端错误。<br>503  Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。</p>
+</script></head></p></blockquote>
       
     </div>
 
@@ -580,6 +603,8 @@
         <div class="post-tags">
           
             <a href="/tags/计算机网络/" rel="tag">#计算机网络</a>
+          
+            <a href="/tags/IE6兼容/" rel="tag">#IE6兼容</a>
           
         </div>
       
@@ -682,7 +707,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -765,7 +790,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么"><span class="nav-text">一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP传输的三次握手"><span class="nav-text">TCP传输的三次握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP传输的四次挥手策略"><span class="nav-text">TCP传输的四次挥手策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP和HTTPS"><span class="nav-text">HTTP和HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么HTTPS安全"><span class="nav-text">为什么HTTPS安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络分层里七层模型是哪七层"><span class="nav-text">网络分层里七层模型是哪七层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每一层的作用"><span class="nav-text">每一层的作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种协议"><span class="nav-text">各种协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webSocket如何兼容低浏览器"><span class="nav-text">webSocket如何兼容低浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网页验证码的作用（为了解决什么安全问题）"><span class="nav-text">网页验证码的作用（为了解决什么安全问题）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#经常遇到的浏览器兼容问题"><span class="nav-text">经常遇到的浏览器兼容问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不同浏览器的标签默认的外补丁和内补丁不同"><span class="nav-text">不同浏览器的标签默认的外补丁和内补丁不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#块属性标签float后，又有横行的margin情况下，在IE6显示margin比设置的大"><span class="nav-text">块属性标签float后，又有横行的margin情况下，在IE6显示margin比设置的大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度"><span class="nav-text">设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#行内属性标签，设置display-block后采用float布局，又有横行的margin的情况，IE6间距bug"><span class="nav-text">行内属性标签，设置display:block后采用float布局，又有横行的margin的情况，IE6间距bug</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片默认有间距"><span class="nav-text">图片默认有间距</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签最低高度设置min-height不兼容"><span class="nav-text">标签最低高度设置min-height不兼容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#min-height在IE6下不起作用"><span class="nav-text">min-height在IE6下不起作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#透明度的兼容CSS设置"><span class="nav-text">透明度的兼容CSS设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-有href属性-标签嵌套下的img标签，在IE下会带有边框"><span class="nav-text">a(有href属性)标签嵌套下的img标签，在IE下会带有边框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#border默认CSS样式"><span class="nav-text">border默认CSS样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父子标签间用margin的问题"><span class="nav-text">父子标签间用margin的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动"><span class="nav-text">浮动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父子关系的标签，子标签浮动导致父标签不再包裹子标签"><span class="nav-text">父子关系的标签，子标签浮动导致父标签不再包裹子标签</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么"><span class="nav-text">一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP传输的三次握手"><span class="nav-text">TCP传输的三次握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP传输的四次挥手策略"><span class="nav-text">TCP传输的四次挥手策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP和HTTPS"><span class="nav-text">HTTP和HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么HTTPS安全"><span class="nav-text">为什么HTTPS安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络分层里七层模型是哪七层"><span class="nav-text">网络分层里七层模型是哪七层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每一层的作用"><span class="nav-text">每一层的作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种协议"><span class="nav-text">各种协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webSocket如何兼容低浏览器"><span class="nav-text">webSocket如何兼容低浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网页验证码的作用（为了解决什么安全问题）"><span class="nav-text">网页验证码的作用（为了解决什么安全问题）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么利用多个域名来存储网站资源会更有效"><span class="nav-text">为什么利用多个域名来存储网站资源会更有效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对网站的文件和资源进行优化"><span class="nav-text">对网站的文件和资源进行优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对网页标准和标准制定机构重要性的理解"><span class="nav-text">对网页标准和标准制定机构重要性的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有哪些地方会有缓存处理"><span class="nav-text">有哪些地方会有缓存处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化图片的加载"><span class="nav-text">优化图片的加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理所有CSS文件、JS与图片"><span class="nav-text">管理所有CSS文件、JS与图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是FOUC（无样式内容闪烁）？你如何来避免-FOUC？"><span class="nav-text">什么是FOUC（无样式内容闪烁）？你如何来避免 FOUC？</span></a></li></ol></div>
             
           </div>
         </section>

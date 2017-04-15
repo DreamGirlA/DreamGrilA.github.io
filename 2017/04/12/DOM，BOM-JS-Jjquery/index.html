@@ -72,7 +72,7 @@ getEleme">
 • DOM的全称是Document Object Model 文档对象模型，DOM定义了表示和修改文档所需的对象、这些对象的行为和属性以及这些对象之间的关系。• DOM对象即为宿主对象，由浏览器厂商定义，用来操作html的css功能的一类对象和集合。不过浏览器厂商之间大部分都遵循w3c标准。• 简单来说，DOM就是用来操作html和css的，它是一系列对象的集合。
 
 getEleme">
-<meta property="og:updated_time" content="2017-04-13T16:03:54.923Z">
+<meta property="og:updated_time" content="2017-04-15T14:49:23.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端知识总结（DOM，BOM,JS,jquery）">
 <meta name="twitter:description" content="DOM篇定义
@@ -601,6 +601,13 @@ function retParent (e, n) {
 <li>队列操作的方法  shift unshift</li>
 <li>栈操作 pop push</li>
 </ol>
+<p>栈和堆</p>
+<ol>
+<li>栈区（stack）—  由编译器自动分配释放  ，存放函数的参数值，局部变量的值等。</li>
+<li>堆区（heap）  —  一般由程序员分配释放，  若程序员不释放，程序结束时可能由OS回收。</li>
+<li>堆（数据结构）：堆可以被看成是一棵树，如：堆排序；</li>
+<li>栈（数据结构）：一种先进后出的数据结构。</li>
+</ol>
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>var list = [0,1,2]</p>
 <ol>
 <li>shift()：删除数组的第一个元素,返回删除的值。这里是0</li>
@@ -1038,10 +1045,12 @@ document.getElementById(&quot;myDiv&quot;).addEventListener(&quot;click&quot;,fu
 <h4 id="CommonJs"><a href="#CommonJs" class="headerlink" title="CommonJs"></a>CommonJs</h4><ol>
 <li>CommonJS是服务器模块的规范，Node.js采用了这个规范。根据CommonJS规范，一个单独的文件就是一个模块，每一个模块都是一个单独的作用域，</li>
 <li>在一个文件定义的变量（还包括函数和类），都是私有的，对其他文件是不可见的。CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。</li>
+<li>CommonJS的风格通过对module.exports或exports的属性赋值来达到暴露模块对象的目的。</li>
 </ol>
 <h4 id="AMD-RequireJS"><a href="#AMD-RequireJS" class="headerlink" title="AMD (RequireJS)"></a>AMD (RequireJS)</h4><ol>
 <li>由于Node.js主要用于服务器编程，模块文件一般都已经存在于本地硬盘，所以加载起来比较快，不用考虑非同步加载的方式，因此CommonJS规范比较适用。</li>
 <li>但是，如果是浏览器环境，要从服务器端加载模块，这时就必须采用非同步模式，因此浏览器端一般采用AMD规范。</li>
+<li>AMD规范则是非同步加载模块，允许指定回调函数。AMD推荐的风格通过返回一个对象做为模块对象来达到暴露模块对象的目的</li>
 </ol>
 <h4 id="CMD-SeaJS"><a href="#CMD-SeaJS" class="headerlink" title="CMD (SeaJS)"></a>CMD (SeaJS)</h4><ol>
 <li>CMD规范和AMD类似，都主要运行于浏览器端，写法上看起来也很类似。</li>
@@ -1221,7 +1230,7 @@ document.getElementById(&quot;myDiv&quot;).addEventListener(&quot;click&quot;,fu
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
