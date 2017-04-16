@@ -72,7 +72,7 @@ getEleme">
 • DOM的全称是Document Object Model 文档对象模型，DOM定义了表示和修改文档所需的对象、这些对象的行为和属性以及这些对象之间的关系。• DOM对象即为宿主对象，由浏览器厂商定义，用来操作html的css功能的一类对象和集合。不过浏览器厂商之间大部分都遵循w3c标准。• 简单来说，DOM就是用来操作html和css的，它是一系列对象的集合。
 
 getEleme">
-<meta property="og:updated_time" content="2017-04-16T04:25:23.800Z">
+<meta property="og:updated_time" content="2017-04-16T09:00:16.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端知识总结（DOM，BOM,JS,jquery）">
 <meta name="twitter:description" content="DOM篇定义
@@ -679,14 +679,8 @@ A：没有！
 <li>对于html的标准属性来说，attribute和property是同步的，是会自动更新的，</li>
 <li>但是对于自定义的属性来说，他们是不同步的，</li>
 </ol>
-<h2 id="在JS中什么是伪数组？如何将伪数组转化为标准数组？"><a href="#在JS中什么是伪数组？如何将伪数组转化为标准数组？" class="headerlink" title="在JS中什么是伪数组？如何将伪数组转化为标准数组？"></a>在JS中什么是伪数组？如何将伪数组转化为标准数组？</h2><p>伪数组（类数组）：无法直接调用数组方法或期望length属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的argument参数，还有像调用getElementsByTagName,document.childNodes之类的,它们都返回NodeList对象都属于伪数组。可以使用Array.prototype.slice.call(fakeArray)将数组转化为真正的Array对象。<br>假设接第八题题干，我们要给每个log方法添加一个”(app)”前缀。<br>比如’hello world!’ -&gt;’(app)hello world!’<br>方法如下：</p>
-<pre><code>function log(){
- var args = Array.prototype.slice.call(arguments); 
- //为了使用unshift数组方法，将argument转化为真正的数组
- args.unshift(&apos;(app)&apos;);
- console.log.apply(console, args);
- };
-</code></pre><h2 id="new操作符具体做了什么"><a href="#new操作符具体做了什么" class="headerlink" title="new操作符具体做了什么"></a>new操作符具体做了什么</h2><ol>
+<h2 id="在JS中什么是伪数组？如何将伪数组转化为标准数组？"><a href="#在JS中什么是伪数组？如何将伪数组转化为标准数组？" class="headerlink" title="在JS中什么是伪数组？如何将伪数组转化为标准数组？"></a>在JS中什么是伪数组？如何将伪数组转化为标准数组？</h2><p>伪数组（类数组）：无法直接调用数组方法或期望length属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的argument参数，还有像调用getElementsByTagName,document.childNodes之类的,它们都返回NodeList对象都属于伪数组。可以使用Array.prototype.slice.call(fakeArray)将数组转化为真正的Array对象。</p>
+<h2 id="new操作符具体做了什么"><a href="#new操作符具体做了什么" class="headerlink" title="new操作符具体做了什么"></a>new操作符具体做了什么</h2><ol>
 <li>创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。</li>
 <li>属性和方法被加入到 this 引用的对象中。</li>
 <li>新创建的对象由 this 所引用，并且最后隐式的返回 this 。</li>
@@ -1662,7 +1656,7 @@ $(&quot;&quot;).stringifyArray(array);//调用
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1672,7 +1666,7 @@ $(&quot;&quot;).stringifyArray(array);//调用
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
