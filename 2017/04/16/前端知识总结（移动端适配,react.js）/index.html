@@ -1,0 +1,854 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="移动端适配,react.js," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Candice Yu_个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="移动端适配问题meta标签 &amp;lt;meta name=”viewport” content=”width=device-width”/&amp;gt;
+meta viewport 中有6个通用属性
+width 设置layout viewport的宽度 正整数或字符串 ‘width-device’
+initial-scale 设置页面的初始缩放值，数字或小数
+minimum-scale 允许用户的最小缩放">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端知识总结（移动端适配,react.js）">
+<meta property="og:url" content="http://candiceyu.com/2017/04/16/前端知识总结（移动端适配,react.js）/index.html">
+<meta property="og:site_name" content="Candice Yu_个人博客">
+<meta property="og:description" content="移动端适配问题meta标签 &amp;lt;meta name=”viewport” content=”width=device-width”/&amp;gt;
+meta viewport 中有6个通用属性
+width 设置layout viewport的宽度 正整数或字符串 ‘width-device’
+initial-scale 设置页面的初始缩放值，数字或小数
+minimum-scale 允许用户的最小缩放">
+<meta property="og:updated_time" content="2017-04-16T15:05:24.262Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端知识总结（移动端适配,react.js）">
+<meta name="twitter:description" content="移动端适配问题meta标签 &amp;lt;meta name=”viewport” content=”width=device-width”/&amp;gt;
+meta viewport 中有6个通用属性
+width 设置layout viewport的宽度 正整数或字符串 ‘width-device’
+initial-scale 设置页面的初始缩放值，数字或小数
+minimum-scale 允许用户的最小缩放">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://candiceyu.com/2017/04/16/前端知识总结（移动端适配,react.js）/"/>
+
+  <title> 前端知识总结（移动端适配,react.js） | Candice Yu_个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?516d783fb114015b9b38b2ce58b5fe15";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Candice Yu_个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Candice Yu</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/aboutMe" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端知识总结（移动端适配,react.js）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-16T22:07:46+08:00" content="2017-04-16">
+              2017-04-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/16/前端知识总结（移动端适配,react.js）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/16/前端知识总结（移动端适配,react.js）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="移动端适配问题"><a href="#移动端适配问题" class="headerlink" title="移动端适配问题"></a>移动端适配问题</h1><h2 id="meta标签"><a href="#meta标签" class="headerlink" title="meta标签"></a>meta标签</h2><p> &lt;meta name=”viewport” content=”width=device-width”/&gt;</p>
+<h3 id="meta-viewport-中有6个通用属性"><a href="#meta-viewport-中有6个通用属性" class="headerlink" title="meta viewport 中有6个通用属性"></a>meta viewport 中有6个通用属性</h3><ol>
+<li>width 设置layout viewport的宽度 正整数或字符串 ‘width-device’</li>
+<li>initial-scale 设置页面的初始缩放值，数字或小数</li>
+<li>minimum-scale 允许用户的最小缩放值 数字或小数</li>
+<li>maximum-scale 允许用户的最大缩放值 数字或小数</li>
+<li>height 设置layout viewport 的高度，这个属性很少用到</li>
+<li>user-scaleabel 是否允许用户进行缩放 ‘no’或‘yes’ 还有2个需要特别注意的两个属性</li>
+</ol>
+<h2 id="rem-vw-vh"><a href="#rem-vw-vh" class="headerlink" title="rem vw vh"></a>rem vw vh</h2><ol>
+<li>&lt;rem/&gt;是以document.documentElement(即html标签)的font-size为基准的，举例说明：<br>html的font-size：10px;那么1rem = 10px</li>
+<li>vw: 将视口宽度分成100份 width：100vw 表示铺满视口宽度</li>
+<li>vh： 将视口高度分成100份</li>
+</ol>
+<h2 id="弹性盒子"><a href="#弹性盒子" class="headerlink" title="弹性盒子"></a>弹性盒子</h2><ol>
+<li>这是我认为css3中最重要的一部分。我们在移动端开发的时候，由于手机的大小都各不相同，所以我们的元素不能定宽，要用弹性盒子来按照百分比分配元素的宽度。</li>
+<li>我们给父级的display设置成flex之后，就让父元素变成了一个弹性盒子，里面的子元素都可以使用flex属性了。</li>
+<li>这个时候，所有的元素会自动变成一行，因为加上display：flex之后还会默认加上一个flex-wrap：nowrap，即不换行，这个时候如果子元素的总宽度大于父元素的宽度，就会压缩子元素，让它们可以在父级容器中排成一行。<br>如果改成wrap值，那么超过容器的宽度之后就会换行了。</li>
+<li>flex属性是一个复合属性,它包括flex-grow、flex-shrink、flex-basis</li>
+<li>flex-grow: 按比例分配剩余空间。</li>
+<li>flex-shrink:设置收缩比例，多出盒子的部分按照比例的大小去掉相应的大小，比例越大，削减的越多</li>
+<li>flex-basis:伸缩基准值。该属性设置元素的宽度，如果同时出现了width和该属性，那么会覆盖掉width属性的值。</li>
+<li>子元素的宽度尽可能按照basis来，如果基准值相加大于容器的宽度，那么由下面的公式分配宽度给子元素：basis/(basis的总和) * 容器的宽度;justify-content:center  align-items:center<br>这两个属性同时在父级中设置的时候，会让子元素在父级中水平垂直居中，其中justify-content是设置水平方向，align-item是设置垂直方向。</li>
+<li>注意:flexbox布局和原来的布局是两个概念，部分css属性在flexbox盒子里面不起作用，eg：float， clear， column,vertical-align 等等</li>
+</ol>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><p>媒体查询是向不同设备提供不同样式的一种不错方式，它为每种类型的用户提供了最佳的体验。<br>Media Queries（媒体查询）是CSS3新增加的一个模块功能，其最大的特色就是通过CSS3来查询媒体，然后调用对应的样式。作为CSS3规范的一部分，媒体查询扩展了media属性</p>
+<ol>
+<li>设置Meta标签<br>首先我们在使用Media的时候需要先设置下面这段代码，来兼容移动设备的展示效果：<br>&lt;meta name=”viewport” content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no”/&gt;</li>
+<li>引入方式<br>&lt;Link media=”screen”&gt; @import URL（） screen  @media</li>
+<li>“Media所有参数汇总”<br>以上就是我们最常需要用到的媒体查询器的三个特性，大于，等于，小于的写法。媒体查询器的全部功能肯定不止这三个功能，下面是我总结的它的一些参数用法解释：</li>
+</ol>
+<ul>
+<li>width:浏览器可视宽度。</li>
+<li>height:浏览器可视高度。</li>
+<li>device-width:设备屏幕的宽度。</li>
+<li>device-height:设备屏幕的高度。</li>
+<li>orientation:检测设备目前处于横向还是纵向状态。</li>
+<li>aspect-ratio:检测浏览器可视宽度和高度的比例。(例如：aspect-ratio:16/9)</li>
+<li>device-aspect-ratio:检测设备的宽度和高度的比例。</li>
+<li>color:检测颜色的位数。（例如：min-color:32就会检测设备是否拥有32位颜色）</li>
+<li>color-index:检查设备颜色索引表中的颜色，他的值不能是负数。</li>
+<li>monochrome:检测单色楨缓冲区域中的每个像素的位数。（这个太高级，估计咱很少会用的到）</li>
+<li>resolution:检测屏幕或打印机的分辨率。(例如：min-resolution:300dpi或min-resolution:118dpcm)。</li>
+<li>grid:检测输出的设备是网格的还是位图设备。</li>
+</ul>
+<h2 id="meta-标签"><a href="#meta-标签" class="headerlink" title="meta 标签"></a>meta 标签</h2><blockquote>
+<p>meta常用于定义页面的说明，关键字，最后修改日期，和其它的元数据。这些元数据将服务于浏览器（如何布局或重载页面），搜索引擎和其它网络服务。<br>meta标签共有两个属性，分别是http-equiv属性和name属性。</p>
+</blockquote>
+<h3 id="name属性-主要用来描述网页-网页的关键词，叙述"><a href="#name属性-主要用来描述网页-网页的关键词，叙述" class="headerlink" title="name属性  主要用来描述网页 网页的关键词，叙述"></a>name属性  主要用来描述网页 网页的关键词，叙述</h3><p>有以下几种参数:<br>&lt;meta name=”keywords”content=”xxx”/&gt;说明：用于告诉搜索引擎，你网页的关键字。<br>&lt;meta name=”description”content=”xxxx”/&gt; 用于告诉搜索引擎，你网站的主要内容<br>&lt;meta name=”viewport” content=”width=device-width, initial-scale=1”/&gt;常用于设计移动端网页<br>&lt;meta name=”robots” content=”none”/&gt; 定义搜索引擎爬虫的索引方式<br>说明：robots用来告诉爬虫哪些页面需要索引，哪些页面不需要索引。content的参数有all,none,index,noindex,follow,nofollow。默认是all</p>
+<ol>
+<li>none : 搜索引擎将忽略此网页，等价于noindex，nofollow。</li>
+<li>noindex : 搜索引擎不索引此网页。</li>
+<li>nofollow: 搜索引擎不继续通过此网页的链接索引搜索其它的网页。</li>
+<li>all : 搜索引擎将索引此网页与继续通过此网页的链接索引，等价于index，follow。</li>
+<li>index : 搜索引擎索引此网页。</li>
+<li>follow : 搜索引擎继续通过此网页的链接索引搜索其它的网页。<br>&lt;meta name=”author”content=”Lxxyx,841380530@qq.com”/&gt;说明：用于标注网页作者举例<br>&lt;meta name=”renderer” content=”webkit”/&gt; //默认webkit内核<br>&lt;meta name=”renderer” content=”ie-comp”/&gt; //默认IE兼容模式<br>&lt;meta name=”renderer” content=”ie-stand”/&gt; //默认IE标准模<br>说明：renderer是为双核浏览器准备的，用于指定双核浏览器默认以何种方式渲染页面</li>
+</ol>
+<h3 id="http-equiv属性-相当于http的文件头作用"><a href="#http-equiv属性-相当于http的文件头作用" class="headerlink" title="http-equiv属性 相当于http的文件头作用"></a>http-equiv属性 相当于http的文件头作用</h3><p>有以下几种参数:(设定网页字符集)(推荐使用HTML5的方式)</p>
+<ol>
+<li>&lt;meta   http-equiv=”content-Type”charset=”utf-8”/&gt;<br>说明：用于设定网页字符集，便于浏览器解析与渲染页面</li>
+<li>&lt;meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1”/&gt;<br>//指定IE和Chrome使用最新版本渲染当前页面<br>说明：用于告知浏览器以何种版本来渲染页面。（一般都设置为最新模式，在各大框架中这个设置也很常见。）</li>
+<li>&lt;meta http-equiv=”expires” content=”Sunday 26 October 2016 01:00 GMT”/&gt;<br>说明:用于设定网页的到期时间，过期后网页必须到服务器上重新传输。</li>
+<li>&lt;meta http-equiv=”Set-Cookie” content=”name, date”/&gt;<br>//格式 说明：如果网页过期。那么这个网页存在本地的cookies也会被自动删除。</li>
+<li>&lt;meta http-equiv=”Set-Cookie” content=”User=Lxxyx; path=/; expires=Sunday, 10-Jan-16 10:00:00 GMT”/&gt; </li>
+<li>&lt;meta http-equiv=”refresh” content=”2；URL=<a href="http://www.lxxyx.win/&quot;/&gt;" target="_blank" rel="external">http://www.lxxyx.win/&quot;/&gt;</a><br>//自动刷新并指向某页面<br>说明：网页将在设定的时间内，自动刷新并调向设定的网址</li>
+</ol>
+<h2 id="cache-control"><a href="#cache-control" class="headerlink" title="cache-control"></a>cache-control</h2><p>cache-control指定请求和响应遵循的缓存机制</p>
+<h3 id="用法1"><a href="#用法1" class="headerlink" title="用法1"></a>用法1</h3><p>说明：指导浏览器如何缓存某个响应以及缓存多长时间。<br>举例:<br>&lt;meta http-equiv=”cache-control” content=”no-cache”/&gt;<br>共有以下几种用法：</p>
+<ol>
+<li>no-cache: 先发送请求，与服务器确认该资源是否被更改，如果未被更改，则使用缓存。</li>
+<li>no-store: 不允许缓存，每次都要去服务器上，下载完整的响应。（安全措施）</li>
+<li>public : 缓存所有响应，但并非必须。因为max-age也可以做到相同效果</li>
+<li>private : 只为单个用户缓存，因此不允许任何中继进行缓存。（比如说CDN就不允许缓存private的响应）</li>
+<li>maxage : 表示当前请求开始，该响应在多久内能被缓存和重用，而不去服务器重新请求。<br>例如：max-age=60表示响应可以再缓存和重用 60 秒。</li>
+</ol>
+<h3 id="用法2-禁止百度自动转码"><a href="#用法2-禁止百度自动转码" class="headerlink" title="用法2.(禁止百度自动转码)"></a>用法2.(禁止百度自动转码)</h3><p>说明：用于禁止当前页面在移动端浏览时，被百度自动转码。虽然百度的本意是好的，但是转码效果很多时候却不尽人意。所以可以在head中加入例子中的那句话，就可以避免百度自动转码了。<br>举例：&lt;meta http-equiv=”Cache-Control” content=”no-siteapp”/&gt;</p>
+<h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><blockquote>
+<p>Web设计应该做到根据不同设备环境自动响应及调整。<br>当然响应式Web设计不仅仅是关于屏幕分辨率自适应以及自动缩放的图片等等，利用媒体查询进行实现 meta标签 rem 弹性盒子</p>
+</blockquote>
+<h2 id="移动端判断左划还是右划"><a href="#移动端判断左划还是右划" class="headerlink" title="移动端判断左划还是右划"></a>移动端判断左划还是右划</h2><blockquote>
+<p>好像说判断上下滑动只要判断页面的可视区域距离页面的顶端距离在滑动过程中是变大了还是变小了即可,所以我感觉左右应该是一样的,另一种想法是判断触点移动的差值</p>
+</blockquote>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ol>
+<li>第一，当开始一个touchstart事件的时候，获取此刻手指的横坐标startX和纵坐标startY；</li>
+<li>第二，当触发touchmove事件时，在获取此时手指的横坐标moveEndX和纵坐标moveEndY,touchmove的最后坐标减去touchstart的起始坐标，X的结果如果正数，则说明手指是从左往右划动；X的结果如果负数，则说明手指是从右往左划动；Y的结果如果正数，则说明手指是从上往下划动；Y的结果如果负数，则说明手指是从下往上划动。</li>
+<li>这再逻辑上没有任何问题。但在实际操作中，手指的上下滑动其实是很难直上直下的，只要稍微有点斜，就会被X轴的判断先行接管。</li>
+<li>增加的判断，在判断横纵坐标的差值的基础上，再判断一下他俩的绝对值哪个大哪个小就可以。判断哪个的差值比较大。</li>
+</ol>
+<hr>
+<h1 id="React-js"><a href="#React-js" class="headerlink" title="React.js"></a>React.js</h1><h2 id="React的原理和背景"><a href="#React的原理和背景" class="headerlink" title="React的原理和背景"></a>React的原理和背景</h2><ol>
+<li>React不是完整的MVC，MVVM框架，特点就是轻，组件高度可重用，React中最重要的就是引入了虚拟DOM的机制。</li>
+<li>在Web开发中，我们总需要把变化的数据实时反映到页面的UI上，改变UI就需要操作DOM，而复杂又频繁的DOM操作通常是性能产生瓶颈的原因，因此React引入了虚拟DOM的机制：在客户端js实现了一套DOM API。</li>
+<li>基于React进行开发时，所有的DOM构造都是通过虚拟DOM进行的，每当数据发生变化时，React都会进行重新构建整个虚拟DOM树，然后React将当前整个虚拟DOM树和上一次的DOM树进行比较，得到DOM结构哪里发生了变化，然后仅仅将需要变化的部分在浏览器上进行更新。</li>
+<li>这个算法叫做Diff算法，这是一种基于红黑树的算法，它会计算虚拟DOM到实际渲染DOM结构的最少步骤。</li>
+<li>而且React能够批处理虚拟DOM的刷新，在一个事件循环内的两次数据变化都会合并。比如在极短的时间内，一个节点先从A变成B，再从B变回A，那么React会认为UI没有发生变化。</li>
+<li>尽管每一次都需要构造完整的DOM树，但是因为虚拟DOM是内存数据，性能极高，因而能达到提高性能的目的。并且在保证性能的同时，开发者将不再需要关注某个数据的变化如何更新到一个或者多个具体的DOM元素上，值需要关心在一个数据状态下，整个界面是如何渲染的。</li>
+</ol>
+<h2 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h2><ol>
+<li>编译器——jsxTransformer<br>JSX代码并不能直接运行，需要将它编译成正常的JavaScript表达式才能运行，jsxTransformer.js就是这一编译器的角色。</li>
+<li>第二代编译器——babel<br>&lt;script type=”text/babel”&gt;<br>React官方博客发布了一篇文章，声明其自身用于JSX语法解析的编译器JSTransform已经过期，不再维护，React JS和React Native已经全部采用第三方Babel的JSX编译器实现。原因是两者在功能上已经完全重复，而Babel作为专门的JavaScript语法编译工具，提供了更为强大的功能。而browser.js是babel编译器的浏览器版本。<br>2.1 &lt;script&gt; 标签的 type 属性为 text/babel 。这是因为 React 独有的 JSX 语法，跟 JavaScript 不兼容。凡是使用 JSX 的地方，都要加上 type=”text/babel”<br>react.js 、react-dom.js 和 Browser.js ，它们必须首先加载。<br>2.2 react.js 是 React 的核心库，react-dom.js 是提供与 DOM 相关的功能，Browser.js的作用是将JSX语法转为JavaScript语法，这一步很消耗时间，实际上线的时候，应该将它放到服务器完成。</li>
+</ol>
+<h2 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h2><ol>
+<li><p>使用 JSX 来替代常规的 JavaScript。JSX 是一个看起来很像 XML 的 JavaScript 语法扩展。我们不需要一定使用 JSX，但它有以下优点：</p>
+<ul>
+<li>JSX 执行更快，因为它在编译为 JavaScript 代码后进行了优化。</li>
+<li>它是类型安全的，在编译过程中就能发现错误。</li>
+<li>使用 JSX 编写模板更加简单快速。</li>
+</ul>
+</li>
+<li><p>JSX 允许在模板中插入数组，数组会自动展开所有成员</p>
+<pre><code>var arr = [
+  &lt;h1&gt;123&lt;/h1&gt;,
+  &lt;h2&gt;321&lt;/h2&gt;,
+];
+&lt;div&gt;{arr}&lt;/div&gt; 
+</code></pre></li>
+</ol>
+<h2 id="React-State-状态"><a href="#React-State-状态" class="headerlink" title="React State(状态)"></a>React State(状态)</h2><ol>
+<li>React 把组件看成是一个状态机（State Machines）。通过与用户的交互，实现不同状态，然后渲染 UI，让用户界面和数据保持一致。</li>
+<li>React 里，只需更新组件的 state，然后根据新的 state 重新渲染用户界面（不要操作 DOM）。</li>
+<li>创建了 XXX 组件，getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过 this.state 属性读取。当用户点击组件，导致状态变化，this.setState 方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件。</li>
+</ol>
+<h2 id="React-Props"><a href="#React-Props" class="headerlink" title="React Props"></a>React Props</h2><blockquote>
+<p>state 和 props 主要的区别在于props是不可变的，而state可以根据与用户交互来改变。这就是为什么有些容器组件需要定义 state 来更新和修改数据。 而子组件只能通过 props 来传递数据。</p>
+</blockquote>
+<ol>
+<li>Props 验证使用 propTypes，它可以保证我们的应用组件被正确使用，React.PropTypes 提供很多验证器 (validator) 来验证传入数据是否有效。当向 props 传入无效数据时，JavaScript 控制台会抛出警告。</li>
+<li>props相当于组件的数据流，它总是会从父组件向下传递至所有的子组件中。当和一个外部的JavaScript应用集成时，我们可能会需要向组件传递数据或通知React.render()组件需要重新渲染，可以使用setProps()。</li>
+<li>组件并不是真实的 DOM 节点，而是存在于内存之中的一种数据结构，叫做虚拟DOM（virtualDOM）。只有当它插入文档以后，才会变成真实的DOM。根据React的设计，所有的DOM变动，都先在虚拟DOM上发生，然后再将实际发生变动的部分，反映在真实DOM上，这种算法叫做 DOM diff ，它可以极大提高网页的性能表现。</li>
+</ol>
+<h2 id="React-组件-API"><a href="#React-组件-API" class="headerlink" title="React 组件 API"></a>React 组件 API</h2><p>设置状态：setState<br>替换状态：replaceState<br>设置属性：setProps<br>替换属性：replaceProps<br>强制更新：forceUpdate<br>获取DOM节点：findDOMNode<br>判断组件挂载状态：isMounted</p>
+<p>所谓组件，即封装起来的具有独立功能的UI部件。React推荐以组件的方式去重新思考UI构成，将UI上每一个功能相对独立的模块定义成组件，然后将小的组件通过组合或者嵌套的方式构成大的组件，最终完成整体UI的构建。</p>
+<p>将组件看成是一个状态机，一开始有一个初始状态，然后用户互动，导致状态变化，从而触发重新渲染 UI</p>
+<h2 id="React组件应该具有特征"><a href="#React组件应该具有特征" class="headerlink" title="React组件应该具有特征"></a>React组件应该具有特征</h2><ol>
+<li>可组合（Composeable）：一个组件易于和其它组件一起使用，或者嵌套在另一个组件内部。如果一个组件内部创建了另一个组件，那么说父组件拥有（own）它创建的子组件，通过这个特性，一个复杂的UI可以拆分成多个简单的UI组件；</li>
+<li>可重用（Reusable）：每个组件都是具有独立功能的，它可以被使用在多个UI场景；</li>
+<li>可维护（Maintainable）：每个小的组件仅仅包含自身的逻辑，更容易被理解和维护；</li>
+</ol>
+<h2 id="MVC模式"><a href="#MVC模式" class="headerlink" title="MVC模式"></a>MVC模式</h2><p>MVC的思想让你做到视图-数据-控制器的分离，那么组件化的思考方式则是带来了UI功能模块之间的分离</p>
+<h3 id="软件可以分为三个部分"><a href="#软件可以分为三个部分" class="headerlink" title="软件可以分为三个部分"></a>软件可以分为三个部分</h3><p>视图（View）：用户界面<br>控制器（Controller）：业务逻辑<br>模型（Model）：数据保存<br>各部分的通信方式：</p>
+<ul>
+<li>View传送指令到Controller</li>
+<li>Controller完成业务逻辑之后，要求Model改变状态</li>
+<li>Model将新的数据发送到View，用户得到反馈</li>
+<li>三者之间是一个三角关系，并且所有的通信都是单向的。<br>互动模式：<br>接受用户指令时，MVC可以分成两种方式，一种是通过View接受指令，传递给Controller，另一只是直接通过Controller接受指令。</li>
+</ul>
+<h2 id="说说react的优点和生命周期"><a href="#说说react的优点和生命周期" class="headerlink" title="说说react的优点和生命周期"></a>说说react的优点和生命周期</h2><ol>
+<li>React速度很快<br> React中最重要的就是引入了虚拟DOM的机制。<br> 基于React进行开发时，所有的DOM构造都是通过虚拟DOM进行的，每当数据发生变化时，React都会进行重新构建整个虚拟DOM树，然后React将当前整个虚拟DOM树和上一次的DOM树进行比较，得到DOM结构哪里发生了变化，然后仅仅将需要变化的部分在浏览器上进行更新。<br> 这个算法叫做Diff算法，这是一种基于红黑树的算法，它会计算虚拟DOM到实际渲染DOM结构的最少步骤。</li>
+<li>跨浏览器兼容<br> 虚拟DOM帮助我们解决了跨浏览器问题，它为我们提供了标准化的API，甚至在IE8中都是没问题的。</li>
+<li>模块化<br> 为你程序编写独立的模块化UI组件，这样当某个或某些组件出现问题是，可以方便地进行隔离。<br> 每个组件都可以进行独立的开发和测试，并且它们可以引入其它组件。这等同于提高了代码的可维护性。</li>
+</ol>
+<h2 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h2><p>生命周期共提供了10个不同的API。</p>
+<ol>
+<li>getDefaultProps<br>作用于组件类，只调用一次，返回对象用于设置默认的props，对于引用值，会在实例中共享。</li>
+<li>getInitialState<br>作用于组件的实例，在实例创建时调用一次，用于初始化每个实例的state，此时可以访问this.props。</li>
+<li>componentWillMount<br>在完成首次渲染之前调用，此时仍可以修改组件的state。</li>
+<li>render<br>必选的方法，创建虚拟DOM，该方法具有特殊的规则：<br>只能通过this.props和this.state访问数据<br>可以返回null、false或任何React组件<br>只能出现一个顶级组件（不能返回数组）<br>不能改变组件的状态<br>不能修改DOM的输出</li>
+<li>componentDidMount<br>真实的DOM被渲染出来后调用，在该方法中可通过this.getDOMNode()访问到真实的DOM元素。此时已可以使用其他类库来操作这个DOM。<br>在服务端中，该方法不会被调用。</li>
+<li>componentWillReceiveProps<br>组件接收到新的props时调用，并将其作为参数nextProps使用，此时可以更改组件props及state。<pre><code>componentWillReceiveProps: function(nextProps) {
+    if (nextProps.bool) {
+        this.setState({
+            bool: true
+        });
+    }
+}
+</code></pre></li>
+<li>shouldComponentUpdate<br>组件是否应当渲染新的props或state，返回false表示跳过后续的生命周期方法，通常不需要使用以避免出现bug。在出现应用的瓶颈时，可通过该方法进行适当的优化。<br>在首次渲染期间或者调用了forceUpdate方法后，该方法不会被调用</li>
+<li>componentWillUpdate<br>接收到新的props或者state后，进行渲染之前调用，此时不允许更新props或state。</li>
+<li>componentDidUpdate<br>完成渲染新的props或者state后调用，此时可以访问到新的DOM元素。</li>
+<li>componentWillUnmount<br>组件被移除之前被调用，可以用于做一些清理工作，在componentDidMount方法中添加的所有任务都需要在该方法中撤销，比如创建的定时器或添加的事件监听器。不太用，浏览器有垃圾回收机制</li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>注释需要写在花括号中 </li>
+<li>在 JSX 中不能使用 if else 语句，但可以使用 conditional (三元运算) 表达式来替代。<br>i == 1 ? ‘True!’ : ‘False’</li>
+<li>React 会在指定元素数字后自动添加 px </li>
+<li>React 推荐使用内联样式。我们可以使用 camelCase 语法来设置内联样式. </li>
+<li>React.createClass() 方法用于生成一个组件类</li>
+<li>原生 HTML 元素名以小写字母开头，而自定义的 React 类名以大写字母开头，比如 HelloMessage 不能写成 helloMessage。除此之外还需要注意组件类只能包含一个顶层标签，否则也会报错。 通过创建多个组件来合成一个组件，即把组件的不同功能点进行分离</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>博主会持续更新，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixinprice.png" alt="Candice Yu WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zhifubaoprice.jpg" alt="Candice Yu Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/移动端适配/" rel="tag">#移动端适配</a>
+          
+            <a href="/tags/react-js/" rel="tag">#react.js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/16/性能优化,兼容问题,JS代码实现/" rel="next" title="性能优化,兼容问题,JS代码实现">
+                <i class="fa fa-chevron-left"></i> 性能优化,兼容问题,JS代码实现
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/16/前端知识总结（移动端适配,react.js）/"
+           data-title="前端知识总结（移动端适配,react.js）" data-url="http://candiceyu.com/2017/04/16/前端知识总结（移动端适配,react.js）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Candice Yu" />
+          <p class="site-author-name" itemprop="name">Candice Yu</p>
+          <p class="site-description motion-element" itemprop="description">I don’t want to earn my living; i want to live.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/dreamgirla" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/5329295f3aea/timeline" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-jianshu"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/#signin" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://carryguan.me/" title="Carry" target="_blank">Carry</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yuanguangxin.me/" title="yuanguangxin" target="_blank">yuanguangxin</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#移动端适配问题"><span class="nav-text">移动端适配问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#meta标签"><span class="nav-text">meta标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#meta-viewport-中有6个通用属性"><span class="nav-text">meta viewport 中有6个通用属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rem-vw-vh"><span class="nav-text">rem vw vh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弹性盒子"><span class="nav-text">弹性盒子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询"><span class="nav-text">媒体查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#meta-标签"><span class="nav-text">meta 标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#name属性-主要用来描述网页-网页的关键词，叙述"><span class="nav-text">name属性  主要用来描述网页 网页的关键词，叙述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-equiv属性-相当于http的文件头作用"><span class="nav-text">http-equiv属性 相当于http的文件头作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cache-control"><span class="nav-text">cache-control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用法1"><span class="nav-text">用法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法2-禁止百度自动转码"><span class="nav-text">用法2.(禁止百度自动转码)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式布局"><span class="nav-text">响应式布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端判断左划还是右划"><span class="nav-text">移动端判断左划还是右划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-text">原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React-js"><span class="nav-text">React.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#React的原理和背景"><span class="nav-text">React的原理和背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器"><span class="nav-text">编译器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX语法"><span class="nav-text">JSX语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-State-状态"><span class="nav-text">React State(状态)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Props"><span class="nav-text">React Props</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-组件-API"><span class="nav-text">React 组件 API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React组件应该具有特征"><span class="nav-text">React组件应该具有特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC模式"><span class="nav-text">MVC模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件可以分为三个部分"><span class="nav-text">软件可以分为三个部分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说说react的优点和生命周期"><span class="nav-text">说说react的优点和生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件生命周期"><span class="nav-text">组件生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Candice Yu</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"candiceyu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+</body>
+</html>
