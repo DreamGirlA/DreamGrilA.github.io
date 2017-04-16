@@ -76,7 +76,7 @@
 调用浏览器内核中的对应方法，比如 WebView 中的 loadUrl 方法;
 通过DNS解析获取网址的IP地址，设置 UA 等信息发出第二个GET请求;
 进行HTTP协议会话，客户端发送报头(请求报头);">
-<meta property="og:updated_time" content="2017-04-16T10:24:40.714Z">
+<meta property="og:updated_time" content="2017-04-16T13:45:33.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端相关知识总结">
 <meta name="twitter:description" content="计算机网络一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么详细版：
@@ -398,6 +398,7 @@
 <li>它增加了头压缩（header compression），因此即使非常小的请求，其请求和响应的header都只会占用很小比例的带宽。</li>
 </ol>
 <h2 id="http状态码有哪些？分别代表是什么意思？"><a href="#http状态码有哪些？分别代表是什么意思？" class="headerlink" title="http状态码有哪些？分别代表是什么意思？"></a>http状态码有哪些？分别代表是什么意思？</h2><p>100  Continue  继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息<br>200  OK         正常返回信息<br>201  Created    请求成功并且服务器创建了新的资源<br>202  Accepted   服务器已接受请求，但尚未处理<br>301  Moved Permanently  请求的网页已永久移动到新位置。<br>302  Found      临时性重定向。<br>303  See Other  临时性重定向，且总是使用 GET 请求新的 URI。<br>304  Not Modified 自从上次请求后，请求的网页未修改过。<br>400  Bad Request  服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。<br>401  Unauthorized 请求未授权。<br>403  Forbidden  禁止访问。<br>404  Not Found  找不到如何与 URI 相匹配的资源。<br>500  Internal Server Error  最常见的服务器端错误。<br>503  Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。</p>
+<hr>
 <h1 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h1><p>jsonp、 iframe、window.name、window.postMessage（HTML5）、服务器上设置代理页面</p>
 <h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><ol>
 <li>原理是：动态插入script标签，通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。</li>
@@ -424,6 +425,7 @@
 </ol>
 <h2 id="使用window-name来进行跨域"><a href="#使用window-name来进行跨域" class="headerlink" title="使用window.name来进行跨域"></a>使用window.name来进行跨域</h2><p>window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的</p>
 <h2 id="通过修改document-domain来跨子域"><a href="#通过修改document-domain来跨子域" class="headerlink" title="通过修改document.domain来跨子域"></a>通过修改document.domain来跨子域</h2><p>将子域和主域的document.domain设为同一个主域.前提条件：这两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用document.domain进行跨域。主域相同的使用document.domain</p>
+<hr>
 <h1 id="CSS和JS阻塞，JS垃圾回收"><a href="#CSS和JS阻塞，JS垃圾回收" class="headerlink" title="CSS和JS阻塞，JS垃圾回收"></a>CSS和JS阻塞，JS垃圾回收</h1><h2 id="哪些地方会出现js阻塞？"><a href="#哪些地方会出现js阻塞？" class="headerlink" title="哪些地方会出现js阻塞？"></a>哪些地方会出现js阻塞？</h2><ol>
 <li>js 的阻塞特性：所有浏览器在下载 JS 的时候，会阻止一切其他活动，比如其他资源的下载，内容的呈现等等。直到 JS 下载、解析、执行完毕后才开始继续并行下载其他资源并呈现内容。为了提高用户体验，新一代浏览器都支持并行下载 JS，但是 JS 下载仍然会阻塞其它资源的下载（例如.图片，css文件等）。</li>
 <li>由于浏览器为了防止出现 JS 修改 DOM 树，需要重新构建 DOM 树的情况，所以就会阻塞其他的下载和呈现。</li>
@@ -461,6 +463,7 @@
 <li>在低版本IE中经常会出现内存泄露，很多时候就是因为其采用引用计数方式进行垃圾回收。引用计数的策略是跟踪记录每个值被使用的次数，当声明了一个 变量并将一个引用类型赋值给该变量的时候这个值的引用次数就加1，如果该变量的值变成了另外一个，则这个值得引用次数减1，当这个值的引用次数变为0的时 候，说明没有变量在使用，这个值没法被访问了，因此可以将其占用的空间回收，这样垃圾回收器会在运行的时候清理掉引用次数为0的值占用的空间。</li>
 <li>在IE中虽然JavaScript对象通过标记清除的方式进行垃圾回收，但BOM与DOM对象却是通过引用计数回收垃圾的，也就是说只要涉及BOM及DOM就会出现循环引用问题。</li>
 </ol>
+<hr>
 <h1 id="网站重构"><a href="#网站重构" class="headerlink" title="网站重构"></a>网站重构</h1><h2 id="对网页标准和标准制定机构重要性的理解"><a href="#对网页标准和标准制定机构重要性的理解" class="headerlink" title="对网页标准和标准制定机构重要性的理解"></a>对网页标准和标准制定机构重要性的理解</h2><blockquote>
 <p>（无标准答案）网页标准和标准制定机构都是为了能让web发展的更‘健康’，开发者遵循统一的标准，降低开发难度，开发成本，SEO也会更好做，也不会因为滥用代码导致各种BUG、安全问题，最终提高网站易用性。</p>
 </blockquote>
@@ -485,6 +488,7 @@
 <li>对于JS DOM的优化</li>
 <li>HTTP服务器的文件缓存</li>
 </ol>
+<hr>
 <h1 id="常见web安全及防护原理"><a href="#常见web安全及防护原理" class="headerlink" title="常见web安全及防护原理"></a>常见web安全及防护原理</h1><h2 id="sql注入原理"><a href="#sql注入原理" class="headerlink" title="sql注入原理"></a>sql注入原理</h2><blockquote>
 <p>就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。</p>
 </blockquote>
@@ -518,6 +522,7 @@
 <li>登录受信任网站A，并在本地生成Cookie。</li>
 <li>在不登出A的情况下，访问危险网站B。</li>
 </ul>
+<hr>
 <h1 id="Etag"><a href="#Etag" class="headerlink" title="Etag"></a>Etag</h1><h2 id="什么是Etag"><a href="#什么是Etag" class="headerlink" title="什么是Etag"></a>什么是Etag</h2><ol>
 <li>当发送一个服务器请求时，浏览器首先会进行缓存过期判断。浏览器根据缓存过期时间判断缓存文件是否过期。</li>
 </ol>
@@ -561,6 +566,7 @@
 <h2 id="讲讲304缓存的原理"><a href="#讲讲304缓存的原理" class="headerlink" title="讲讲304缓存的原理"></a>讲讲304缓存的原理</h2><p>服务器首先产生ETag，服务器可在稍后使用它来判断页面是否已经被修改。本质上，客户端通过将该记号传回服务器要求服务器验证其（客户端）缓存。</p>
 <p>304是HTTP状态码，服务器用来标识这个文件没修改，不返回内容，浏览器在接收到个状态码后，会使用浏览器已缓存的文件</p>
 <p>客户端请求一个页面（A）。 服务器返回页面A，并在给A加上一个ETag。 客户端展现该页面，并将页面连同ETag一起缓存。 客户再次请求页面A，并将上次请求时服务器返回的ETag一起传递给服务器。 服务器检查该ETag，并判断出该页面自上次客户端请求之后还未被修改，直接返回响应304（未修改——Not Modified）和一个空的响应体。</p>
+<hr>
 <h1 id="其他相关知识点"><a href="#其他相关知识点" class="headerlink" title="其他相关知识点"></a>其他相关知识点</h1><h2 id="那哪些操作会造成内存泄漏"><a href="#那哪些操作会造成内存泄漏" class="headerlink" title="那哪些操作会造成内存泄漏"></a>那哪些操作会造成内存泄漏</h2><ol>
 <li>内存泄漏指任何对象在您不再拥有或需要它之后仍然存在。</li>
 <li>垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为 0（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。</li>
@@ -744,7 +750,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/12/DOM，BOM-JS-jquery/" rel="next" title="前端知识总结（DOM，BOM,JS,jquery）">
+              <a href="/2017/04/12/前端知识总结（DOM，BOM,JS,JQ）/" rel="next" title="前端知识总结（DOM，BOM,JS,jquery）">
                 <i class="fa fa-chevron-left"></i> 前端知识总结（DOM，BOM,JS,jquery）
               </a>
             
@@ -752,7 +758,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/16/性能优化,兼容问题-JS代码实现/" rel="prev" title="性能优化,兼容问题,JS代码实现">
+              <a href="/2017/04/16/性能优化,兼容问题,JS代码实现/" rel="prev" title="性能优化,兼容问题,JS代码实现">
                 性能优化,兼容问题,JS代码实现 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -832,7 +838,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

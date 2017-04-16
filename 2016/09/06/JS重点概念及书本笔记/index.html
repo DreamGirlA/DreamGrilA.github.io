@@ -1,0 +1,1367 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,作用域,词法作用域,函数作用于和块作用域,提升,作用域闭包,this,知识点," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Candice Yu_个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="JavaScript知识点
+
+
+博主学习JS时，觉得很多需要记忆的重要知识点总会忘记，想把它们记下来，博主会不断的更新到微博中，方便查找和记忆，这些知识点都是从书本，网站或者博客很多途径总结的。可能也会比较散，清大家谅解，希望可以帮助到大家，以下内容都为手打，如若有错，请指出来哦，谢谢！O(∩_∩)
+
+
+作用域
+
+首先知道，作用域是一套规则，用于确定在何处以及如何查找变量（标识符）。如果查找的目的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS重点概念及书本笔记">
+<meta property="og:url" content="http://candiceyu.com/2016/09/06/JS重点概念及书本笔记/index.html">
+<meta property="og:site_name" content="Candice Yu_个人博客">
+<meta property="og:description" content="JavaScript知识点
+
+
+博主学习JS时，觉得很多需要记忆的重要知识点总会忘记，想把它们记下来，博主会不断的更新到微博中，方便查找和记忆，这些知识点都是从书本，网站或者博客很多途径总结的。可能也会比较散，清大家谅解，希望可以帮助到大家，以下内容都为手打，如若有错，请指出来哦，谢谢！O(∩_∩)
+
+
+作用域
+
+首先知道，作用域是一套规则，用于确定在何处以及如何查找变量（标识符）。如果查找的目的">
+<meta property="og:updated_time" content="2017-04-16T13:38:32.843Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS重点概念及书本笔记">
+<meta name="twitter:description" content="JavaScript知识点
+
+
+博主学习JS时，觉得很多需要记忆的重要知识点总会忘记，想把它们记下来，博主会不断的更新到微博中，方便查找和记忆，这些知识点都是从书本，网站或者博客很多途径总结的。可能也会比较散，清大家谅解，希望可以帮助到大家，以下内容都为手打，如若有错，请指出来哦，谢谢！O(∩_∩)
+
+
+作用域
+
+首先知道，作用域是一套规则，用于确定在何处以及如何查找变量（标识符）。如果查找的目的">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://candiceyu.com/2016/09/06/JS重点概念及书本笔记/"/>
+
+  <title> JS重点概念及书本笔记 | Candice Yu_个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?516d783fb114015b9b38b2ce58b5fe15";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Candice Yu_个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Candice Yu</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/aboutMe" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JS重点概念及书本笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-06T23:29:18+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/06/JS重点概念及书本笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/JS重点概念及书本笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JavaScript知识点"><a href="#JavaScript知识点" class="headerlink" title="JavaScript知识点"></a>JavaScript知识点</h1><hr>
+<blockquote>
+<ul>
+<li>博主学习JS时，觉得很多需要记忆的重要知识点总会忘记，想把它们记下来，博主会不断的更新到微博中，方便查找和记忆，这些知识点都是从书本，网站或者博客很多途径总结的。可能也会比较散，清大家谅解，希望可以帮助到大家，以下内容都为手打，如若有错，请指出来哦，谢谢！O(∩_∩)</li>
+</ul>
+</blockquote>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><blockquote>
+<ul>
+<li>首先知道，作用域是一套规则，用于确定在何处以及如何查找变量（标识符）。如果查找的目的是对变量进行赋值，哪么就会使用LHS查询，如果目的是获取变量的值，就会使用RHS查询。赋值操作符会导致LHS查询。=操作符或调用函数时传入参数的操作都会导致关联作用域的复制操作。</li>
+</ul>
+</blockquote>
+<h3 id="编译原理"><a href="#编译原理" class="headerlink" title="编译原理"></a>编译原理</h3><ol>
+<li>JS它是一门编译语言。在传统的编译语言的流程中，程序中的一段源代码在执行之前会经历三个步骤，统称为“编译”。<ul>
+<li>分词/词法分析。这个过程会由字符组成的字符串分解成（对编程语言来说）有意义的代码块，这些代码块被称为词法单元（token）。例如：var a = 2;会被分成var,a,=,2,;。</li>
+<li>解析/语法分析。这个过程是将词法单元流（数组）转换成一个由元素逐级嵌套所组成的代表了程序语法结构的树，这个树被称为“抽象语法树”。</li>
+<li>代码生成。将AST转换为可执行代码的过程被称为代码生成。</li>
+</ul>
+</li>
+</ol>
+<h3 id="理解作用域"><a href="#理解作用域" class="headerlink" title="理解作用域"></a>理解作用域</h3><ol>
+<li>引擎可以根据需要创建并储存变量，它从头到尾负责整个JavaScript程序的编译及执行过程。</li>
+<li>编译器，负责语法分析及代码生成等脏活累活（编译原理）</li>
+<li>作用域，负责收集并维护有所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标示符的访问权限。</li>
+<li>变量的赋值操作会执行两个动作，首先编译器会在当前作用域中声明一个变量（如果之前没有声明过），然后在运行时引擎会在作用域中查找该变量，如果能够找到就会对它赋值。</li>
+</ol>
+<h3 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h3><ol>
+<li>编译器在编译过程的第二步中生成了代码，引擎执行它时，会用过查找变量a来判断是否已经声明过了。查找的过程由作用域进行协，但是引擎执行这样的查找，会影响最终得查找结果。</li>
+<li>引擎会为变量a进行LHS查询。另一个查找的类型RHS。</li>
+<li>LHS查找是试图找到变量的容器本身，从而可以对其赋值，理解成“赋值操作的目标是谁”。RHS查询与简单地查找，某个变量的值别无二致，理解成“谁是赋值操作的源头”。</li>
+<li>JavaScript引擎首先会在代码执行前对其进行编译，在这个过程中，像var a = 2这样的声明会被分解成两个独立的步骤：<ul>
+<li>首先，var a 在其作用域中声明新变量。这回在最开始的阶段，也就是代码执行前进行。</li>
+<li>接下来，a = 2会查询（LHS查询）变量a并对其进行赋值。</li>
+</ul>
+</li>
+<li>编译器可以在代码生成的同时处理声明和值得定义。</li>
+</ol>
+<h3 id="作用域嵌套"><a href="#作用域嵌套" class="headerlink" title="作用域嵌套"></a>作用域嵌套</h3><ol>
+<li>当一个快或函数嵌套在另一个块或函数中时，就发生了作用域的嵌套。</li>
+<li>遍历嵌套作用域链的规则：引擎从当前的执行作用域开始查找变量，如果找不到，就向上一级继续查找。当抵达最外层的全局作用域时，无论找到还是没找到，查找过程都会停止。</li>
+</ol>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><ol>
+<li>如果RHS查询在所有嵌套的作用域中寻不到所需的变量，引擎就会抛出ReferenceErrer异常。</li>
+<li>当引擎执行LHS查询时，如果在顶层（全局作用域）中也无法找到目标变量，全局作用域中就会创建一个具有该名称的变量，并将其返还给引擎，前提是程序运行在非“严格模式”中。在“严格模式”下引擎就会抛出ReferenceErrer异常。</li>
+<li>如果RHS查询找到了一个变量，但是你尝试对这个变量的值进行不合理的操作，比如试图对一个费函数类型的值进行函数调用，或者引用null或undefined类型的值中的属性，哪么引擎会抛出TypeError异常。</li>
+<li>ReferenceErrer同作用域判别失败相关，而TypeError则代表作用域判别成功了，但是对结果的操作是非法或不合理的。</li>
+</ol>
+<h2 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h2><blockquote>
+<ul>
+<li>“作用域”定义为一套规则，这套规则用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找。</li>
+</ul>
+</blockquote>
+<h3 id="词法阶段"><a href="#词法阶段" class="headerlink" title="词法阶段"></a>词法阶段</h3><ol>
+<li>大部分标准语言编译器的第一个工作阶段叫作词法话（也叫作单词化）。词法化的过程会对源代码中的字符进行检查，如果是有状态额解析过程，还会赋予单词语义。</li>
+<li>词法作用域就是定义在词法阶段的作用域。词法作用域是由你在写代码时将变量和块作用域写在哪里决定的，因此当词法分析器处理代码时会保持作用域不变（大部分情况是这样）。</li>
+</ol>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><ol>
+<li>作用域查找会在找到第一个匹配的标识符时停止。在多层的嵌套作用域中可以定义同名的标识符，这叫作“遮蔽效应”。抛开遮蔽效应，作用域吓着始终从运行时所处的最内部作用域开始，逐级向外或者说向上进行，直接遇见第一个匹配的标识符为止。</li>
+<li>无论函数在哪里被调用，也无论它如何被调用，它的词法作用域都只由函数被声明时所处的位置决定。</li>
+</ol>
+<h3 id="欺骗词法"><a href="#欺骗词法" class="headerlink" title="欺骗词法"></a>欺骗词法</h3><ol>
+<li>javascript中有两种机制来实现在运行时来“修改”（也可以说欺骗）词法作用域目的。但是欺骗词法作用域会导致性能下降，引擎无法在编译时最作用于查找进行优化，因为引擎只能谨慎地认为这样的优化是无效的。</li>
+<li>javascript中的eval（..）函数可以接受一盒字符串作为参数，并将其中的内容是为好像在书写时就存在于程序中这个位置的代码。在执行eval（..）之后的代码时，引擎并不“知道”或“在意”前面的代码是以动态形式插入进来，并对词法作用域的环境进行修改。引擎只会如往常地进行词法作用域查找。<pre><code>function foo(str,a){
+    eval(str);//欺骗console.log(a,b);
+ }
+val b = 2; 
+foo(&quot;var b = 3;&quot;,1);//1,3
+</code></pre></li>
+<li>eval(..)通常被用来执行动态创建的代码。 </li>
+</ol>
+<h3 id="with"><a href="#with" class="headerlink" title="with"></a>with</h3><ol>
+<li>with 通常被当做重复引用同一个对象中的多个属性的快捷方式，可以不需要重复引用对象。</li>
+<li>with可以讲一个没有或有多个属性的对象处理为一个完全隔离的词法作用域，因此这个对象的属性也会被处理为定义在这个作用域中的词法标识符。</li>
+<li>eval(..)函数如果接受了含有一个或多个声明的代码，就会修改其所处的词法作用域，而with声明实际上是根据你传递给它的对象凭空创建了一个全新的词法作用域。</li>
+<li>eval(..)和with会被严格模式所影响（限制）。with被完全禁止,而保留核心功能的前提下，简介或非安全地使用eval(..)也被禁止了。</li>
+</ol>
+<h2 id="函数作用域和快作用域"><a href="#函数作用域和快作用域" class="headerlink" title="函数作用域和快作用域"></a>函数作用域和快作用域</h2><h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>函数作用域的含义是指，属于这个函数的全部连梁都可以在整个函数的范围内使用及复用（事实上在嵌套的作用域中也可以使用）。这种设计方案非常有用，能充分利用javascript变量可以根据需要改变值类型的“动态”特性。</p>
+<h3 id="隐藏内部实现"><a href="#隐藏内部实现" class="headerlink" title="隐藏内部实现"></a>隐藏内部实现</h3><ol>
+<li>所写的代码中挑选出一个任意的片段，然后用函数声明对它进行包装，实际上就是把这些代码“隐藏”起来了。</li>
+<li>实际的结果就是在这个代码片段的周围创建了一个作用域气泡，也就是说这段代码中的任何声明（变量，函数）豆浆绑定在这个新创新的包装函数的作用域中，而不是先前所在的作用域中。换句话说们可以把变量和函数包裹在一个函数的作用域中，然后用这个作用域来“隐藏”它们。</li>
+<li>“隐藏”变量和函数大都是从最小特权原则中引用申请出来的，也叫最小授权或最小暴露原则。</li>
+</ol>
+<h3 id="规避冲突"><a href="#规避冲突" class="headerlink" title="规避冲突"></a>规避冲突</h3><p>“隐藏”作用域中的变量和函数所带来的另一个好处，是可以避免同名标识符之间的冲突，两个标识符可能具有相同的名字但用途却不一样，无意间可能造成命名冲突。冲突会导致变量的值被意外覆盖。</p>
+<h3 id="函数作用域-1"><a href="#函数作用域-1" class="headerlink" title="函数作用域"></a>函数作用域</h3><ol>
+<li>区分函数声明和表达式最简单方法是看function关键字出现在声明中的位置（不仅是一行代码，而是整个声明中的位置）。如果function是声明中的第一个词，那么就是一个函数声明，否则就是一个函数表达式。</li>
+<li>函数声明和函数表达式之间最重要的区别是它们的名称标识符将会绑在何处。(function foo(){..})函数表达式意味着foo只能在..所代表的位置中被访问，外部作用域则不行。foo变量名称被隐藏在自身中以为着不会非必要地污染外部作用域。</li>
+</ol>
+<h3 id="匿名和具名"><a href="#匿名和具名" class="headerlink" title="匿名和具名"></a>匿名和具名</h3><pre><code>setTimeout(function(){
+        console.log(&apos;I waited&apos;);
+ },100);
+</code></pre><ol>
+<li>这叫作匿名函数表达式，因为function()..没有名称标识符。</li>
+<li>匿名函数缺点：<ul>
+<li>匿名函数在栈追踪中不会显示出有意义的函数名，使得调试很困难。</li>
+<li>如果没有函数名，当函数需要引用自身时只能使用已经过期的arguments.calles引用。</li>
+<li>匿名函数省略了对代码可读性/可理解性很重要的函数名。一个描述性的名称可以让代码不言自明。</li>
+</ul>
+</li>
+<li>始终给函数表达式命名：function后加上 名字()</li>
+</ol>
+<h3 id="立即执行函数表达式"><a href="#立即执行函数表达式" class="headerlink" title="立即执行函数表达式"></a>立即执行函数表达式</h3><ol>
+<li>由于函数被包含在一对（）括号内部，因此成为了一个表达式，通过在末尾加上另一个（）可以立即执行这个函数，比如(function foo(){..})()。第一个函数变成表达式，第二个（）执行了这个函数。</li>
+<li>IIFE：代表立即执行函数表达式。</li>
+<li>相对于传统IIFE，还有另一个改进形式：(function(){..}())。这两个形式功能是一致的。</li>
+<li>IIFE的另一个非常普遍的进阶用法是把它们当作函数调用并传参数进去。<pre><code>var a = 2;
+(function IIFE(global){
+    var a = 3;
+    console.log(a);//3
+    console.log(global.a);//2
+})(window);
+console.log(a);
+</code></pre>这个模式的另一个应用场景是解决undefined标识符的默认值被错误覆盖导致的异常（虽然不常见）。讲一个参数命名为undefined，但是在对应的位置不传入任何值，这样就保证在代码块中undefined标识符的值真的是undefined。</li>
+<li>IIFE还有一种变化的用途是倒置代码的运行顺序，将需要的函数放在第二位，在IIFE执行之后当作参数传递进去。</li>
+</ol>
+<h3 id="块作用域"><a href="#块作用域" class="headerlink" title="块作用域"></a>块作用域</h3><ol>
+<li>width 也是块作用域的一个例子（块作用域的一种形式），用with从对象中创建出的作用域仅在with声明中而非外部作用域中有效。</li>
+<li>javascript的ES3规范中规定try/catch分句会创建一个块作用域，其中声明的变量仅在catch内部有效。<pre><code>try{
+    undifined();//执行一个非法操作来强制制造一个异常
+}
+catch(err){
+    console.log(err);//能够正常执行！
+}
+console.log(err);//ReferenceError
+</code></pre></li>
+<li>为了避免当同一个作用域中的两个或多个catch分句用同样的标识符名称错误变量时，静态检查工会报错的不必要警告，很多开发者会将catch的参数命名为err1，err2等。也有开发者干脆关闭了静态检查工具对重复变量名的检查。</li>
+</ol>
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><ol>
+<li>let 关键字可以将变量绑定到所在的任意作用域中（通常是{..}内部）。换句话说，let为其声明的变量隐式地劫持了所在的块作用域。</li>
+<li>用let将变量附加在一个已经存在的块作用域上的行为是隐式的。显示的代码由于隐式或一些精巧但不清晰的代码。以下为显示代码：<pre><code>var foo = true;
+if(foo){
+    {//显示代码块
+        let bar = foo * 2;bar = something(bar);
+        console.log(bar);
+    }
+}
+</code></pre></li>
+<li>只要声明是有效的，在声明中的任意位置都可以使用{..}括号来为let创建一个用于绑定的块。在这个例子中，在if声明内部显示地创建了一个块，如果需要对其进行重构，整个块都可以被方便地移动而不会对外部if声明的位置和语义产生任何影响。</li>
+</ol>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>ES6还引进了const，同样可以用来创建块作用域变量，但其值是固定的（常量）。之后任何试图修改值得操作都会引起错误。</p>
+<h2 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h2><h3 id="编译器再度来袭"><a href="#编译器再度来袭" class="headerlink" title="编译器再度来袭"></a>编译器再度来袭</h3><ol>
+<li>编译阶段中的一部分工作就是找到所有的声明，并用合适的作用域将它们关联起来。<pre><code>a = 2; var a; console.log(a); //会输出2
+</code></pre></li>
+<li>var a = 2;实际上会被看成，var a;和a = 2；第一个定义声明是在编译阶段进行的。第二个赋值声明会被留在原地等待执行阶段。也就是先声明，后赋值。</li>
+<li>这意味着无论作用域中的声明出现在什么地方，都将在代码本身被执行前首先进行处理。可以将这个过程形象地想象成所有的声明（变量和函数）都会被“移动”到各自作用域的最顶端，这个过程称为提升。<br>4.注意，每个作用域都会进行提升。<br>5.声明本身会被提升，而包括函数表达式的赋值在内的赋值操作并不会提升。</li>
+</ol>
+<h3 id="函数优先"><a href="#函数优先" class="headerlink" title="函数优先"></a>函数优先</h3><p>1.函数声明和变量声明都会被提升。但是要注意是一个细节（这个细节可以出现在有多个“重复”声明的代码中）是函数会首先被提升，然后才是变量。<br>        foo();//1 var foo;<br>        function foo(){<br>            console.log(1);<br>        }<br>        foo = function(){<br>            console.log(2);<br>        };//会输出1而不是2</p>
+<ol>
+<li>尽管重复的var声明会被忽视掉，但出现在后面的函数声明还是会覆盖前面的函数声明。</li>
+<li></li>
+</ol>
+<h2 id="作用域闭包"><a href="#作用域闭包" class="headerlink" title="作用域闭包"></a>作用域闭包</h2><h3 id="实质问题"><a href="#实质问题" class="headerlink" title="实质问题"></a>实质问题</h3><ol>
+<li>当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行。</li>
+<li>清晰展示一下闭包：<pre><code>function foo(){
+    var a= 2;
+    function bar(){
+        console.log(a);
+    }
+    return bar;
+}
+var baz = foo(); baz();//2
+</code></pre>函数bar()的词法作用域能够访问foo()的内部作用域。然后将bar()函数本身当作一个值类型进行传递。在foo()执行后，其返回值（也就是每部的bar()函数）赋值给变量baz并调用baz()。实际上只是通过不同的标识符引用调用了内部的函数bar()。bar()显然可以被执行。但是，它在自己定义的词法作用域以外的地方执行。</li>
+<li>在foo()执行后，通常会期待foo()的整个内部作用域都被销毁，因为我们知道引擎有垃圾回收器用来释放不再使用的内存空间。由于看上去foo()的内容不会再被使用，所以很自然地会考虑对其进行回收。</li>
+<li>而闭包可以阻止这件事情发生。事实上内部作用域依然存在。因此没有被回收。拜bar()所声明的位置所赐，它拥有涵盖foo()内部作用域的闭包，使得作用域能够一直存活，以供bar()在之后任何时间进行引用。bar()依然持有对该作用于的引用，而这个引用就叫做闭包。</li>
+<li>函数在定义时的词法作用域以外的地方被调用。闭包使得函数可以继续访问定义时的词法作用域。</li>
+<li>无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用域的引用，无论在何处执行这个函数都会使用闭包。</li>
+<li>只要使用了回调函数，实际上就是使用闭包。</li>
+</ol>
+<h3 id="循环和闭包"><a href="#循环和闭包" class="headerlink" title="循环和闭包"></a>循环和闭包</h3><pre><code>for(var i=1;i&lt;=5;i++){
+    setTimeout(function timer(){
+        console.log(i);
+    },i*1000);
+}
+</code></pre><p>我们对这段代码代码行为的预期是分别输出1~5，每一秒一次，一次一个。但是实际上输出5次6.</p>
+<ol>
+<li>首先解释6是从哪来的，这个循环的终止条件是不再&lt;=5，条件首次成立时i的值是6，因此，输出显示的是循环结束时i的最终值。延迟函数的回调会在循环结束时才执行。事实上当定时器运行时即使每个迭代中执行的是setTimeout（..0），所有的回调函数依然是再循环结束后才被执行，因此会每次输出一个6来。</li>
+<li>这里缺陷是我们试图假设循环中的每个迭代在运行时都会给自己“捕获”一个i的副本。但是，实际情况是尽管循环中的五个函数是在各个迭代中分别定义的，但是它们都被封闭在一个共享的全局作用域中，因此实际上只有一个i。我们需要更多的闭包作用域，特别是在循环的过程中每个迭代都需要一个闭包作用域。<pre><code>for(var i=1;i&lt;=5;i++){
+    (function(j){
+        setTimeout(function timer(){
+            console.log(j);
+        },j*1000);
+    })(i);
+}
+</code></pre></li>
+<li>在迭代内使用IIFE会为每个迭代都生成一个新的作用域，使得延迟函数的回调可以将新的作用域封闭在每个迭代内部，每个迭代中都会含有一个具有正确值得变量供我们访问。</li>
+</ol>
+<h3 id="重返块作用域"><a href="#重返块作用域" class="headerlink" title="重返块作用域"></a>重返块作用域</h3><ol>
+<li>我们使用IIFE在每次迭代时都创建一个新的作用域。换句话说，每次迭代我们都需要一个块作用域。let声明，可以用来劫持块作用域，并且在这个块作用域中声明一个变量。本质上这是将一个块转换成一个可以被关闭的作用域。<pre><code>for(let i=1;i&lt;=5;i++){
+    setTimeout(function timer(){
+         console.log(i);
+    },i*1000);
+}
+</code></pre></li>
+</ol>
+<h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><pre><code>function CoolModule(){
+    var something = &quot;cool&quot;;
+    var another = [1,2,3];
+    function dosomething(){
+        consloe.log(something);
+    }
+    function doAnother(){
+        consloe.log(another.join(&quot; ! &quot;);
+    }
+    return {
+        dosomething:dosomething;
+        doAnother:doAnother;
+    };
+}
+var foo = CoolModule;
+foo.dosomething();//cool
+foo.doAnother();//1 ! 2 ! 3
+</code></pre><ol>
+<li>这个模式在javascript中被称为模块。最常见的现实模块模式的方法通常被称为模块暴露，这里展现的是其变体。</li>
+<li>模块模式需要具备两个必要条件：<ul>
+<li>必须有外部的封闭函数，该函数必须至少被调用一次（每次调用都会创建一个新的模块实例）。</li>
+<li>封闭函数必须返回至少一个内部函数，这样内部函数才能在私有作用域中形成闭包，并且可以访问或者修改私有的状态。</li>
+</ul>
+</li>
+<li><p>一个具备函数属性的对象本身并不是真正的模块。一个从函数调用所返回的，只有数据属性而没有闭包函数的对象并不是真正的模块。</p>
+</li>
+<li><p>模块模式另一个简单但很强大的用法是命名将要作为公共API返回的对象。</p>
+<pre><code> var foo = (function CoolModule(id){
+    function cahnge(){
+        //修改公共API
+        publicAPI.identify = identfy2;
+    }
+    function identify1(){
+        consloe.log(id);
+    }
+    function identify2(){
+        consloe.log(id.toUpperCase());
+    }
+    var publicAPI = {
+        cahnge:cahnge;
+        identify:identify1;
+    };
+    return publicAPI;
+})(&quot;foo module&quot;);
+foo.identify();//foo module
+foo.change();
+foo.identify();//FOO MODULE
+</code></pre></li>
+<li>通过在模块实例的内部保留对公共API对象的内部引用，可以从内部对模块实例进行修改，包括添加或删除方法和属性，以及修改它们的值。</li>
+</ol>
+<h2 id="关于this"><a href="#关于this" class="headerlink" title="关于this"></a>关于this</h2><h3 id="为什么要用this"><a href="#为什么要用this" class="headerlink" title="为什么要用this"></a>为什么要用this</h3><blockquote>
+<p>this提供了一种更优雅的方式来隐式“传递”一个对象引用，因此可以将API设计得更加简洁并且易于复用。</p>
+</blockquote>
+<h3 id="指向自身"><a href="#指向自身" class="headerlink" title="指向自身"></a>指向自身</h3><ol>
+<li>有一种传统的但是现在已经被启用和批判的用法，使用arguments.callee来引用当前正在运行的函数对象。这是唯一一种可以从匿名函数对象内部引用自身的方法。现在已被弃用，不该再使用他。</li>
+<li>记录一下函数foo被调用的次数<pre><code>function foo(num){
+    console.log(&quot;foo:&quot; + num);
+    //记录foo被调用的次数
+    foo.count++;
+}
+foo.count = 0;
+var l;
+for(i=0;i&lt;10;i++){
+    if(i&gt;5){ foo(i);}
+}
+//foo:6,foo:7,foo:8.foo:9
+//foo被调用了多少次？
+console.log(foo.count);//4
+</code></pre>这种方法是使用foo标识符替代this来引用函数对象，这种方法同样回避了this的问题，并且完全依赖于foo的词法作用域。</li>
+<li>另一种方法是强制this指向函数对象<pre><code> function foo(num){
+    console.log(&quot;foo:&quot; + num);
+    //记录foo被调用的次数
+    //注意，在当前的调用方式下，this确实指向foo
+    this.count++;
+}
+foo.count = 0;
+var l;
+for(i=0;i&lt;10;i++){
+    if(i&gt;5){ 
+    //使用call(..)可以确保this指向函数对象foo本身
+    foo.call(foo,i);
+    }
+}
+//foo:6,foo:7,foo:8.foo:9
+//foo被调用了多少次？
+console.log(foo.count);//4
+</code></pre><h3 id="this到底是什么"><a href="#this到底是什么" class="headerlink" title="this到底是什么"></a>this到底是什么</h3></li>
+<li>this是在运行时进行绑定的，并不是在编写时绑定，它的上下文取决于函数调用时的各种条件。this的绑定和函数声明的位置没有任何关系，只取决于函数的调用方式。</li>
+<li>当一个函数被调用时，会创建一个活动记录（有时候也称为执行上下文）。这个记录会被包含函数在哪里被调用（调用栈），函数的调用方式，传入的参数等信息。this就是这个记录的而一个属性，会在执行函数执行的过程中用到。</li>
+</ol>
+<h2 id="this全面解析"><a href="#this全面解析" class="headerlink" title="this全面解析"></a>this全面解析</h2><h3 id="调用位置"><a href="#调用位置" class="headerlink" title="调用位置"></a>调用位置</h3><ol>
+<li>首先要理解调用位置：调用位置就是函数在代码中被调用的位置（而不是声明的位置）</li>
+<li>调用位置就在当前正在执行的函数的前一个调用中。</li>
+<li>看看到底什么是调用栈和调用位置<pre><code>function baz(){
+    //当前调用栈是：baz
+    //因此，当前调用位置是全局作用域
+    console.log(&quot;baz&quot;);
+    bar();//bar的调用位置
+}
+function bar(){
+    //当前调用栈是：baz-&gt;bar
+    //因此，当前调用位置在baz中
+    console.log(&quot;bar&quot;);
+    foo();//foo的调用位置
+}
+function foo(){
+    //当前调用栈是：baz-&gt;bar-&gt;foo
+    //因此，当前调用位置在bar中
+    console.log(&quot;foo&quot;);
+}
+baz();//baz的调用位置
+</code></pre></li>
+</ol>
+<h3 id="默认绑定"><a href="#默认绑定" class="headerlink" title="默认绑定"></a>默认绑定</h3><p>1.最常用的函数调用类型：独立函数调用。可以理解为是无法应用其他规则时的默认规则<br>        function fpp(){<br>            console.log(this.a);<br>        }<br>        var a = 2;<br>        foo();//2</p>
+<ul>
+<li>声明在全局作用域中的变量（比如 var a = 2）就是全局对象的一个同名属性。本质上就是同一个东西，并不是通过复制得到的，就像一个硬币的两面一样。</li>
+<li>当调用foo()时，this.a被解析成了全局变量a。函数调用时应用了this的默认绑定，因此this指向全局对象。</li>
+<li>在代码中，foo()是直接使用不带任何修饰的函数引用进行调用的，因此只能使用默认绑定，无法应用其他规则。</li>
+</ul>
+<ol>
+<li>虽然this的绑定规则完全取决于调用位置，但是只有foo()运行在非strict mode下时，默认绑定才能绑定到全局对象，在严格模式下调用foo()则不影响默认绑定。</li>
+</ol>
+<h3 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h3><ol>
+<li>另一条需要考虑的规则时调用位置是否有上下文对象，或者说是否被某个对象拥有或者包含，不过这种说法可能会造成一些误导。                <pre><code>function foo(){
+    console.log(this.a);
+}
+var obj = { 
+    a:2,  foo:foo
+}
+obj.foo();
+</code></pre></li>
+<li>首先需要注意的是foo()的声明方式，及其之后是如何被当作属性添加到obj中的，但是无论是直接在obj中定义还是先定义再添加为引用属性，这个函数严格来说都不属于obj对象。</li>
+<li>然而，调用位置会使用obj上下文来引用函数，因此你可以说函数被调用时obj对象“拥有”或者“包含”它。</li>
+<li>当函数引用有上下文对象时，隐式绑定规则会把函数调用中的this绑定到这个上下文对象，因为调用foo()时this被绑定到obj，因此this.a和obj.a是一样的。</li>
+</ol>
+<h3 id="隐式丢失"><a href="#隐式丢失" class="headerlink" title="隐式丢失"></a>隐式丢失</h3><ol>
+<li>一个最常见的this绑定问题就是被隐式绑定的函数会丢失绑定对象，也就是说它会应用默认绑定，从而把this绑定到全局对象或者undefined上，取决于是否是严格模式。<pre><code> function foo(){
+        console.log(this.a);
+ }
+ var obj = { 
+    a:2,  foo:foo
+ }
+var bar = obj.foo;//函数别名
+var a = &quot;oops,global&quot;;//a是全局对象的属性
+bar();//oops,global
+</code></pre></li>
+<li>虽然bar是obj.foo的一个引用，但是实际上，它引用的是foo的函数本身，因此此时的bar()其实是一个不带任何修饰的函数调用，因此应用了默认绑定。</li>
+<li>参数传递其实就是一种隐式赋值，因此我们传入函数时也会被隐式赋值。</li>
+<li>如果把函数传入语言内置的函数而不是传入你自己声明的函数，结果还是变得。</li>
+<li>回调函数丢失this绑定是非常常见的。调用回调函数的函数可能会修改this。</li>
+</ol>
+<h3 id="显示绑定"><a href="#显示绑定" class="headerlink" title="显示绑定"></a>显示绑定</h3><ol>
+<li>在分析隐式绑定时，我们必须在一个对象内部包含一个指向函数的属性，并通过这个属性间接引用函数，从而把this间接（隐式）绑定到这个对象上。</li>
+<li>javascript提供的绝大多数函数以及你自己创建的所有函数都可以使用call(..)和apply（..）方法。</li>
+<li>它们的第一个参数是一个对象，是给this准备的，接着在调用函数时将其绑定到this。<pre><code>function foo(){
+    console.log(this.a);
+}
+var obj = {
+    a:2;
+}
+foo.call(obj);//2
+</code></pre></li>
+<li>通过foo.call(..)，我们可以在调用foo时强制把它的this绑定到obj上。</li>
+<li>如果你传入了一个原始值（字符串类型，布尔类型后者数字类型）来当作this的绑定对象，这个原始值会被转换成它的对象形式（也就是new String(..),new Boolean(..）或者new Number(..))。这通常被称为“装箱”。<h4 id="硬绑定"><a href="#硬绑定" class="headerlink" title="硬绑定"></a>硬绑定</h4><pre><code>function foo(){
+    console.log(this.a);
+}
+var obj = {
+    a:2;
+}
+var bar = function(){
+    foo.call(obj);
+}
+bar();//2
+setTimeout(bar,100);//2
+//硬绑定的bar不可能再修改它的this
+bar.call(window);//2
+</code></pre></li>
+<li>我们创建了函数bar()，并在它的内部手动调用了foo.call(obj)。因此强制把foo的this绑定到了obj。无论之后如何调用函数bar，它总会手动在obj上调用foo。这种绑定是一种显示的强制绑定，因此我们称为硬绑定。</li>
+<li>硬绑定的典型应用场景就是创建一个包裹函数，负责接收参数并返回值<pre><code>function foo(something){
+    console.log(this.a,something);
+    return this.a + something;
+}
+var obj = {
+    a:2
+};
+var bar = function(){
+    return foo.apply(obj,arguments);
+};
+var b = bar(3);//2,3
+console.log(b);//5
+</code></pre></li>
+<li>另一种使用方法是创建一个可以重复使用的辅助函数<pre><code>function foo(something){
+    console.log(this.a,something);
+    return this.a + something;
+}
+//简单地辅助绑定函数
+function bind(fn,obj){
+    return function(){
+        return fn.apply(obj,arguments);
+    };
+}
+var obj = {
+    a:2
+};
+var bar = bind(foo,obj);
+var b = bar(3);//2,3
+console.log(b);//5
+</code></pre></li>
+<li>ES5提供了内置的方法function.ptototype.bind，它的用法如下：<pre><code>function foo(something){
+    console.log(this.a,something);
+    return this.a + something;
+}
+ var obj = {
+    a:2
+};
+var bar = bind(obj);
+var b = bar(3);//2,3
+console.log(b);//5
+</code></pre>bind(..)会返回一个硬编码的新函数，它会把你指定的参数设置为this的上下文并调用原始函数。<h4 id="API调用的“上下文”"><a href="#API调用的“上下文”" class="headerlink" title="API调用的“上下文”"></a>API调用的“上下文”</h4></li>
+<li>第三方库的许多函数，以及javascript语言和宿主环境中许多新的内置函数，都提供了个可选的参数，通常被称为“上下文”，其作用域和bind(..)一样，确保你的回调函数使用指定的this。例：<pre><code>function foo(el){
+    console.log(el,this.id);
+}
+var obj = {
+    id:&quot;awesome&quot;
+};
+//调用foo(..)时把this绑定到obj
+[1,2,3].forEach(foo,obj);
+//1 awesome 2 awesome 3 awesome
+</code></pre><h3 id="new绑定"><a href="#new绑定" class="headerlink" title="new绑定"></a>new绑定</h3></li>
+<li>重新定义JavaScript中的“构造函数”，在javascript中，构造函数只是一些使用new操作符时被调用的函数。它们并不会属于某个类，也不会实例化一个类。实际上，它们甚至都不能说是一种特殊的函数类型，它们只是被new操作符调用的普通函数而已。</li>
+<li>包括内置对象函数（比如Number(..)）在内的所有函数都可以用new来调用，这种函数调用被称为构造函数调用。实际上并不存在所谓的“构造函数”，只有对于函数的“构造调用”。</li>
+<li>使用new来调用函数，或者说发生构造函数调用时，会自动执行下面的操作。<ul>
+<li>创建（或者说构造）一个全新的对象。</li>
+<li>这个新对象会执行[[Prototype]]连接</li>
+<li>这个新对象会绑定到函数调用的this</li>
+<li>如果函数没有返回其他对象，那么new表达式中的函数调用会自动返回这个新对象。</li>
+</ul>
+</li>
+</ol>
+<h3 id="判断this"><a href="#判断this" class="headerlink" title="判断this"></a>判断this</h3><p>1.我们可以根据优先级来判断函数在某个调用位置应用的是哪条规则。</p>
+<ul>
+<li>函数是否在new中调用（new绑定）？如果是的话this绑定的是新的创建的对象。var bar = new foo();</li>
+<li>函数是否通过call,apply（显示绑定）或者硬绑定调用？如果是的话，this绑定的是指定的对象。var bar = foo.call(obj2);</li>
+<li>函数是否在某个上下文对象中调用（隐式绑定）？如果是的话，this绑定的是那个上下文对象。var bar = obj1.foo()</li>
+<li>如果都不是的话，使用默认绑定。如果在严格模式下，就绑定到undefined，否则绑定到全局对象。var bar = foo();</li>
+</ul>
+<h3 id="绑定例外"><a href="#绑定例外" class="headerlink" title="绑定例外"></a>绑定例外</h3><h4 id="间接引用"><a href="#间接引用" class="headerlink" title="间接引用"></a>间接引用</h4><pre><code>function foo(){
+    console.log(this.a);
+}
+var a = 2;
+var o = {a:3,foo:foo};
+var p = {a:4};
+o.foo();//3
+(p.foo = o.foo)();//2
+</code></pre><ol>
+<li>赋值表达式p.foo = o.foo的返回值是目标函数的引用，因此调用位置是foo()而不是p.foo()或者o.foo()。这里会应用默认绑定。</li>
+<li>注意：对于默认绑定来说，决定this绑定对象的并不是调用位置是否处于严格模式，而是函数体是否处于严格模式。如果函数体处于严格模式，this会被绑定到undefined，否则this会绑定到全局对象。</li>
+</ol>
+<h4 id="软绑定"><a href="#软绑定" class="headerlink" title="软绑定"></a>软绑定</h4><ol>
+<li>如果可以给默认绑定指定一个全局对象和undefined以外的值，那就可以实现和硬绑定相同的效果，同时保留隐式绑定或者显示绑定修改this的能力。</li>
+<li><p>软绑定例：</p>
+<pre><code>if(!Function.prototype.doftBind){
+    Function.prototype.softBind = function(obj){
+        var fn = this;
+        //捕获所有curried参数
+        var curried = [].slice.call(arguments,1);
+        var bound = function(){
+            return fn.apply(
+                (!this || this === (window || global))?
+                obj:this,
+                curried.concat.apply(curried,arguments)
+            );
+        }
+        boun.prototype = Object.create(fn,prototype);
+        return bound;
+        };
+    }
+</code></pre></li>
+<li><p>除了软绑定之外，softBind(..)的其他原理和ES5内置的bind(..)类似。它会对指定的函数进行封装，首先检查调用时的this，如果this绑定到全局对象或者undefined，那就把指定的默认对象obj绑定到this，否则不会修改this。此外，这段代码还支持可选的柯里化。</p>
+</li>
+</ol>
+<h4 id="更安全的this"><a href="#更安全的this" class="headerlink" title="更安全的this"></a>更安全的this</h4><p>一定要注意：有些调用可能在无意之中使用默认绑定规则。如果想“更安全”地忽略this绑定，你可以使用一个DMZ对象，比如 空符号 = Object.create(null),以保护全局对象。</p>
+<h3 id="this词法"><a href="#this词法" class="headerlink" title="this词法"></a>this词法</h3><ol>
+<li>肩头函数并不是使用function关键字定义的，而是使用被称为“胖箭头”的操作符=&gt;定义的。</li>
+<li>ES6中的箭头函数并不会使用四条标准的绑定规则，而是根据当前的词法作用域来决定this，具体来说，箭头函数会继承外层函数调用的this绑定（无论this绑定到什么）。这其实和ES6之前的代码中的self=this机制一样。</li>
+<li>箭头函数最常用于回调函数中，例如时间处理器或者定时器：<pre><code>function foo(){
+    setTimeout(() =&gt; {
+    //这里的this在此法上继承来自foo()
+    console.log(this.a);
+    },100);
+}
+var obj = { 
+    a:2;
+}
+foo.call(obj);//2
+</code></pre></li>
+<li>如果你经常编写this风格的代码，但是绝大部分都会使用self = this或者箭头函数来否定this机制，那你或许应当：<ul>
+<li>只使用词法作用域并完全抛弃错误this风格的代码</li>
+<li>完全采用this风格，在必要时使用bind(..)，尽量避免使用self = this和箭头函数。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h1 id="JavaScript高级程序设计笔记"><a href="#JavaScript高级程序设计笔记" class="headerlink" title="JavaScript高级程序设计笔记"></a>JavaScript高级程序设计笔记</h1><ol>
+<li>3个函数可以把非数值转换为数值：Number(),parseInt()和parseFloat()。<br>第一个函数，即转型函数Number()可以用于任何数据类型，而另两个函数则专门用于把字符串转换成数值。</li>
+<li>用parseInt()转换空字符串会返回NaN.</li>
+<li>\n 换行，\ 制表，\b 退格，\r 回车，\斜杠，\’单引号，\”双引号。</li>
+<li>要把一个值转换为一个自字符串有两种方法：1.几乎每个值都有的toString()方法，唯一要做的就是返回相应的字符串表现。在不知道要转换的值是不是null或undefined的情况下，还可以使用转型函数String(),这个函数能够将任何类型的值转换为字符串。</li>
+<li>valueOf():返回对象的字符串，数值或布尔值表示。</li>
+<li>toLocaleString():返回对象的字符串表示，改字符串与执行环境的地区对应。</li>
+<li>乘积超过了ECMAScript数值的表示范围，则返回Infinity或-Infinity.</li>
+<li>Infinity与0相乘，则结果是NaN.</li>
+<li>Return语句之后的任何代码都永远不会执行。<br>10.在函数体内可以通过arguments对象来访问这个参数数组，从而获取传递给函数的每一个参数。</li>
+<li>Arguments对象只是与数组类似（它并不是Array的实例），因为可以使用方法括号语句访问他的每一个元素（即第一个元素arguments[0],第二个元素arguments[1]…）。</li>
+<li>Arguments对象的length属性可以获知有多少个参数传递给了函数。</li>
+<li>没有传递值得命名参数将自动被赋予undefined值。（3.7.1）</li>
+<li>没有重载。Js中定义了两个名字相同的函数，则改名字只属于后定义的函数。</li>
+<li>ECMAScript中的基本数据类型包括undefined,null,Boolean,Number和String.</li>
+<li>ECMAScript中也有一种复杂的数据类型，即Object类型。</li>
+<li>对于引用类型的值，我们可以为其添加属性和方法，也可以改变和删除其属性和方法。（4.1.1）</li>
+<li>不能给基本类型的值添加类型，尽管这样不会导致任何错误。只能给引用类型值动态地添加属性。</li>
+<li>复制变量值，复制操作结束后，两个变量实际上将引用同一个对象，因此，改变其中一个变量，就会影响另一个变量。</li>
+<li>对象时按值传递的。</li>
+<li>即使在函数内部修改了参数的值，但原来的引用仍然保持未变。</li>
+<li>Typeof操作符是确定一个变量是字符串，数值，布尔值，还是undefined的最佳工具。</li>
+<li>在想知道某个对象是什么类型的，instanceof操作符。</li>
+<li>所有全局变量和函数都是作为window对象的属性和方法创建的。某个执行环境中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁。全局执行环境直到应用程序退出，例如关闭网页时才会被销毁。</li>
+<li>当代码在一个环境中执行时，会创建变量对象的一个作用域链，其用途是保证对执行环境有权访问的所有变量和函数的有序访问。（4.2）</li>
+<li>全局执行环境的变量对象始终都是作用域链中的最后一个对象。</li>
+<li>Js中，if语句中的变量声明会将变量添加到当前的执行环境中。(4.4.2)</li>
+<li>Js中没有块级作用域。</li>
+<li>Var声明的变量会自动被添加到最接近的环境中。</li>
+<li>对象时某个特定应用类型的实例。新对象是使用new操作符后跟一个构造函数来创建的。Var person = new Object();</li>
+<li>创建object实例的方法有两种：<pre><code>(1)New后面跟构造函数
+var person = new Object();
+  Person.name = “Alice”;
+  Person.age = 29;
+(2)对象自面量
+Var person = {
+name : “Alice”,
+age : 29 
+};
+</code></pre>属性名也可以用字符串”name” : “Alice”</li>
+<li>使用对象字面量语法时，如果留空其花括号，则可以定义只包含默认属性和方法的对象，var person = {};//与new Object()相同。</li>
+<li>访问对象属性时使用的都是点表示法。</li>
+<li>在使用方括号语法时应该将要访问的属性以字符串的形式放在方括号中，alert(person[“name”]);//”Alice”alert(person.name);//”Alice”</li>
+<li>方括号语法的主要优点是可以通过变量来访问属性，<pre><code>Var properyName = “name”;alert(person[propertyName]);//”A
+</code></pre></li>
+<li>ECMAScript数组的每一项可以保存任何类型的数据。</li>
+<li>创建数组的基本方式有两种。(1)使用Array构造函数<pre><code>Var colors = new Array();（5.2）
+</code></pre></li>
+<li>如果预先知道数组要保存的项目数量，也可以给构造函数传递该数量，而该数量会自动变成length属性的值。<pre><code>Var colors = new Array(20);
+</code></pre></li>
+<li>也可以向Array构造函数传递数组中应该包含的项。<pre><code>Var colors = new Array(“red”,”blue”,”green”);
+</code></pre></li>
+<li>给构造函数传递一个值也可以创建数组，如果传递的是数值，则会按照该数值创建包含给定项数的数值；而如果传递的是其他类型的函数，则会创建包含那个值得只有一项的数组。Var colors = new Array(3);创建一个包含3箱的数组<pre><code>Var colors names = new Array(“Alice”);创建一个包含1项，即字符串”Alice”的数组。
+</code></pre></li>
+<li>在使用Array构造函数是也可以省略new操作符，<br>Var colors = Array(3);</li>
+<li>创建数组的第二种基本方式是使用数字字面量表示法，数组字面量由一堆包含数组项的方括号表示，多个数组项之间以都好隔开，<pre><code>Var colors = [“red”,”blue”,”green”];//创建一个包含3个字符串的数组。Var names = [];//创建一个空数组
+</code></pre></li>
+<li>在读取和设置数组的值时，要使用方括号提供相应值的基于0的数字索引。<pre><code>Var colors = [“red”,”blue”,”green”];
+Alert(colors[0]);
+</code></pre>Colors[2] = “brown”;</li>
+<li>数组的项数保存在其length属性中，这个属性始终会返回0或者更大的值。<pre><code>Var colors = [“red”,”blue”,”green”];var names = [];
+Alert(colors.length);3
+Alert(names.length);0
+</code></pre></li>
+<li>数组的length属性：它不是只读，可以从数组的末尾移除项或向数组中添加新乡。<pre><code>Var colors = [“red”,”blue”,”green”];var names = [];
+Colors.length = 2;
+Alert(color[2]);//undefined
+Var colors = [“red”,”blue”,”green”];var names = [];
+Colors.length = 4;
+Alert(color[3]);//undefined
+Var colors = [“red”,”blue”,”green”];
+Colors[colors.length] = “black”;//在位置3添加一种颜色
+</code></pre></li>
+<li>数组最后一项的索引始终是length-1，因此下一个位置就是length。</li>
+<li>Var colors = [“red”.”blue”,”green”];<pre><code>Colors[99] = “black”;
+Alert(colors.length);//100
+</code></pre></li>
+<li>确定某个对象是不是数组，instanceof操作符。If(value instanceof Array){ //对数组执行某些操作}</li>
+<li>所有对象都具有toLocaleString(),toString(),valueOf()方法。<br>调用的toString()方法会返回由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串。调用valueOf()返回的还是数组。</li>
+<li>toLocaleString()方法经常也会返回余toString()和valueOf()方法相同的值，但也不总是如此。当调用数组的toLcaeString()方法是，也会创建一个数组值的以逗号分隔的字符串。而与前两个方法唯一不同之处在于，这一次为了取得每一项的值，调用的是每一项的toLcaleString()方法，而不是toString()方法。</li>
+<li>使用join()方法，则可以使用不同的分隔符；来构建这个字符串。Alert(colots.join(“||”));red||green||blue(5.2.2)</li>
+<li>Push()方法可以接受任意数量的参数，把他们逐个添加到数组末尾，并返回修改后数组的长度。</li>
+<li>Pop()方法则从数组末尾移除最后一项，减少数组的length值，然后返回移除项。（5.2.3）</li>
+<li>模拟队列只需一个从数组前端取得项的方法，shift()方法,t它能移除数组中的第一个项并返回该项，同时将数组长度减1.</li>
+<li>Unshift()方法，它能在数组前端添加个项并返回新数组的长度。</li>
+<li>重排序：resverse()和sort();</li>
+<li>Sort()方法按升序排列数组项–即最小的值位于最前面，最大的值位于最后面。</li>
+<li>Sort()方法会调用每个数组项的toString()转型，然后比较得到的字符串，以确定如何排序。Sort()方法比较的也是字符串。</li>
+<li>valueOf()方法会返回数值类型的对象，function compare(value1,value2){return value2-value1;}</li>
+<li>Concat()方法可以基于当前数组中的所有项创建一个新数组。这个方法先创建当前数组一个副本，然后接收到的参数添加到这个副本的末尾，最后返回新构建的数组。</li>
+<li>Slice()方法它能够基于当前数组中的一或多个项创建一个新数组。</li>
+<li>Slice()方法可以接受一或两个参数，即要返回项的起始和结束位置。如果两个参数，该方法起始和结束位置之间的项–不包括结束位置的项。不会影响原始数组。</li>
+<li>Splice()方法，用途向数组的中部插入项。<br>（1）删除：要删除的第一项的位置和要删除的项数，splice(0,2);会删除数组中的前两项。<br>（2）插入：向指定位置插入任意数量的项。起始位置，0（要删除的项数），和要插入的项。Splice(2,0,”red”,”blue”);从当前位置2插入字符串。<br>（3）替换：向指定位置插入任意数量的项。且同时删除任意数量的项。起始位置，要删除的项数，要插入的任意数量的项。Splice(2,1,”red”,”green”);</li>
+<li>两个位置方法：indexOf()和lastIndexOf().接受两个参数：要查找的项和（可选的）表示查找起点位置的索引。indexOf()方法从数组的开头（位置0）开始向后找，lasIndexOf()从末尾开始找。（5.2.7）</li>
+<li>这两个方法都返回要查找的项在数组中的位置，或者在没找到的情况下返回-1.</li>
+<li>迭代方法传入这些方法的函数会接收三个参数：数组项的值，该项在数组中的位置和数组对象本身。<br>（1）every()：对数组中的每一项运行给定函数，如果该函数对每一项都返回true，则返回true.<br>（2）Filter()：对数组中的每一项运行给定函数，返回该函数会返回true的数组。<br>（3）forEach():对数组中的每一项运行给定函数，这个方法没有返回值。<br>（4）Map()：对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。<br>（5）Some()：对数组中的每一项运行给定函数，如果函数对任一项返回true,则返回true。</li>
+<li>map()方法适合创建包含的项与另一个数组意义对应的数组。</li>
+<li>forEach()他是对数组中的每一项运行传入的函数。</li>
+<li>归并数组的方法：reduce()和reduceRight().这两个方法都会迭代数组的所有项，然后构建一个最终返回的值。（5.2.9）<br>Reduce()方法从数组的第一项开始，组个遍历到最后。而reduceRight()则数组的最后一项开始，向前遍历到第一项。<br>这两个方法都接受两个参数：一个在每一项上调用的函数和（可选的）作为归并基础的初始值。<br>传给reduce()和reduceRight()的函数接受4个参数：前一个值，当前值，项的索引和数组对象。这个函数返回的任何值都会作为第一个参数自动传给下一项。第一次迭代发生在数组的第二项上，因此第一个参数是数组的第一项，第二个参数就是数组的第二项。</li>
+<li>Date.parse()方法接受一个表示日期的字符串参数。</li>
+<li>一个正则表达式就是一个模式与g(表示全局模式，即模式将被应用于所有字符串，而非在发现第一个匹配项是立即停止），i（不区分大小写模式），m（多行模式，即在到达一行文本末尾是还会继续查找下一行中是否存在于模式匹配的项）。（5.4）</li>
+<li>与其他语言中的正则表达式类似，模式中使用的所有元字符都必须转义。正则表达式中的元字符包括：( [ { \ ^ $ | ) ? * + . ] }</li>
+<li>RegExp的每个实例都具有下列属性：<br>(1)galobal:布尔值，表示是否设置了g标志。<br>(2)ignoreCase:布尔值，表示是否设置了i标志。<br>(3)lastIndex:整数，表示开始搜索下一个匹配项的字符位置，从0算起。<br>(4)Multiline:布尔值，表示是否设置了m标志。</li>
+<li>RegExp对象的主要的方法是exec()，该方法是专门为捕获组而设计的。（5.4.2）</li>
+<li>在同一个字符串上多次调用exec()将始终返回死一个匹配的信息。而在设置全局标志的情况下，每次调用exec()则都会在字符串中据需查找新的匹配项。全局模式lastIndex的值每次调用exec()后都会增加，而在非全局模式下则始终保持不变。</li>
+<li>正则表达式的第二个方法是text()，他接受字符串参数，在只想知道目标字符串与某个模式是否匹配，并不需要知道其文本内容的情况下，当使用这个方法非常方便。</li>
+<li>解析器会率先读取函数声明，宁使其在执行任何代码之前可用（可以访问），至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解释执行。</li>
+<li>默认情况下，sort()方法会调用每个对象的toString()方法以确定他们的次序。</li>
+<li>函数内部，有连个特殊的对象：arguments和this.</li>
+<li>Arguments的主要用途是保存函数参数，这个对象还有一个名叫callee属性，该属性时一个指针，这项拥有这个arguments对象的函数。</li>
+<li>函数对象属性：caller。这个属性中保存着调用当前函数的函数的引用。</li>
+<li>不能为函数的caller属性赋值。</li>
+<li>Length属性表示函数希望接受的命令参数的个数。</li>
+<li>Prototype是保存它们所有实例方法的真正所在。Prototype是不可枚举的。</li>
+<li>每个函数都包含两个非继承而来的方法：apply()和cal()。这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内this对象的值。</li>
+<li>在使用call()方法时，传递给函数的参数必须逐个列举出来。</li>
+<li>Call()和apply()真正强大的地方是能扩充函数赖以运行的作用域。</li>
+<li>Bind()，这个方法会创建一个函数的实例。其this值会被绑定到传给bind()函数的值。</li>
+<li>3个特殊的引用类型：Boolean,Number,String.（5.6）</li>
+<li>引用类型与基本包装类型的主要区别就是对象的生存期。</li>
+<li>自动创建的基本包装类型的对象，则只存在于一行代码的执行瞬间，然后立即被销毁。</li>
+<li>对基本包装类型的实例用typeof回返回“object”,而且所有基本包装类型的对象都会被转换为布尔值true。</li>
+<li>Typeof确定一个变量是字符串，数值，布尔值，还是undefined，检测基本类型。</li>
+<li>布尔表达式中的所有对象都会被转换为true。</li>
+<li>Instanceof 检测引用类型。</li>
+<li>toFixed()方法会按照指定的小数位返回数值的字符串表示。</li>
+<li>valueOf(),toLocaleString(),toString()方法，都返回对象所表示的基本字符串值。</li>
+<li>两个用于访问字符串中特定字符串是：charAt()和charCodeAt()。这两个方法都接受一个参数，即基于0的字符位置。<pre><code>Var stringValue = “hello world”;
+Alert(stringValue.charAt(1));//e
+</code></pre></li>
+<li>如果想得到的是字符编码，使用charCodeAt().<pre><code>Var stringValue = “hello world”;
+Alert(stringValue.charCodeAt(1));//101
+</code></pre></li>
+<li>使用方括号加数字索引来访问字符串中的特定字符。<br>   Var stringValue = “hello world”;<br>   Alert(stringValue[1]);//e</li>
+<li>cancat()用于将一或多个字符串拼接起来，返回拼接得到的心字符串。</li>
+<li>三个基于字符串创新新字符串的方法：slice(),substr(),substring()，这三个方法都会返回被操作字符串的一个子字符串，而且也都接受一或两个参数。第一个参数指定子字符串的开始位置，第二个参数表示子字符串的位置。而substr()的第二个参数指定的则是返回的字符个数。</li>
+<li>在传递给这些方法的参数是负数的情况下，他们的行为就不尽相同了。Slice()方法会将传入的负值与字符串的长度相加，substr()方法将负的第一个参数加上字符串的长度，而将负的第二个参数转换为0.substring()方法会把所有负值参数都转换为0.</li>
+<li>Substring()方法会将较小的数作为开始位置，将较大的数作为结束位置。Substr()方法没有这个功能。</li>
+<li>从字符串中查找子字符串的方法：indexOf()和lastIndexOf()。返回子字符串的位置，如果没有找到该子字符串，则返回-1.</li>
+<li>indexOf()方法凶字符串的开头向后搜索子字符串，而lastindexOf()方法是从字符串的末尾向前搜索子字符串。<br>107.这两个方法都可以接收两个参数，表示从哪个位置开始搜索，indexOf()从该参数指定的位置向后搜索，lastIndexOf()则会从指定的位置向前搜索。</li>
+<li>Trim()方法,这个方法会创建一个字符串的副本，删除前置及后缀的所有空格，然后返回结果。</li>
+<li>TrimLeft()和trimRight()方法，分别删除字符串开头和结尾的空格。</li>
+<li>字符串大小写转换方法：toLowerCase()和toUpperCase()是经典方法，toLocaleLowerCase()和toLocaleUpperCase()方法则是针对特定地区的实现。</li>
+<li>String类型定义几个用于在字符串中匹配模式的方法。(1).match()方法只接受一个参数，要么是一个正则表达式，要么是一个RegExp对象。</li>
+<li>用于查找模式的方法是search()。这个方法的唯一参数与match()相同，search()方法始终是从字符串开头向后查找模式。</li>
+<li>Replace()方法，接受两个参数，一个参数可以是一个RegExp对象或者一个字符串，第二个线数可以是一个字符串或者一个函数。如果第一个参数是字符串，那么只会替换第一个子字符串。，要想替换所有子字符串，唯一办法就是提供一个正则表达式，指定全局（g）。</li>
+<li>Replace()方法的第二个参数也可以是一个函数，在只有一个匹配项情况下，会向这个函数传递3个参数：模式的匹配项，模式匹配项在字符串的位置和原始字符串。</li>
+<li>Split()，这个方法基于指定的分隔符将一个字符串分隔成多个子字符串，并将结果放在一个数组中。</li>
+<li>localeCompare()，这个方法比较两个字符串，并返回下列值中的一个：<br>   (1).如果字符串在字母表中应该在字符串之前，则返回负数。<br>   (2)如果等于字符串参数，则返回0；<br>   (3)如果字符串在字母表中应该排在字符串参数值后，则返回一个正数；</li>
+<li>fromCharCode()方法，接收以或多个字符编码，人后将它们转换一个字符串。<br>   Alert(String.fromCharCode(104,101,108,108,111);//hello</li>
+<li>eval()方法，就像一个完整的ECMAScript解析器，即要执行的ECMAScript。</li>
+<li>Eval(“alert(‘hi’)”);相当于alert(‘hi’);</li>
+<li>Math.random()方法返回大于等于0小于1的随机数。</li>
+<li>值 = Math.floor(Math.random() *可能值的总数 + 第一个可能的值)</li>
+<li>多数情况下，可以通过一个函数来计算可能值的总数和第一个可能的值。selectFrom()接受两个参数，一个最小值，一个最大值。最大值减最小值加1，就是总数。</li>
+<li>定义函数有两种方法：一种是函数声明，另一种是函数表达式。</li>
+<li>函数声明语法：function functionName(arg0,arg1,arg2){..}</li>
+<li>函数表达式：<br>   var functionName = function(arg0,arg1,arg2){…函数体…};</li>
+<li>闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的常见方式，就是在一个函数内部创建另一个函数。</li>
+<li>闭包只能取得包含函数中任何变量的最后一个值。闭包所保存的是整个变量对象，而不是某个特殊的变量。（7.2.1）</li>
+<li><p>This对象时在运行时基于函数的执行环境绑定的；在全局函数中，this等于window，而当函数被作为某个对象的方法调用时，this等于那个对象。</p>
+</li>
+<li><p>文档节点是每个文档的根节点。（10章）</p>
+</li>
+<li>在HTML页面中，文档元素永远是<html>元素。</html></li>
+<li>Node类型，每个节点都有一个nodeType属性，用于表明节点的类型。</li>
+<li>节点类型有在Node类型中定义的下列12个数值常量来表示：任何节点类型必居其一：<br>   (1).Node.ELEMENT_NODE(1);<br>   (2).Node.ATTRIBUTE_NODE(2);<br>   (3).Node.TEXT_NODE(3);<br>   (4).Node.CDATA_SECTION_NODE(4);<br>   (5).Node.ENTITY_REFERENCE_NODE(5);<br>   (6).Node.ENTITY_NODE(6);<br>   (7).Node.PROCESSING_INSTRUCTION_NODE(7);<br>   (8).Node.COMMENT_NODE(8);<br>   (9).Node.DOCUMENT_NODE(9);<br>   (10).Node.DOCUMENT_TYPE_NODE(10);<br>   (11).Node.DOCUMENT_FRAGMENT_NODE(11);<br>   (12).Node.NOTATION_NODE(12);</li>
+</ol>
+<p>2016 年 09月 19日    </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>博主会持续更新，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixinprice.png" alt="Candice Yu WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zhifubaoprice.jpg" alt="Candice Yu Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/作用域/" rel="tag">#作用域</a>
+          
+            <a href="/tags/词法作用域/" rel="tag">#词法作用域</a>
+          
+            <a href="/tags/函数作用于和块作用域/" rel="tag">#函数作用于和块作用域</a>
+          
+            <a href="/tags/提升/" rel="tag">#提升</a>
+          
+            <a href="/tags/作用域闭包/" rel="tag">#作用域闭包</a>
+          
+            <a href="/tags/this/" rel="tag">#this</a>
+          
+            <a href="/tags/知识点/" rel="tag">#知识点</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/04/咖啡原来是这样的啊/" rel="next" title="《咖啡原来是这样的啊》——童铃">
+                <i class="fa fa-chevron-left"></i> 《咖啡原来是这样的啊》——童铃
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/10/前端知识总结（HTML,CSS,CSS3）/" rel="prev" title="前端知识总结（HTML,CSS,CSS3）">
+                前端知识总结（HTML,CSS,CSS3） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/06/JS重点概念及书本笔记/"
+           data-title="JS重点概念及书本笔记" data-url="http://candiceyu.com/2016/09/06/JS重点概念及书本笔记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Candice Yu" />
+          <p class="site-author-name" itemprop="name">Candice Yu</p>
+          <p class="site-description motion-element" itemprop="description">I don’t want to earn my living; i want to live.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/dreamgirla" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/5329295f3aea/timeline" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-jianshu"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/#signin" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://carryguan.me/" title="Carry" target="_blank">Carry</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yuanguangxin.me/" title="yuanguangxin" target="_blank">yuanguangxin</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript知识点"><span class="nav-text">JavaScript知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译原理"><span class="nav-text">编译原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解作用域"><span class="nav-text">理解作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译器"><span class="nav-text">编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域嵌套"><span class="nav-text">作用域嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常"><span class="nav-text">异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法作用域"><span class="nav-text">词法作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词法阶段"><span class="nav-text">词法阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找"><span class="nav-text">查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#欺骗词法"><span class="nav-text">欺骗词法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#with"><span class="nav-text">with</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数作用域和快作用域"><span class="nav-text">函数作用域和快作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作用域"><span class="nav-text">函数作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐藏内部实现"><span class="nav-text">隐藏内部实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规避冲突"><span class="nav-text">规避冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作用域-1"><span class="nav-text">函数作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名和具名"><span class="nav-text">匿名和具名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#立即执行函数表达式"><span class="nav-text">立即执行函数表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块作用域"><span class="nav-text">块作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#let"><span class="nav-text">let</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const"><span class="nav-text">const</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提升"><span class="nav-text">提升</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译器再度来袭"><span class="nav-text">编译器再度来袭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数优先"><span class="nav-text">函数优先</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域闭包"><span class="nav-text">作用域闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实质问题"><span class="nav-text">实质问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环和闭包"><span class="nav-text">循环和闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重返块作用域"><span class="nav-text">重返块作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块"><span class="nav-text">模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于this"><span class="nav-text">关于this</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要用this"><span class="nav-text">为什么要用this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指向自身"><span class="nav-text">指向自身</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this到底是什么"><span class="nav-text">this到底是什么</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this全面解析"><span class="nav-text">this全面解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调用位置"><span class="nav-text">调用位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认绑定"><span class="nav-text">默认绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐式绑定"><span class="nav-text">隐式绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐式丢失"><span class="nav-text">隐式丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示绑定"><span class="nav-text">显示绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#硬绑定"><span class="nav-text">硬绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#API调用的“上下文”"><span class="nav-text">API调用的“上下文”</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new绑定"><span class="nav-text">new绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断this"><span class="nav-text">判断this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定例外"><span class="nav-text">绑定例外</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#间接引用"><span class="nav-text">间接引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软绑定"><span class="nav-text">软绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更安全的this"><span class="nav-text">更安全的this</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this词法"><span class="nav-text">this词法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript高级程序设计笔记"><span class="nav-text">JavaScript高级程序设计笔记</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Candice Yu</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"candiceyu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+</body>
+</html>
