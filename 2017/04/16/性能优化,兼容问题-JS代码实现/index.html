@@ -84,7 +84,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-7dbccd3666e5502a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-e6087060761e221d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-a02f4ea17feee9b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-04-16T12:04:16.418Z">
+<meta property="og:updated_time" content="2017-04-16T12:23:01.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="性能优化,兼容问题,JS代码实现">
 <meta name="twitter:description" content="性能优化
@@ -559,7 +559,6 @@ setMaxWidth(&apos;container2&apos;, 500);
 <li>与父标签的宽度的奇偶不同的居中造成1px的偏离<br>解决方法：如果父标签是奇数宽度，则子标签也用奇数宽度;如果是父标签偶数宽度，则子标签也用偶数宽度</li>
 </ol>
 <h2 id="3像素间距bug"><a href="#3像素间距bug" class="headerlink" title="3像素间距bug"></a>3像素间距bug</h2><p>在IE6中，当文本(或无浮动元素)跟在一个浮动的元素之后，文本和这个浮动元素之间会多出3像素的间隔。<br>解决方法：给浮动层添加 display:inline 和 -3px 负值margin,给中间的内容层定义 margin-right 以纠正-3px</p>
-<h2 id="Overflow-Bug"><a href="#Overflow-Bug" class="headerlink" title="Overflow Bug"></a>Overflow Bug</h2><p>在IE6/7中，overflow无法正确的隐藏有相对定位position:relative;的子元素。解决方法就是给外包容器.wrap加上position:relative;。</p>
 <h2 id="ul，ol-dl默认情况"><a href="#ul，ol-dl默认情况" class="headerlink" title="ul，ol,dl默认情况"></a>ul，ol,dl默认情况</h2><p>ul，ol在FF默认情况下，有list-style-type样式和padding值，dl在IE和FF默认情况下，有padding值，所以应该事先声明ul,li,ol,dl,dd,dd{margin:0;padding:0}。</p>
 <h2 id="IE下z-index的bug"><a href="#IE下z-index的bug" class="headerlink" title="IE下z-index的bug"></a>IE下z-index的bug</h2><p>在IE浏览器中，定位元素的z-index层级是相对于各自的父级容器，所以会导致z-index出现错误的表现。解决方法是给其父级元素定义z-index，有些情况下还需要定义position:relative。</p>
 <h2 id="border默认CSS样式"><a href="#border默认CSS样式" class="headerlink" title="border默认CSS样式"></a>border默认CSS样式</h2><ol>
@@ -647,7 +646,192 @@ setMaxWidth(&apos;container2&apos;, 500);
 <li>当浮动元素和绝对定位元素是并列关系的时候，在IE6下绝对定位元素会失效。解决方案：给定位元素外面包DIV。</li>
 <li>样式优先级：默认&lt;类型&lt;class&lt;id&lt;style(行间)&lt;important在IE6后面再加一条同样的样式，会破会掉important的作用，会按照默认的优先级顺序来走.</li>
 </ul>
-<h1 id="JS代码实现"><a href="#JS代码实现" class="headerlink" title="JS代码实现"></a>JS代码实现</h1>
+<h1 id="JS问题及代码实现"><a href="#JS问题及代码实现" class="headerlink" title="JS问题及代码实现"></a>JS问题及代码实现</h1><h2 id="判断是否相等"><a href="#判断是否相等" class="headerlink" title="判断是否相等"></a>判断是否相等</h2><p>var undefined;<br>undefined == null; // true<br>1 == true;  // true<br>2 == true;  // false<br>0 == false; // true<br>0 == ‘’;  // true<br>NaN == NaN; // false<br>[] == false; // true<br>[] == ![];  // true<br>  ● undefined与null相等，但不恒等（===）<br>  ● 一个是number一个是string时，会尝试将string转换为number<br>  ● 尝试将boolean转换为number，0或1<br>  ● 尝试将Object转换成number或string，取决于另外一个对比量的类型<br>  ● 所以，对于0、空字符串的判断，建议使用 “===” 。“===”会先判断两边的值类型，类型不匹配时为false。</p>
+<h2 id="null，undefined-的区别"><a href="#null，undefined-的区别" class="headerlink" title="null，undefined 的区别"></a>null，undefined 的区别</h2><p>null        表示一个对象被定义了，值为“空值”；<br>undefined  表示不存在这个值。</p>
+<ol>
+<li>typeof undefined //“undefined”<br>undefined:是一个表示”无”的原始值或者说表示”缺少值”，就是此处应该有一个值，但是还没有定义。当尝试读取时会返回 undefined；例如变量被声明了，但没有赋值时，就等于undefined</li>
+<li>typeof null //“object”<br>null : 是一个对象(空对象, 没有任何属性和方法)；例如作为函数的参数，表示该函数的参数不是对象；</li>
+<li>注意：在验证null时，一定要使用 === ，因为 == 无法分别 null 和 undefined<br>例子：<br>null   <pre><code>Q：有张三这个人么？
+A：有！
+Q：张三有房子么？
+A：没有！
+</code></pre>undefined <pre><code>Q：有张三这个人么？
+A：没有！
+</code></pre></li>
+</ol>
+<h2 id="js实现千位分隔符"><a href="#js实现千位分隔符" class="headerlink" title="js实现千位分隔符"></a>js实现千位分隔符</h2><pre><code>function commafy(num) {
+    num = num + &apos;&apos;;
+    var reg = /(-?d+)(d{3})/;
+
+    if(reg.test(num)){
+    num = num.replace(reg, &apos;$1,$2&apos;);
+    }
+    return num;
+}
+</code></pre><h2 id="split-join-的区别"><a href="#split-join-的区别" class="headerlink" title="split() join() 的区别"></a>split() join() 的区别</h2><p>前者是切割成数组的形式，后者是将数组转换成字符串</p>
+<h2 id="数组的倒排，降序排列"><a href="#数组的倒排，降序排列" class="headerlink" title="数组的倒排，降序排列"></a>数组的倒排，降序排列</h2><pre><code>var numberArray = [3,6,2,4,1,5];
+//倒序
+var numberArray = [3,6,2,4,1,5];
+console.log(numberArray.reverse());//输出[5,1,4,2,6,3]
+//降序
+var numberArray = [3,6,2,4,1,5];
+function pailie(a,b){
+     return b-a;
+}
+console.log(numberArray.sort(pailie));//输出[6,5,4,3,2,1]
+</code></pre><h2 id="new操作符具体做了什么"><a href="#new操作符具体做了什么" class="headerlink" title="new操作符具体做了什么"></a>new操作符具体做了什么</h2><ol>
+<li>创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。</li>
+<li>属性和方法被加入到 this 引用的对象中。</li>
+<li>新创建的对象由 this 所引用，并且最后隐式的返回 this 。</li>
+</ol>
+<h2 id="JS中callee和caller的作用"><a href="#JS中callee和caller的作用" class="headerlink" title="JS中callee和caller的作用"></a>JS中callee和caller的作用</h2><ol>
+<li>caller是返回一个对函数的引用，该函数调用了当前函数；</li>
+<li>callee是返回正在被执行的function函数，也就是所指定的function对象的正文。</li>
+</ol>
+<h2 id="3种强制类型转换和2种隐式类型转换"><a href="#3种强制类型转换和2种隐式类型转换" class="headerlink" title="3种强制类型转换和2种隐式类型转换"></a>3种强制类型转换和2种隐式类型转换</h2><p>强制（parseInt,parseFloat,number）<br>隐式（== – ===）<br>前者会自动转换类型，后者不会<br>另外，Object.is 在三等号判等的基础上特别处理了 NaN 、-0 和 +0 ，保证 -0 和 +0 不再相同，<br>但 Object.is(NaN, NaN) 会返回 true.Object.is 应被认为有其特殊的用途，而不能用它认为它比其它的相等对比更宽松或严格</p>
+<h2 id="如何判断一个对象是否属于某个类"><a href="#如何判断一个对象是否属于某个类" class="headerlink" title="如何判断一个对象是否属于某个类"></a>如何判断一个对象是否属于某个类</h2><p>使用instanceof （待完善）<br>  if(a instanceof Person){<br>      alert(‘yes’);<br>  }</p>
+<h2 id="attribute和property的区别是什么"><a href="#attribute和property的区别是什么" class="headerlink" title="attribute和property的区别是什么"></a>attribute和property的区别是什么</h2><ol>
+<li>attribute是dom元素在文档中作为html标签拥有的属性；</li>
+<li>property就是dom元素在js中作为对象拥有的属性。</li>
+<li>对于html的标准属性来说，attribute和property是同步的，是会自动更新的，</li>
+<li>但是对于自定义的属性来说，他们是不同步的，</li>
+</ol>
+<h2 id="结合-lt-span-id-”outer”-gt-text这段结构，谈谈innerHTML-outerHTML-innerText之间的区别。"><a href="#结合-lt-span-id-”outer”-gt-text这段结构，谈谈innerHTML-outerHTML-innerText之间的区别。" class="headerlink" title="结合&lt;span id=”outer”&gt;text这段结构，谈谈innerHTML outerHTML innerText之间的区别。"></a>结合&lt;span id=”outer”&gt;<span id="inner">text</span>这段结构，谈谈innerHTML outerHTML innerText之间的区别。</h2><ol>
+<li>innerHTML:对象里面的HTML内容，这里是&lt;span id=”inner”&gt;text</li>
+<li>outerHTML:对象里面包括对象本身的HTML内容，这里是&lt;span id=”outer”&gt;<span id="inner">text</span></li>
+<li>innerText:对象里面的文本内容，这里是text</li>
+</ol>
+<h2 id="设置一个已知ID的DIV的html内容为xxxx，字体颜色设置为黑色"><a href="#设置一个已知ID的DIV的html内容为xxxx，字体颜色设置为黑色" class="headerlink" title="设置一个已知ID的DIV的html内容为xxxx，字体颜色设置为黑色"></a>设置一个已知ID的DIV的html内容为xxxx，字体颜色设置为黑色</h2><pre><code>var dom = document.getElementById(“ID”);
+dom.innerHTML = “xxxx”
+dom.style.color = “#000”
+</code></pre><h2 id="获取到页面中所有的checkbox怎么做"><a href="#获取到页面中所有的checkbox怎么做" class="headerlink" title="获取到页面中所有的checkbox怎么做"></a>获取到页面中所有的checkbox怎么做</h2><pre><code>var domList = document.getElementsByTagName(‘input’)
+var checkBoxList = [];
+var len = domList.length; //缓存到局部变量
+while (len--) { //使用while的效率会比for循环更高
+ if (domList[len].type == ‘checkbox’) {
+  checkBoxList.push(domList[len]);
+ }
+}
+</code></pre><h2 id="谈谈JS数组方法sort-的使用，重点介绍sort-参数的使用及其内部机制"><a href="#谈谈JS数组方法sort-的使用，重点介绍sort-参数的使用及其内部机制" class="headerlink" title="谈谈JS数组方法sort()的使用，重点介绍sort()参数的使用及其内部机制"></a>谈谈JS数组方法sort()的使用，重点介绍sort()参数的使用及其内部机制</h2><ol>
+<li>语法：arrayObject.sort(sortby)</li>
+<li>参数sortby:可选，规定排序顺序。必须是函数。</li>
+<li>返回对数组的引用。注意，数组在原数组上进行排序，不生成副本。</li>
+</ol>
+<p>如果该方法没有使用参数，将按照字符编码的顺序进行排序。<br>如果想要按照其他标准进行排序，就需要提供比较函数，该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数a和b，其返回值如下：<br>1）若a小于b，在排序后的数组中a应该出现在b之前，返回一个小于0的值。<br>2）若a等于b，返回0。<br>3）若a大于b，则返回一个小于0的值。<br>例：按照数值进行排序</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+function sortNumber(a,b)
+{
+return a - b
+}
+var arr = new Array(6)
+arr[0] = &quot;10&quot;
+arr[1] = &quot;5&quot;
+arr[2] = &quot;40&quot;
+arr[3] = &quot;25&quot;
+arr[4] = &quot;1000&quot;
+arr[5] = &quot;1&quot;
+document.write(arr + &quot;&lt;br /&gt;&quot;)
+document.write(arr.sort(sortNumber))
+&lt;/script&gt;
+</code></pre><h2 id="输出今天的日期，以YYYY-MM-DD的方式"><a href="#输出今天的日期，以YYYY-MM-DD的方式" class="headerlink" title="输出今天的日期，以YYYY-MM-DD的方式"></a>输出今天的日期，以YYYY-MM-DD的方式</h2><pre><code>var d = new Date();
+// 获取年，getFullYear()返回4位的数字
+var year = d.getFullYear();
+// 获取月，月份比较特殊，0是1月，11是12月
+var month = d.getMonth() + 1;
+// 变成两位
+month = month &lt; 10 ? &apos;0&apos; + month : month;
+// 获取日
+var day = d.getDate();
+day = day &lt; 10 ? &apos;0&apos; + day : day;
+alert(year + &apos;-&apos; + month + &apos;-&apos; + day);
+</code></pre><h2 id="用js实现随机选取10–100之间的10个数字，存入一个数组，并排序。"><a href="#用js实现随机选取10–100之间的10个数字，存入一个数组，并排序。" class="headerlink" title="用js实现随机选取10–100之间的10个数字，存入一个数组，并排序。"></a>用js实现随机选取10–100之间的10个数字，存入一个数组，并排序。</h2><pre><code>var cArray = [];
+     function getRandom(min,max){
+     var choice = max-min+1;
+     return Math.floor(Math.random()*choice+min);
+}
+for (var i = 0; i &lt; 10; i++) {
+     cArray.push(getRandom(10,100));
+};
+function compare(value1,value2){
+if (value1value2) {
+     return 1;
+}else{
+     return 0;
+};
+}
+cArray.sort(compare);
+</code></pre><h2 id="window-onload和-document-ready-function"><a href="#window-onload和-document-ready-function" class="headerlink" title="window.onload和$(document).ready(function(){})"></a>window.onload和$(document).ready(function(){})</h2><p>原生JS的window.onload与Jquery的$(document).ready(function(){})有什么不同？如何用原生JS实现Jq的ready方法？</p>
+<ol>
+<li>window.onload()方法是必须等到页面内包括图片的所有元素加载完毕后才能执行。</li>
+<li><p>$(document).ready()是DOM结构绘制完毕后就执行，不必等到加载完毕。</p>
+<pre><code>function ready(fn){
+ if(document.addEventListener) { //标准浏览器
+ document.addEventListener(&apos;DOMContentLoaded&apos;, function() {
+ //注销事件, 避免反复触发
+ document.removeEventListener(&apos;DOMContentLoaded&apos;,arguments.callee, false);
+ fn(); //执行函数
+ }, false);
+ }else if(document.attachEvent) { //IE
+ document.attachEvent(&apos;onreadystatechange&apos;, function() {
+ if(document.readyState == &apos;complete&apos;) {
+ document.detachEvent(&apos;onreadystatechange&apos;, arguments.callee);
+ fn(); //函数执行
+ }
+ });
+ }
+};
+</code></pre></li>
+</ol>
+<h2 id="输出相同的数，立即执行函数解决"><a href="#输出相同的数，立即执行函数解决" class="headerlink" title="输出相同的数，立即执行函数解决"></a>输出相同的数，立即执行函数解决</h2><pre><code>for(var i=1;i&lt;=3;i++){
+ setTimeout(function(){
+ console.log(i); //4,4,4
+ },0); 
+};
+</code></pre><p>因为Javascript事件处理器在线程空闲之前不会运行。</p>
+<pre><code>for(var i=1;i&lt;=3;i++){
+  setTimeout((function(a){ //改成立即执行函数
+  console.log(a); //1,2,3
+  })(i),0); 
+};
+</code></pre><h2 id="写一个function，清除字符串前后的空格trim"><a href="#写一个function，清除字符串前后的空格trim" class="headerlink" title="写一个function，清除字符串前后的空格trim()"></a>写一个function，清除字符串前后的空格trim()</h2><pre><code>if (!String.prototype.trim) {
+    String.prototype.trim = function() {
+    return this.replace(/^\s+/, &quot;&quot;).replace(/\s+$/,&quot;&quot;);
+    }
+}
+// test the function
+var str = &quot; \t\n test string &quot;.trim();
+alert(str == &quot;test string&quot;); // alerts &quot;true&quot;
+</code></pre><h2 id="如何判断某变量是否为数组数据类型"><a href="#如何判断某变量是否为数组数据类型" class="headerlink" title="如何判断某变量是否为数组数据类型"></a>如何判断某变量是否为数组数据类型</h2><p>  ● 方法一.判断其是否具有“数组性质”，如slice()方法。可自己给该变量定义slice方法，故有时会失效<br>  ● 方法二.obj instanceof Array 在某些IE版本中不正确<br>  ● 方法三.方法一二皆有漏洞，在ECMA Script5中定义了新方法Array.isArray(), 保证其兼容性，最好的方法如下：</p>
+<pre><code>if(typeof Array.isArray===&quot;undefined&quot;)
+{
+ Array.isArray = function(arg){
+ return Object.prototype.toString.call(arg)===&quot;[object Array]&quot;
+ }; 
+}
+</code></pre><h2 id="经典题（如何将数组去重说说你的思路）"><a href="#经典题（如何将数组去重说说你的思路）" class="headerlink" title="经典题（如何将数组去重说说你的思路）"></a>经典题（如何将数组去重说说你的思路）</h2><pre><code>Array.prototype.unique = function () {
+      var len = this.length,
+      arr = [],
+      obj = {};
+      for (var i = 0; i &lt; len; i++) {
+            if (!obj[this[i]]) {
+                  obj[this[i]] = 1;
+                  arr.push(this[i]);
+            }
+      }
+      return arr;
+    }
+</code></pre><blockquote>
+<p>用一个空数组和空对象以及一个循环就可实现,当我们数组中的这个数据出现过一次之后，我们就在obj中将这个元素的值的位置标记成1，后面如果出现相同的属性值，因为这个位置已经是1了，所以就不会添加到新数组里面，从而达到了去重的效果。</p>
+</blockquote>
+<pre><code>var arr1 = [1,2,2,2,3,4,4,4,5,6];//第二种方法
+    arr2=[];
+    for(var i = 0,len= arr1.length;i&lt;len;i++){
+        if(arr2.indexOf(arr1[i])&lt;0){
+            arr2.push(arr1[i]);
+        }
+    }
+    document.write(arr2);
+</code></pre>
       
     </div>
 
@@ -880,7 +1064,7 @@ setMaxWidth(&apos;container2&apos;, 500);
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#性能优化"><span class="nav-text">性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面级优化"><span class="nav-text">页面级优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#减少HTTP请求数-最重要最有效"><span class="nav-text">减少HTTP请求数  (最重要最有效)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#减少HTTP请求数的途径"><span class="nav-text">减少HTTP请求数的途径</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将外部脚本放在底部"><span class="nav-text">将外部脚本放在底部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发执行inline脚本"><span class="nav-text">并发执行inline脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒加载"><span class="nav-text">懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Js-与-css-懒加载"><span class="nav-text">Js 与 css 懒加载</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将-CSS放在-HEAD中"><span class="nav-text">将 CSS放在 HEAD中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少不必要的HTTP跳转"><span class="nav-text">减少不必要的HTTP跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免重复的资源请求"><span class="nav-text">避免重复的资源请求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码级优化"><span class="nav-text">代码级优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM"><span class="nav-text">DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#慎用with"><span class="nav-text">慎用with</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免使用eval和Function"><span class="nav-text">避免使用eval和Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少作用域链查找"><span class="nav-text">减少作用域链查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据访问"><span class="nav-text">数据访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串拼接"><span class="nav-text">字符串拼接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总的来说代码层面的优化"><span class="nav-text">总的来说代码层面的优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重绘重排"><span class="nav-text">重绘重排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对网站的文件和资源进行优化"><span class="nav-text">对网站的文件和资源进行优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理所有CSS文件、JS与图片"><span class="nav-text">管理所有CSS文件、JS与图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化图片的加载"><span class="nav-text">优化图片的加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少页面加载时间的方法"><span class="nav-text">减少页面加载时间的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你有用过哪些前端性能优化的方法"><span class="nav-text">你有用过哪些前端性能优化的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#普通的网站统一优化思路"><span class="nav-text">普通的网站统一优化思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#兼容性问题"><span class="nav-text">兼容性问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IE6下的圆角，背景闪烁"><span class="nav-text">IE6下的圆角，背景闪烁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IE6下的圆角"><span class="nav-text">IE6下的圆角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IE6背景闪烁"><span class="nav-text">IE6背景闪烁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#横向列表宽度，列表阶梯，垂直列表间隙bug"><span class="nav-text">横向列表宽度，列表阶梯，垂直列表间隙bug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#横向列表宽度bug"><span class="nav-text">横向列表宽度bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表阶梯bug"><span class="nav-text">列表阶梯bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垂直列表间隙bug"><span class="nav-text">垂直列表间隙bug</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小-大高度，最小-大宽度，100-高度"><span class="nav-text">最小/大高度，最小/大宽度，100%高度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最小高度（标签最低高度设置min-height不兼容）"><span class="nav-text">最小高度（标签最低高度设置min-height不兼容）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度"><span class="nav-text">设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大高度"><span class="nav-text">最大高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最小宽度"><span class="nav-text">最小宽度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大宽度"><span class="nav-text">最大宽度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#100-高度"><span class="nav-text">100% 高度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a标签问题"><span class="nav-text">a标签问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a标签内的内容样式加上样式"><span class="nav-text">a标签内的内容样式加上样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超链接访问过后-hover-样式就不出现"><span class="nav-text">超链接访问过后 hover 样式就不出现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片img问题"><span class="nav-text">图片img问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图片默认有间距"><span class="nav-text">图片默认有间距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#img于块元素中，底边多出空白"><span class="nav-text">img于块元素中，底边多出空白</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-有href属性-标签嵌套下的img标签，在IE下会带有边框"><span class="nav-text">a(有href属性)标签嵌套下的img标签，在IE下会带有边框</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#margin问题"><span class="nav-text">margin问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#上下margin重合问题"><span class="nav-text">上下margin重合问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同浏览器的标签默认的外补丁和内补丁不同"><span class="nav-text">不同浏览器的标签默认的外补丁和内补丁不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父子标签间用margin的问题"><span class="nav-text">父子标签间用margin的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左浮元素margin-bottom失效"><span class="nav-text">左浮元素margin-bottom失效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动问题"><span class="nav-text">浮动问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height"><span class="nav-text">line-height</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3像素间距bug"><span class="nav-text">3像素间距bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Overflow-Bug"><span class="nav-text">Overflow Bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ul，ol-dl默认情况"><span class="nav-text">ul，ol,dl默认情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE下z-index的bug"><span class="nav-text">IE下z-index的bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#border默认CSS样式"><span class="nav-text">border默认CSS样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css布局中的居中问题"><span class="nav-text">css布局中的居中问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE6的躲猫猫bug（peek-a-boo）bug"><span class="nav-text">IE6的躲猫猫bug（peek-a-boo）bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渐进识别的方式，从总体中逐渐排除局部"><span class="nav-text">渐进识别的方式，从总体中逐渐排除局部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行内属性标签，设置display-block后采用float布局，又有横行的margin的情况，IE6间距bug"><span class="nav-text">行内属性标签，设置display:block后采用float布局，又有横行的margin的情况，IE6间距bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父子关系的标签，子标签浮动导致父标签不再包裹子标签"><span class="nav-text">父子关系的标签，子标签浮动导致父标签不再包裹子标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他注意事项"><span class="nav-text">其他注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS代码实现"><span class="nav-text">JS代码实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#性能优化"><span class="nav-text">性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面级优化"><span class="nav-text">页面级优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#减少HTTP请求数-最重要最有效"><span class="nav-text">减少HTTP请求数  (最重要最有效)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#减少HTTP请求数的途径"><span class="nav-text">减少HTTP请求数的途径</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将外部脚本放在底部"><span class="nav-text">将外部脚本放在底部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发执行inline脚本"><span class="nav-text">并发执行inline脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒加载"><span class="nav-text">懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Js-与-css-懒加载"><span class="nav-text">Js 与 css 懒加载</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将-CSS放在-HEAD中"><span class="nav-text">将 CSS放在 HEAD中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少不必要的HTTP跳转"><span class="nav-text">减少不必要的HTTP跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免重复的资源请求"><span class="nav-text">避免重复的资源请求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码级优化"><span class="nav-text">代码级优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM"><span class="nav-text">DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#慎用with"><span class="nav-text">慎用with</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免使用eval和Function"><span class="nav-text">避免使用eval和Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少作用域链查找"><span class="nav-text">减少作用域链查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据访问"><span class="nav-text">数据访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串拼接"><span class="nav-text">字符串拼接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总的来说代码层面的优化"><span class="nav-text">总的来说代码层面的优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重绘重排"><span class="nav-text">重绘重排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对网站的文件和资源进行优化"><span class="nav-text">对网站的文件和资源进行优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理所有CSS文件、JS与图片"><span class="nav-text">管理所有CSS文件、JS与图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化图片的加载"><span class="nav-text">优化图片的加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少页面加载时间的方法"><span class="nav-text">减少页面加载时间的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你有用过哪些前端性能优化的方法"><span class="nav-text">你有用过哪些前端性能优化的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#普通的网站统一优化思路"><span class="nav-text">普通的网站统一优化思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#兼容性问题"><span class="nav-text">兼容性问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IE6下的圆角，背景闪烁"><span class="nav-text">IE6下的圆角，背景闪烁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IE6下的圆角"><span class="nav-text">IE6下的圆角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IE6背景闪烁"><span class="nav-text">IE6背景闪烁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#横向列表宽度，列表阶梯，垂直列表间隙bug"><span class="nav-text">横向列表宽度，列表阶梯，垂直列表间隙bug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#横向列表宽度bug"><span class="nav-text">横向列表宽度bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表阶梯bug"><span class="nav-text">列表阶梯bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垂直列表间隙bug"><span class="nav-text">垂直列表间隙bug</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小-大高度，最小-大宽度，100-高度"><span class="nav-text">最小/大高度，最小/大宽度，100%高度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最小高度（标签最低高度设置min-height不兼容）"><span class="nav-text">最小高度（标签最低高度设置min-height不兼容）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度"><span class="nav-text">设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大高度"><span class="nav-text">最大高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最小宽度"><span class="nav-text">最小宽度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大宽度"><span class="nav-text">最大宽度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#100-高度"><span class="nav-text">100% 高度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a标签问题"><span class="nav-text">a标签问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a标签内的内容样式加上样式"><span class="nav-text">a标签内的内容样式加上样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超链接访问过后-hover-样式就不出现"><span class="nav-text">超链接访问过后 hover 样式就不出现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片img问题"><span class="nav-text">图片img问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图片默认有间距"><span class="nav-text">图片默认有间距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#img于块元素中，底边多出空白"><span class="nav-text">img于块元素中，底边多出空白</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-有href属性-标签嵌套下的img标签，在IE下会带有边框"><span class="nav-text">a(有href属性)标签嵌套下的img标签，在IE下会带有边框</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#margin问题"><span class="nav-text">margin问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#上下margin重合问题"><span class="nav-text">上下margin重合问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同浏览器的标签默认的外补丁和内补丁不同"><span class="nav-text">不同浏览器的标签默认的外补丁和内补丁不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父子标签间用margin的问题"><span class="nav-text">父子标签间用margin的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左浮元素margin-bottom失效"><span class="nav-text">左浮元素margin-bottom失效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动问题"><span class="nav-text">浮动问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height"><span class="nav-text">line-height</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3像素间距bug"><span class="nav-text">3像素间距bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ul，ol-dl默认情况"><span class="nav-text">ul，ol,dl默认情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE下z-index的bug"><span class="nav-text">IE下z-index的bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#border默认CSS样式"><span class="nav-text">border默认CSS样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css布局中的居中问题"><span class="nav-text">css布局中的居中问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE6的躲猫猫bug（peek-a-boo）bug"><span class="nav-text">IE6的躲猫猫bug（peek-a-boo）bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渐进识别的方式，从总体中逐渐排除局部"><span class="nav-text">渐进识别的方式，从总体中逐渐排除局部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行内属性标签，设置display-block后采用float布局，又有横行的margin的情况，IE6间距bug"><span class="nav-text">行内属性标签，设置display:block后采用float布局，又有横行的margin的情况，IE6间距bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父子关系的标签，子标签浮动导致父标签不再包裹子标签"><span class="nav-text">父子关系的标签，子标签浮动导致父标签不再包裹子标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他注意事项"><span class="nav-text">其他注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS问题及代码实现"><span class="nav-text">JS问题及代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#判断是否相等"><span class="nav-text">判断是否相等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null，undefined-的区别"><span class="nav-text">null，undefined 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js实现千位分隔符"><span class="nav-text">js实现千位分隔符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#split-join-的区别"><span class="nav-text">split() join() 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的倒排，降序排列"><span class="nav-text">数组的倒排，降序排列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new操作符具体做了什么"><span class="nav-text">new操作符具体做了什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中callee和caller的作用"><span class="nav-text">JS中callee和caller的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3种强制类型转换和2种隐式类型转换"><span class="nav-text">3种强制类型转换和2种隐式类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何判断一个对象是否属于某个类"><span class="nav-text">如何判断一个对象是否属于某个类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#attribute和property的区别是什么"><span class="nav-text">attribute和property的区别是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结合-lt-span-id-”outer”-gt-text这段结构，谈谈innerHTML-outerHTML-innerText之间的区别。"><span class="nav-text">结合<span id=”outer”>text这段结构，谈谈innerHTML outerHTML innerText之间的区别。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置一个已知ID的DIV的html内容为xxxx，字体颜色设置为黑色"><span class="nav-text">设置一个已知ID的DIV的html内容为xxxx，字体颜色设置为黑色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取到页面中所有的checkbox怎么做"><span class="nav-text">获取到页面中所有的checkbox怎么做</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#谈谈JS数组方法sort-的使用，重点介绍sort-参数的使用及其内部机制"><span class="nav-text">谈谈JS数组方法sort()的使用，重点介绍sort()参数的使用及其内部机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出今天的日期，以YYYY-MM-DD的方式"><span class="nav-text">输出今天的日期，以YYYY-MM-DD的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用js实现随机选取10–100之间的10个数字，存入一个数组，并排序。"><span class="nav-text">用js实现随机选取10–100之间的10个数字，存入一个数组，并排序。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#window-onload和-document-ready-function"><span class="nav-text">window.onload和$(document).ready(function(){})</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出相同的数，立即执行函数解决"><span class="nav-text">输出相同的数，立即执行函数解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写一个function，清除字符串前后的空格trim"><span class="nav-text">写一个function，清除字符串前后的空格trim()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何判断某变量是否为数组数据类型"><span class="nav-text">如何判断某变量是否为数组数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#经典题（如何将数组去重说说你的思路）"><span class="nav-text">经典题（如何将数组去重说说你的思路）</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
