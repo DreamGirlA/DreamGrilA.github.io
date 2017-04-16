@@ -72,7 +72,7 @@ getEleme">
 • DOM的全称是Document Object Model 文档对象模型，DOM定义了表示和修改文档所需的对象、这些对象的行为和属性以及这些对象之间的关系。• DOM对象即为宿主对象，由浏览器厂商定义，用来操作html的css功能的一类对象和集合。不过浏览器厂商之间大部分都遵循w3c标准。• 简单来说，DOM就是用来操作html和css的，它是一系列对象的集合。
 
 getEleme">
-<meta property="og:updated_time" content="2017-04-16T12:19:01.729Z">
+<meta property="og:updated_time" content="2017-04-16T13:04:47.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端知识总结（DOM，BOM,JS,jquery）">
 <meta name="twitter:description" content="DOM篇定义
@@ -593,109 +593,79 @@ function retParent (e, n) {
             &quot;h&quot;: height
       }
 }
-</code></pre><h1 id="JS篇"><a href="#JS篇" class="headerlink" title="JS篇"></a>JS篇</h1><h2 id="JS数据类型，内置对象，typeof数据类型"><a href="#JS数据类型，内置对象，typeof数据类型" class="headerlink" title="JS数据类型，内置对象，typeof数据类型"></a>JS数据类型，内置对象，typeof数据类型</h2><ol>
+</code></pre><h1 id="JS篇"><a href="#JS篇" class="headerlink" title="JS篇"></a>JS篇</h1><h2 id="JS数据类型，内置对象"><a href="#JS数据类型，内置对象" class="headerlink" title="JS数据类型，内置对象"></a>JS数据类型，内置对象</h2><ol>
 <li>js的基本数据类型：Undefined、Null、Boolean、Number、String</li>
-<li>引用数据类型：Object(Array,Date,RegExp,Function)</li>
-<li>typeof返回的数据类型：Object number function boolean underfind</li>
+<li>引用数据类型：Object(Array,Date,RegExp,Function) </li>
 <li>js的内置对象：Object 是 JavaScript 中所有对象的父对象</li>
 </ol>
 <ul>
 <li>数据封装类对象：Object、Array、Boolean、Number 和 String</li>
 <li>其他对象：Function、Arguments、Math、Date、RegExp、Error</li>
 </ul>
-<h2 id="javascript的本地对象，内置对象和宿主对象"><a href="#javascript的本地对象，内置对象和宿主对象" class="headerlink" title="javascript的本地对象，内置对象和宿主对象"></a>javascript的本地对象，内置对象和宿主对象</h2><ol>
+<h3 id="typeof数据类型"><a href="#typeof数据类型" class="headerlink" title="typeof数据类型"></a>typeof数据类型</h3><p>typeof返回的数据类型：Object number function boolean underfind</p>
+<h3 id="JS的本地对象，内置对象和宿主对象"><a href="#JS的本地对象，内置对象和宿主对象" class="headerlink" title="JS的本地对象，内置对象和宿主对象"></a>JS的本地对象，内置对象和宿主对象</h3><ol>
 <li>本地对象为array obj regexp等可以new实例化</li>
 <li>内置对象为gload Math 等不可以实例化的</li>
 <li>宿主为浏览器自带的document,window 等</li>
 </ol>
-<h2 id="添加，创建，查找"><a href="#添加，创建，查找" class="headerlink" title="添加，创建，查找"></a>添加，创建，查找</h2><h3 id="添加，删除，替换，插入到某个接点的方法"><a href="#添加，删除，替换，插入到某个接点的方法" class="headerlink" title="添加，删除，替换，插入到某个接点的方法"></a>添加，删除，替换，插入到某个接点的方法</h3><p>obj.appendChidl()<br>obj.removeChild<br>obj.replaceChild<br>obj.innersetBefore</p>
-<h3 id="创建新节点"><a href="#创建新节点" class="headerlink" title="创建新节点"></a>创建新节点</h3><p>createDocumentFragment() //创建一个DOM片段<br>createElement_x_x() //创建一个具体的元素<br>createTextNode() //创建一个文本节点</p>
-<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><p>getElementsByTagName_r() //通过标签名称<br>getElementsByName() //通过元素的Name属性的值<br>getElementById() //通过元素Id，唯一性</p>
-<h2 id="JavaScript的基本规范"><a href="#JavaScript的基本规范" class="headerlink" title="JavaScript的基本规范"></a>JavaScript的基本规范</h2><ol>
-<li>不要在同一行声明多个变量。</li>
-<li>请使用 ===/!==来比较true/false或者数值</li>
-<li>使用对象字面量替代new Array这种形式</li>
-<li>不要使用全局函数。</li>
-<li>Switch语句必须带有default分支</li>
-<li>函数不应该有时候有返回值，有时候没有返回值。</li>
-<li>For循环必须使用大括号</li>
-<li>If语句必须使用大括号</li>
-<li>for-in循环中的变量 应该使用var关键字明确限定作用域，从而避免作用域污染。</li>
-</ol>
-<h2 id="eval的作用"><a href="#eval的作用" class="headerlink" title="eval的作用"></a>eval的作用</h2><p>它的功能是把对应的字符串解析成JS代码并运行；<br>应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。<br>由JSON字符串转换为JSON对象的时候可以用eval，var obj =eval(‘(‘+ str +’)’);</p>
-<h2 id="JS中的”use-strict”-是什么意思"><a href="#JS中的”use-strict”-是什么意思" class="headerlink" title="JS中的”use strict”;是什么意思 ?"></a>JS中的”use strict”;是什么意思 ?</h2><p>use strict是一种ECMAscript 5 添加的（严格）运行模式,这种模式使得 Javascript 在更严格的条件下运行,</p>
+<h3 id="JS创建对象的方式"><a href="#JS创建对象的方式" class="headerlink" title="JS创建对象的方式"></a>JS创建对象的方式</h3><p>javascript创建对象简单的说,无非就是使用内置对象或各种自定义对象，当然还可以用JSON；但写法有很多种，也能混合使用。</p>
 <ol>
-<li>默认支持的糟糕特性都会被禁用，比如不能用with，也不能在意外的情况下给全局变量赋值;</li>
-<li>全局变量的显示声明,函数必须声明在顶层，不允许在非函数代码块内声明函数,arguments.callee,arguments.caller也不允许使用；</li>
-<li>限制函数中的arguments修改，严格模式下的eval函数的行为和非严格模式的也不相同;</li>
-<li>函数的参数不能有同名属性，不能对只读属性赋值,eval和arguments不能被重新赋值,禁止this指向全局对象,不能使用fn.caller和fn.arguments获取函数调用的堆栈</li>
-</ol>
-<h3 id="使用”use-strict”的目的"><a href="#使用”use-strict”的目的" class="headerlink" title="使用”use strict”的目的"></a>使用”use strict”的目的</h3><ol>
-<li>使JS编码更加规范化的模式,消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为。</li>
-<li>消除代码运行的一些不安全之处，保证代码运行的安全；</li>
-<li>提高编译器效率，增加运行速度；</li>
-<li>为未来新版本的Javascript标准化做铺垫。</li>
-</ol>
-<h2 id="document-write"><a href="#document-write" class="headerlink" title="document.write()"></a>document.write()</h2><p>document.write()这个命令简单地打印指定的文本内容到页面上。为了逐字打印文本，在打印的文本字符串加上单引号</p>
-<blockquote>
-<p>在载人页面后，浏览器输出流自动关闭；在此之后，任何一个对当前页面进行操作的document.write()方法将打开—个新的输出流。它将清除当前页面内容(包括源文档的任何变量或值)、因此．假如希望用脚本生成的HTML替换当前页面，就必须把HTML内容连接起来赋给一个变量、使用一个document.write()方法完成写操作，不必清除文档并打开一个新数据流，一个document.write()调用就可完成所有的操作。 </p>
-</blockquote>
-<h3 id="document-write-使用方法"><a href="#document-write-使用方法" class="headerlink" title="document.write()使用方法"></a>document.write()使用方法</h3><ol>
-<li>document.write(‘Hello World!’);  </li>
-<li>var mytext = “Hello again”;document.write(mytext);</li>
-<li>var colour1 = “purple”;<br>var colour2 = “pink”;<br>document.write(‘<p>colour1: ‘ + colour1 + ‘<br>colour2: ‘ + colour2 + ‘</p>‘);  </li>
-</ol>
-<h3 id="document-write和-innerHTML的区别"><a href="#document-write和-innerHTML的区别" class="headerlink" title="document.write和 innerHTML的区别"></a>document.write和 innerHTML的区别</h3><ol>
-<li>document.write是直接写入到页面的内容流，如果在写之前没有调用document.open,浏览器会自动调用open。每次写完关闭之后重新调用该函数，会导致页面被重写。 </li>
-<li>innerHTML则是DOM页面元素的一个属性，代表该元素的html内容。你可以精确到某一个具体的元素来进行更改。如果想修改document的内容，则需要修改document.documentElement.innerElement。 </li>
-<li>innerHTML很多情况下都优于document.write，其原因在于其允许更精确的控制要刷新页面的那一个部分。</li>
-<li>document.write是直接将内容写入页面的内容刘，会导致页面全部重绘，innerHTML将内容写入某个DOM节点，不会导致页面全部重绘</li>
-</ol>
-<h2 id="在JS中什么是伪数组？如何将伪数组转化为标准数组？"><a href="#在JS中什么是伪数组？如何将伪数组转化为标准数组？" class="headerlink" title="在JS中什么是伪数组？如何将伪数组转化为标准数组？"></a>在JS中什么是伪数组？如何将伪数组转化为标准数组？</h2><p>伪数组（类数组）：无法直接调用数组方法或期望length属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的argument参数，还有像调用getElementsByTagName,document.childNodes之类的,它们都返回NodeList对象都属于伪数组。可以使用Array.prototype.slice.call(fakeArray)将数组转化为真正的Array对象。</p>
-<h2 id="永远不会去查找原型的函数"><a href="#永远不会去查找原型的函数" class="headerlink" title="永远不会去查找原型的函数"></a>永远不会去查找原型的函数</h2><p>hasOwnProperty</p>
-<ol>
-<li>javaScript中hasOwnProperty函数方法是返回一个布尔值，指出一个对象是否具有指定名称的属性。此方法无法检查该对象的原型链中是否具有该属性；该属性必须是对象本身的一个成员。</li>
-<li>使用方法：object.hasOwnProperty(proName)其中参数object是必选项。一个对象的实例。proName是必选项。一个属性名称的字符串值。如果 object 具有指定名称的属性，那么JavaScript中hasOwnProperty函数方法返回 true，反之则返回 false。</li>
-</ol>
-<h2 id="JSON-的了解"><a href="#JSON-的了解" class="headerlink" title="JSON 的了解"></a>JSON 的了解</h2><ol>
-<li>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小。优点：轻量级、易于人的阅读和编写，便于机器（JavaScript）解析，支持复合数据类型（数组、对象、字符串、数字）<br>如：{“age”:”12”, “name”:”back”}</li>
-<li>JSON字符串转换为JSON对象:<br>var obj =eval(‘(‘+ str +’)’);<br>var obj = str.parseJSON();<br>var obj = JSON.parse(str);</li>
-<li>JSON对象转换为JSON字符串：<br>var last=obj.toJSONString();<br>var last=JSON.stringify(obj);</li>
-</ol>
-<h2 id="XML和JSON的区别"><a href="#XML和JSON的区别" class="headerlink" title="XML和JSON的区别"></a>XML和JSON的区别</h2><ol>
-<li>数据体积方面。JSON相对于XML来讲，数据的体积小，传递的速度更快些。</li>
-<li>数据交互方面。JSON与JavaScript的交互更加方便，更容易解析处理，更好的数据交互。</li>
-<li>数据描述方面。JSON对数据的描述性比XML较差。</li>
-<li>传输速度方面。JSON的速度要远远快于XML。</li>
-</ol>
-<h2 id="用过哪些设计模式"><a href="#用过哪些设计模式" class="headerlink" title="用过哪些设计模式"></a>用过哪些设计模式</h2><h3 id="工厂模式："><a href="#工厂模式：" class="headerlink" title="工厂模式："></a>工厂模式：</h3><p>主要好处就是可以消除对象间的耦合，通过使用工程方法而不是new关键字。将所有实例化的代码集中在一个位置防止代码重复。<br>工厂模式解决了重复实例化的问题 ，但还有一个问题,那就是识别问题，因为根本无法 搞清楚他们到底是哪个对象的实例。</p>
-<pre><code>function createObject(name,age,profession){//集中实例化的函数var obj = new Object();
-    obj.name = name;
-    obj.age = age;
-    obj.profession = profession;
-    obj.move = function () {
-        return this.name + &apos; at &apos; + this.age + &apos; engaged in &apos; + this.profession;
-    };
-    return obj;
+<li><p>对象字面量的方式</p>
+<pre><code>person={firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;};
+</code></pre></li>
+<li><p>用function来模拟无参的构造函数</p>
+<pre><code>function Person(){}
+var person=new Person();//定义一个function，如果使用new&quot;实例化&quot;,该function可以看作是一个Class
+person.name=&quot;Mark&quot;;
+person.age=&quot;25&quot;;
+person.work=function(){
+alert(person.name+&quot; hello...&quot;);
 }
-var test1 = createObject(&apos;trigkit4&apos;,22,&apos;programmer&apos;);//第一个实例
-var test2 = createObject(&apos;mike&apos;,25,&apos;engineer&apos;);//第二个实例
-</code></pre><h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><p>使用构造函数的方法 ，即解决了重复实例化的问题 ，又解决了对象识别的问题，该模式与工厂模式的不同之处在于：</p>
-<ol>
-<li>构造函数方法没有显示的创建对象 (new Object());</li>
-<li>直接将属性和方法赋值给 this 对象;</li>
-<li>没有 renturn 语句。</li>
+person.work();
+</code></pre></li>
+<li><p>用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
+<pre><code>function Pet(name,age,hobby){
+  this.name=name;//this作用域：当前对象
+  this.age=age;
+  this.hobby=hobby;
+  this.eat=function(){
+      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);
+  }
+}
+var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象
+maidou.eat();//调用eat方法
+</code></pre></li>
+<li><p>用工厂方式来创建（内置对象）</p>
+<pre><code>var wcDog =new Object();
+wcDog.name=&quot;旺财&quot;;
+wcDog.age=3;
+wcDog.work=function(){
+  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);
+}
+wcDog.work();
+</code></pre></li>
+<li><p>用原型方式来创建</p>
+<pre><code>function Dog(){
+}
+Dog.prototype.name=&quot;旺财&quot;;
+Dog.prototype.eat=function(){
+alert(this.name+&quot;是个吃货&quot;);
+}
+var wangcai =new Dog();
+wangcai.eat();
+</code></pre></li>
 </ol>
-<h2 id="JavaScript有几种类型的值"><a href="#JavaScript有几种类型的值" class="headerlink" title="JavaScript有几种类型的值"></a>JavaScript有几种类型的值</h2><ol>
-<li>栈：原始数据类型（Undefined，Null，Boolean，Number、String）</li>
-<li>堆：引用数据类型（对象、数组和函数）</li>
-</ol>
-<h3 id="两种类型的区别"><a href="#两种类型的区别" class="headerlink" title="两种类型的区别"></a>两种类型的区别</h3><p>存储位置不同；</p>
-<ul>
-<li>原始数据类型直接存储在栈(stack)中的简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储；</li>
-<li>引用数据类型存储在堆(heap)中的对象,占据空间大、大小不固定,如果存储在栈中，将会影响程序运行的性能；引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体</li>
-</ul>
-<h2 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h2><h3 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h3><ol>
+<p>6.用混合方式来创建</p>
+<pre><code>function Car(name,price){
+  this.name=name;
+  this.price=price;
+}
+Car.prototype.sell=function(){
+  alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);
+  }
+var camry =new Car(&quot;凯美瑞&quot;,27);
+camry.sell();
+</code></pre><h2 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h2><h3 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h3><ol>
 <li>队列先进先出，栈先进后出。</li>
 <li>对插入和删除操作的”限定”：<br> 栈是限定只能在表的一端进行插入和删除操作的线性表。<br> 队列是限定只能在表的一端进行插入和在另一端进行删除操作的线性表。</li>
 <li>队列操作的方法  shift unshift</li>
@@ -707,6 +677,15 @@ var test2 = createObject(&apos;mike&apos;,25,&apos;engineer&apos;);//第二个�
 <li>堆（数据结构）：堆可以被看成是一棵树，如：堆排序；</li>
 <li>栈（数据结构）：一种先进后出的数据结构。</li>
 </ol>
+<h3 id="JS有几种类型的值"><a href="#JS有几种类型的值" class="headerlink" title="JS有几种类型的值"></a>JS有几种类型的值</h3><ol>
+<li>栈：原始数据类型（Undefined，Null，Boolean，Number、String）</li>
+<li>堆：引用数据类型（对象、数组和函数）</li>
+</ol>
+<h4 id="两种类型的区别"><a href="#两种类型的区别" class="headerlink" title="两种类型的区别"></a>两种类型的区别</h4><p>存储位置不同；</p>
+<ul>
+<li>原始数据类型直接存储在栈(stack)中的简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储；</li>
+<li>引用数据类型存储在堆(heap)中的对象,占据空间大、大小不固定,如果存储在栈中，将会影响程序运行的性能；引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体</li>
+</ul>
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>var list = [0,1,2]</p>
 <ol>
 <li>shift()：删除数组的第一个元素,返回删除的值。这里是0</li>
@@ -780,7 +759,7 @@ console.log(func()); // undefined
 }
 var func = User.getCount.bind(User);
 console.log(func());    
-</code></pre><h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><ol>
+</code></pre><h2 id="原型，原型链"><a href="#原型，原型链" class="headerlink" title="原型，原型链"></a>原型，原型链</h2><h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><ol>
 <li>原型的定义：原型是function对象的一个属性，它定义了构造函数制造出来的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法。原型也是对象。</li>
 <li>有了原型，原型还是一个对象，那么这个名为原型的对象自己还有自己的原型，这样的原型上还有原型的结构就构成了原型链。</li>
 </ol>
@@ -791,23 +770,19 @@ console.log(func());
 <li>但是对象并不能删除原型上的属性。谁调用这个方法，这个方法中的this就指向这个调用它的对象</li>
 </ol>
 </blockquote>
-<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><ol>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><ol>
 <li>有了原型，原型还是一个对象，那么这个名为原型的对象自然还有自己的原型，这样的原型上还有原型的结构就构成了原型链。</li>
 <li>当我们查找son上的属性的时候，如果son自身有属性，那么就打印出来，如果没有，就向上查找原型father，如果father上面还有这个属性，那么继续向上查找grandfoo，如果有就输出，如果没有就返回undefined。这种链式的查询结构就叫做原型链。</li>
 </ol>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><pre><code>es5的作用域有全局作用域和函数作用域，es6中添加了块级作用域
-</code></pre><h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>定义：变量（变量作用域又称为上下文）和函数生效（能被访问）的区域。avaScript的函数是可以产生作用域的。</p>
+<h2 id="作用域，作用域链"><a href="#作用域，作用域链" class="headerlink" title="作用域，作用域链"></a>作用域，作用域链</h2><p>es5的作用域有全局作用域和函数作用域，es6中添加了块级作用域</p>
+<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>定义：变量（变量作用域又称为上下文）和函数生效（能被访问）的区域。avaScript的函数是可以产生作用域的。</p>
 <blockquote>
 <p>如果在函数作用域里面声明变量没有用var的话，那么就声明了一个全局变量。同时，两个不同作用域（除了全局作用域）之间是不能互相访问的</p>
 </blockquote>
-<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><ol>
+<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><ol>
 <li>由于函数可以互相嵌套，作用域之间自然也会产生互相嵌套的关系，这个时候就会产生作用域链。</li>
 <li>当代码在一个环境中执行时，会创建变量对象的一个作用域链来保证对执行环境的有权访问的变量和函数的有序访问</li>
 <li>作用域第一个对象始终是当前执行代码所在环境变量对象</li>
-</ol>
-<h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><ol>
-<li>是解闭包的一个重要方法。但是注意闭包是没有办法解除的，我们只能通过另一个新闭包来消除上一个闭包的影响。</li>
-<li>定义：立即执行函数不需要被定义，直接执行，执行完毕之后直接释放。</li>
 </ol>
 <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><ol>
 <li>闭包就是能够读取其他函数内部变量的函数.</li>
@@ -824,7 +799,7 @@ console.log(func());
 <li>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。</li>
 <li>解决方法是，在退出函数之前，将不使用的局部变量全部删除。</li>
 </ol>
-<h2 id="下面这个ul，如何点击每一列的时候alert其index"><a href="#下面这个ul，如何点击每一列的时候alert其index" class="headerlink" title="下面这个ul，如何点击每一列的时候alert其index?"></a>下面这个ul，如何点击每一列的时候alert其index?</h2><pre><code>&lt;ul id=”test”&gt;
+<h3 id="下面这个ul，如何点击每一列的时候alert其index"><a href="#下面这个ul，如何点击每一列的时候alert其index" class="headerlink" title="下面这个ul，如何点击每一列的时候alert其index?"></a>下面这个ul，如何点击每一列的时候alert其index?</h3><pre><code>&lt;ul id=”test”&gt;
 &lt;li&gt;这是第一条&lt;/li&gt;
 &lt;li&gt;这是第二条&lt;/li&gt;
 &lt;li&gt;这是第三条&lt;/li&gt;
@@ -849,7 +824,11 @@ for(var i=0;i&lt;3;i++)
  }
  })(i);
 }
-</code></pre><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ol>
+</code></pre><h3 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h3><ol>
+<li>是解闭包的一个重要方法。但是注意闭包是没有办法解除的，我们只能通过另一个新闭包来消除上一个闭包的影响。</li>
+<li>定义：立即执行函数不需要被定义，直接执行，执行完毕之后直接释放。</li>
+</ol>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ol>
 <li>传统方式使用原型链继承 浪费继承了太多无用属性</li>
 <li>构造函数 用call和apply 改变this指向</li>
 <li>共享原型 就是父子构造函数一样<br>缺点：无法改变子类原型 要改只能改一个</li>
@@ -870,144 +849,7 @@ for(var i=0;i&lt;3;i++)
     alert(demo.age);
     alert(demo.name);//得到被继承的属性
   }
-</code></pre><h2 id="深层克隆"><a href="#深层克隆" class="headerlink" title="深层克隆"></a>深层克隆</h2><pre><code>function deepCopy(src,tar){
-    var tar= tar|| {} ;
-    for (var prop in src){
-            if (typeof (src[prop]) == &apos;object&apos;){
-                tar[prop] = (src[prop].constructor === Array ) ? [] : {};
-                deepCopy(src[prop],tar[prop]);
-            }else {
-                tar[prop] = src[prop];
-            }
-    }
-
-    return tar;
-}
-</code></pre><h2 id="javascript创建对象的几种方式"><a href="#javascript创建对象的几种方式" class="headerlink" title="javascript创建对象的几种方式"></a>javascript创建对象的几种方式</h2><p>javascript创建对象简单的说,无非就是使用内置对象或各种自定义对象，当然还可以用JSON；但写法有很多种，也能混合使用。</p>
-<ol>
-<li><p>对象字面量的方式</p>
-<pre><code>person={firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;};
-</code></pre></li>
-<li><p>用function来模拟无参的构造函数</p>
-<pre><code>function Person(){}
-var person=new Person();//定义一个function，如果使用new&quot;实例化&quot;,该function可以看作是一个Class
-person.name=&quot;Mark&quot;;
-person.age=&quot;25&quot;;
-person.work=function(){
-alert(person.name+&quot; hello...&quot;);
-}
-person.work();
-</code></pre></li>
-<li><p>用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
-<pre><code>function Pet(name,age,hobby){
-  this.name=name;//this作用域：当前对象
-  this.age=age;
-  this.hobby=hobby;
-  this.eat=function(){
-      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);
-  }
-}
-var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象
-maidou.eat();//调用eat方法
-</code></pre></li>
-<li><p>用工厂方式来创建（内置对象）</p>
-<pre><code>var wcDog =new Object();
-wcDog.name=&quot;旺财&quot;;
-wcDog.age=3;
-wcDog.work=function(){
-  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);
-}
-wcDog.work();
-</code></pre></li>
-<li><p>用原型方式来创建</p>
-<pre><code>function Dog(){
-}
-Dog.prototype.name=&quot;旺财&quot;;
-Dog.prototype.eat=function(){
-alert(this.name+&quot;是个吃货&quot;);
-}
-var wangcai =new Dog();
-wangcai.eat();
-</code></pre></li>
-</ol>
-<p>6.用混合方式来创建</p>
-<pre><code>function Car(name,price){
-  this.name=name;
-  this.price=price;
-}
-Car.prototype.sell=function(){
-  alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);
-  }
-var camry =new Car(&quot;凯美瑞&quot;,27);
-camry.sell();
-</code></pre><h2 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h2><h3 id="预编译前奏"><a href="#预编译前奏" class="headerlink" title="预编译前奏"></a>预编译前奏</h3><ol>
-<li>imply global 暗示全局变量。如果任何变量未经声明就赋值使用，此变量就会为全局对象window所有，并且成为window对象的一个属性。</li>
-<li>一切声明的全局变量，都是window的属性。</li>
-<li>区别在于：经过声明的全局变量不能通过delete操作来删除，但是未经声明的全局变量可以被删除</li>
-</ol>
-<h3 id="预编译时this指向window。"><a href="#预编译时this指向window。" class="headerlink" title="预编译时this指向window。"></a>预编译时this指向window。</h3><ol>
-<li>创建AO对象。首先第一步，创建一个AO对象（执行器上下文）。var AO = {};</li>
-<li>寻找形参和变量声明，将变量和形参作为AO对象的属性名添加到对象中，值为undefined。值得注意的是，函数声明不叫变量。</li>
-<li>将实参值和形参值相统一。这里因为属性名都已经存在了，所以直接赋值就可以了。</li>
-<li>在函数体里面寻找函数声明，将函数名作为属性名，值为这个函数的函数体。</li>
-</ol>
-<blockquote>
-<ol>
-<li>函数在执行的前一刻会产生一个上下文，这个上下文就是Activeaction Object对象，简称AO对象。AO = {}</li>
-<li>这个对象是空的，但是里面有一些我们看不到的却存在的隐式属性，比如this: window属性和arguments: [];属性</li>
-<li>这个对象用来存放一些属性和方法，这些属性和方法就按照前面的四步来产生。</li>
-</ol>
-</blockquote>
-<h2 id="JS异步加载"><a href="#JS异步加载" class="headerlink" title="JS异步加载"></a>JS异步加载</h2><blockquote>
-<p>背景：<br>    script标签的特点是会阻塞后面的DOM解析，只有当script标签下载完成并且全部执行完之后，浏览器才会继续解析DOM。一旦网速不好，那么整个网站将等待js加载而不进行后续渲染。<br>    html5标准引入了另一套异步加载js的方法。以前有一种写法是将script标签写在body的最后面，等在DOM全部解析完成之后才加载js。</p>
-</blockquote>
-<h3 id="js异步加载的三种方案"><a href="#js异步加载的三种方案" class="headerlink" title="js异步加载的三种方案"></a>js异步加载的三种方案</h3><h4 id="defer异步加载"><a href="#defer异步加载" class="headerlink" title="defer异步加载"></a>defer异步加载</h4><ol>
-<li>我们在script标签的行间写一个defer=“defer”或者直接写defer，就可以让这个script变成异步加载了。但是这种异步只是针对下载方面，只有等DOMTree全部解析完成（不包括下载完里面的资源）后才会异步执行。而且这个方法只有IE和一些高版本的firefox和chrome可以用。</li>
-<li>不过这一种方式可以在script标签里面写代码。</li>
-<li>IE6和IE7的异步加载最多只能有2个，当多余两个的时候必须等前两个加载完才会加载第三个。</li>
-<li>所有defer的js代码都保证按照顺序执行。</li>
-</ol>
-<h4 id="async异步加载"><a href="#async异步加载" class="headerlink" title="async异步加载"></a>async异步加载</h4><ol>
-<li>async是asynchronous的缩写，它是html5的标准，下载完成之后就会立即异步执行，这种方法除了IE6-IE8其他的浏览器都好用。</li>
-<li>async的js代码不能保证是顺序执行的。</li>
-</ol>
-<p>兼容性写法：</p>
-<ol>
-<li>直接写两个script标签，一个是defer，一个是async。</li>
-<li>但是这种方法有缺陷：IE高版本会加载两遍引起冲突，有些浏览器两个都没有会一个都加载不出来。所以我们就需要用async方法了</li>
-</ol>
-<h4 id="w3c的标准规定"><a href="#w3c的标准规定" class="headerlink" title="w3c的标准规定"></a>w3c的标准规定</h4><p>动态添加的script标签是异步的</p>
-<h3 id="封装一个兼容性的异步加载js的函数"><a href="#封装一个兼容性的异步加载js的函数" class="headerlink" title="封装一个兼容性的异步加载js的函数"></a>封装一个兼容性的异步加载js的函数</h3><pre><code>function asyncLoaded(url, callback){
-    var script = document.createElement(&apos;script&apos;);
-    script.type = &apos;text/javascript&apos;;
-    if(script.readyState){//IE和高版本的chrome、firefox    .readyState 对象的状态  非零是读取中
-        script.onreadystatechange = function(){
-            // onreadystatechange状态改变触发器
-            if(script.readyState = &apos;loaded&apos; || script.readyState == &apos;complete&apos;){
-                script.onreadystatechange = null;
-                callback &amp;&amp; callback();
-            }
-        }
-    }else{
-    script.onload = function(e){//Safari Chrome Opera Firefox
-        callback &amp;&amp; callback();
-        }
-    }
-    script.src = url;
-    document.body.appendChild(script);
-}
-</code></pre><h2 id="JS加载时间线（performace-timing-line）"><a href="#JS加载时间线（performace-timing-line）" class="headerlink" title="JS加载时间线（performace timing line）"></a>JS加载时间线（performace timing line）</h2><ol>
-<li>创建Document对象，开始解析web页面。解析HTML元素和他们的文本内容后添加Element对象和Text节点到文档中。这个阶段document.readyState = ‘loading’。</li>
-<li>遇到link外部css，创建线程加载，并继续解析文档。</li>
-<li>遇到script外部js，并且没有设置async、defer，浏览器加载，并阻塞，等待js加载完成并执行该脚本，然后继续解析文档。</li>
-<li>遇到script外部js，并且设置有async、defer，浏览器创建线程加载，并继续解析文档。对于async属性的脚本，脚本加载完成后立即执行。异步禁止使用document.write()）,而defer是等DOMTree解析完成后才执行</li>
-<li>遇到img等，先正常解析dom结构，然后浏览器异步加载src，并继续解析文档。</li>
-<li>当文档解析完成，document.readyState = ‘interactive’。</li>
-<li>文档解析完成后，所有设置有defer的脚本会按照顺序执行。（注意与async的不同,但同样禁止使用document.write()）;</li>
-<li>document对象触发DOMContentLoaded事件，这也标志着程序执行从同步脚本执行阶段，转化为事件驱动阶段。</li>
-<li>当所有async的脚本加载完成并执行后、img等加载完成后，document.readyState = ‘complete’，window 对象触发load事件。<br>10、从此，以异步响应方式处理用户输入、网络事件等</li>
-</ol>
-<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><blockquote>
+</code></pre><h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><blockquote>
 <p>事件是交互体验的核心功能,事件是每一个浏览器本来就有的，我们只是给相应的事件添加了一个回调函数。</p>
 </blockquote>
 <h3 id="拖拽事件"><a href="#拖拽事件" class="headerlink" title="拖拽事件"></a>拖拽事件</h3><pre><code>div.addEventListener(&apos;mousedown&apos;, function (e){
@@ -1191,33 +1033,113 @@ for (var i = 0, len = $Li.length; i &lt; len; i++) {
 <blockquote>
 <p>让我们试验一些差异比较大的元素搭配。假设我们有一个父元素div，里面有很多子元素，但我们关心的是里面的一个带有”classA” CSS类的A标记：</p>
 </blockquote>
-<pre><code> // 获得父元素DIV, 添加监听器...
-document.getElementById(&quot;myDiv&quot;).addEventListener(&quot;click&quot;,function(e) {
-    // e.target是被点击的元素
-    if(e.target &amp;&amp; e.target.nodeName == &quot;A&quot;) {
-        // 获得CSS类名
-        var classes = e.target.className.split(&quot; &quot;);
-        // 搜索匹配!
-        if(classes) {
-            // For every CSS class the element has...
-            for(var x = 0; x &lt; classes.length; x++) {
-                // If it has the CSS class we want...
-                if(classes[x] == &quot;classA&quot;) {
-                    // Bingo!
-                    console.log(&quot;Anchor element clicked!&quot;);
+<pre><code>// 获得父元素DIV, 添加监听器...
+    document.getElementById(&quot;myDiv&quot;).addEventListener(&quot;click&quot;,function(e) {
+        // e.target是被点击的元素
+        if(e.target &amp;&amp; e.target.nodeName == &quot;A&quot;) {
+            // 获得CSS类名
+            var classes = e.target.className.split(&quot; &quot;);
+            // 搜索匹配!
+            if(classes) {
+                // For every CSS class the element has...
+                for(var x = 0; x &lt; classes.length; x++) {
+                    // If it has the CSS class we want...
+                    if(classes[x] == &quot;classA&quot;) {
+                        // Bingo!
+                        console.log(&quot;Anchor element clicked!&quot;);
 
-                    // Now do something here....
+                        // Now do something here....
 
+                    }
                 }
             }
-        }
 
-    }
-});
+        }
+    });
 </code></pre><p>上面这个例子中不仅比较了标签名，而且比较了CSS类名。虽然稍微复杂了一点，但还是很具代表性的。</p>
 <p>比如，如果某个A标记里有一个span标记，则这个span将会成为target元素。这个时候，我们需要上溯DOM树结构，找到里面是否有一个 A.classA 的元素。</p>
 <h3 id="当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做"><a href="#当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做" class="headerlink" title="当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做"></a>当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做</h3><p>  ●  直接在DOM里绑定事件：<div onclick="”test()”"></div><br>  ●  在JS里通过onclick绑定：xxx.onclick = test<br>  ●  通过事件添加进行绑定：addEventListener(xxx, ‘click’, test)</p>
 <h4 id="Javascript的事件流模型都有什么？"><a href="#Javascript的事件流模型都有什么？" class="headerlink" title="Javascript的事件流模型都有什么？"></a>Javascript的事件流模型都有什么？</h4><p>  ● “事件冒泡”：事件开始由最具体的元素接受，然后逐级向上传播<br>  ● “事件捕捉”：事件由最不具体的节点先接收，然后逐级向下，一直到最具体的<br>  ● “DOM事件流”：三个阶段：事件捕捉，目标阶段，事件冒泡</p>
+<h2 id="深层克隆"><a href="#深层克隆" class="headerlink" title="深层克隆"></a>深层克隆</h2><pre><code>function deepCopy(src,tar){
+    var tar= tar|| {} ;
+    for (var prop in src){
+            if (typeof (src[prop]) == &apos;object&apos;){
+                tar[prop] = (src[prop].constructor === Array ) ? [] : {};
+                deepCopy(src[prop],tar[prop]);
+            }else {
+                tar[prop] = src[prop];
+            }
+    }
+
+    return tar;
+}
+</code></pre><h2 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h2><h3 id="预编译前奏"><a href="#预编译前奏" class="headerlink" title="预编译前奏"></a>预编译前奏</h3><ol>
+<li>imply global 暗示全局变量。如果任何变量未经声明就赋值使用，此变量就会为全局对象window所有，并且成为window对象的一个属性。</li>
+<li>一切声明的全局变量，都是window的属性。</li>
+<li>区别在于：经过声明的全局变量不能通过delete操作来删除，但是未经声明的全局变量可以被删除</li>
+</ol>
+<h3 id="预编译时this指向window。"><a href="#预编译时this指向window。" class="headerlink" title="预编译时this指向window。"></a>预编译时this指向window。</h3><ol>
+<li>创建AO对象。首先第一步，创建一个AO对象（执行器上下文）。var AO = {};</li>
+<li>寻找形参和变量声明，将变量和形参作为AO对象的属性名添加到对象中，值为undefined。值得注意的是，函数声明不叫变量。</li>
+<li>将实参值和形参值相统一。这里因为属性名都已经存在了，所以直接赋值就可以了。</li>
+<li>在函数体里面寻找函数声明，将函数名作为属性名，值为这个函数的函数体。</li>
+</ol>
+<blockquote>
+<ol>
+<li>函数在执行的前一刻会产生一个上下文，这个上下文就是Activeaction Object对象，简称AO对象。AO = {}</li>
+<li>这个对象是空的，但是里面有一些我们看不到的却存在的隐式属性，比如this: window属性和arguments: [];属性</li>
+<li>这个对象用来存放一些属性和方法，这些属性和方法就按照前面的四步来产生。</li>
+</ol>
+</blockquote>
+<h2 id="JS异步加载"><a href="#JS异步加载" class="headerlink" title="JS异步加载"></a>JS异步加载</h2><blockquote>
+<p>背景：<br>    script标签的特点是会阻塞后面的DOM解析，只有当script标签下载完成并且全部执行完之后，浏览器才会继续解析DOM。一旦网速不好，那么整个网站将等待js加载而不进行后续渲染。<br>    html5标准引入了另一套异步加载js的方法。以前有一种写法是将script标签写在body的最后面，等在DOM全部解析完成之后才加载js。</p>
+</blockquote>
+<h3 id="js异步加载的三种方案"><a href="#js异步加载的三种方案" class="headerlink" title="js异步加载的三种方案"></a>js异步加载的三种方案</h3><h4 id="defer异步加载"><a href="#defer异步加载" class="headerlink" title="defer异步加载"></a>defer异步加载</h4><ol>
+<li>我们在script标签的行间写一个defer=“defer”或者直接写defer，就可以让这个script变成异步加载了。但是这种异步只是针对下载方面，只有等DOMTree全部解析完成（不包括下载完里面的资源）后才会异步执行。而且这个方法只有IE和一些高版本的firefox和chrome可以用。</li>
+<li>不过这一种方式可以在script标签里面写代码。</li>
+<li>IE6和IE7的异步加载最多只能有2个，当多余两个的时候必须等前两个加载完才会加载第三个。</li>
+<li>所有defer的js代码都保证按照顺序执行。</li>
+</ol>
+<h4 id="async异步加载"><a href="#async异步加载" class="headerlink" title="async异步加载"></a>async异步加载</h4><ol>
+<li>async是asynchronous的缩写，它是html5的标准，下载完成之后就会立即异步执行，这种方法除了IE6-IE8其他的浏览器都好用。</li>
+<li>async的js代码不能保证是顺序执行的。</li>
+</ol>
+<p>兼容性写法：</p>
+<ol>
+<li>直接写两个script标签，一个是defer，一个是async。</li>
+<li>但是这种方法有缺陷：IE高版本会加载两遍引起冲突，有些浏览器两个都没有会一个都加载不出来。所以我们就需要用async方法了</li>
+</ol>
+<h4 id="w3c的标准规定"><a href="#w3c的标准规定" class="headerlink" title="w3c的标准规定"></a>w3c的标准规定</h4><p>动态添加的script标签是异步的</p>
+<h3 id="封装一个兼容性的异步加载js的函数"><a href="#封装一个兼容性的异步加载js的函数" class="headerlink" title="封装一个兼容性的异步加载js的函数"></a>封装一个兼容性的异步加载js的函数</h3><pre><code>function asyncLoaded(url, callback){
+    var script = document.createElement(&apos;script&apos;);
+    script.type = &apos;text/javascript&apos;;
+    if(script.readyState){//IE和高版本的chrome、firefox    .readyState 对象的状态  非零是读取中
+        script.onreadystatechange = function(){
+            // onreadystatechange状态改变触发器
+            if(script.readyState = &apos;loaded&apos; || script.readyState == &apos;complete&apos;){
+                script.onreadystatechange = null;
+                callback &amp;&amp; callback();
+            }
+        }
+    }else{
+    script.onload = function(e){//Safari Chrome Opera Firefox
+        callback &amp;&amp; callback();
+        }
+    }
+    script.src = url;
+    document.body.appendChild(script);
+}
+</code></pre><h2 id="JS加载时间线"><a href="#JS加载时间线" class="headerlink" title="JS加载时间线"></a>JS加载时间线</h2><ol>
+<li>创建Document对象，开始解析web页面。解析HTML元素和他们的文本内容后添加Element对象和Text节点到文档中。这个阶段document.readyState = ‘loading’。</li>
+<li>遇到link外部css，创建线程加载，并继续解析文档。</li>
+<li>遇到script外部js，并且没有设置async、defer，浏览器加载，并阻塞，等待js加载完成并执行该脚本，然后继续解析文档。</li>
+<li>遇到script外部js，并且设置有async、defer，浏览器创建线程加载，并继续解析文档。对于async属性的脚本，脚本加载完成后立即执行。异步禁止使用document.write()）,而defer是等DOMTree解析完成后才执行</li>
+<li>遇到img等，先正常解析dom结构，然后浏览器异步加载src，并继续解析文档。</li>
+<li>当文档解析完成，document.readyState = ‘interactive’。</li>
+<li>文档解析完成后，所有设置有defer的脚本会按照顺序执行。（注意与async的不同,但同样禁止使用document.write()）;</li>
+<li>document对象触发DOMContentLoaded事件，这也标志着程序执行从同步脚本执行阶段，转化为事件驱动阶段。</li>
+<li>当所有async的脚本加载完成并执行后、img等加载完成后，document.readyState = ‘complete’，window 对象触发load事件。<br>10、从此，以异步响应方式处理用户输入、网络事件等</li>
+</ol>
 <h2 id="脚本化CSS"><a href="#脚本化CSS" class="headerlink" title="脚本化CSS"></a>脚本化CSS</h2><blockquote>
 <p><strong>读写CSS样式</strong>,每一个dom元素都有一个属性style，dom.style里面存放的这个元素的行间样式，我们可以通过这个属性来读写元素的行间样式。</p>
 </blockquote>
@@ -1237,26 +1159,26 @@ document.getElementById(&quot;myDiv&quot;).addEventListener(&quot;click&quot;,fu
 <li>dom.currentStyle也会返回一个样式表，和上面的基本一样，唯一的区别在于返回的计算样式的值不是经过转换的绝对值，而是我们写什么值就会返回什么值</li>
 </ol>
 <p>封装一个兼容性的获取样式的函数</p>
-<pre><code>function getStyle(obj, prop, fake) {
-    var fake = fake || null;
-    if(obj.currentStyle) {
-        return obj.currentStyle[prop];
-    }else {
-        return window.getComputedStyle(obj, fake)[prop];
-    }
-}
-function getStyle(obj,attr,value){//另一种方法
-    if(!value){
-        if(obj.currentStyle){
-            return obj.currentStyle(attr)
-        }
-        else{
-            obj.getComputedStyle(attr,false)
-        }
+<pre><code>  function getStyle(obj, prop, fake) {
+      var fake = fake || null;
+      if(obj.currentStyle) {
+          return obj.currentStyle[prop];
+      }else {
+          return window.getComputedStyle(obj, fake)[prop];
+      }
+  }
+  function getStyle(obj,attr,value){//另一种方法
+  if(!value){
+    if(obj.currentStyle){
+      return obj.currentStyle(attr)
     }
     else{
-        obj.style[attr]=value
+      obj.getComputedStyle(attr,false)
     }
+  }
+  else{
+    obj.style[attr]=value
+  }
 }
 </code></pre><h3 id="脚本化样式表"><a href="#脚本化样式表" class="headerlink" title="脚本化样式表"></a>脚本化样式表</h3><p>在document上有一个属性叫做styleSheets，这个属性储存了一个html文档所有的css样式表的集合，我们可以来操作style标签，不过在实际中基本是用不到的</p>
 <h2 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><ol>
@@ -1308,6 +1230,84 @@ function getStyle(obj,attr,value){//另一种方法
 <h2 id="FIS的集成解决方案"><a href="#FIS的集成解决方案" class="headerlink" title="FIS的集成解决方案"></a>FIS的集成解决方案</h2><blockquote>
 <p>用过fis的同学都知道，采用fis开发，整体过程相当顺畅，对于前端开发、性能、部署各方面的问题基本都考虑到了，内置的小巧mod.js加载器，就是一个特别轻量的模块加载器，不需要做依赖分析，fis强大的编译能力已经提前提取了依赖关系并生成jsmap.json。已经前置依赖了，一个轻量的加载器足足够了，编译的同时自动修改新生成的版本号，整个过程在fis下轻松完成。</p>
 </blockquote>
+<h2 id="eval的作用"><a href="#eval的作用" class="headerlink" title="eval的作用"></a>eval的作用</h2><p>它的功能是把对应的字符串解析成JS代码并运行；<br>应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。<br>由JSON字符串转换为JSON对象的时候可以用eval，var obj =eval(‘(‘+ str +’)’);</p>
+<h2 id="JSON-的了解"><a href="#JSON-的了解" class="headerlink" title="JSON 的了解"></a>JSON 的了解</h2><ol>
+<li>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小。优点：轻量级、易于人的阅读和编写，便于机器（JavaScript）解析，支持复合数据类型（数组、对象、字符串、数字）<br>如：{“age”:”12”, “name”:”back”}</li>
+<li>JSON字符串转换为JSON对象:<br>var obj =eval(‘(‘+ str +’)’);<br>var obj = str.parseJSON();<br>var obj = JSON.parse(str);</li>
+<li>JSON对象转换为JSON字符串：<br>var last=obj.toJSONString();<br>var last=JSON.stringify(obj);</li>
+</ol>
+<h3 id="XML和JSON的区别"><a href="#XML和JSON的区别" class="headerlink" title="XML和JSON的区别"></a>XML和JSON的区别</h3><ol>
+<li>数据体积方面。JSON相对于XML来讲，数据的体积小，传递的速度更快些。</li>
+<li>数据交互方面。JSON与JavaScript的交互更加方便，更容易解析处理，更好的数据交互。</li>
+<li>数据描述方面。JSON对数据的描述性比XML较差。</li>
+<li>传输速度方面。JSON的速度要远远快于XML。</li>
+</ol>
+<h2 id="用过哪些设计模式"><a href="#用过哪些设计模式" class="headerlink" title="用过哪些设计模式"></a>用过哪些设计模式</h2><h3 id="工厂模式："><a href="#工厂模式：" class="headerlink" title="工厂模式："></a>工厂模式：</h3><p>主要好处就是可以消除对象间的耦合，通过使用工程方法而不是new关键字。将所有实例化的代码集中在一个位置防止代码重复。<br>工厂模式解决了重复实例化的问题 ，但还有一个问题,那就是识别问题，因为根本无法 搞清楚他们到底是哪个对象的实例。</p>
+<pre><code>function createObject(name,age,profession){//集中实例化的函数var obj = new Object();
+    obj.name = name;
+    obj.age = age;
+    obj.profession = profession;
+    obj.move = function () {
+        return this.name + &apos; at &apos; + this.age + &apos; engaged in &apos; + this.profession;
+    };
+    return obj;
+}
+var test1 = createObject(&apos;trigkit4&apos;,22,&apos;programmer&apos;);//第一个实例
+var test2 = createObject(&apos;mike&apos;,25,&apos;engineer&apos;);//第二个实例
+</code></pre><h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><p>使用构造函数的方法 ，即解决了重复实例化的问题 ，又解决了对象识别的问题，该模式与工厂模式的不同之处在于：</p>
+<ol>
+<li>构造函数方法没有显示的创建对象 (new Object());</li>
+<li>直接将属性和方法赋值给 this 对象;</li>
+<li>没有 renturn 语句。</li>
+</ol>
+<h2 id="添加，创建，查找"><a href="#添加，创建，查找" class="headerlink" title="添加，创建，查找"></a>添加，创建，查找</h2><h3 id="添加，删除，替换，插入到某个接点的方法"><a href="#添加，删除，替换，插入到某个接点的方法" class="headerlink" title="添加，删除，替换，插入到某个接点的方法"></a>添加，删除，替换，插入到某个接点的方法</h3><p>obj.appendChidl()<br>obj.removeChild<br>obj.replaceChild<br>obj.innersetBefore</p>
+<h3 id="创建新节点"><a href="#创建新节点" class="headerlink" title="创建新节点"></a>创建新节点</h3><p>createDocumentFragment() //创建一个DOM片段<br>createElement_x_x() //创建一个具体的元素<br>createTextNode() //创建一个文本节点</p>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><p>getElementsByTagName_r() //通过标签名称<br>getElementsByName() //通过元素的Name属性的值<br>getElementById() //通过元素Id，唯一性</p>
+<h2 id="document-write"><a href="#document-write" class="headerlink" title="document.write()"></a>document.write()</h2><p>document.write()这个命令简单地打印指定的文本内容到页面上。为了逐字打印文本，在打印的文本字符串加上单引号</p>
+<blockquote>
+<p>在载人页面后，浏览器输出流自动关闭；在此之后，任何一个对当前页面进行操作的document.write()方法将打开—个新的输出流。它将清除当前页面内容(包括源文档的任何变量或值)、因此．假如希望用脚本生成的HTML替换当前页面，就必须把HTML内容连接起来赋给一个变量、使用一个document.write()方法完成写操作，不必清除文档并打开一个新数据流，一个document.write()调用就可完成所有的操作。 </p>
+</blockquote>
+<h3 id="document-write-使用方法"><a href="#document-write-使用方法" class="headerlink" title="document.write()使用方法"></a>document.write()使用方法</h3><ol>
+<li>document.write(‘Hello World!’);  </li>
+<li>var mytext = “Hello again”;document.write(mytext);</li>
+<li>var colour1 = “purple”;<br>var colour2 = “pink”;<br>document.write(‘<p>colour1: ‘ + colour1 + ‘<br>colour2: ‘ + colour2 + ‘</p>‘);  </li>
+</ol>
+<h3 id="document-write和-innerHTML的区别"><a href="#document-write和-innerHTML的区别" class="headerlink" title="document.write和 innerHTML的区别"></a>document.write和 innerHTML的区别</h3><ol>
+<li>document.write是直接写入到页面的内容流，如果在写之前没有调用document.open,浏览器会自动调用open。每次写完关闭之后重新调用该函数，会导致页面被重写。 </li>
+<li>innerHTML则是DOM页面元素的一个属性，代表该元素的html内容。你可以精确到某一个具体的元素来进行更改。如果想修改document的内容，则需要修改document.documentElement.innerElement。 </li>
+<li>innerHTML很多情况下都优于document.write，其原因在于其允许更精确的控制要刷新页面的那一个部分。</li>
+<li>document.write是直接将内容写入页面的内容刘，会导致页面全部重绘，innerHTML将内容写入某个DOM节点，不会导致页面全部重绘</li>
+</ol>
+<h2 id="JavaScript的基本规范"><a href="#JavaScript的基本规范" class="headerlink" title="JavaScript的基本规范"></a>JavaScript的基本规范</h2><ol>
+<li>不要在同一行声明多个变量。</li>
+<li>请使用 ===/!==来比较true/false或者数值</li>
+<li>使用对象字面量替代new Array这种形式</li>
+<li>不要使用全局函数。</li>
+<li>Switch语句必须带有default分支</li>
+<li>函数不应该有时候有返回值，有时候没有返回值。</li>
+<li>For循环必须使用大括号</li>
+<li>If语句必须使用大括号</li>
+<li>for-in循环中的变量 应该使用var关键字明确限定作用域，从而避免作用域污染。</li>
+</ol>
+<h2 id="永远不会去查找原型的函数"><a href="#永远不会去查找原型的函数" class="headerlink" title="永远不会去查找原型的函数"></a>永远不会去查找原型的函数</h2><p>hasOwnProperty</p>
+<ol>
+<li>javaScript中hasOwnProperty函数方法是返回一个布尔值，指出一个对象是否具有指定名称的属性。此方法无法检查该对象的原型链中是否具有该属性；该属性必须是对象本身的一个成员。</li>
+<li>使用方法：object.hasOwnProperty(proName)其中参数object是必选项。一个对象的实例。proName是必选项。一个属性名称的字符串值。如果 object 具有指定名称的属性，那么JavaScript中hasOwnProperty函数方法返回 true，反之则返回 false。</li>
+</ol>
+<h2 id="JS中的”use-strict”-是什么意思"><a href="#JS中的”use-strict”-是什么意思" class="headerlink" title="JS中的”use strict”;是什么意思 ?"></a>JS中的”use strict”;是什么意思 ?</h2><p>use strict是一种ECMAscript 5 添加的（严格）运行模式,这种模式使得 Javascript 在更严格的条件下运行,</p>
+<ol>
+<li>默认支持的糟糕特性都会被禁用，比如不能用with，也不能在意外的情况下给全局变量赋值;</li>
+<li>全局变量的显示声明,函数必须声明在顶层，不允许在非函数代码块内声明函数,arguments.callee,arguments.caller也不允许使用；</li>
+<li>限制函数中的arguments修改，严格模式下的eval函数的行为和非严格模式的也不相同;</li>
+<li>函数的参数不能有同名属性，不能对只读属性赋值,eval和arguments不能被重新赋值,禁止this指向全局对象,不能使用fn.caller和fn.arguments获取函数调用的堆栈</li>
+</ol>
+<h3 id="使用”use-strict”的目的"><a href="#使用”use-strict”的目的" class="headerlink" title="使用”use strict”的目的"></a>使用”use strict”的目的</h3><ol>
+<li>使JS编码更加规范化的模式,消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为。</li>
+<li>消除代码运行的一些不安全之处，保证代码运行的安全；</li>
+<li>提高编译器效率，增加运行速度；</li>
+<li>为未来新版本的Javascript标准化做铺垫。</li>
+</ol>
+<h2 id="在JS中什么是伪数组？如何将伪数组转化为标准数组？"><a href="#在JS中什么是伪数组？如何将伪数组转化为标准数组？" class="headerlink" title="在JS中什么是伪数组？如何将伪数组转化为标准数组？"></a>在JS中什么是伪数组？如何将伪数组转化为标准数组？</h2><p>伪数组（类数组）：无法直接调用数组方法或期望length属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。典型的是函数的argument参数，还有像调用getElementsByTagName,document.childNodes之类的,它们都返回NodeList对象都属于伪数组。可以使用Array.prototype.slice.call(fakeArray)将数组转化为真正的Array对象。</p>
 <h1 id="jquery篇"><a href="#jquery篇" class="headerlink" title="jquery篇"></a>jquery篇</h1><h2 id="query与jQuery-UI的区别"><a href="#query与jQuery-UI的区别" class="headerlink" title="query与jQuery UI的区别"></a>query与jQuery UI的区别</h2><ol>
 <li>jQuery是一个js库，主要提供的功能是选择器，属性修改和事件绑定等等。</li>
 <li>jQuery UI则是在jQuery的基础上，利用jQuery的扩展性，设计的插件。提供了一些常用的界面元素，诸如对话框、拖动行为、改变大小行为等等</li>
@@ -1564,7 +1564,7 @@ $(&quot;&quot;).stringifyArray(array);//调用
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM篇"><span class="nav-text">DOM篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getElementById"><span class="nav-text">getElementById</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getElementsByClassName"><span class="nav-text">getElementsByClassName</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不过如果我们碰到这种情况该怎么办？"><span class="nav-text">不过如果我们碰到这种情况该怎么办？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#querySelector-querySelectorAll"><span class="nav-text">querySelector() querySelectorAll()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nodeName"><span class="nav-text">nodeName</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历节点树"><span class="nav-text">遍历节点树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于元素节点树的遍历"><span class="nav-text">基于元素节点树的遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM结构树的总结"><span class="nav-text">DOM结构树的总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历元素节点树"><span class="nav-text">遍历元素节点树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM篇"><span class="nav-text">BOM篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#日期对象"><span class="nav-text">日期对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS定时器"><span class="nav-text">JS定时器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看滚动条滚动距离"><span class="nav-text">查看滚动条滚动距离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看视口的尺寸"><span class="nav-text">查看视口的尺寸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看元素的几何尺寸"><span class="nav-text">查看元素的几何尺寸</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#domEle-getBoundingClientRect"><span class="nav-text">domEle.getBoundingClientRect()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另一个查看元素尺寸的方法"><span class="nav-text">另一个查看元素尺寸的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动条滚动"><span class="nav-text">滚动条滚动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看元素的位置"><span class="nav-text">查看元素的位置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何找到有定位的父级呢？"><span class="nav-text">如何找到有定位的父级呢？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS篇"><span class="nav-text">JS篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS数据类型，内置对象，typeof数据类型"><span class="nav-text">JS数据类型，内置对象，typeof数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript的本地对象，内置对象和宿主对象"><span class="nav-text">javascript的本地对象，内置对象和宿主对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加，创建，查找"><span class="nav-text">添加，创建，查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加，删除，替换，插入到某个接点的方法"><span class="nav-text">添加，删除，替换，插入到某个接点的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建新节点"><span class="nav-text">创建新节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找"><span class="nav-text">查找</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript的基本规范"><span class="nav-text">JavaScript的基本规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eval的作用"><span class="nav-text">eval的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中的”use-strict”-是什么意思"><span class="nav-text">JS中的”use strict”;是什么意思 ?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用”use-strict”的目的"><span class="nav-text">使用”use strict”的目的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#document-write"><span class="nav-text">document.write()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#document-write-使用方法"><span class="nav-text">document.write()使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document-write和-innerHTML的区别"><span class="nav-text">document.write和 innerHTML的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在JS中什么是伪数组？如何将伪数组转化为标准数组？"><span class="nav-text">在JS中什么是伪数组？如何将伪数组转化为标准数组？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#永远不会去查找原型的函数"><span class="nav-text">永远不会去查找原型的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-的了解"><span class="nav-text">JSON 的了解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XML和JSON的区别"><span class="nav-text">XML和JSON的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用过哪些设计模式"><span class="nav-text">用过哪些设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工厂模式："><span class="nav-text">工厂模式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数模式"><span class="nav-text">构造函数模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript有几种类型的值"><span class="nav-text">JavaScript有几种类型的值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两种类型的区别"><span class="nav-text">两种类型的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组方法"><span class="nav-text">数组方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈和队列"><span class="nav-text">栈和队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈和堆"><span class="nav-text">栈和堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串常见方法"><span class="nav-text">字符串常见方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this的指向"><span class="nav-text">this的指向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对作用域上下文和this的理解"><span class="nav-text">对作用域上下文和this的理解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型"><span class="nav-text">原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作用域"><span class="nav-text">函数作用域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#立即执行函数"><span class="nav-text">立即执行函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的特性"><span class="nav-text">闭包的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的缺点"><span class="nav-text">闭包的缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下面这个ul，如何点击每一列的时候alert其index"><span class="nav-text">下面这个ul，如何点击每一列的时候alert其index?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承的6种方法"><span class="nav-text">继承的6种方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象如何查看构造自身的构造函数"><span class="nav-text">对象如何查看构造自身的构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Javascript如何实现继承"><span class="nav-text">Javascript如何实现继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深层克隆"><span class="nav-text">深层克隆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript创建对象的几种方式"><span class="nav-text">javascript创建对象的几种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预编译"><span class="nav-text">预编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#预编译前奏"><span class="nav-text">预编译前奏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预编译时this指向window。"><span class="nav-text">预编译时this指向window。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS异步加载"><span class="nav-text">JS异步加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#js异步加载的三种方案"><span class="nav-text">js异步加载的三种方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#defer异步加载"><span class="nav-text">defer异步加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#async异步加载"><span class="nav-text">async异步加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#w3c的标准规定"><span class="nav-text">w3c的标准规定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装一个兼容性的异步加载js的函数"><span class="nav-text">封装一个兼容性的异步加载js的函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS加载时间线（performace-timing-line）"><span class="nav-text">JS加载时间线（performace timing line）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件"><span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#拖拽事件"><span class="nav-text">拖拽事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定事件"><span class="nav-text">绑定事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件处理程序的运行环境"><span class="nav-text">事件处理程序的运行环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解除事件处理程序"><span class="nav-text">解除事件处理程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件处理模型（事件冒泡、事件捕获）"><span class="nav-text">事件处理模型（事件冒泡、事件捕获）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么叫冒泡"><span class="nav-text">什么叫冒泡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#取消冒泡"><span class="nav-text">取消冒泡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认事件"><span class="nav-text">默认事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻止默认事件"><span class="nav-text">阻止默认事件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件对象"><span class="nav-text">事件对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件委托及拓展"><span class="nav-text">事件委托及拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件源对象"><span class="nav-text">事件源对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是事件委托"><span class="nav-text">什么是事件委托</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件委托的好处"><span class="nav-text">事件委托的好处</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型将事件处理流程分为三个阶段"><span class="nav-text">模型将事件处理流程分为三个阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传统绑定事件方式"><span class="nav-text">传统绑定事件方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止事件冒泡"><span class="nav-text">阻止事件冒泡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果你将监听器安放到它们的父元素上呢？你如何能知道是那个子元素被点击了？"><span class="nav-text">如果你将监听器安放到它们的父元素上呢？你如何能知道是那个子元素被点击了？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做"><span class="nav-text">当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Javascript的事件流模型都有什么？"><span class="nav-text">Javascript的事件流模型都有什么？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本化CSS"><span class="nav-text">脚本化CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询计算样式"><span class="nav-text">查询计算样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本化样式表"><span class="nav-text">脚本化样式表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化开发"><span class="nav-text">模块化开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-1"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端模块化规范标准"><span class="nav-text">前端模块化规范标准</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CommonJs"><span class="nav-text">CommonJs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AMD-RequireJS"><span class="nav-text">AMD (RequireJS)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CMD-SeaJS"><span class="nav-text">CMD (SeaJS)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兼容AMD、CMD及非模块化"><span class="nav-text">兼容AMD、CMD及非模块化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块化开发上线部署"><span class="nav-text">模块化开发上线部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#压缩"><span class="nav-text">压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并"><span class="nav-text">合并</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FIS的集成解决方案"><span class="nav-text">FIS的集成解决方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jquery篇"><span class="nav-text">jquery篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#query与jQuery-UI的区别"><span class="nav-text">query与jQuery UI的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何将数组转化为json字符串，然后再转化回来"><span class="nav-text">如何将数组转化为json字符串，然后再转化回来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#针对jQuery的优化方法"><span class="nav-text">针对jQuery的优化方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM篇"><span class="nav-text">DOM篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getElementById"><span class="nav-text">getElementById</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getElementsByClassName"><span class="nav-text">getElementsByClassName</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不过如果我们碰到这种情况该怎么办？"><span class="nav-text">不过如果我们碰到这种情况该怎么办？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#querySelector-querySelectorAll"><span class="nav-text">querySelector() querySelectorAll()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nodeName"><span class="nav-text">nodeName</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历节点树"><span class="nav-text">遍历节点树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于元素节点树的遍历"><span class="nav-text">基于元素节点树的遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM结构树的总结"><span class="nav-text">DOM结构树的总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历元素节点树"><span class="nav-text">遍历元素节点树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM篇"><span class="nav-text">BOM篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#日期对象"><span class="nav-text">日期对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS定时器"><span class="nav-text">JS定时器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看滚动条滚动距离"><span class="nav-text">查看滚动条滚动距离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看视口的尺寸"><span class="nav-text">查看视口的尺寸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看元素的几何尺寸"><span class="nav-text">查看元素的几何尺寸</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#domEle-getBoundingClientRect"><span class="nav-text">domEle.getBoundingClientRect()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另一个查看元素尺寸的方法"><span class="nav-text">另一个查看元素尺寸的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动条滚动"><span class="nav-text">滚动条滚动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看元素的位置"><span class="nav-text">查看元素的位置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何找到有定位的父级呢？"><span class="nav-text">如何找到有定位的父级呢？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS篇"><span class="nav-text">JS篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS数据类型，内置对象"><span class="nav-text">JS数据类型，内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#typeof数据类型"><span class="nav-text">typeof数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS的本地对象，内置对象和宿主对象"><span class="nav-text">JS的本地对象，内置对象和宿主对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS创建对象的方式"><span class="nav-text">JS创建对象的方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组方法"><span class="nav-text">数组方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈和队列"><span class="nav-text">栈和队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈和堆"><span class="nav-text">栈和堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS有几种类型的值"><span class="nav-text">JS有几种类型的值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两种类型的区别"><span class="nav-text">两种类型的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串常见方法"><span class="nav-text">字符串常见方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this的指向"><span class="nav-text">this的指向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对作用域上下文和this的理解"><span class="nav-text">对作用域上下文和this的理解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型，原型链"><span class="nav-text">原型，原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型"><span class="nav-text">原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-text">原型链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域，作用域链"><span class="nav-text">作用域，作用域链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作用域"><span class="nav-text">函数作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链"><span class="nav-text">作用域链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的特性"><span class="nav-text">闭包的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的缺点"><span class="nav-text">闭包的缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面这个ul，如何点击每一列的时候alert其index"><span class="nav-text">下面这个ul，如何点击每一列的时候alert其index?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#立即执行函数"><span class="nav-text">立即执行函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承的6种方法"><span class="nav-text">继承的6种方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象如何查看构造自身的构造函数"><span class="nav-text">对象如何查看构造自身的构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Javascript如何实现继承"><span class="nav-text">Javascript如何实现继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件"><span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#拖拽事件"><span class="nav-text">拖拽事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定事件"><span class="nav-text">绑定事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件处理程序的运行环境"><span class="nav-text">事件处理程序的运行环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解除事件处理程序"><span class="nav-text">解除事件处理程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件处理模型（事件冒泡、事件捕获）"><span class="nav-text">事件处理模型（事件冒泡、事件捕获）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么叫冒泡"><span class="nav-text">什么叫冒泡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#取消冒泡"><span class="nav-text">取消冒泡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认事件"><span class="nav-text">默认事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻止默认事件"><span class="nav-text">阻止默认事件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件对象"><span class="nav-text">事件对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件委托及拓展"><span class="nav-text">事件委托及拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件源对象"><span class="nav-text">事件源对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是事件委托"><span class="nav-text">什么是事件委托</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件委托的好处"><span class="nav-text">事件委托的好处</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型将事件处理流程分为三个阶段"><span class="nav-text">模型将事件处理流程分为三个阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传统绑定事件方式"><span class="nav-text">传统绑定事件方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止事件冒泡"><span class="nav-text">阻止事件冒泡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果你将监听器安放到它们的父元素上呢？你如何能知道是那个子元素被点击了？"><span class="nav-text">如果你将监听器安放到它们的父元素上呢？你如何能知道是那个子元素被点击了？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做"><span class="nav-text">当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Javascript的事件流模型都有什么？"><span class="nav-text">Javascript的事件流模型都有什么？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深层克隆"><span class="nav-text">深层克隆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预编译"><span class="nav-text">预编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#预编译前奏"><span class="nav-text">预编译前奏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预编译时this指向window。"><span class="nav-text">预编译时this指向window。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS异步加载"><span class="nav-text">JS异步加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#js异步加载的三种方案"><span class="nav-text">js异步加载的三种方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#defer异步加载"><span class="nav-text">defer异步加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#async异步加载"><span class="nav-text">async异步加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#w3c的标准规定"><span class="nav-text">w3c的标准规定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装一个兼容性的异步加载js的函数"><span class="nav-text">封装一个兼容性的异步加载js的函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS加载时间线"><span class="nav-text">JS加载时间线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本化CSS"><span class="nav-text">脚本化CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询计算样式"><span class="nav-text">查询计算样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本化样式表"><span class="nav-text">脚本化样式表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化开发"><span class="nav-text">模块化开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-1"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端模块化规范标准"><span class="nav-text">前端模块化规范标准</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CommonJs"><span class="nav-text">CommonJs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AMD-RequireJS"><span class="nav-text">AMD (RequireJS)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CMD-SeaJS"><span class="nav-text">CMD (SeaJS)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兼容AMD、CMD及非模块化"><span class="nav-text">兼容AMD、CMD及非模块化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块化开发上线部署"><span class="nav-text">模块化开发上线部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#压缩"><span class="nav-text">压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并"><span class="nav-text">合并</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FIS的集成解决方案"><span class="nav-text">FIS的集成解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eval的作用"><span class="nav-text">eval的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-的了解"><span class="nav-text">JSON 的了解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XML和JSON的区别"><span class="nav-text">XML和JSON的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用过哪些设计模式"><span class="nav-text">用过哪些设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工厂模式："><span class="nav-text">工厂模式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数模式"><span class="nav-text">构造函数模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加，创建，查找"><span class="nav-text">添加，创建，查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加，删除，替换，插入到某个接点的方法"><span class="nav-text">添加，删除，替换，插入到某个接点的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建新节点"><span class="nav-text">创建新节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找"><span class="nav-text">查找</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#document-write"><span class="nav-text">document.write()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#document-write-使用方法"><span class="nav-text">document.write()使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document-write和-innerHTML的区别"><span class="nav-text">document.write和 innerHTML的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript的基本规范"><span class="nav-text">JavaScript的基本规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#永远不会去查找原型的函数"><span class="nav-text">永远不会去查找原型的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中的”use-strict”-是什么意思"><span class="nav-text">JS中的”use strict”;是什么意思 ?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用”use-strict”的目的"><span class="nav-text">使用”use strict”的目的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在JS中什么是伪数组？如何将伪数组转化为标准数组？"><span class="nav-text">在JS中什么是伪数组？如何将伪数组转化为标准数组？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jquery篇"><span class="nav-text">jquery篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#query与jQuery-UI的区别"><span class="nav-text">query与jQuery UI的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何将数组转化为json字符串，然后再转化回来"><span class="nav-text">如何将数组转化为json字符串，然后再转化回来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#针对jQuery的优化方法"><span class="nav-text">针对jQuery的优化方法</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
