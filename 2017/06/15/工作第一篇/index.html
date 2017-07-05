@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-6f5be24ade6c5b4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-33ab46e04226c0da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-d3bd561fe5ec6f45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-05T09:21:48.102Z">
+<meta property="og:updated_time" content="2017-07-05T10:50:11.089Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作第一篇">
 <meta name="twitter:description" content="犀牛学院总结
@@ -424,7 +424,139 @@ $(&quot;.showRight li&quot;).eq(ind).show().siblings().hide();
 <p>相比而言，只要发生重新渲染，method 调用总会执行该函数。</p>
 <p>我们为什么需要缓存？假设我们有一个性能开销比较大的的计算属性 A ，它需要遍历一个极大的数组和做大量的计算。然后我们可能有其他的计算属性依赖于 A 。如果没有缓存，我们将不可避免的多次执行 A 的 getter！如果你不希望有缓存，请用 method 替代。</p>
 <h3 id="Computed-属性-vs-Watched-属性"><a href="#Computed-属性-vs-Watched-属性" class="headerlink" title="Computed 属性 vs Watched 属性"></a>Computed 属性 vs Watched 属性</h3><p>Vue 确实提供了一种更通用的方式来观察和响应Vue实例上的数据变动：watch属性。当你有一些数据需要随着其它数据变动而变动时，你很容易滥用 watch——特别是如果你之前使用过 AngularJS。然而，通常更好的想法是使用 computed 属性而不是命令式的 watch 回调。</p>
-<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><h3 id="文章列表样式-代码展示"><a href="#文章列表样式-代码展示" class="headerlink" title="文章列表样式+代码展示"></a>文章列表样式+代码展示</h3><p><img src="http://upload-images.jianshu.io/upload_images/5285574-43a36ccea758b2e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表图片展示"></p>
+<h3 id="key管理可复用的元素"><a href="#key管理可复用的元素" class="headerlink" title="key管理可复用的元素"></a>key管理可复用的元素</h3><p> Vue 提供了一种方式来声明“这两个元素是完全独立的——不要复用它们”。只需添加一个具有唯一值的 key 属性即可</p>
+<pre><code>&lt;div id=&quot;key-example&quot;&gt;
+    &lt;div&gt;
+        &lt;template v-if=&quot;loginType === &apos;username&apos;&quot;&gt;
+            &lt;label&gt;Username&lt;/label&gt;
+            &lt;input placeholder=&quot;Enter your username&quot;  key=&quot;username-input&quot;&gt;
+        &lt;/template&gt;
+        &lt;template v-else=&quot;&quot;&gt;
+            &lt;label&gt;Email&lt;/label&gt;
+            &lt;input placeholder=&quot;Enter your email address&quot; key=&quot;email-input&quot;&gt;
+        &lt;/template&gt;
+    &lt;/div&gt;
+    &lt;button @click=&quot;toggleLoginType&quot;&gt;Toggle login type&lt;/button&gt;
+&lt;/div&gt;
+    &lt;script&gt;
+        new Vue({
+            el: &apos;#key-example&apos;,
+            data: {
+                loginType: &apos;username&apos;
+            },
+            methods: {
+                toggleLoginType: function () {
+                    return this.loginType = this.loginType === &apos;username&apos; ? &apos;email&apos; : &apos;username&apos;
+                }
+            }
+        })
+    &lt;/script&gt;
+</code></pre><p>每次切换时，输入框都将被重新渲染，但是label依旧会被复用。</p>
+<h3 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h3><p>根据条件展示元素的选项是 v-show 指令</p>
+<pre><code>&lt;h1 v-show=&quot;ok&quot;&gt;Hello!&lt;/h1&gt;
+</code></pre><p>不同的是带有 v-show 的元素始终会被渲染并保留在 DOM 中。v-show 是简单地切换元素的 CSS 属性 display 。<strong>v-show 不支持 template标签 语法，也不支持 v-else。</strong></p>
+<h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><p>v-for 指令根据一组数组的选项列表进行渲染。 v-for 指令需要以 item in items 形式的特殊语法， <strong>items 是源数据数组并且 item 是数组元素迭代的别名。</strong><br>v-for 还支持一个可选的第二个参数为当前项的索引。</p>
+<pre><code>&lt;ul id=&quot;example-2&quot;&gt;
+  &lt;li v-for=&quot;(item, index) in items&quot;&gt;
+    {{ friendMessage }} - {{ index }} - {{ item.message }}
+  &lt;/li&gt;
+&lt;/ul&gt;
+var example1 = new Vue({
+  el: &apos;#example&apos;,
+  data: {
+  friendMessage: &apos;friend&apos;,
+    items: [
+      {message: &apos;candice&apos; },
+      {message: &apos;yu&apos; }
+    ]
+  }
+})
+</code></pre><p>v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中。当你想为仅有的一些项渲染节点时，这种优先级的机制会十分有用。</p>
+<h3 id="事件处理器"><a href="#事件处理器" class="headerlink" title="事件处理器"></a>事件处理器</h3><h4 id="方法事件处理器"><a href="#方法事件处理器" class="headerlink" title="方法事件处理器"></a>方法事件处理器</h4><p>v-on 指令监听 DOM 事件，可以接收一个定义的方法来调用</p>
+<pre><code>&lt;div id=&quot;example&quot;&gt;
+  &lt;!-- `greet` 是在下面定义的方法名 --&gt;
+  &lt;button v-on:click=&quot;greet&quot;&gt;Greet&lt;/button&gt;
+&lt;/div&gt;
+var example = new Vue({
+  el: &apos;#example&apos;,
+  data: {
+    name: &apos;Vue.js&apos;
+  },
+  // 在 `methods` 对象中定义方法
+  methods: {
+    greet: function (event) {
+      // `this` 在方法里指当前 Vue 实例
+      alert(&apos;Hello &apos; + this.name + &apos;!&apos;)
+      // `event` 是原生 DOM 事件
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+})
+// 也可以用 JavaScript 直接调用方法
+example2.greet() // -&gt; &apos;Hello Vue.js!&apos;
+</code></pre><h4 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h4><p>methods 只有纯粹的数据逻辑，而不是去处理 DOM 事件细节,所以，v-on 提供了事件修饰符,通过由点(.)表示的指令后缀来调用修饰符</p>
+<pre><code>&lt;!-- 阻止单击事件冒泡 --&gt;
+&lt;a v-on:click.stop=&quot;doThis&quot;&gt;&lt;/a&gt;
+&lt;!-- 提交事件不再重载页面 --&gt;
+&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;
+&lt;!-- 修饰符可以串联  --&gt;
+&lt;a v-on:click.stop.prevent=&quot;doThat&quot;&gt;&lt;/a&gt;
+&lt;!-- 只有修饰符 --&gt;
+&lt;form v-on:submit.prevent&gt;&lt;/form&gt;
+&lt;!-- 添加事件侦听器时使用事件捕获模式 --&gt;
+&lt;div v-on:click.capture=&quot;doThis&quot;&gt;...&lt;/div&gt;
+&lt;!-- 只当事件在该元素本身（比如不是子元素）触发时触发回调 --&gt;
+&lt;div v-on:click.self=&quot;doThat&quot;&gt;...&lt;/div&gt;
+</code></pre><p>使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 @click.prevent.self 会阻止所有的点击，而 @click.self.prevent 只会阻止元素上的点击。</p>
+<h4 id="键值修饰符"><a href="#键值修饰符" class="headerlink" title="键值修饰符"></a>键值修饰符</h4><p>在监听键盘事件时，我们经常需要监测常见的键值。 Vue 允许为 v-on 在监听键盘事件时添加关键修饰符，</p>
+<pre><code>&lt;!-- 只有在 keyCode 是 13 时调用 vm.submit() --&gt;
+&lt;input v-on:keyup.13=&quot;submit&quot;&gt;
+&lt;!-- 同上 --&gt;
+&lt;input v-on:keyup.enter=&quot;submit&quot;&gt;
+&lt;!-- 缩写语法 --&gt;
+&lt;input @keyup.enter=&quot;submit&quot;&gt;
+</code></pre><p>全部的按键别名：.enter .tab .delete (捕获 “删除” 和 “退格” 键) .esc .space .up .down .left .right</p>
+<h3 id="表单控件绑定"><a href="#表单控件绑定" class="headerlink" title="表单控件绑定"></a>表单控件绑定</h3><ol>
+<li>用 v-model 指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。v-model </li>
+<li>本质上不过是语法糖，它负责监听用户的输入事件以更新数据，并特别处理一些极端的例子。</li>
+<li><strong>v-model 会忽略所有表单元素的 value、checked、selected 特性的初始值。</strong></li>
+<li>因为它会选择 Vue 实例数据来作为具体的值。你应该通过 JavaScript 在组件的 data 选项中声明初始值。</li>
+</ol>
+<h4 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h4><pre><code>&lt;input v-model=&quot;message&quot; placeholder=&quot;edit me&quot;&gt;
+&lt;p&gt;Message is: {{ message }}&lt;/p&gt;
+</code></pre><h4 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h4><p>多个勾选框，绑定到同一个数组：</p>
+<pre><code>&lt;input type=&quot;checkbox&quot; id=&quot;jack&quot; value=&quot;Jack&quot; v-model=&quot;checkedNames&quot;&gt;
+&lt;label for=&quot;jack&quot;&gt;Jack&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;john&quot; value=&quot;John&quot; v-model=&quot;checkedNames&quot;&gt;
+&lt;label for=&quot;john&quot;&gt;John&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;mike&quot; value=&quot;Mike&quot; v-model=&quot;checkedNames&quot;&gt;
+&lt;label for=&quot;mike&quot;&gt;Mike&lt;/label&gt;
+&lt;br&gt;
+&lt;span&gt;Checked names: {{ checkedNames }}&lt;/span&gt;
+new Vue({
+  el: &apos;...&apos;,
+  data: {
+    checkedNames: []
+  }
+})
+</code></pre><h4 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h4><pre><code>&lt;div id=&quot;example-4&quot;&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;one&quot; value=&quot;One&quot; v-model=&quot;picked&quot;&gt;
+  &lt;label for=&quot;one&quot;&gt;One&lt;/label&gt;
+  &lt;br&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;two&quot; value=&quot;Two&quot; v-model=&quot;picked&quot;&gt;
+  &lt;label for=&quot;two&quot;&gt;Two&lt;/label&gt;
+  &lt;br&gt;
+  &lt;span&gt;Picked: {{ picked }}&lt;/span&gt;
+&lt;/div&gt;
+new Vue({
+  el: &apos;#example-4&apos;,
+  data: {
+    picked: &apos;&apos;
+  }
+})
+</code></pre><h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><h3 id="文章列表样式-代码展示"><a href="#文章列表样式-代码展示" class="headerlink" title="文章列表样式+代码展示"></a>文章列表样式+代码展示</h3><p><img src="http://upload-images.jianshu.io/upload_images/5285574-43a36ccea758b2e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表图片展示"></p>
 <p><strong>部分代码展示</strong></p>
 <p><strong>子组件代码</strong><br><img src="http://upload-images.jianshu.io/upload_images/5285574-7995aa8e0cfbc1a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表代码图片"><br><img src="http://upload-images.jianshu.io/upload_images/5285574-6f5be24ade6c5b4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表代码图片"></p>
 <p><strong>html代码</strong><br><img src="http://upload-images.jianshu.io/upload_images/5285574-33ab46e04226c0da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="html代码图片"></p>
@@ -491,12 +623,12 @@ a :href=&quot;titleurl[index]&quot; target=&quot;_blank&quot;&gt;{{item['title']
         index.articleData = data.data.article;
     }
 },
-</code></pre><h3 id="加载更多"><a href="#加载更多" class="headerlink" title="加载更多"></a>加载更多</h3><p>思路是：</p>
+</code></pre><h3 id="加载更多功能"><a href="#加载更多功能" class="headerlink" title="加载更多功能"></a>加载更多功能</h3><p>思路是：</p>
 <ol>
 <li>首先定义个全局变量clickcount=0点（点击次数）,根据后台要求ajax第三个参数（article_offset:5*clickCount），这时只是显示后台最开始初始的数据。</li>
 <li>然后点击加载更多，这时clickcount++，会多向后台请求5个，然后再加上原来的数据，因为是数组，所以使用concat()，然后再将拼接后的数据返回，就ok了。通过判断获取到的数据的长度，来提示，是否还有更多的数据。</li>
 </ol>
-
+<h3 id="搜索功能"><a href="#搜索功能" class="headerlink" title="搜索功能"></a>搜索功能</h3>
       
     </div>
 
@@ -727,7 +859,7 @@ a :href=&quot;titleurl[index]&quot; target=&quot;_blank&quot;&gt;{{item['title']
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#犀牛学院总结"><span class="nav-text">犀牛学院总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人中心"><span class="nav-text">个人中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#左边侧边栏"><span class="nav-text">左边侧边栏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证用户是否登录"><span class="nav-text">验证用户是否登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人消息"><span class="nav-text">个人消息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改密码"><span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#广告"><span class="nav-text">广告</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据文摘总结"><span class="nav-text">大数据文摘总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VUE总结"><span class="nav-text">VUE总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期"><span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算属性computed-vs-Methods-methods"><span class="nav-text">计算属性computed: {} vs Methods methods: {}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Computed-属性-vs-Watched-属性"><span class="nav-text">Computed 属性 vs Watched 属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章"><span class="nav-text">文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章列表样式-代码展示"><span class="nav-text">文章列表样式+代码展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父组件与子组件进行通信"><span class="nav-text">父组件与子组件进行通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非父子组件通信"><span class="nav-text">非父子组件通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载更多"><span class="nav-text">加载更多</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#犀牛学院总结"><span class="nav-text">犀牛学院总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人中心"><span class="nav-text">个人中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#左边侧边栏"><span class="nav-text">左边侧边栏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证用户是否登录"><span class="nav-text">验证用户是否登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人消息"><span class="nav-text">个人消息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改密码"><span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#广告"><span class="nav-text">广告</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据文摘总结"><span class="nav-text">大数据文摘总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VUE总结"><span class="nav-text">VUE总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期"><span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算属性computed-vs-Methods-methods"><span class="nav-text">计算属性computed: {} vs Methods methods: {}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Computed-属性-vs-Watched-属性"><span class="nav-text">Computed 属性 vs Watched 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key管理可复用的元素"><span class="nav-text">key管理可复用的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-show"><span class="nav-text">v-show</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-for"><span class="nav-text">v-for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件处理器"><span class="nav-text">事件处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法事件处理器"><span class="nav-text">方法事件处理器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件修饰符"><span class="nav-text">事件修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#键值修饰符"><span class="nav-text">键值修饰符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单控件绑定"><span class="nav-text">表单控件绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文本"><span class="nav-text">文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复选框"><span class="nav-text">复选框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单选按钮"><span class="nav-text">单选按钮</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章"><span class="nav-text">文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章列表样式-代码展示"><span class="nav-text">文章列表样式+代码展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父组件与子组件进行通信"><span class="nav-text">父组件与子组件进行通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非父子组件通信"><span class="nav-text">非父子组件通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载更多功能"><span class="nav-text">加载更多功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索功能"><span class="nav-text">搜索功能</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
