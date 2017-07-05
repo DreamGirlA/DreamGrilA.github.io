@@ -93,7 +93,19 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-8aa1f779e7a93cb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-c1180b2dd5b95589.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-9ca046e0d6485054.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-05T06:18:55.057Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-10a2d807f0f569ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-5ccc018e2636a353.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-62f6cacee675f3e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-43a36ccea758b2e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-7995aa8e0cfbc1a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-6f5be24ade6c5b4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-82239fbd35eddb87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-43a36ccea758b2e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-7995aa8e0cfbc1a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-6f5be24ade6c5b4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-33ab46e04226c0da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-82239fbd35eddb87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-05T08:14:14.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作第一篇">
 <meta name="twitter:description" content="犀牛学院总结
@@ -370,6 +382,99 @@ $(&quot;.showRight li&quot;).eq(ind).show().siblings().hide();
 }
 </code></pre></li>
 </ol>
+<h1 id="大数据文摘总结"><a href="#大数据文摘总结" class="headerlink" title="大数据文摘总结"></a>大数据文摘总结</h1><h2 id="VUE总结"><a href="#VUE总结" class="headerlink" title="VUE总结"></a>VUE总结</h2><h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p><img src="http://upload-images.jianshu.io/upload_images/5285574-10a2d807f0f569ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表图片展示"><br><img src="http://upload-images.jianshu.io/upload_images/5285574-5ccc018e2636a353.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表图片展示"><br><img src="http://upload-images.jianshu.io/upload_images/5285574-62f6cacee675f3e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表图片展示"></p>
+<ol>
+<li><p>beforeCreate 创建前状态 ,el 和 data 并未初始化。 </p>
+<blockquote>
+<p>可以在这加个loading事件</p>
+</blockquote>
+</li>
+<li><p>created:created 创建完毕状态, 完成了data数据的初始化，el没有</p>
+<blockquote>
+<p>在这结束loading，还做一些初始化，实现函数自执行 。</p>
+</blockquote>
+</li>
+<li><p>beforeMount 挂载前状态, 完成了el和data初始化。</p>
+<blockquote>
+<p>这时el还是，应用的虚拟Dom技术，先把坑占住了。到后面mounted挂载的时候再把值渲染进去。</p>
+</blockquote>
+</li>
+<li><p>mounted 挂载结束状态, 完成挂载。   </p>
+<blockquote>
+<p>在这发起后端请求，拿回数据，配合路由钩子做一些事情</p>
+</blockquote>
+</li>
+<li><p>beforeUpdate 更新前状态。  </p>
+<blockquote>
+<p>data里的值被修改后，将会触发update的操作</p>
+</blockquote>
+</li>
+<li><p>updated 更新完成状态 </p>
+</li>
+<li><p>beforeDestroy 销毁前状态。 </p>
+<blockquote>
+<p>你确认删除XX吗？ destoryed ：当前组件已被删除，清空相关内容</p>
+</blockquote>
+</li>
+<li><p>destroyed 销毁完成状态。</p>
+<blockquote>
+<p>销毁完成后，我们再重新改变message的值，vue不再对此动作进行响应了。但是原先生成的dom元素还存在，可以这么理解，执行了destroy操作，后续就不再受vue控制了。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="计算属性computed-vs-Methods-methods"><a href="#计算属性computed-vs-Methods-methods" class="headerlink" title="计算属性computed: {} vs Methods methods: {}"></a>计算属性computed: {} vs Methods methods: {}</h3><blockquote>
+<p>计算属性是基于它们的依赖进行缓存的。计算属性只有在它的相关依赖发生改变时才会重新求值。这就意味着只要 message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。</p>
+</blockquote>
+<p>相比而言，只要发生重新渲染，method 调用总会执行该函数。</p>
+<p>我们为什么需要缓存？假设我们有一个性能开销比较大的的计算属性 A ，它需要遍历一个极大的数组和做大量的计算。然后我们可能有其他的计算属性依赖于 A 。如果没有缓存，我们将不可避免的多次执行 A 的 getter！如果你不希望有缓存，请用 method 替代。</p>
+<h3 id="Computed-属性-vs-Watched-属性"><a href="#Computed-属性-vs-Watched-属性" class="headerlink" title="Computed 属性 vs Watched 属性"></a>Computed 属性 vs Watched 属性</h3><p>Vue 确实提供了一种更通用的方式来观察和响应Vue实例上的数据变动：watch属性。当你有一些数据需要随着其它数据变动而变动时，你很容易滥用 watch——特别是如果你之前使用过 AngularJS。然而，通常更好的想法是使用 computed 属性而不是命令式的 watch 回调。</p>
+<h2 id="文章列表"><a href="#文章列表" class="headerlink" title="文章列表"></a>文章列表</h2><h3 id="文章列表-1"><a href="#文章列表-1" class="headerlink" title="文章列表"></a>文章列表</h3><p><img src="http://upload-images.jianshu.io/upload_images/5285574-43a36ccea758b2e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表图片展示"></p>
+<h3 id="部分代码展示"><a href="#部分代码展示" class="headerlink" title="部分代码展示"></a>部分代码展示</h3><p><img src="http://upload-images.jianshu.io/upload_images/5285574-7995aa8e0cfbc1a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表代码图片"></p>
+<p><strong>子组件代码</strong><br><img src="http://upload-images.jianshu.io/upload_images/5285574-6f5be24ade6c5b4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表代码图片"></p>
+<p><strong>父组件代码</strong><br><img src="http://upload-images.jianshu.io/upload_images/5285574-82239fbd35eddb87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="父组件代码图片"></p>
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><h3 id="文章列表-2"><a href="#文章列表-2" class="headerlink" title="文章列表"></a>文章列表</h3><p><img src="http://upload-images.jianshu.io/upload_images/5285574-43a36ccea758b2e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表图片展示"></p>
+<p><strong>部分代码展示</strong><br><img src="http://upload-images.jianshu.io/upload_images/5285574-7995aa8e0cfbc1a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表代码图片"></p>
+<p><strong>子组件代码</strong><br><img src="http://upload-images.jianshu.io/upload_images/5285574-6f5be24ade6c5b4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表代码图片"></p>
+<p><strong>html代码</strong><br><img src="http://upload-images.jianshu.io/upload_images/5285574-33ab46e04226c0da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="html代码图片"></p>
+<p><strong>父组件代码</strong><br><img src="http://upload-images.jianshu.io/upload_images/5285574-82239fbd35eddb87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="父组件代码图片"></p>
+<h4 id="父组件与子组件进行通信"><a href="#父组件与子组件进行通信" class="headerlink" title="父组件与子组件进行通信"></a>父组件与子组件进行通信</h4><ol>
+<li><p>在父组件parent.js中通过ajax请求到了数据，需要将数据传到前端，在data定义你要传的值XX，在函数中用this.XX = 数据库的值。</p>
+</li>
+<li><p>在html中，接收传递的数据名称不能大写，v-bind:xxxx=’XX’,这时xxxx就是我们可以使用的数据了。</p>
+</li>
+<li><p>在子组件child.js中，props:[‘articledata’],//接收父组件传过来的数据</p>
+<pre><code>export default {
+      data() {
+          return {
+              titleurl:[],//详情页面地址,前端要直接使用的
+          }
+      },
+      props:[&apos;articledata&apos;],//接收父组件传过来的数据
+      watch:{
+         articledata:&apos;getDataSuccess&apos; //监听数据变化
+      },
+      methods:{
+        getDataSuccess:function(){
+            // 获取本地地址
+              let whref = window.location.href;
+              whref = whref.slice(0,-10);
+            for(let i =0;i &lt; this.articledata.length;i++){
+                // 为了点击标题后跳转页面，拼接url
+                this.titleurl[i] = whref + &apos;articledetail.html?article_id=&apos; + this.articledata[i].id;
+            }
+        },
+      timeformat : format // format是个函数，可以直接将函数赋给它
+    }
+}
+</code></pre></li>
+<li><p>最外层div下面这样，通过v-for循环数据：</p>
+<pre><code>div class=&quot;am-g&quot; v-for=&quot;(item,index) in articledata&quot; v-if=&quot;articledata&quot;
+</code></pre></li>
+<li><p>然后可以向下面这样直接使用：</p>
+<pre><code>img :src=&quot;imagesrc[index]&quot;//直接索引对应图片地址
+a :href=&quot;titleurl[index]&quot; target=&quot;_blank&quot;&gt;{{item['title']}}/a
+</code></pre></li>
+</ol>
 
       
     </div>
@@ -601,7 +706,7 @@ $(&quot;.showRight li&quot;).eq(ind).show().siblings().hide();
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#犀牛学院总结"><span class="nav-text">犀牛学院总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人中心"><span class="nav-text">个人中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#左边侧边栏"><span class="nav-text">左边侧边栏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证用户是否登录"><span class="nav-text">验证用户是否登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人消息"><span class="nav-text">个人消息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改密码"><span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#广告"><span class="nav-text">广告</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#犀牛学院总结"><span class="nav-text">犀牛学院总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人中心"><span class="nav-text">个人中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#左边侧边栏"><span class="nav-text">左边侧边栏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证用户是否登录"><span class="nav-text">验证用户是否登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人消息"><span class="nav-text">个人消息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改密码"><span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#广告"><span class="nav-text">广告</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据文摘总结"><span class="nav-text">大数据文摘总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VUE总结"><span class="nav-text">VUE总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期"><span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算属性computed-vs-Methods-methods"><span class="nav-text">计算属性computed: {} vs Methods methods: {}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Computed-属性-vs-Watched-属性"><span class="nav-text">Computed 属性 vs Watched 属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章列表"><span class="nav-text">文章列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章列表-1"><span class="nav-text">文章列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部分代码展示"><span class="nav-text">部分代码展示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章"><span class="nav-text">文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章列表-2"><span class="nav-text">文章列表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#父组件与子组件进行通信"><span class="nav-text">父组件与子组件进行通信</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
