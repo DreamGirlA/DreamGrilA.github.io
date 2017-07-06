@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-6f5be24ade6c5b4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-33ab46e04226c0da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-d3bd561fe5ec6f45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-06T03:31:49.946Z">
+<meta property="og:updated_time" content="2017-07-06T03:38:46.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作第一篇">
 <meta name="twitter:description" content="犀牛学院总结
@@ -549,9 +549,9 @@ new Vue({
 <li>.number<br>如果想自动将用户的输入值转为 Number 类型（如果原值的转换结果为 NaN 则返回原值），可以添加一个修饰符 number 给 v-model 来处理输入值</li>
 <li><p>.trim<br>如果要自动过滤用户输入的首尾空格，可以添加 trim 修饰符到 v-model 上过滤输入：</p>
 <pre><code>&lt;input v-model.trim=&quot;msg&quot;&gt;
-</code></pre><h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>组件可以扩展 HTML 元素，封装可重用的代码。在较高层面上，组件是自定义元素， Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以是原生 HTML 元素的形式，以 is 特性扩展。</p>
-</li>
+</code></pre></li>
 </ol>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>组件可以扩展 HTML 元素，封装可重用的代码。在较高层面上，组件是自定义元素， Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以是原生 HTML 元素的形式，以 is 特性扩展。</p>
 <h4 id="data-必须是函数-通过Vue构造器传入的各种选项大多数都可以在组件里用。-data-是一个例外，它必须是函数。"><a href="#data-必须是函数-通过Vue构造器传入的各种选项大多数都可以在组件里用。-data-是一个例外，它必须是函数。" class="headerlink" title="data 必须是函数,通过Vue构造器传入的各种选项大多数都可以在组件里用。 data 是一个例外，它必须是函数。"></a>data 必须是函数,通过Vue构造器传入的各种选项大多数都可以在组件里用。 data 是一个例外，它必须是函数。</h4><pre><code>&lt;div id=&quot;example&quot;&gt;
   &lt;simple-counter&gt;&lt;/simple-counter&gt;
   &lt;simple-counter&gt;&lt;/simple-counter&gt;
@@ -650,12 +650,17 @@ computed: {
 <ol>
 <li><p>使用 v-on 绑定自定义事件<br> 每个 Vue 实例都实现了事件接口(Events interface)，即：</p>
 <pre><code>使用 $on(eventName) 监听事件
-</code></pre><p> 使用 $emit(eventName) 触发事件</p>
-<h3 id="子组件索引"><a href="#子组件索引" class="headerlink" title="子组件索引"></a>子组件索引</h3><p>尽管有 props 和 events，但是有时仍然需要在JavaScript中直接访问子组件。为此可以使用 ref 为子组件指定一个索引 ID 。例如：</p>
-<p> <div id="parent"><br>   <user-profile ref="profile"></user-profile><br> </div><br> var parent = new Vue({ el: ‘#parent’ })<br> // 访问子组件<br> var child = parent.$refs.profile</p>
-</li>
+使用 $emit(eventName) 触发事件
+</code></pre></li>
 </ol>
-<p>当 ref 和 v-for 一起使用时， ref 是一个数组，包含相应的子组件。</p>
+<h3 id="子组件索引"><a href="#子组件索引" class="headerlink" title="子组件索引"></a>子组件索引</h3><p>尽管有 props 和 events，但是有时仍然需要在JavaScript中直接访问子组件。为此可以使用 ref 为子组件指定一个索引 ID 。例如：</p>
+<pre><code>&lt;div id=&quot;parent&quot;&gt;
+  &lt;user-profile ref=&quot;profile&quot;&gt;&lt;/user-profile&gt;
+&lt;/div&gt;
+var parent = new Vue({ el: &apos;#parent&apos; })
+// 访问子组件
+var child = parent.$refs.profile
+</code></pre><p>当 ref 和 v-for 一起使用时， ref 是一个数组，包含相应的子组件。</p>
 <h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><h3 id="文章列表样式-代码展示"><a href="#文章列表样式-代码展示" class="headerlink" title="文章列表样式+代码展示"></a>文章列表样式+代码展示</h3><p><img src="http://upload-images.jianshu.io/upload_images/5285574-43a36ccea758b2e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表图片展示"></p>
 <p><strong>部分代码展示</strong></p>
 <p><strong>子组件代码</strong><br><img src="http://upload-images.jianshu.io/upload_images/5285574-7995aa8e0cfbc1a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表代码图片"><br><img src="http://upload-images.jianshu.io/upload_images/5285574-6f5be24ade6c5b4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文章列表代码图片"></p>
