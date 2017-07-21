@@ -115,7 +115,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-a488c86237abccb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-63b3cf594d5547cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-9eb0e64e080b29cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-19T10:22:30.600Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-c57b031563644f4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-60f00e05d6cf6d73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-de39e3760b1d8c16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-21T05:50:09.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实习总结">
 <meta name="twitter:description" content="稀牛学院总结
@@ -567,7 +570,79 @@ $.ajax({
   })
 </code></pre></li>
 </ol>
-
+<p><strong>类别标签二级模态框部分代码</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5285574-c57b031563644f4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="二级模态框"><br><img src="http://upload-images.jianshu.io/upload_images/5285574-60f00e05d6cf6d73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="二级模态框"></p>
+<h2 id="点击input框弹出二级模态框"><a href="#点击input框弹出二级模态框" class="headerlink" title="点击input框弹出二级模态框"></a>点击input框弹出二级模态框</h2><ol>
+<li>因为需求，所以我们要点击一个”类别标签”的input框再弹出个模态框，这个模态框会包括一个新的datatable，初始化一个有关”类别标签”的table表格。</li>
+<li>显示二级模态框，通过 data 属性：在控制器元素（这里是input输入框）上设置属性 data-toggle=”modal”，同时设置 data-target=”#模态框id” 或 href=”#模态框id” 来指定要切换的特定的模态框（带有 id=”模态框id”）。</li>
+<li>在二级模态框中，初始化类别标签的表格，初始化过程和课程管理原理一样，这里就不再多叙述了。</li>
+<li><p>二级模态框有两个按钮，关闭按钮和提交按钮。点击关闭按钮触发点击事件，执行以下代码将模态框关闭：</p>
+<pre><code>$(&quot;#&quot;+$(event.target).attr(&apos;targetModal&apos;)).modal(&apos;hide&apos;);
+</code></pre></li>
+<li><p>点击提交按钮，触发点击事件，我们要将在二级模态框选中的”类别标签”的id自动填到一级模态框的类别标签的input框中。我们初始化一个数组，为了保存获得到的id，循环选中多选框将每个选中的id push到数组中，代码如下：</p>
+<pre><code>$(&apos;[name = chkItem]:checked&apos;).each(function(i,n){
+</code></pre><p> console.log(‘i’,i)//i代表的是从0开始循环的数<br> console.log(‘n’,n)//n代表选中的checkbox复选框<br> CourseItems.push($(n).attr(‘data_id’))</p>
+<pre><code>});
+</code></pre></li>
+</ol>
+<h2 id="判断选中复选框的数量"><a href="#判断选中复选框的数量" class="headerlink" title="判断选中复选框的数量"></a>判断选中复选框的数量</h2><p>点击编辑按钮，首先判断是否只点击了一个复选框，获取选中复选框的数量代码如下：</p>
+<pre><code>this.checkedRows = $(&apos;input:checkbox[name=checklength]:checked&apos;).length;
+</code></pre><h2 id="确认增加"><a href="#确认增加" class="headerlink" title="确认增加"></a>确认增加</h2><p>确认增加的话，把所有填入的值，都获得到，作为参数传给ajax，发送ajax请求，会返回一个状态码，表示是否要已经增加成功，如果成功了，则要自动触发关闭按钮的点击事件，然后再进行自动刷新。成功后，部分代码如下：</p>
+<pre><code>if(code.code==0){
+  $(&apos;#close_btn1&apos;).trigger(&quot;click&quot;);//自动触发点击事件
+  //自动刷新，datatables中ajax自带的刷新页面功能
+  this.table.ajax.reload( null, false ); 
+}
+</code></pre><p><strong>点击编辑按钮后自动获取这行的数据部分代码</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5285574-de39e3760b1d8c16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="点击编辑获得数据"></p>
+<h2 id="点击编辑按钮后自动获取这行的数据"><a href="#点击编辑按钮后自动获取这行的数据" class="headerlink" title="点击编辑按钮后自动获取这行的数据"></a>点击编辑按钮后自动获取这行的数据</h2><ol>
+<li>因为使用的datatables自带的ajax请求数据，初始化表格，所以，我们不能直接获得数据，进行处理，这里我们找到了一个办法可以获得数据，也是使用datatables自带的方法。</li>
+<li>但是这个自带的方法，有个bug，每次读取的数据是你最后一次点击的数据，假设一种情况，“我点击了一个复选框1，又点击一个复选框2，点击编辑，会提醒只能选中一个，然后我把不想选中的那个复选框2再点一下，不让它选中，这时剩下一个复选框1应该是你想编辑的，然而弹出框的数据却是复选框2的数据”。</li>
+<li>对于上面的bug，想到解决办法是，我们在最开始设置一个全局对象rowjson，每点击一个复选框就将点击的数据存到这个rowjson中，{id:数据，id:数据}这样的形式存起来，然后我们取消选中的复选框，我们把rowjson中相应的“id:数据”删除。最后我们rowjson，只剩下我们我们选中的数据了。然后我们将rowjson的属性值，分别赋给输入框的值就好了。</li>
+<li><p>使用如下方法获得点击一行的数据</p>
+<pre><code>$(row).on(&apos;click&apos;,data,function(){ 
+    //data是点击的这一行的数据
+})
+</code></pre></li>
+<li><p>我们获得的data就是点击的这一行的数据。我们先要进行判断，rowjson中是否有选中的对象,没有的话，给rowjson赋值，并且将复选框变为选中状态，如果rowjson中已经有选中对象，则将这个属性值删除，并且将复选框变为未选中状态。</p>
+</li>
+<li>改变选中状态必须使用$(‘#..’).prop(‘checked’,true/false)，这里改变checkbox状态有attr,prop的区别，对于HTML元素本身就带有的固有属性，在处理时，使用prop方法。对于HTML元素我们自己自定义的DOM属性，在处理时，使用attr方法。</li>
+<li><p>解释一下什么是固有属性</p>
+<pre><code>举个列子：&lt;a href=&quot;http://www.baidu.com&quot; target=&quot;_self&quot; class=&quot;btn&quot;&gt;百度&lt;/a&gt;
+</code></pre><blockquote>
+<p>这个例子里<a>元素的DOM属性有“href、target和class”，这些属性就是<a>元素本身就带有的属性，也是W3C标准里就包含有这几个属性，或者说在IDE里能够智能提示出的属性，这些就叫做固有属性。处理这些属性时，建议使用prop方法。</a></a></p>
+</blockquote>
+<pre><code>举个例子：&lt;a href=&quot;#&quot; id=&quot;link1&quot; action=&quot;delete&quot;&gt;删除&lt;/a&gt;
+</code></pre><blockquote>
+<p>这个例子里<a>元素的DOM属性有“href、id和action”，很明显，前两个是固有属性，而后面一个“action”属性是我们自己自定义上去的，<a>元素本身是没有这个属性的。这种就是自定义的DOM属性。处理这些属性时，建议使用attr方法。使用prop方法取值和设置属性值时，都会返回undefined值。</a></a></p>
+</blockquote>
+</li>
+</ol>
+<p>部分代码展示如下：</p>
+<pre><code>if (_that.rowjson[data[&apos;id&apos;]]) {
+    delete _that.rowjson[data[&apos;id&apos;]] //删除对象中对应的数据
+    $(&apos;#&apos;+data[&apos;id&apos;]+&apos;&apos;).prop(&apos;checked&apos;,false);
+  }else{
+    //给对象赋值,data[&apos;id&apos;]是选中一行的id，赋值为{id:data}
+    _that.rowjson[data[&apos;id&apos;]]=data;
+    $(&apos;#&apos;+data[&apos;id&apos;]+&apos;&apos;).prop(&apos;checked&apos;,true);
+  }
+</code></pre><p>这时我们已经解决了选中的数据不是对应数据的问题，并且已经获得了选中的数据，存在了rowjson中， 借鉴datatables中的方法，循环rowjson，定义一个字符串这个字符串包括的就是rowjson的{key:value}key的值，以逗号分开，在这个循环中使用each() 方法规定为每个匹配元素规定运行的函数，给每个input框赋相应的值，这样就达到点击一行弹出框中自动填入这一行的数据的目的，部分代码展示如下：</p>
+<pre><code>    for(let i in _that.rowjson){
+        let Column = &apos;id,creator,name,lecturers,verify_reason,state,hot_index,label,summary,remark,response_assistant,price&apos;;
+        var arr = Column.split(&apos;,&apos;);
+        $.each(arr,function(index,value){
+        $(&apos;#editModal :input[name=&apos;+value+&apos;]&apos;).val( _that.rowjson[i][value]);
+    })
+$(&apos;#editModal textarea[name=verify_reason]&apos;).val( _that.rowjson[i][&apos;verify_reason&apos;]);//textarea赋值
+        $(&apos;#editModal img[name=img_url]&apos;).attr(&apos;src&apos;, _that.rowjson[i][&apos;img_url&apos;]);//给图片赋值
+$(&apos;#editModal select[name=state]&apos;).val( _that.rowjson[i][&apos;state&apos;]);
+    //course_id，course_hidden_state，course_lock_state是全局变量
+     _that.course_id = ( _that.rowjson[i][&apos;id&apos;]);
+     _that.course_hidden_state = ( _that.rowjson[i][&apos;hidden-state&apos;]);
+     _that.course_lock_state = ( _that.rowjson[i][&apos;lock-state&apos;]);
+    } 
+</code></pre>
       
     </div>
 
@@ -796,7 +871,7 @@ $.ajax({
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#稀牛学院总结"><span class="nav-text">稀牛学院总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人中心"><span class="nav-text">个人中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#左边侧边栏"><span class="nav-text">左边侧边栏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证用户是否登录"><span class="nav-text">验证用户是否登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人消息"><span class="nav-text">个人消息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改密码"><span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#广告"><span class="nav-text">广告</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据文摘总结"><span class="nav-text">大数据文摘总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文章"><span class="nav-text">文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章列表样式-代码展示"><span class="nav-text">文章列表样式+代码展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父组件与子组件进行通信"><span class="nav-text">父组件与子组件进行通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非父子组件通信"><span class="nav-text">非父子组件通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索功能"><span class="nav-text">搜索功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载更多"><span class="nav-text">加载更多</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#稀牛学院后台管理页面"><span class="nav-text">稀牛学院后台管理页面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目框架"><span class="nav-text">项目框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧边栏对应内容显示"><span class="nav-text">侧边栏对应内容显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课程管理"><span class="nav-text">课程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码结构"><span class="nav-text">代码结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化表格"><span class="nav-text">初始化表格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加数据"><span class="nav-text">增加数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更改图片"><span class="nav-text">更改图片</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#稀牛学院总结"><span class="nav-text">稀牛学院总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人中心"><span class="nav-text">个人中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#左边侧边栏"><span class="nav-text">左边侧边栏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证用户是否登录"><span class="nav-text">验证用户是否登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人消息"><span class="nav-text">个人消息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改密码"><span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#广告"><span class="nav-text">广告</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据文摘总结"><span class="nav-text">大数据文摘总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文章"><span class="nav-text">文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章列表样式-代码展示"><span class="nav-text">文章列表样式+代码展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父组件与子组件进行通信"><span class="nav-text">父组件与子组件进行通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非父子组件通信"><span class="nav-text">非父子组件通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索功能"><span class="nav-text">搜索功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载更多"><span class="nav-text">加载更多</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#稀牛学院后台管理页面"><span class="nav-text">稀牛学院后台管理页面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目框架"><span class="nav-text">项目框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧边栏对应内容显示"><span class="nav-text">侧边栏对应内容显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课程管理"><span class="nav-text">课程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码结构"><span class="nav-text">代码结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化表格"><span class="nav-text">初始化表格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加数据"><span class="nav-text">增加数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更改图片"><span class="nav-text">更改图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点击input框弹出二级模态框"><span class="nav-text">点击input框弹出二级模态框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断选中复选框的数量"><span class="nav-text">判断选中复选框的数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#确认增加"><span class="nav-text">确认增加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点击编辑按钮后自动获取这行的数据"><span class="nav-text">点击编辑按钮后自动获取这行的数据</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
