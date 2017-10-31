@@ -1,0 +1,1163 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML,HTML5," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Candice Yu_个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="博主经历了差不多两个月的秋招，找到工作之后，把近期所有总结的前端知识点总结一下，希望可以帮助到学习前端的小伙伴们，有不正确的地方还请指出来，告诉博主哦~
+
+HTML篇HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物理学家，在80年代后期设计了一种能在网路上分享文档的方式。在这之前，网路上沟通的方式仅限于纯文本传递，比如：电子邮件、FTP(文件传输协议)和Usenet讨论版。HT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端知识总结（HTML,HTML5）">
+<meta property="og:url" content="http://candiceyu.com/2017/10/31/前端知识总结（HTML-HTML5）/index.html">
+<meta property="og:site_name" content="Candice Yu_个人博客">
+<meta property="og:description" content="博主经历了差不多两个月的秋招，找到工作之后，把近期所有总结的前端知识点总结一下，希望可以帮助到学习前端的小伙伴们，有不正确的地方还请指出来，告诉博主哦~
+
+HTML篇HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物理学家，在80年代后期设计了一种能在网路上分享文档的方式。在这之前，网路上沟通的方式仅限于纯文本传递，比如：电子邮件、FTP(文件传输协议)和Usenet讨论版。HT">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-030cfbb0a5f5ff5c.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-10-31T03:07:32.754Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端知识总结（HTML,HTML5）">
+<meta name="twitter:description" content="博主经历了差不多两个月的秋招，找到工作之后，把近期所有总结的前端知识点总结一下，希望可以帮助到学习前端的小伙伴们，有不正确的地方还请指出来，告诉博主哦~
+
+HTML篇HTML简史蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物理学家，在80年代后期设计了一种能在网路上分享文档的方式。在这之前，网路上沟通的方式仅限于纯文本传递，比如：电子邮件、FTP(文件传输协议)和Usenet讨论版。HT">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5285574-030cfbb0a5f5ff5c.gif?imageMogr2/auto-orient/strip">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://candiceyu.com/2017/10/31/前端知识总结（HTML-HTML5）/"/>
+
+  <title> 前端知识总结（HTML,HTML5） | Candice Yu_个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?516d783fb114015b9b38b2ce58b5fe15";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Candice Yu_个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Candice Yu</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/aboutMe" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端知识总结（HTML,HTML5）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-10-31T10:55:51+08:00" content="2017-10-31">
+              2017-10-31
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/10/31/前端知识总结（HTML-HTML5）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/31/前端知识总结（HTML-HTML5）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>博主经历了差不多两个月的秋招，找到工作之后，把近期所有总结的前端知识点总结一下，希望可以帮助到学习前端的小伙伴们，有不正确的地方还请指出来，告诉博主哦~</p>
+</blockquote>
+<h1 id="HTML篇"><a href="#HTML篇" class="headerlink" title="HTML篇"></a>HTML篇</h1><h2 id="HTML简史"><a href="#HTML简史" class="headerlink" title="HTML简史"></a>HTML简史</h2><p>蒂姆·伯纳斯-李，一名CERN（欧洲核子研究组织）的物理学家，在80年代后期设计了一种能在网路上分享文档的方式。在这之前，网路上沟通的方式仅限于纯文本传递，比如：电子邮件、FTP(文件传输协议)和Usenet讨论版。HTML是利用内容档案储存至中央服务器的方式，然后再将内容透过浏览器传递至本机工作站。 它简化了内容存取的方式，也让更多丰富内容能够显示（诸如较复杂的文本格式与图片的显示）。HTML 源自于SGML——它是一种复杂的文档结构定义和内容描述（文本或图像）语法；从HTML5起，HTML不再坚守SGML的语法。<br>(<br>HTML5 为什么只需要写 &lt;!DOCTYPE HTML&gt;？<br>● HTML5不基于SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）。<br>● 而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。<br>)</p>
+<h2 id="什么是-HTML？"><a href="#什么是-HTML？" class="headerlink" title="什么是 HTML？"></a>什么是 HTML？</h2><p>HTML 是一种<strong>标记语言</strong>（markup language）。它<strong>告诉浏览器如何显示内容</strong>。HTML把内容（文字，图片，语言，影片等等）和「presentation」（这个内容是如何显示，比如文字用什么颜色显示等等）分开。HTML使用<strong>预先定义的元素集合来识别内容形态</strong>。 元素包含一个以上的标记来包含或者表达内容。<strong>标记利用尖括号表示</strong>，而结束标记（用来指示内容尾端）则在前面加上斜线。</p>
+<h2 id="lt-DOCTYPE-gt-标签的定义与用法。"><a href="#lt-DOCTYPE-gt-标签的定义与用法。" class="headerlink" title="&lt;!DOCTYPE&gt;标签的定义与用法。"></a>&lt;!DOCTYPE&gt;标签的定义与用法。</h2><p>定义和用法<br>&lt;!DOCTYPE&gt;声明位于文档中的最前面的位置，处于&lt;html&gt; 标签之前。此标签可告知浏览器文档使用哪种 HTML 或 XHTML 规范。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。 </p>
+<ol>
+<li>该标签可声明三种 DTD HTML1.0规定了三种文档类型：<strong>严格版本、过渡版本以及基于框架的 HTML 文档</strong>。（ DTD（英文：Document Type Definition，中文：文档类型定义）是一套关于标记符的语法规则，是标准通用标记语言和扩展标记语言1.0版规格的一部分，是文档的验证机制，也是一个美国信息交换标准代码文本文件。）<ul>
+<li><strong>HTML Strict DTD （严格版本）</strong><br>如果您需要干净的标记，免于表现层的混乱，请使用此类型。与层叠样式表（CSS）配合使用</li>
+<li><strong>HTML Transitional DTD（过渡版本）</strong><br>Transitional DTD 可包含 W3C 所期望移入样式表的呈现属性和元素。如果您的读者使用了不支持层叠样式表（CSS）的浏览器以至于您不得不使用 HTML 的呈现特性时</li>
+<li><strong>Frameset DTD（基于框架的 HTML 文档）</strong><br>Frameset DTD 应当被用于带有框架的文档。除 frameset 元素取代了 body 元素之外，Frameset DTD 等同于 Transitional DTD<br><br> </li>
+</ul>
+</li>
+<li>以下面这个 &lt;!DOCTYPE&gt; 标签为例：<br>&lt;!DOCTYPEhtmlPUBLIC”-//W3C//DTDXHTML1.0Strict//EN””<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;" target="_blank" rel="external">http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</a><br>在上面的声明中，声明了文档的根元素是 html，它在公共标识符被定义为 “-//W3C//DTD XHTML 1.0 Strict//EN” 的 DTD 中进行了定义。浏览器将明白如何寻找匹配此公共标识符的 DTD。如果找不到，浏览器将使用公共标识符后面的 URL 作为寻找 DTD 的位置。<br>注释：&lt;!DOCTYPE&gt; 标签没有结束标签！</li>
+<li>标准模式的排版和JS运作模式都是以该浏览器支持的<strong>最高标准运行</strong>。</li>
+<li>在兼容模式中，页面以宽松的向后兼容的方式显示,<strong>模拟老式浏览器</strong>的行为以防止站点无法工作。</li>
+</ol>
+<h3 id="Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><a href="#Doctype作用-严格模式与混杂模式如何区分？它们有何意义" class="headerlink" title="Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?"></a>Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</h3><ol>
+<li>&lt;!DOCTYPE&gt; 声明位于文档中的最前面，处于 &lt;html&gt; 标签之前。告知浏览器以何种模式来渲染文档。 </li>
+<li>严格模式的排版和 JS 运作模式是  以该浏览器支持的最高标准运行。</li>
+<li>在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。</li>
+<li>DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。 </li>
+</ol>
+<h2 id="什么是怪异模式和标准模式呢？"><a href="#什么是怪异模式和标准模式呢？" class="headerlink" title="什么是怪异模式和标准模式呢？"></a>什么是怪异模式和标准模式呢？</h2><blockquote>
+<p>浏览器的渲染模式有两种：标准模式和怪异模式。<br>我们常用的是标准模式，怪异模式是防止浏览器升级版本过高对后面版本的代码不兼容，让浏览器可以向后兼容其他低版本的代码的法规则，比如IE6的怪异模式下可以兼容IE5个IE4的语法。</p>
+</blockquote>
+<h3 id="怪异模式和标准模式的区别？"><a href="#怪异模式和标准模式的区别？" class="headerlink" title="怪异模式和标准模式的区别？"></a>怪异模式和标准模式的区别？</h3><ol>
+<li>盒模型：在W3C标准中，如果设置一个元素的宽度和高度，指的是元素内容的宽度和高度，而在Quirks模式下，IE的宽度和高度还包含了padding和border。</li>
+<li>设置行内元素的高宽：在Standards模式下，给<span>等行内元素设置wdith和height都不会生效，而在quirks模式下，则会生效。</span></li>
+<li>设置百分比的高度：在standards模式下，一个元素的高度是由其包含的内容来决定的，如果父元素没有设置百分比的高度，子元素设置一个百分比的高度是无效的,而在quirks模式下，则会生效。</li>
+<li>设置水平居中：使用margin:0 auto在standards模式下可以使元素水平居中，但在quirks模式下却会失效。</li>
+</ol>
+<h3 id="我们如何变成怪异模式呢？"><a href="#我们如何变成怪异模式呢？" class="headerlink" title="我们如何变成怪异模式呢？"></a>我们如何变成怪异模式呢？</h3><blockquote>
+<p>其实很简单，只需要把我们html代码的第一行的&lt;!DOCTYPE HTML&gt;去掉就可以变成怪异模式了，而加上这一行代码就可以变成标准模式。</p>
+</blockquote>
+<h3 id="如何判断怪异模式还是标准模式？"><a href="#如何判断怪异模式还是标准模式？" class="headerlink" title="如何判断怪异模式还是标准模式？"></a>如何判断怪异模式还是标准模式？</h3><blockquote>
+<p>document上中有一个方法叫做compatMode，window.top.document.compatMode ，当浏览器处于怪异模式的时候会返回字符串“BackCompat”，在标准模式下可以返回“CSS1Compat”，通过这个方法我们就可以判断了。</p>
+</blockquote>
+<h2 id="块级元素和行内元素都有哪些？"><a href="#块级元素和行内元素都有哪些？" class="headerlink" title="块级元素和行内元素都有哪些？"></a>块级元素和行内元素都有哪些？</h2><pre><code>块元素(block element)    
+   　　* p - 段落    
+   　　* dl - 定义列表   
+   　　* ol - 排序表单   
+   　　* dir - 目录列表   
+   　　* div - 常用块级，也是css layout的主要标签
+   　　* table - 表格   
+   　　* ul - 非排序列表   
+   　　* h1~h6 - 标题    
+   　　* address - 地址   
+   　　* blockquote - 块引用   
+   　　* center - 居中对齐块   
+   　　* form - 交互表单    
+   　　* menu - 菜单列表   
+   　　* fieldset - form控制组   
+   　　* pre - 格式化文本    被包围在 pre 元素中的文本通常会保留空格和换行符
+
+ 内联元素(inline element)   
+   　 　* span - 常用内联容器，定义文本内区块
+   　 　* a - 锚点     
+   　 　* b - 粗体(不推荐)   
+   　 　* big - 大字体   
+  　  　* br - 换行   
+   　 　* em - 强调     
+  　  　* i - 斜体     
+  　  　* sub - 下标   
+   　 　* sup - 上标         
+  　  　* select - 项目选择   
+   　 　* small - 小字体文本  
+  　  　* strong - 粗体强调     
+  　 　 * u - 下划线  
+   　 　* font - 字体设定(不推荐) 
+   　 　* abbr - 缩写   
+   　 　* cite - 引用    
+   　 　* dfn - 定义字段   
+   　 　* s - 中划线(不推荐)   
+  　  　* q - 短引用   
+  　  　* var - 定义变量        
+  　  　
+</code></pre><h3 id="浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？"><a href="#浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？" class="headerlink" title="浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？"></a>浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？</h3><p>答案：&lt;input&gt; 、&lt;img&gt; 、&lt;button&gt; 、&lt;texterea&gt; 、&lt;label&gt;。    
+      　  　</p>
+<h3 id="行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8-以下）？"><a href="#行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8-以下）？" class="headerlink" title="行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8 以下）？"></a>行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8 以下）？</h3><ol>
+<li>块级元素(block)特性：<ul>
+<li>总是独占一行，表现为另起一行开始，而且其后的元素也必须另起一行显示;</li>
+<li>宽度(width)、高度(height)、内边距(padding)和外边距(margin)都可控制;</li>
+</ul>
+</li>
+<li>内联元素(inline)特性：<ul>
+<li>和相邻的内联元素在同一行;</li>
+<li>宽度(width)、高度(height)、内边距的top/bottom(padding-top/padding-bottom)和外边距的top/bottom(margin-top/margin-bottom)都不可改变（也就是padding和margin的left和right是可以设置的），就是里面文字或图片的大小。     　  　</li>
+</ul>
+</li>
+<li>兼容性：display:inline-block;display:inline;*zoom:1;</li>
+</ol>
+<h2 id="简述一下你对HTML语义化的理解？"><a href="#简述一下你对HTML语义化的理解？" class="headerlink" title="简述一下你对HTML语义化的理解？"></a>简述一下你对HTML语义化的理解？</h2><ol>
+<li>用正确的标签做正确的事情。</li>
+<li>html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;</li>
+<li>即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;(去掉或者丢失样式的时候能够让页面呈现出清晰的结构)</li>
+<li>搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于SEO;</li>
+<li>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。</li>
+<li><p>便于团队开发和维护，语义化更具可读性，是下一步吧网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化。</p>
+<p>例如：&lt;h1 2 3 4 5〉〈span〉 这里的常用的是标题你就不要用div 标签了；或 li 列表 ，就不要用&lt;p&gt;或<td>了。好处：就是易理解，渲染快，利seo优化；</td></p>
+</li>
+</ol>
+<h2 id="对WEB标准以及W3C的理解与认识"><a href="#对WEB标准以及W3C的理解与认识" class="headerlink" title="对WEB标准以及W3C的理解与认识?"></a>对WEB标准以及W3C的理解与认识?</h2><blockquote>
+<p>标签闭合、标签小写、不乱嵌套、提高搜索机器人搜索几率、使用外 链css和js脚本、结构行为表现的分离、文件下载与页面速度更快、内容能被更多的用户所访问、内容能被更广泛的设备所访问、更少的代码和组件，容易维 护、改版方便，不需要变动页面内容、提供打印版本而不需要复制内容、提高网站易用性；</p>
+</blockquote>
+<h2 id="为什么要使用web标准"><a href="#为什么要使用web标准" class="headerlink" title="为什么要使用web标准"></a>为什么要使用web标准</h2><ol>
+<li>具有更好的兼容性。</li>
+<li>易于代码维护和开发。</li>
+<li>可增加网站的访问量。</li>
+<li>标准的web文档更易被转换为其他格式。</li>
+<li>更易被搜索引擎访问，也更易被准确索引。</li>
+<li>更易被JavaScript和DOM代码访问。<br>W3C标准：HTML、XHTML、CSS、XML、XSL、DOM。</li>
+</ol>
+<h2 id="iframe的优缺点？"><a href="#iframe的优缺点？" class="headerlink" title="iframe的优缺点？"></a>iframe的优缺点？</h2><ul>
+<li>优点：<ul>
+<li>并行加载脚本</li>
+<li>解决加载缓慢的第三方内容如图标和广告等的加载问题</li>
+<li>重载页面时不需要重载整个页面，只需要重载页面中的一个框架页(减少了数据的传输，增加了网页下载速度)</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>iframe会阻塞主页面的Onload事件</li>
+<li>即时内容为空，加载也需要时间</li>
+<li>搜索引擎的检索程序无法解读这种页面，不利于SEO</li>
+<li>iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载</li>
+<li>如果需要使用iframe，最好是通过javascript动态给iframe添加src属性值，这样可以绕开以上两个问题。</li>
+</ul>
+</li>
+</ul>
+<h2 id="title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？"><a href="#title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？" class="headerlink" title="title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？"></a>title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？</h2><ol>
+<li>title属性没有明确意义只表示是个标题，H1则表示层次明确的标题，对页面信息的抓取也有很大的影响；</li>
+<li>alt(alt text):为不能显示图像、窗体或applets的用户代理，alt属性用来指定替换文字；title:该属性为设置该属性的元素提供建议性的信息</li>
+<li>strong是标明重点内容，有语气加强的含义，使用阅读设备阅读网络时：&lt;strong&gt;会重读，而&lt;B&gt;是展示强调内容。</li>
+<li>i内容展示为斜体，em表示强调的文本；</li>
+</ol>
+<h2 id="div-css的布局较table布局有什么优点？"><a href="#div-css的布局较table布局有什么优点？" class="headerlink" title="div+css的布局较table布局有什么优点？"></a>div+css的布局较table布局有什么优点？</h2><ol>
+<li>改版的时候更方便 只要改css文件。</li>
+<li>页面加载速度更快、结构化清晰、页面显示简洁。</li>
+<li>表现与结构相分离。</li>
+<li>易于优化（seo）搜索引擎更友好，排名更容易靠前。</li>
+</ol>
+<h2 id="你能描述一下渐进增强和优雅降级之间的不同吗"><a href="#你能描述一下渐进增强和优雅降级之间的不同吗" class="headerlink" title="你能描述一下渐进增强和优雅降级之间的不同吗?"></a>你能描述一下渐进增强和优雅降级之间的不同吗?</h2><ol>
+<li>渐进增强 progressive enhancement：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</li>
+<li>优雅降级 graceful degradation：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</li>
+<li>区别：优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带。</li>
+</ol>
+<h3 id="现在产品经理看到IE6-7-8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？"><a href="#现在产品经理看到IE6-7-8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？" class="headerlink" title="现在产品经理看到IE6,7,8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？"></a>现在产品经理看到IE6,7,8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？</h3><blockquote>
+<p>● 优雅降级：Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会针对旧版本的IE进行降级处理了,使之在旧式浏览器上以某种形式降级体验却不至于完全不能用。<br>如：border-shadow<br>● 渐进增强：从被所有浏览器支持的基本功能开始，逐步地添加那些只有新版本浏览器才支持的功能,向页面增加不影响基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用。<br>如：默认使用flash上传，但如果浏览器支持 HTML5 的文件上传功能，则使用HTML5实现更好的体验；</p>
+</blockquote>
+<h2 id="简述一下src与href的区别？"><a href="#简述一下src与href的区别？" class="headerlink" title="简述一下src与href的区别？"></a>简述一下src与href的区别？</h2><ol>
+<li>src用于替换当前元素，href用于在当前文档和引用资源之间确立联系。 </li>
+<li>src是source的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，<br>例如js脚本，img图片和frame等元素。&lt;script src =”js.js”&gt;<br>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</li>
+<li>href是Hypertext Reference的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加<br>&lt;link href=”common.css” rel=”stylesheet”/&gt;那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用link方式来加载css，而不是使用@import方式。</li>
+</ol>
+<h2 id="知道的网页制作会用到的图片格式有哪些？"><a href="#知道的网页制作会用到的图片格式有哪些？" class="headerlink" title="知道的网页制作会用到的图片格式有哪些？"></a>知道的网页制作会用到的图片格式有哪些？</h2><ol>
+<li>png-8，png-24，jpg，gif，svg。</li>
+<li>Webp（新技术）：WebP格式，谷歌（google）开发的一种旨在加快图片加载速度的图片格式。图片压缩体积大约只有JPEG的2/3，并能节省大量的服务器带宽资源和数据空间。Facebook Ebay等知名网站已经开始测试并使用WebP格式。</li>
+<li>在质量相同的情况下，WebP格式图像的体积要比JPEG格式图像小40%</li>
+</ol>
+<h2 id="xhtml和html有什么区别"><a href="#xhtml和html有什么区别" class="headerlink" title="xhtml和html有什么区别?"></a>xhtml和html有什么区别?</h2><blockquote>
+<p>XML是可扩展标记语言，它和HTML很相似。单XML的设计宗旨是个 传输数据，而不是显示数据（HTML是为了在浏览器上显示数据）。更具体些，XML是用于标记电子文件，使其具有结构性的标记语言，可用来标记数据，定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。XML是一种简单，与平台无关并被广泛采用的标准。</p>
+</blockquote>
+<p>它的优点是它将用户界面与结构化数据分隔开来，这种数据与显示的分离使得集成来自不同源的数据成为可能。客户信息，订单，研究结果，账单付款，病历，目录数据及其他信息都可以转为XML。XML不是替换HTML，而是对HTML的补充。XML标记由文档的作者定义，而且是无限制的。HTML标记则是预定义的，HTML作者只能使用当前HML标准所支持的标记。</p>
+<ol>
+<li>HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的置标语言.</li>
+<li><strong>XHTML元素必须被关闭。XHTML文档必须拥有根元素</strong>。</li>
+<li>所有标签的元素和属性的名字都必须使用小写</li>
+<li>所有的属性必须用引号””括起来</li>
+<li>把所有&lt;和&amp;特殊符号用编码表示</li>
+<li>给所有属性赋一个值</li>
+<li>不要在注释内容中使“–”</li>
+<li>图片必须有说明文字</li>
+</ol>
+<hr>
+<h1 id="HTML5篇"><a href="#HTML5篇" class="headerlink" title="HTML5篇"></a>HTML5篇</h1><h2 id="HTML5-中的一些有趣的新特性"><a href="#HTML5-中的一些有趣的新特性" class="headerlink" title="HTML5 中的一些有趣的新特性"></a>HTML5 中的一些有趣的新特性</h2><ol>
+<li>拖拽释放(Drag and drop) API </li>
+<li>语义化更好的内容标签（header,nav,footer,aside,article,section）</li>
+<li>音频、视频API(audio,video)</li>
+<li>画布(Canvas) API</li>
+<li>地理(Geolocation) API</li>
+<li>本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；</li>
+<li>sessionStorage 的数据在浏览器关闭后自动删除</li>
+<li>表单控件，calendar、date、time、email、url、search  </li>
+<li>新的技术webworker, websocket, Geolocation</li>
+</ol>
+<p>移除的元素：</p>
+<ol>
+<li>纯表现的元素：basefont，big，center，font, s，strike，tt，u；</li>
+<li>对可用性产生负面影响的元素：frame，frameset，noframes；</li>
+</ol>
+<p>支持HTML5新标签：</p>
+<ol>
+<li>IE8/IE7/IE6支持通过 document.createElement 方法产生的标签，可以利用这一特性让这些浏览器支持 HTML5 新标签，浏览器支持新标签后，还需要添加标签默认的样式（当然最好的方式是直接使用成熟的框架、使用最多的是html5shiv框架）<br>&lt;script&gt; src=”<a href="http://html5shiv.googlecode.com/svn/trunk/html5.js" target="_blank" rel="external">http://html5shiv.googlecode.com/svn/trunk/html5.js</a>“ </li>
+</ol>
+<p>如何区分：<br>DOCTYPE声明新增的结构元素、功能元素</p>
+<h2 id="HTML5-视频-Video-音频-audio"><a href="#HTML5-视频-Video-音频-audio" class="headerlink" title="HTML5 视频(Video)音频(audio)"></a>HTML5 视频(Video)音频(audio)</h2><pre><code>&lt;video src=&quot;movie.ogg&quot; width=&quot;320&quot; height=&quot;240&quot; controls=&quot;controls&quot;&gt;
+Your browser does not support the video tag.
+&lt;/video&gt;
+&lt;audio controls=&quot;controls&quot;&gt;
+  &lt;source src=&quot;song.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+  &lt;source src=&quot;song.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+Your browser does not support the audio tag.
+&lt;/audio&gt;
+</code></pre><ol>
+<li>video 与 video 之间插入的内容是供不支持video元素的浏览器显示的（audio同样）</li>
+<li>video 元素允许多个 source 元素。（audio同样）</li>
+<li>src url 要播放的视频的 URL。（3-6音频视频属性）</li>
+<li>autoplay 如果出现该属性，则视频在就绪后马上播放。</li>
+<li>controls 如果出现该属性，则向用户显示控件，比如播放按钮。</li>
+<li>loop 如果出现该属性，则当媒介文件完成播放后再次开始播放。<br>7.muted muted 规定视频输出应该被静音。（音频属性）</li>
+<li>preload 如果出现该属性，则视频在页面加载时进行加载，并预备播放。如果使用 “autoplay”，则忽略该属性。<br>9.. load() 更改视频来源，并重载视频（8-11音频方法）</li>
+<li>play() 方法开始播放当前的音频或视频。</li>
+<li>pause() 方法停止（暂停）当前播放的音频或视频，paused已暂停<pre><code>var myVideo=document.getElementById(&quot;video1&quot;);
+function playVid()
+  {
+  myVideo.play();
+  }
+function pauseVid()
+  {
+  myVideo.pause();
+  }
+</code></pre></li>
+<li>canPlayType() 方法浏览器是否能播放指定的音频/视频类型<br>  myVid=document.createElement(‘video’);<br>  isSupp=myVid.canPlayType(vidType+’;codecs=”‘+codType+’”‘);</li>
+</ol>
+<h2 id="拖放（Drag-和-drop）"><a href="#拖放（Drag-和-drop）" class="headerlink" title="拖放（Drag 和 drop）"></a>拖放（Drag 和 drop）</h2><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+  function allowDrop(ev)
+  {
+    ev.preventDefault();
+  }
+
+  function drag(ev)
+  {
+   ev.dataTransfer.setData(&quot;Text&quot;,ev.target.id);
+  }
+
+  function drop(ev)
+  {
+    ev.preventDefault();
+    var data=ev.dataTransfer.getData(&quot;Text&quot;);
+    ev.target.appendChild(document.getElementById(data));
+  }
+&lt;/script&gt;
+
+&lt;div id=&quot;div1&quot; ondrop=&quot;drop(event)&quot;
+ondragover=&quot;allowDrop(event)&quot;&gt;&lt;/div&gt;
+&lt;img id=&quot;drag1&quot; src=&quot;img_logo.gif&quot; draggable=&quot;true&quot;
+ondragstart=&quot;drag(event)&quot; width=&quot;336&quot; height=&quot;69&quot; /&gt;
+</code></pre><ol>
+<li><p>设置元素为可拖放</p>
+<blockquote>
+<p>为了使元素可拖动，把 draggable 属性设置为 true </p>
+</blockquote>
+</li>
+<li><p>拖动什么 - ondragstart 和 setData()</p>
+<blockquote>
+<p>ondragstart 属性调用了一个函数，drag(event)，它规定了被拖动的数据 dataTransfer.setData() 方法设置被拖数据的数据类型和值。 数据类型是 “Text”，值是可拖动元素的 id (“drag1”)</p>
+</blockquote>
+</li>
+<li><p>放到何处 - ondragover</p>
+<blockquote>
+<p>ondragover 事件规定在何处放置被拖动的数据。默认法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式。调用 ondragover 事件的 event.preventDefault() 方法</p>
+</blockquote>
+</li>
+<li><p>进行放置 - ondrop</p>
+<blockquote>
+<p>当放置被拖数据时，会发生 drop 事件。把被拖元素追加到放置元素（目标元素）中</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h2><blockquote>
+<p>canvas 元素使用 JavaScript 在网页上绘制图像。画布是一个矩形区域，您可以控制其每一像素。拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。默认宽300px，高150px<br>优势：不需要将所绘制图像中的每个图元当做对象存储，执行性能很好。在其他变成语言现有的优秀二维绘图API的基础上实现canvas API相对来说简单</p>
+</blockquote>
+<h3 id="创建-Canvas-元素"><a href="#创建-Canvas-元素" class="headerlink" title="创建 Canvas 元素"></a>创建 Canvas 元素</h3><blockquote>
+<p> &lt;canvas id=”myCanvas” width=”200” height=”100”&gt;不支持HTML5 canvasAPI的某些特性，写在这替代&lt;/canvas&gt;</p>
+</blockquote>
+<h3 id="通过-JavaScript-来绘制"><a href="#通过-JavaScript-来绘制" class="headerlink" title="通过 JavaScript 来绘制"></a>通过 JavaScript 来绘制</h3><ol>
+<li>canvas 元素本身是没有绘图能力的。所有的绘制工作必须在 JavaScript 内部完成   <script type="text/javascript">
+     var c=document.getElementById("myCanvas");
+     var cxt=c.getContext("2d");
+     cxt.fillStyle="#FF0000";
+     cxt.fillRect(0,0,150,75);
+   </script></li>
+<li>JavaScript 使用 id 来寻找 canvas 元素<br>   var c=document.getElementById(“myCanvas”);</li>
+<li>创建 context 对象<br>   var cxt=c.getContext(“2d”); //是内建的 HTML5 对象</li>
+<li>绘制一个红色的矩形<br>   cxt.fillStyle=”#FF0000”; //方法将其染成红色，<br>   cxt.fillRect(0,0,150,75); //方法规定了形状、位置和尺寸，在画布上绘制 150x75 的矩形，从左上角开始 (0,0)</li>
+</ol>
+<h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><blockquote>
+<p>在Canvas上画线，我们将使用以下两种方法：<br>● moveTo(x,y) 定义线条开始坐标<br>● lineTo(x,y) 定义线条结束坐标</p>
+</blockquote>
+<pre><code>var c=document.getElementById(&quot;myCanvas&quot;);//通过ID找到并访问canvas对象
+var ctx=c.getContext(&quot;2d&quot;);//调用canvas对象的getContext函数获取上下文对象
+cxt.save();//保存尚未修改的cxt，这样即使进行了绘制和变换操作，也可以恢复到初始化状态
+cxt.beginPath();//canvas需要根据此来计算图形的内部和外部范围，以便完成后续的描边和填充
+ctx.moveTo(0,0);//绘制的起点的原点，但是不绘制，只是将当前位置移动到心得目标(x,y)，路径移动到画布中的指定点
+ctx.lineTo(70,-70);
+cxt.closePath();//会将路径的起始坐标自动作为目标坐标，通知canvas绘制的图形已经闭合或形成了完全封闭的区域
+ctx.stroke(); //显示在canvas上
+cxt.restore();//恢复原有的绘图状态
+</code></pre><h3 id="描边样式"><a href="#描边样式" class="headerlink" title="描边样式"></a>描边样式</h3><ol>
+<li>加宽线条：cxt.linewidth = 4;</li>
+<li>平滑路径的结合点：cxt.lineJoin = ‘round’;</li>
+<li>将颜色改成棕色：cxt.strokeStyle = ‘#663300’;</li>
+<li>绘制：cxt.stroke();</li>
+<li>线条末端样式：lineCap:butt|square|round;</li>
+</ol>
+<h3 id="填充样式"><a href="#填充样式" class="headerlink" title="填充样式"></a>填充样式</h3><ol>
+<li>cxt.fillStyle = ‘#339900’; //填充颜色</li>
+<li>cxt.fil();先描边填充，填充覆盖一部分描边路径，希望看到完整的描边路径，可在绘制路径(cxt.stroke())之前填充调用(cxt.fill())</li>
+<li>fillRect() 画一个有填充色的矩形</li>
+<li>strokeRect() 基于给出的位置和坐标画出矩形的轮廓</li>
+<li>clearRect() 清除矩形区域内的所有内容并将它恢复到初始状态，透明色</li>
+</ol>
+<h3 id="绘制曲线"><a href="#绘制曲线" class="headerlink" title="绘制曲线"></a>绘制曲线</h3><blockquote>
+<p>quadraticCurreTo(控制点,终点);二次贝塞尔曲线</p>
+</blockquote>
+<pre><code>cxt.moveTo(20,20);
+cxt.quadraticCurreTo(220,100,200,20);
+</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/5285574-030cfbb0a5f5ff5c.gif?imageMogr2/auto-orient/strip" alt="cmd-markdown-logo"></p>
+<h3 id="canvas中绘制圆形"><a href="#canvas中绘制圆形" class="headerlink" title="canvas中绘制圆形"></a>canvas中绘制圆形</h3><blockquote>
+<p>cxt.arc(中心点,半径,起始角度,结束角度,顺/逆时针);</p>
+</blockquote>
+<pre><code>arc(100,75,50,0*Math.PI,1.5*Math.PI);
+</code></pre><h3 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h3><pre><code>var bark = new Image();
+bark.src = &quot;XX.jpg&quot;;
+//加载图片完成之后，将其显示在canvas上
+bark.onload = function(){ drawTrails(); }
+//用图片背景进行填充
+cxt.drawImage(img,剪切的x,y标位置,被剪切图像的宽高度);
+</code></pre><h3 id="使用背景图片替代颜色线条"><a href="#使用背景图片替代颜色线条" class="headerlink" title="使用背景图片替代颜色线条"></a>使用背景图片替代颜色线条</h3><pre><code>cxt.strokeStyle = cxt.createPattern(img,图片平铺方式);
+cxt.lineWidth = 20;
+cxt.stroke();
+cxt.scale()
+</code></pre><h3 id="canvas-变换"><a href="#canvas-变换" class="headerlink" title="canvas - 变换"></a>canvas - 变换</h3><ol>
+<li>缩放 cxt.scale(x缩放当前绘图的宽度(1=100%,2=200%),y);</li>
+<li>旋转 cxt.rotate(弧度);</li>
+<li>重新映射 context.translate(添加到水平坐标（x）上的值,y);</li>
+<li>允许缩放、旋转、移动并倾斜当前的环境 cxt.transform(水平缩放,水平倾斜,垂直倾斜,垂直缩放,水平移动,垂直移动);</li>
+</ol>
+<h3 id="Canvas-文本"><a href="#Canvas-文本" class="headerlink" title="Canvas - 文本"></a>Canvas - 文本</h3><blockquote>
+<p>font - 定义字体<br>fillText(text,x,y) - 在 canvas 上绘制实心的文本<br>strokeText(text,x,y) - 在 canvas 上绘制空心的文本</p>
+</blockquote>
+<pre><code>ctx.font=&quot;30px Arial&quot;;  
+ctx.fillText(&quot;Hello World&quot;,10,50); //使用 &quot;Arial&quot; 字体在画布上绘制一个高 30px 的文字（实心）
+ctx.strokeText(&quot;Hello World&quot;,10,50); 使用 &quot;Arial&quot; 字体在画布上绘制一个高 30px 的文字（空心）
+</code></pre><h3 id="Canvas-渐变"><a href="#Canvas-渐变" class="headerlink" title="Canvas - 渐变"></a>Canvas - 渐变</h3><blockquote>
+<p>渐变可以填充在矩形, 圆形, 线条, 文本等等,各种形状可以自己定义不同的颜色。使用渐变对象，必须使用两种或两种以上的停止颜色。</p>
+<ol>
+<li>首先，创建渐变对象</li>
+<li>其次，为渐变对象设置颜色指明过度方式</li>
+<li>在cxt上为填充样式或者描边样式设置渐变 </li>
+</ol>
+</blockquote>
+<pre><code>// 创建渐变对象
+var grd=ctx.createLinearGradient(渐变开始点坐标，结束点坐标);//创建一个线性渐变。使用渐变填充矩形
+var grd=ctx.createRadialGradient(渐变开始圆的x,y坐标,开始圆的半径,渐变结束圆的半径,结束圆半径);//创建一个径向/圆渐变。使用渐变填充矩形
+grd.addColorStop(0,&quot;red&quot;);//指定颜色停止，参数使用坐标来描述，可以是0至1.
+grd.addColorStop(1,&quot;white&quot;);
+
+// 使用渐变，设置fillStyle或strokeStyle的值为 渐变，然后绘制形状，如矩形，文本，或一条线。
+ctx.fillStyle=grd;
+ctx.fillRect(10,10,150,80);
+</code></pre><h2 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h2><blockquote>
+<p>SVG 指可伸缩矢量图形 (Scalable Vector Graphics)用于定义用于网络的基于矢量的图形,使用 XML 格式定义图形, 图像在放大或改变尺寸的情况下其图形质量不会有损失,是万维网联盟的标准<br>优势: 图像可通过文本编辑器来创建和修改,图像可被搜索、索引、脚本化或压缩,是可伸缩的,可在任何的分辨率下被高质量地打印,可在图像质量不下降的情况下被放大</p>
+</blockquote>
+<h3 id="直接在HTML嵌入SVG代码"><a href="#直接在HTML嵌入SVG代码" class="headerlink" title="直接在HTML嵌入SVG代码"></a>直接在HTML嵌入SVG代码</h3><blockquote>
+<p>SVG不能直接嵌入到Opera。</p>
+</blockquote>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;circle cx=&quot;100&quot; cy=&quot;50&quot; r=&quot;40&quot; stroke=&quot;black&quot;
+  stroke-width=&quot;2&quot; fill=&quot;red&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><h3 id="SVG矩形"><a href="#SVG矩形" class="headerlink" title="SVG矩形"></a>SVG矩形</h3><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;rect x=&quot;50&quot; y=&quot;20&quot; rx=&quot;20&quot; ry=&quot;20&quot; width=&quot;150&quot; height=&quot;150&quot; style=&quot;fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>fill 属性定义矩形的填充颜色</li>
+<li>stroke 属性定义矩形边框的颜色</li>
+<li>stroke-width 属性定义矩形边框的宽度</li>
+<li>rect 元素的 width 和 height 属性可定义矩形的高度和宽度</li>
+<li>x 属性定义矩形的左侧位置（例如，x=”0” 定义矩形到浏览器窗口左侧的距离是 0px）</li>
+<li>y 属性定义矩形的顶端位置（例如，y=”0” 定义矩形到浏览器窗口顶端的距离是 0px）</li>
+<li>CSS 的 fill-opacity 属性定义填充颜色透明度（合法的范围是：0 - 1）</li>
+<li>CSS 的 stroke-opacity 属性定义笔触颜色的透明度（合法的范围是：0 - 1）</li>
+<li>rx 和 ry 属性可使矩形产生圆角。</li>
+<li>strokelinecap属性定义不同类型的开放路径的终结</li>
+</ol>
+<h3 id="SVG-圆形-lt-circle-gt"><a href="#SVG-圆形-lt-circle-gt" class="headerlink" title="SVG 圆形 - &lt;circle&gt;"></a>SVG 圆形 - &lt;circle&gt;</h3><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;circle cx=&quot;100&quot; cy=&quot;50&quot; r=&quot;40&quot; stroke=&quot;black&quot;
+  stroke-width=&quot;2&quot; fill=&quot;red&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><blockquote>
+<p>cx和cy属性定义圆点的x和y坐标。如果省略cx和cy，圆的中心会被设置为(0, 0)<br>r属性定义圆的半径</p>
+</blockquote>
+<h3 id="SVG-椭圆-lt-ellipse-gt"><a href="#SVG-椭圆-lt-ellipse-gt" class="headerlink" title="SVG 椭圆 - &lt;ellipse&gt;"></a>SVG 椭圆 - &lt;ellipse&gt;</h3><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;ellipse cx=&quot;300&quot; cy=&quot;80&quot; rx=&quot;100&quot; ry=&quot;50&quot;
+  style=&quot;fill:yellow;stroke:purple;stroke-width:2&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>CX属性定义的椭圆中心的x坐标</li>
+<li>CY属性定义的椭圆中心的y坐标</li>
+<li>RX属性定义的水平半径</li>
+<li>RY属性定义的垂直半径</li>
+</ol>
+<h3 id="SVG-直线-lt-line-gt"><a href="#SVG-直线-lt-line-gt" class="headerlink" title="SVG 直线 - &lt;line&gt;"></a>SVG 直线 - &lt;line&gt;</h3><pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;line x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;200&quot; y2=&quot;200&quot;
+  style=&quot;stroke:rgb(255,0,0);stroke-width:2&quot;/&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>x1 属性在 x 轴定义线条的开始</li>
+<li>y1 属性在 y 轴定义线条的开始</li>
+<li>x2 属性在 x 轴定义线条的结束</li>
+<li>y2 属性在 y 轴定义线条的结束</li>
+</ol>
+<h3 id="SVG-路径-lt-path-gt"><a href="#SVG-路径-lt-path-gt" class="headerlink" title="SVG 路径 - &lt;path&gt;"></a>SVG 路径 - &lt;path&gt;</h3><blockquote>
+<p>路径数据 大写表示绝对定位，小写表示相对定位</p>
+<ul>
+<li>M = moveto 移动到</li>
+<li>L = lineto 画到</li>
+<li>H = horizontal lineto 横向</li>
+<li>V = vertical lineto 纵向</li>
+<li>C = curveto</li>
+<li>S = smooth curveto</li>
+<li>Q = quadratic Bézier curve</li>
+<li>T = smooth quadratic Bézier curveto</li>
+<li>A = elliptical Arc</li>
+<li>Z = closepath 路径就会自动回到原点</li>
+</ul>
+</blockquote>
+<p>开始于位置150 0，到达位置75 200，然后从那里开始到225 200，最后在150 0关闭路径。</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;path d=&quot;M150 0 L75 200 L225 200 Z&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><h3 id="SVG-线性渐变-lt-linearGradient-gt"><a href="#SVG-线性渐变-lt-linearGradient-gt" class="headerlink" title="SVG 线性渐变 - &lt;linearGradient&gt;"></a>SVG 线性渐变 - &lt;linearGradient&gt;</h3><blockquote>
+<p>&lt;linearGradient&gt;元素用于定义线性渐变。&lt;linearGradient&gt;标签必须嵌套在&lt;defs&gt;的内部。&lt;defs&gt;标签是definitions的缩写，它可对诸如渐变之类的特殊元素进行定义。</p>
+</blockquote>
+<p> 水平线性渐变从黄色到红色的椭圆形</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;defs&gt;
+    &lt;linearGradient id=&quot;grad1&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;0%&quot;&gt;
+      &lt;stop offset=&quot;0%&quot; style=&quot;stop-color:rgb(255,255,0);stop-opacity:1&quot; /&gt;
+      &lt;stop offset=&quot;100%&quot; style=&quot;stop-color:rgb(255,0,0);stop-opacity:1&quot; /&gt;
+    &lt;/linearGradient&gt;
+  &lt;/defs&gt;
+  &lt;ellipse cx=&quot;200&quot; cy=&quot;70&quot; rx=&quot;85&quot; ry=&quot;55&quot; fill=&quot;url(#grad1)&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>&lt;linearGradient&gt;标签的id属性可为渐变定义一个唯一的名称</li>
+<li>&lt;linearGradient&gt;标签的X1，X2，Y1，Y2属性定义渐变开始和结束位置</li>
+<li>渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个<stop></stop>标签来规定。offset属性用来定义渐变的开始和结束位置。</li>
+<li>填充属性把 ellipse 元素链接到此渐变</li>
+</ol>
+<h3 id="SVG-放射性渐变-lt-radialGradient-gt"><a href="#SVG-放射性渐变-lt-radialGradient-gt" class="headerlink" title="SVG 放射性渐变 - &lt;radialGradient&gt;"></a>SVG 放射性渐变 - &lt;radialGradient&gt;</h3><blockquote>
+<p>&lt;radialGradient&gt;元素用于定义放射性渐变。</p>
+</blockquote>
+<p> 定义一个放射性渐变从白色到蓝色椭圆</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;defs&gt;
+    &lt;radialGradient id=&quot;grad1&quot; cx=&quot;50%&quot; cy=&quot;50%&quot; r=&quot;50%&quot; fx=&quot;50%&quot; fy=&quot;50%&quot;&gt;
+      &lt;stop offset=&quot;0%&quot; style=&quot;stop-color:rgb(255,255,255);
+      stop-opacity:0&quot; /&gt;
+      &lt;stop offset=&quot;100%&quot; style=&quot;stop-color:rgb(0,0,255);stop-opacity:1&quot; /&gt;
+    &lt;/radialGradient&gt;
+  &lt;/defs&gt;
+  &lt;ellipse cx=&quot;200&quot; cy=&quot;70&quot; rx=&quot;85&quot; ry=&quot;55&quot; fill=&quot;url(#grad1)&quot; /&gt;
+&lt;/svg&gt;
+</code></pre><ol>
+<li>&lt;radialGradient&gt;标签的 id 属性可为渐变定义一个唯一的名称</li>
+<li>CX，CY和r属性定义的最外层圆和Fx和Fy定义的最内层圆</li>
+<li>渐变颜色范围可以由两个或两个以上的颜色组成。每种颜色用一个&lt;stop&gt;标签指定。offset属性用来定义渐变色开始和结束</li>
+<li>填充属性把ellipse元素链接到此渐变</li>
+</ol>
+<h2 id="SVG-与-Canvas两者间的区别"><a href="#SVG-与-Canvas两者间的区别" class="headerlink" title="SVG 与 Canvas两者间的区别"></a>SVG 与 Canvas两者间的区别</h2><ol>
+<li>SVG 是一种使用 XML 描述 2D 图形的语言。Canvas 通过 JavaScript 来绘制 2D 图形。</li>
+<li>SVG 基于 XML，这意味着 SVG DOM 中的每个元素都是可用的。您可以为某个元素附加 JavaScript 事件处理器。</li>
+<li>在 SVG 中，每个被绘制的图形均被视为对象。如果 SVG 对象的属性发生变化，那么浏览器能够自动重现图形。<br>Canvas 是逐像素进行渲染的。在 canvas 中，一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象。</li>
+</ol>
+<h2 id="新的-Input-类型"><a href="#新的-Input-类型" class="headerlink" title="新的 Input 类型"></a>新的 Input 类型</h2><ul>
+<li>color 选取颜色</li>
+<li>date 定义一个时间控制器</li>
+<li>datetime 定义一个日期和时间控制器（本地时间）</li>
+<li>datetime-local 定义一个日期和时间 (无时区)</li>
+<li>email 包含 e-mail 地址的输入域</li>
+<li>month 定义月与年 (无时区) </li>
+<li>number 定义一个数值输入域(限定)</li>
+<li>range 定义一个不需要非常精确的数值（类似于滑块控制）</li>
+<li>search 定义一个搜索字段</li>
+<li>tel 定义输入电话号码字段</li>
+<li>time 定义可输入时间控制器（无时区）</li>
+<li>url 在提交表单时，会自动验证 url 域的值</li>
+<li>week 定义周和年 (无时区)</li>
+</ul>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>博主会持续更新，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixinprice.png" alt="Candice Yu WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zhifubaoprice.jpg" alt="Candice Yu Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML/" rel="tag">#HTML</a>
+          
+            <a href="/tags/HTML5/" rel="tag">#HTML5</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/15/工作第一篇/" rel="next" title="实习总结">
+                <i class="fa fa-chevron-left"></i> 实习总结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/10/31/前端知识总结（HTML-HTML5）/"
+           data-title="前端知识总结（HTML,HTML5）" data-url="http://candiceyu.com/2017/10/31/前端知识总结（HTML-HTML5）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Candice Yu" />
+          <p class="site-author-name" itemprop="name">Candice Yu</p>
+          <p class="site-description motion-element" itemprop="description">I don’t want to earn my living; i want to live.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/dreamgirla" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/5329295f3aea/timeline" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-jianshu"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/#signin" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://carryguan.me/" title="Carry" target="_blank">Carry</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yuanguangxin.me/" title="yuanguangxin" target="_blank">yuanguangxin</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML篇"><span class="nav-text">HTML篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML简史"><span class="nav-text">HTML简史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-HTML？"><span class="nav-text">什么是 HTML？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-DOCTYPE-gt-标签的定义与用法。"><span class="nav-text"><!DOCTYPE>标签的定义与用法。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><span class="nav-text">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是怪异模式和标准模式呢？"><span class="nav-text">什么是怪异模式和标准模式呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怪异模式和标准模式的区别？"><span class="nav-text">怪异模式和标准模式的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们如何变成怪异模式呢？"><span class="nav-text">我们如何变成怪异模式呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断怪异模式还是标准模式？"><span class="nav-text">如何判断怪异模式还是标准模式？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级元素和行内元素都有哪些？"><span class="nav-text">块级元素和行内元素都有哪些？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？"><span class="nav-text">浏览器还有默认的天生inline-block元素（拥有内在尺寸，可设置高宽，但不会自动换行），有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8-以下）？"><span class="nav-text">行内元素和块级元素的具体区别是什么？行内元素的padding和margin可设置吗？行内块元素的兼容性使用？（IE8 以下）？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述一下你对HTML语义化的理解？"><span class="nav-text">简述一下你对HTML语义化的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对WEB标准以及W3C的理解与认识"><span class="nav-text">对WEB标准以及W3C的理解与认识?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用web标准"><span class="nav-text">为什么要使用web标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iframe的优缺点？"><span class="nav-text">iframe的优缺点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？"><span class="nav-text">title与h1的区别、img的alt与title的区别、b与strong的区别、i与em的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#div-css的布局较table布局有什么优点？"><span class="nav-text">div+css的布局较table布局有什么优点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你能描述一下渐进增强和优雅降级之间的不同吗"><span class="nav-text">你能描述一下渐进增强和优雅降级之间的不同吗?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#现在产品经理看到IE6-7-8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？"><span class="nav-text">现在产品经理看到IE6,7,8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述一下src与href的区别？"><span class="nav-text">简述一下src与href的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知道的网页制作会用到的图片格式有哪些？"><span class="nav-text">知道的网页制作会用到的图片格式有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xhtml和html有什么区别"><span class="nav-text">xhtml和html有什么区别?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML5篇"><span class="nav-text">HTML5篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5-中的一些有趣的新特性"><span class="nav-text">HTML5 中的一些有趣的新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5-视频-Video-音频-audio"><span class="nav-text">HTML5 视频(Video)音频(audio)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拖放（Drag-和-drop）"><span class="nav-text">拖放（Drag 和 drop）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Canvas"><span class="nav-text">Canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-Canvas-元素"><span class="nav-text">创建 Canvas 元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-JavaScript-来绘制"><span class="nav-text">通过 JavaScript 来绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径"><span class="nav-text">路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描边样式"><span class="nav-text">描边样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填充样式"><span class="nav-text">填充样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制曲线"><span class="nav-text">绘制曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas中绘制圆形"><span class="nav-text">canvas中绘制圆形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载图片"><span class="nav-text">加载图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用背景图片替代颜色线条"><span class="nav-text">使用背景图片替代颜色线条</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas-变换"><span class="nav-text">canvas - 变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Canvas-文本"><span class="nav-text">Canvas - 文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Canvas-渐变"><span class="nav-text">Canvas - 渐变</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVG"><span class="nav-text">SVG</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#直接在HTML嵌入SVG代码"><span class="nav-text">直接在HTML嵌入SVG代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG矩形"><span class="nav-text">SVG矩形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-圆形-lt-circle-gt"><span class="nav-text">SVG 圆形 - <circle></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-椭圆-lt-ellipse-gt"><span class="nav-text">SVG 椭圆 - <ellipse></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-直线-lt-line-gt"><span class="nav-text">SVG 直线 - <line></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-路径-lt-path-gt"><span class="nav-text">SVG 路径 - <path></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-线性渐变-lt-linearGradient-gt"><span class="nav-text">SVG 线性渐变 - <linearGradient></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG-放射性渐变-lt-radialGradient-gt"><span class="nav-text">SVG 放射性渐变 - <radialGradient></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVG-与-Canvas两者间的区别"><span class="nav-text">SVG 与 Canvas两者间的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新的-Input-类型"><span class="nav-text">新的 Input 类型</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Candice Yu</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"candiceyu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+</body>
+</html>
