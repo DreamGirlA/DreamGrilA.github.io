@@ -1,0 +1,878 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LESS,SASS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Candice Yu_个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="LESS
+Less css是一种动态样式语言，属于CSS预处理语言的一种，它使用类似CSS的语法，为CSS赋予了动态语言的特性，如变量，继承，运算，函数等，更方便CSS编写和维护。
+
+
+维护也要维护less
+注释 //不会编译处理            /会编译处理/
+变量  @变量名 @test_width:300px;
+混合(mixin) 
+可不带括号调用.border  .border{};">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端知识总结（LESS，SASS）">
+<meta property="og:url" content="http://candiceyu.com/2017/10/31/前端知识总结（LESS，SASS）/index.html">
+<meta property="og:site_name" content="Candice Yu_个人博客">
+<meta property="og:description" content="LESS
+Less css是一种动态样式语言，属于CSS预处理语言的一种，它使用类似CSS的语法，为CSS赋予了动态语言的特性，如变量，继承，运算，函数等，更方便CSS编写和维护。
+
+
+维护也要维护less
+注释 //不会编译处理            /会编译处理/
+变量  @变量名 @test_width:300px;
+混合(mixin) 
+可不带括号调用.border  .border{};">
+<meta property="og:updated_time" content="2017-10-31T09:21:15.135Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端知识总结（LESS，SASS）">
+<meta name="twitter:description" content="LESS
+Less css是一种动态样式语言，属于CSS预处理语言的一种，它使用类似CSS的语法，为CSS赋予了动态语言的特性，如变量，继承，运算，函数等，更方便CSS编写和维护。
+
+
+维护也要维护less
+注释 //不会编译处理            /会编译处理/
+变量  @变量名 @test_width:300px;
+混合(mixin) 
+可不带括号调用.border  .border{};">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://candiceyu.com/2017/10/31/前端知识总结（LESS，SASS）/"/>
+
+  <title> 前端知识总结（LESS，SASS） | Candice Yu_个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?516d783fb114015b9b38b2ce58b5fe15";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Candice Yu_个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Candice Yu</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/aboutMe" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端知识总结（LESS，SASS）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-10-31T16:58:07+08:00" content="2017-10-31">
+              2017-10-31
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/10/31/前端知识总结（LESS，SASS）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/31/前端知识总结（LESS，SASS）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="LESS"><a href="#LESS" class="headerlink" title="LESS"></a>LESS</h2><blockquote>
+<p>Less css是一种动态样式语言，属于CSS预处理语言的一种，它使用类似CSS的语法，为CSS赋予了动态语言的特性，如变量，继承，运算，函数等，更方便CSS编写和维护。</p>
+</blockquote>
+<ul>
+<li>维护也要维护less</li>
+<li>注释 //不会编译处理            /<em>会编译处理</em>/</li>
+<li>变量  @变量名 @test_width:300px;</li>
+<li>混合(mixin) <ul>
+<li>可不带括号调用.border  .border{};， </li>
+<li>可带参数.border_02(@border_width) 传参调用.border_02(30px);，  </li>
+<li>可带默认参数.border_03(@border_width:10px) 调用.border_03();</li>
+</ul>
+</li>
+<li>匹配模式  //一定要带上的代码  @_<pre><code>.triangle(@_,@w:5px,@c:#ccc){}
+.triangle(left,@w:5px,@c:#ccc){
+    border-width: @w;
+    border-color: transparent @c transparent transparent;
+    border-style: dashed solid dashed dashed; 
+}
+</code></pre></li>
+<li>运算 +-*/</li>
+<li>嵌套  //&amp;代表它的上一层选择器<pre><code>&amp;:hover{
+    color: red;
+}
+</code></pre></li>
+<li>@arguments 获得所有参数</li>
+<li>避免编译</li>
+</ul>
+<hr>
+<h1 id="SASS篇"><a href="#SASS篇" class="headerlink" title="SASS篇"></a>SASS篇</h1><blockquote>
+<p>Sass 是采用 Ruby 语言编写的一款 CSS 预处理语言，它诞生于2007年，是最大的成熟的 CSS 预处理语言。最初它是为了配合 HAML（一种缩进式 HTML 预编译器）而设计的，因此有着和 HTML 一样的缩进式风格。</p>
+</blockquote>
+<h2 id="为什么早期不如-LESS-普及？"><a href="#为什么早期不如-LESS-普及？" class="headerlink" title="为什么早期不如 LESS 普及？"></a>为什么早期不如 LESS 普及？</h2><blockquote>
+<p>虽然缩进式风格可以有效缩减代码量，强制规范编码风格，但它一方面并不为大多数程序接受，另一方面无法兼容已有的 CSS 代码。（sass编译成css之后，无法反编译成sass了）这也是 Sass 虽然出现得最早，但远不如 LESS 普及的原因</p>
+</blockquote>
+<h2 id="Sass-和-SCSS"><a href="#Sass-和-SCSS" class="headerlink" title="Sass 和 SCSS"></a>Sass 和 SCSS</h2><blockquote>
+<p>Sass 和 SCSS其实是同一种东西,两者之间不同之处有以下两点<br>● 文件扩展名不同，Sass 是以“.sass”后缀为扩展名，而 SCSS 是以“.scss”后缀为扩展名<br>● 语法书写方式不同，Sass是以严格的缩进式语法规则来书写，不带大括号({})和分号(;)，而 SCSS 的语法书写和我们的 CSS 语法书写方式非常类似。</p>
+</blockquote>
+<h2 id="变量-变量名-值"><a href="#变量-变量名-值" class="headerlink" title="变量 $变量名:值"></a>变量 $变量名:值</h2><blockquote>
+<p>sass 的默认变量仅需要在值后面加上 !default 即可。sass 的默认变量一般是用来设置默认值，然后根据需求来覆盖的，覆盖的方式也很简单，只需要在默认变量之前重新声明下变量即可。</p>
+</blockquote>
+<h2 id="什么时候声明变量"><a href="#什么时候声明变量" class="headerlink" title="什么时候声明变量?"></a>什么时候声明变量?</h2><ol>
+<li>该值至少重复出现了两次；</li>
+<li>该值至少可能会被更新一次；</li>
+<li>该值所有的表现都与变量有关（非巧合）。</li>
+</ol>
+<h2 id="Sass嵌套"><a href="#Sass嵌套" class="headerlink" title="Sass嵌套"></a>Sass嵌套</h2><blockquote>
+<p>Sass 中还提供了选择器嵌套功能，但这也并不意味着你在 Sass 中的嵌套是无节制的，因为你嵌套的层级越深，编译出来的 CSS 代码的选择器层级将越深，这往往是大家不愿意看到的一点。这个特性现在正被众多开发者滥用。</p>
+</blockquote>
+<ol>
+<li><p>选择器嵌套</p>
+<pre><code>nav {   
+  a {
+    color: red;
+
+    header &amp; {
+      color:green;
+    }
+  }  
+}   /*选择器嵌套*/
+</code></pre></li>
+<li><p>属性嵌套</p>
+<pre><code>.box_01 {
+  border: {
+   top: 1px solid red;
+   bottom: 1px solid green;
+  }
+  width:100px;
+  height:100px;
+} /*属性嵌套*/
+</code></pre></li>
+<li><p>伪类嵌套</p>
+<pre><code>.clearfix{
+&amp;:before,
+&amp;:after {
+    content:&quot;&quot;;
+    display: table;
+  }
+&amp;:after {
+    clear:both;
+    overflow: hidden;
+  }
+} /*伪元素嵌套*/
+</code></pre></li>
+</ol>
+<h2 id="混合宏-mixin"><a href="#混合宏-mixin" class="headerlink" title="混合宏 @mixin"></a>混合宏 @mixin</h2><blockquote>
+<p>当需要重复使用大段的样式时，使用变量就无法达到我们目了。这个时候 Sass 中的混合宏很方便使用。</p>
+</blockquote>
+<ol>
+<li>可不带参数<pre><code>@mixin border-radius{
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+button {
+    @include border-radius;
+}
+</code></pre></li>
+<li>可带一个参数            <pre><code>@mixin border-radius($radius:6px){
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+.btn {
+  @include border-radius;
+}
+</code></pre></li>
+<li>可带多个参数<pre><code>@mixin center($width,$height){
+  width: $width;
+  height: $height
+}
+.box-center {
+  @include center(500px,300px);
+}
+</code></pre></li>
+<li>在 Sass 中，使用“@mixin”来声明一个混合宏。</li>
+<li>Sass在调用相同的混合宏时，并不能智能的将相同的样式代码块合并在一起。对于复用重复代码块。但其最大的不足之处是会生成冗余的代码块。</li>
+</ol>
+<h2 id="继承-extend"><a href="#继承-extend" class="headerlink" title="继承 @extend"></a>继承 @extend</h2><blockquote>
+<p>在 Sass 中也具有继承一说，也是继承类中的样式代码块。在 Sass 中是通过关键词 “@extend”来继承已存在的类样式块，从而实现代码的继承。</p>
+</blockquote>
+<pre><code>.btn {
+  border: 1px solid #ccc;
+}
+.btn-primary {
+  background-color: #f36;
+  @extend .btn;
+}
+</code></pre><h2 id="占位符-placeholder"><a href="#占位符-placeholder" class="headerlink" title="占位符 %placeholder"></a>占位符 %placeholder</h2><blockquote>
+<p>可以取代以前 CSS 中的基类造成的代码冗余的情形。因为 %placeholder 声明的代码，如果不被 @extend 调用的话，不会产生任何代码。</p>
+</blockquote>
+<pre><code>%mt5 {
+  margin-top: 5px;
+}
+.btn {
+  @extend %mt5;
+} /*不被@extend调用的话，不会产生代码*/
+</code></pre><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ol>
+<li>类似 CSS 的注释方式，使用 ”/<em> ”开头，结属使用 ”</em>/ ”</li>
+<li>类似 JavaScript 的注释方式，使用“//”,编译出来的 CSS 中不会显示</li>
+</ol>
+<h2 id="Sass运算"><a href="#Sass运算" class="headerlink" title="Sass运算+-*/"></a>Sass运算+-*/</h2><blockquote>
+<p>对于携带不同类型的单位时，在 Sass 中计算会报错</p>
+</blockquote>
+<h3 id="”-”符号被当作除法运算符时有以下几种情况："><a href="#”-”符号被当作除法运算符时有以下几种情况：" class="headerlink" title="”/ ”符号被当作除法运算符时有以下几种情况："></a>”/ ”符号被当作除法运算符时有以下几种情况：</h3><ul>
+<li>如果“/”符号在已有的数学表达式中时，也会被认作除法符号。</li>
+<li>当用变量，函数进行除法运算时，“/”符号也会自动被识别成除法</li>
+<li>如果数值被圆括号包围。</li>
+<li>如果数值是另一个数学表达式的一部分。</li>
+<li>在除法运算”/“时，如果两个值带有相同的单位值时，除法运算之后会得到一个不带单位的数值。</li>
+</ul>
+<h2 id="字符运算"><a href="#字符运算" class="headerlink" title="字符运算"></a>字符运算</h2><ol>
+<li>通过加法符号“+”来对字符串进行连接</li>
+<li>还可以直接通过 +，把字符连接在一起</li>
+<li>如果有引号的字符串被添加了一个没有引号的字符串 （也就是，带引号的字符串在 + 符号左侧）， 结果会是一个有引号的字符串。 同样的，如果一个没有引号的字符串被添加了一个有引号的字符串 （没有引号的字符串在 + 符号左侧）， 结果将是一个没有引号的字符串。</li>
+</ol>
+<h2 id="判断-if"><a href="#判断-if" class="headerlink" title="判断@if"></a>判断@if</h2><blockquote>
+<p>@if 指令是一个 SassScript，它可以根据条件来处理样式块，如果条件为 true 返回一个样式块，反之 false 返回另一个样式块。</p>
+</blockquote>
+<pre><code>@for $i from 1 through 3 {
+      .item-#{$i} { width: 2em * $i; }
+    }
+</code></pre><h2 id="循环-for"><a href="#循环-for" class="headerlink" title="循环@for"></a>循环@for</h2><p>.col1~.col12 样式在 Sass 中，可以使用 @for 循环来完成。<br>@for 循环中有两种方式：</p>
+<blockquote>
+<p>● @for $i from <start> through <end><br>● @for $i from <start> to <end></end></start></end></start></p>
+</blockquote>
+<ol>
+<li>$i 表示变量</li>
+<li>start 表示起始值</li>
+<li>end 表示结束值</li>
+<li><p>这两个的区别是关键字 through 表示包括 end 这个数，而 to 则不包括 end 这个数。</p>
+<pre><code>$grid-prefix: span !default;
+$grid-width: 60px !default;
+$grid-gutter: 20px !default;
+%grid {
+  float: left;
+  margin-left: $grid-gutter / 2;
+  margin-right: $grid-gutter / 2;
+}
+@for $i from 1 through 12 {
+  .#{$grid-prefix}#{$i}{
+    width: $grid-width * $i + $grid-gutter * ($i - 1);
+    @extend %grid;
+  }  
+}/*@for应用在网格系统生成各个格子 class 的代码：*/
+</code></pre></li>
+</ol>
+<h2 id="循环-while"><a href="#循环-while" class="headerlink" title="循环@while"></a>循环@while</h2><blockquote>
+<p>@while 指令也需要 SassScript 表达式（像其他指令一样），并且会生成不同的样式块，直到表达式值为 false 时停止循环。这个和 @for 指令很相似，只要 @while 后面的条件为 true 就会执行。</p>
+</blockquote>
+<h2 id="循环-each"><a href="#循环-each" class="headerlink" title="循环@each"></a>循环@each</h2><blockquote>
+<p>@each 循环就是去遍历一个列表，然后从列表中取出对应的值。@each 循环指令的形式：@each $var in &lt;list&gt;</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>博主会持续更新，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixinprice.png" alt="Candice Yu WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zhifubaoprice.jpg" alt="Candice Yu Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LESS/" rel="tag">#LESS</a>
+          
+            <a href="/tags/SASS/" rel="tag">#SASS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/31/前端知识总结（Cookie-AJAX）/" rel="next" title="前端知识总结（Cookie,AJAX）">
+                <i class="fa fa-chevron-left"></i> 前端知识总结（Cookie,AJAX）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/10/31/前端知识总结（LESS，SASS）/"
+           data-title="前端知识总结（LESS，SASS）" data-url="http://candiceyu.com/2017/10/31/前端知识总结（LESS，SASS）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Candice Yu" />
+          <p class="site-author-name" itemprop="name">Candice Yu</p>
+          <p class="site-description motion-element" itemprop="description">I don’t want to earn my living; i want to live.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/dreamgirla" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/5329295f3aea/timeline" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-jianshu"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/#signin" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://carryguan.me/" title="Carry" target="_blank">Carry</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yuanguangxin.me/" title="yuanguangxin" target="_blank">yuanguangxin</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LESS"><span class="nav-text">LESS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SASS篇"><span class="nav-text">SASS篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么早期不如-LESS-普及？"><span class="nav-text">为什么早期不如 LESS 普及？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sass-和-SCSS"><span class="nav-text">Sass 和 SCSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量-变量名-值"><span class="nav-text">变量 $变量名:值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么时候声明变量"><span class="nav-text">什么时候声明变量?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sass嵌套"><span class="nav-text">Sass嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合宏-mixin"><span class="nav-text">混合宏 @mixin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承-extend"><span class="nav-text">继承 @extend</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#占位符-placeholder"><span class="nav-text">占位符 %placeholder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sass运算"><span class="nav-text">Sass运算+-*/</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#”-”符号被当作除法运算符时有以下几种情况："><span class="nav-text">”/ ”符号被当作除法运算符时有以下几种情况：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符运算"><span class="nav-text">字符运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断-if"><span class="nav-text">判断@if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环-for"><span class="nav-text">循环@for</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环-while"><span class="nav-text">循环@while</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环-each"><span class="nav-text">循环@each</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Candice Yu</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"candiceyu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+</body>
+</html>
