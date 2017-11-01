@@ -60,31 +60,25 @@
 
 
 
-<meta name="description" content="计算机网络一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么详细版：
-
-浏览器会开启一个线程来处理这个请求，对 URL 分析判断如果是 http 协议就按照 Web 方式来处理;
-调用浏览器内核中的对应方法，比如 WebView 中的 loadUrl 方法;
-通过DNS解析获取网址的IP地址，设置 UA 等信息发出第二个GET请求;
-进行HTTP协议会话，客户端发送报头(请求报头);">
+<meta name="description" content="计算机网络域名系统DNS
+域名系统DNS是因特网使用的命名系统，用来把便于人们使用的机器名字转换为IP地址。IP地址是固定的32位。
+用户与因特网上某个主机通信时，必须知道对方的IP地址，然而用户很难记住长达32位二进制主机地址，即使是点分十进制IP地址也不太容易记忆。但在应用层为了便于用户记忆各种网络应用，更多的是使用主机名字。
+域名到IP地址的解析是由分布在因特网上的许多域名服务器程序（可简称">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端相关知识总结">
 <meta property="og:url" content="http://candiceyu.com/2017/04/13/前端相关知识总结/index.html">
 <meta property="og:site_name" content="Candice Yu_个人博客">
-<meta property="og:description" content="计算机网络一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么详细版：
-
-浏览器会开启一个线程来处理这个请求，对 URL 分析判断如果是 http 协议就按照 Web 方式来处理;
-调用浏览器内核中的对应方法，比如 WebView 中的 loadUrl 方法;
-通过DNS解析获取网址的IP地址，设置 UA 等信息发出第二个GET请求;
-进行HTTP协议会话，客户端发送报头(请求报头);">
-<meta property="og:updated_time" content="2017-04-19T04:32:37.594Z">
+<meta property="og:description" content="计算机网络域名系统DNS
+域名系统DNS是因特网使用的命名系统，用来把便于人们使用的机器名字转换为IP地址。IP地址是固定的32位。
+用户与因特网上某个主机通信时，必须知道对方的IP地址，然而用户很难记住长达32位二进制主机地址，即使是点分十进制IP地址也不太容易记忆。但在应用层为了便于用户记忆各种网络应用，更多的是使用主机名字。
+域名到IP地址的解析是由分布在因特网上的许多域名服务器程序（可简称">
+<meta property="og:updated_time" content="2017-11-01T08:24:15.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端相关知识总结">
-<meta name="twitter:description" content="计算机网络一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么详细版：
-
-浏览器会开启一个线程来处理这个请求，对 URL 分析判断如果是 http 协议就按照 Web 方式来处理;
-调用浏览器内核中的对应方法，比如 WebView 中的 loadUrl 方法;
-通过DNS解析获取网址的IP地址，设置 UA 等信息发出第二个GET请求;
-进行HTTP协议会话，客户端发送报头(请求报头);">
+<meta name="twitter:description" content="计算机网络域名系统DNS
+域名系统DNS是因特网使用的命名系统，用来把便于人们使用的机器名字转换为IP地址。IP地址是固定的32位。
+用户与因特网上某个主机通信时，必须知道对方的IP地址，然而用户很难记住长达32位二进制主机地址，即使是点分十进制IP地址也不太容易记忆。但在应用层为了便于用户记忆各种网络应用，更多的是使用主机名字。
+域名到IP地址的解析是由分布在因特网上的许多域名服务器程序（可简称">
 
 
 
@@ -304,7 +298,84 @@
       
 
       
-        <h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么"><a href="#一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么" class="headerlink" title="一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么"></a>一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么</h2><p>详细版：</p>
+        <h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="域名系统DNS"><a href="#域名系统DNS" class="headerlink" title="域名系统DNS"></a>域名系统DNS</h2><ol>
+<li>域名系统DNS是因特网使用的命名系统，用来把便于人们使用的机器名字转换为IP地址。IP地址是固定的32位。</li>
+<li>用户与因特网上某个主机通信时，必须知道对方的IP地址，然而用户很难记住长达32位二进制主机地址，即使是点分十进制IP地址也不太容易记忆。但在应用层为了便于用户记忆各种网络应用，更多的是使用主机名字。</li>
+<li>域名到IP地址的解析是由分布在因特网上的许多域名服务器程序（可简称域名服务器）共同完成的。域名服务器程序在专设的结点上运行，而人们也常把运行运行域名服务器程序的机器也称为域名服务器。</li>
+</ol>
+<h3 id="域名到IP地址的解析过程的要点如下"><a href="#域名到IP地址的解析过程的要点如下" class="headerlink" title="域名到IP地址的解析过程的要点如下"></a>域名到IP地址的解析过程的要点如下</h3><blockquote>
+<p>   当某一个应用进程需要把主机名解析为IP地址时，该应用程序就调用解析程序，并成为DNS的一个客户，把待解析的域名放在DNS请求报文中，以UDP用户数据报方式发给本地域名服务器。本地域名服务器在查询域名后，把对应的IP地址放在回答报文返回。应用进程获得目的主机的IP地址后即可进行通信。</p>
+</blockquote>
+<h3 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h3><ol>
+<li>如果让每一级的域名都有一个相对应的域名服务器，这样域名服务器就太多了，运行效率降低，因此，DNS就才用划分区的办法来解决问题。</li>
+<li>一个服务器所管辖的范围叫做区。在一个区中的所有节点必须是能够连通的。每个区设置相应的权限域名服务器用来保存该区中的所有主机的域名到IP地址的映射。</li>
+</ol>
+<h2 id="因特网的域名结构"><a href="#因特网的域名结构" class="headerlink" title="因特网的域名结构"></a>因特网的域名结构</h2><ol>
+<li>因特网采用了层级树状结构的命名方法。</li>
+<li>任何一个连接在因特网上的主机或路由器，都有一个唯一的层次结构的名字，即为域名。“域”是名字空间中一个可被管理的划分。域还可以分为子域，而子域还可以分为子域的子域，这样就形成了顶级域，二级域，三级域等等。</li>
+<li>mail.cctv.com 这个就是中央电视台用于收发电子邮件的计算机域名。标号com是顶级域名，标号cctv是二级域名，标号mail是三级域名</li>
+<li>DNS规定，域名中的标号都由英文字母和数字组成，每一个标号不超过63个字符，最后不超过12个字符，也不区分大小写字母。标号中除了连字符-外不能使用其他标点符号。级别低的域名写在最左面，级别高的域名写在最右面。由多个标号组成的完整域名总共不超过255个字符。各级域名由其上一级的域名管理机构管理，而最高的顶级域名则由ICANN进行管理。</li>
+</ol>
+<h2 id="万维网-WWW"><a href="#万维网-WWW" class="headerlink" title="万维网 WWW"></a>万维网 WWW</h2><blockquote>
+<p>万维网应用包含很多部件，有万维网浏览器，万维网服务器，万维网文档的格式标准，以及一个应用层协议。</p>
+</blockquote>
+<ol>
+<li>万维网WWW是一个大规模的，联机式的信息储藏所，简称Web。万维网提供分布式服务。万维网是一个分布式的超媒体系统，它是超文本系统的扩充。超文本是包含指向其他文档的链接的文本。也就说，一个超文本由多个信息源链接成，而这些信息源的数目实际上是不受限制的。超文本是万维网的基础。</li>
+<li>万维网以客户-服务器的方式工作。客户程序向服务器程序发出请求，服务器程序向客户端程序送回客户端所要的万维网文档。在一个客户程序主窗口上显示出的万维网文档称为页面。</li>
+</ol>
+<h3 id="怎样标志分布在整个因特网上的万维网文档？"><a href="#怎样标志分布在整个因特网上的万维网文档？" class="headerlink" title="怎样标志分布在整个因特网上的万维网文档？"></a>怎样标志分布在整个因特网上的万维网文档？</h3><p>万维网使用统一资源定位符URL来标志万维网上的各种文档，并使每一个文档在整个因特网的范围内具有唯一的标识符URL。</p>
+<h3 id="用什么样的协议来实现万维网上各种链接？"><a href="#用什么样的协议来实现万维网上各种链接？" class="headerlink" title="用什么样的协议来实现万维网上各种链接？"></a>用什么样的协议来实现万维网上各种链接？</h3><p>使用万维网客户程序与万维网服务器程序之间的交互遵守严格的协议，也就是超文本传输协议HTTP。HTTP是一个应用层协议，它使用TCP连接进行可靠的传送。</p>
+<h2 id="统一资源定位符URL"><a href="#统一资源定位符URL" class="headerlink" title="统一资源定位符URL"></a>统一资源定位符URL</h2><ol>
+<li>统一资源定位符URL 是用来表示从因特网上得到的资源位置和访问这些资源的方法。URL给资源的位置提供了一种抽象的识别方法，并用这种方式给资源定位。只要能够对资源定位，系统就可以对资源进行各种操作，如存取，更新，替换和查找其他属性。</li>
+<li>这里的资源是指在因特网上可以被访问的任何对象，包括文件目录，文件，文档，图像，声音等，以及与因特网相连接的任何形式的数据。</li>
+<li>URL相当于一个文件名在网络范围的扩展。因此，URL是与因特网相连的机器上的任何可访问对象的一个指针。由于访问不同对象所使用的协议不同，所以URL还指出读取某个对象时所用的协议。</li>
+<li>URL的一般形式分为4部分： &lt;协议&gt;://&lt;主机&gt;:&lt;端口&gt;/&lt;路径&gt;（锚点，参数）</li>
+<li>URL的第一部分是最左边的协议，指的是使用什么协议来获取该万维网文档。最常用的是HTTP，其次FTP（文档传输协议）</li>
+<li>第二部分&lt;主机&gt;也就是域名，它指出这个万维网文档是在哪一个主机上。第三部分&lt;路径&gt;,指明服务器上某资源的位置（其格式与DOS系统中的格式一样，通常有目录/子目录/文件名这样结构组成）。与端口一样并非总是需要的。更复杂一些的路径是指向层次结构的从属页面。</li>
+<li>使用HTTP的URL，对于万维网的网点的访问要使用HTTP协议。</li>
+</ol>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>HTTP的默认端口号是80，通常可省略。若是再省略文件&lt;路径&gt;项，则URL就知道因特网上的某个主页。可以是以下几种情况：</p>
+<ol>
+<li>一个WWW服务器的最高级别的页面。</li>
+<li>某一个组织或部门的一个定制的页面或目录。从这样的页面可链接到因特网上的与本组织或部门有关的其他站点。</li>
+<li>由某一个人自己设计的描述本人情况的WWW页面。</li>
+</ol>
+<h3 id="HTTP的操作过程"><a href="#HTTP的操作过程" class="headerlink" title="HTTP的操作过程"></a>HTTP的操作过程</h3><ol>
+<li>万维网的应用层协议是HTTP，它定义了万维网浏览器和万维网服务器之传送的报文类型，格式和序列等规则，而万维网浏览器如何显示一个万维网页面，万维网服务器是用多线程还是用进程来实现并不是HTTP定义的内容。</li>
+<li>每个万维网网点都有一个服务进程，它不断监听TCP的端口号80，以便发现是否有浏览器（即万维网客户）向它发出连接建立请求。一旦监听到建立请求并建立了TCP连接之后，浏览器就向万维网服务器发出浏览某个页面的请求，服务器接着就返回请求的页面作为响应。最后，TCP连接释放了。在浏览器和服务器之间的请求和响应的交互，必须按照规定的格式和遵循一定的规则。这些格式和规则就是超文本传输协议HTTP。</li>
+<li>HTTP规定在HTTP客户与HTTP服务之间的每次交互，都由一个ASCII码串构成的请求和一个类似的通用因特网邮件扩充，即“类MIME(MIME-like)”的响应组成。HTTP报文通常都是使用TCP连接传送。HTTP本身是无连接的。</li>
+</ol>
+<h2 id="关于Http-2-0-你知道多少"><a href="#关于Http-2-0-你知道多少" class="headerlink" title="关于Http 2.0 你知道多少"></a>关于Http 2.0 你知道多少</h2><ol>
+<li>HTTP/2引入了“服务端推（server push）”的概念，它允许服务端在客户端需要数据之前就主动地将数据发送到客户端缓存中，从而提高性能。</li>
+<li>HTTP/2提供更多的加密支持</li>
+<li>HTTP/2使用多路技术，允许多个消息在一个连接上同时交差。</li>
+<li>它增加了头压缩（header compression），因此即使非常小的请求，其请求和响应的header都只会占用很小比例的带宽。</li>
+</ol>
+<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><blockquote>
+<p>HTTP状态码：用来描述返回的请求结果，记住状态码，我们可以知道是正确的处理了请求还是出现了错误，状态码响应类别一共有五种，比如200；数字中的第一位指响应类别，后两位无分类。</p>
+</blockquote>
+<p>五种类别分别为                   原因短语<br>1XX(信息性状态码)                 接受的请求正在处理 不常见<br>2XX(成功状态码)                     请求正常处理完毕<br>3XX(重定向状态码)                 需要进行附加操作已完成请求<br>4XX(客户端错误状态码)             服务器无法请求类别<br>5XX(服务器错误状态码)             服务器处理请求出错</p>
+<p>HTTP状态码一共有60多种，经常使用的大概14种</p>
+<ul>
+<li><p>2XX 成功：<br>(1)200 ok  客户端请求在服务器端正常处理<br>(2)204 No Content  请求成功但没有资源可以返回<br>(3)206 Partial Content  表示客户进行了范围请求，而服务器成功执行了这部分的GET请求首部字段中有content-rage意思是客户端进行了范围请求</p>
+</li>
+<li><p>3XX 重定向：<br>(1)301 Moved Permanently  永久性重定向<br>(2)302 Found  临时性重定向<br>(3)303 See Other  请求的对应资源存在着另一个URI，应使用GET方法定向获取请求的资源<br>(4)304 Not Modified  资源已找到，但是未符合要求<br>(5)307 Temporary Redirect  临时重定向</p>
+</li>
+<li><p>4XX 客户端错误：<br>(1)400 Bad Request请求报文存在语法错误<br>(2)401 Unauthorized  发送的请求需要通过HTTP认证的认证信息。如果之前请求过一次，则表示用户认证失败<br>(3)403 Forbidden  不允许访问该资源<br>(4)404 Bad Request  服务器上没有该资源</p>
+</li>
+<li><p>5XX 服务器错误：<br>(1)500 Internal Server Error服务器端在执行请求时发生错误<br>(2)503 Service Unavailable  服务器暂时处于超负载或正在停机维护，无法处理请求</p>
+</li>
+</ul>
+<blockquote>
+<p>cdn——维基百科给出的解释是：内容分发网络（Content delivery network或Content distribution network，缩写：CDN）。简单来说它主要的工作是把我们需要被分发的内容分发到世界各地的各个节点上，让世界各地的人都可以在距离最近的网络节点拿到想要拿到的内容，减少网络传输距离从而达到加速的目的（需要提过资源绝对地址告诉cdn厂商，让厂商去智能拉取）。</p>
+</blockquote>
+<h2 id="http状态码有哪些？分别代表是什么意思？"><a href="#http状态码有哪些？分别代表是什么意思？" class="headerlink" title="http状态码有哪些？分别代表是什么意思？"></a>http状态码有哪些？分别代表是什么意思？</h2><p>100  Continue  继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息<br>200  OK         正常返回信息<br>201  Created    请求成功并且服务器创建了新的资源<br>202  Accepted   服务器已接受请求，但尚未处理<br>301  Moved Permanently  请求的网页已永久移动到新位置。<br>302  Found      临时性重定向。<br>303  See Other  临时性重定向，且总是使用 GET 请求新的 URI。<br>304  Not Modified 自从上次请求后，请求的网页未修改过。<br>400  Bad Request  服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。<br>401  Unauthorized 请求未授权。<br>403  Forbidden  禁止访问。<br>404  Not Found  找不到如何与 URI 相匹配的资源。<br>500  Internal Server Error  最常见的服务器端错误。<br>503  Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。</p>
+<h2 id="HTTP和HTTPS"><a href="#HTTP和HTTPS" class="headerlink" title="HTTP和HTTPS"></a>HTTP和HTTPS</h2><ol>
+<li>HTTP协议通常承载于TCP协议之上，在HTTP和TCP之间添加一个安全协议层（SSL或TSL），这个时候，就成了我们常说的HTTPS。</li>
+<li>默认HTTP的端口号为80，HTTPS的端口号为443。</li>
+</ol>
+<h3 id="为什么HTTPS安全"><a href="#为什么HTTPS安全" class="headerlink" title="为什么HTTPS安全"></a>为什么HTTPS安全</h3><p>因为网络请求需要中间有很多的服务器路由器的转发。中间的节点都可能篡改信息，而如果使用HTTPS，密钥在你和终点站才有。https之所以比http安全，是因为他利用ssl/tls协议传输。它包含证书，卸载，流量转发，负载均衡，页面适配，浏览器适配，refer传递等。保障了传输过程的安全性</p>
+<h2 id="一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么"><a href="#一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么" class="headerlink" title="一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么"></a>一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么</h2><p>详细版：</p>
 <ol>
 <li>浏览器会开启一个线程来处理这个请求，对 URL 分析判断如果是 http 协议就按照 Web 方式来处理;</li>
 <li>调用浏览器内核中的对应方法，比如 WebView 中的 loadUrl 方法;</li>
@@ -354,13 +425,6 @@
 <li>ＴCP（Transmission Control Protocol，传输控制协议）是基于连接的协议，也就是说，在正式收发数据前，必须和对方建立可靠的连接。一个TCP连接必须要经过三次“对话”才能建立起来</li>
 <li>UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议。它是面向非连接的协议，它不与对方建立连接，而是直接就把数据包发送过去！ UDP适用于一次只传送少量数据、对可靠性要求不高的应用环境。</li>
 </ol>
-<h2 id="HTTP和HTTPS"><a href="#HTTP和HTTPS" class="headerlink" title="HTTP和HTTPS"></a>HTTP和HTTPS</h2><ol>
-<li>HTTP协议通常承载于TCP协议之上，在HTTP和TCP之间添加一个安全协议层（SSL或TSL），这个时候，就成了我们常说的HTTPS。</li>
-<li>默认HTTP的端口号为80，HTTPS的端口号为443。</li>
-</ol>
-<h3 id="为什么HTTPS安全"><a href="#为什么HTTPS安全" class="headerlink" title="为什么HTTPS安全"></a>为什么HTTPS安全</h3><blockquote>
-<p>因为网络请求需要中间有很多的服务器路由器的转发。中间的节点都可能篡改信息，而如果使用HTTPS，密钥在你和终点站才有。https之所以比http安全，是因为他利用ssl/tls协议传输。它包含证书，卸载，流量转发，负载均衡，页面适配，浏览器适配，refer传递等。保障了传输过程的安全性</p>
-</blockquote>
 <h2 id="网络分层里七层模型是哪七层"><a href="#网络分层里七层模型是哪七层" class="headerlink" title="网络分层里七层模型是哪七层"></a>网络分层里七层模型是哪七层</h2><ol>
 <li>应用层：应用层、表示层、会话层（从上往下）（HTTP、FTP、SMTP、DNS）</li>
 <li>传输层（TCP和UDP）</li>
@@ -391,24 +455,21 @@
 <li>mongodb以BSON结构（二进制）进行存储，对海量数据存储有着很明显的优势。</li>
 <li>对比传统关系型数据库,NoSQL有着非常显著的性能和扩展性优势，与关系型数据库相比，MongoDB的优点有：①弱一致性（最终一致），更能保证用户的访问速度： ②文档结构的存储方式，能够更便捷的获取数据。</li>
 </ol>
-<h2 id="关于Http-2-0-你知道多少"><a href="#关于Http-2-0-你知道多少" class="headerlink" title="关于Http 2.0 你知道多少"></a>关于Http 2.0 你知道多少</h2><ol>
-<li>HTTP/2引入了“服务端推（server push）”的概念，它允许服务端在客户端需要数据之前就主动地将数据发送到客户端缓存中，从而提高性能。</li>
-<li>HTTP/2提供更多的加密支持</li>
-<li>HTTP/2使用多路技术，允许多个消息在一个连接上同时交差。</li>
-<li>它增加了头压缩（header compression），因此即使非常小的请求，其请求和响应的header都只会占用很小比例的带宽。</li>
-</ol>
-<h2 id="http状态码有哪些？分别代表是什么意思？"><a href="#http状态码有哪些？分别代表是什么意思？" class="headerlink" title="http状态码有哪些？分别代表是什么意思？"></a>http状态码有哪些？分别代表是什么意思？</h2><p>100  Continue  继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息<br>200  OK         正常返回信息<br>201  Created    请求成功并且服务器创建了新的资源<br>202  Accepted   服务器已接受请求，但尚未处理<br>301  Moved Permanently  请求的网页已永久移动到新位置。<br>302  Found      临时性重定向。<br>303  See Other  临时性重定向，且总是使用 GET 请求新的 URI。<br>304  Not Modified 自从上次请求后，请求的网页未修改过。<br>400  Bad Request  服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。<br>401  Unauthorized 请求未授权。<br>403  Forbidden  禁止访问。<br>404  Not Found  找不到如何与 URI 相匹配的资源。<br>500  Internal Server Error  最常见的服务器端错误。<br>503  Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。</p>
 <hr>
-<h1 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h1><ol>
-<li>flash   现在已经不用了</li>
-<li>服务器代理中转</li>
-<li>JSONP</li>
-<li>ifame + document.domain</li>
-<li>ifame + window.name</li>
-<li>iframe + location.hash</li>
-<li>HTML5的POSTMessage方法</li>
+<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><ol>
+<li>什么是域？<br>域：在这里指的是域名</li>
+<li>为什么要跨域<br>因为浏览器在不同域之间是不能不作处理直接获取数据的，为什么不可以呢？因为浏览器有一种机制，叫同源策略。</li>
 </ol>
-<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><ol>
+<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><ol>
+<li><p>同源策略是一种约定，它是浏览器最核心也是最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说web是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。</p>
+</li>
+<li><p>同源策略，所谓同源，是指只有在域名、协议名、端口号都相同。不同源的客户端脚本在没有明确授权的情况下，是不能够读写对方的资源的。</p>
+</li>
+<li><p>只有满足同源的脚本才可以获取资源，虽然这样确实保证了网络上的安全性，但是另一方面又限制了资源之间的互相利用，比如我们的AJAX，<br>AJAX也是通过url来获取数据，同样也会受到同源策略的限制。</p>
+</li>
+</ol>
+<h3 id="为什么要有同源限制"><a href="#为什么要有同源限制" class="headerlink" title="为什么要有同源限制"></a>为什么要有同源限制</h3><p>比如一个黑客程序，他利用Iframe把真正的银行登录页面嵌到他的页面上，当你使用真实的用户名，密码登录时，他的页面就可以通过Javascript读取到你的表单中input中的内容，这样用户名，密码就轻松到手了。<br>大概定义为，一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合</p>
+<h2 id="跨域分为单向跨域，和双向跨域两种大的类型。"><a href="#跨域分为单向跨域，和双向跨域两种大的类型。" class="headerlink" title="跨域分为单向跨域，和双向跨域两种大的类型。"></a>跨域分为单向跨域，和双向跨域两种大的类型。</h2><h3 id="单向跨域（单向的数据请求）"><a href="#单向跨域（单向的数据请求）" class="headerlink" title="单向跨域（单向的数据请求）"></a>单向跨域（单向的数据请求）</h3><h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h4><ol>
 <li>原理是：动态插入script标签，通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。</li>
 <li>由于同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过script标签实现跨域请求，然后在服务端输出JSON数据并执行回调函数，从而解决了跨域的数据请求。</li>
 <li>优点是兼容性好，简单易用，支持浏览器与服务器双向通信。缺点是只支持GET请求。</li>
@@ -431,17 +492,56 @@
 &lt;/script&gt;
 </code></pre></li>
 </ol>
-<h3 id="jsonp的优缺点"><a href="#jsonp的优缺点" class="headerlink" title="jsonp的优缺点"></a>jsonp的优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
+<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ol>
 <li>它不像XMLHttpRequest对象实现的Ajax请求那样受到同源策略的限制，JSONP可以跨越同源策略；<br>2 它的兼容性更好，在更加古老的浏览器中都可以运行，不需要XMLHttpRequest或ActiveX的支持</li>
 <li>在请求完毕后可以通过调用callback的方式回传结果。将回调方法的权限给了调用方。这个就相当于将controller层和view层终于分开了。</li>
-<li>我提供的jsonp服务只提供纯服务的数据，至于提供服务以 后的页面渲染和后续view操作都由调用者来自己定义就好了。如果有两个页面需要渲染同一份数据，你们只需要有不同的渲染逻辑就可以了，逻辑都可以使用同一个jsonp服务。<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4></li>
+<li>我提供的jsonp服务只提供纯服务的数据，至于提供服务以 后的页面渲染和后续view操作都由调用者来自己定义就好了。如果有两个页面需要渲染同一份数据，你们只需要有不同的渲染逻辑就可以了，逻辑都可以使用同一个jsonp服务。</li>
+</ol>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ol>
 <li>它只支持GET请求而不支持POST等其它类型的HTTP请求</li>
 <li>它只支持跨域HTTP请求这种情况，不能解决不同域的两个页面之间如何进行JavaScript调用的问题。</li>
 <li>jsonp在调用失败的时候不会返回各种HTTP状态码。</li>
 <li>缺点是安全性。万一假如提供jsonp的服务存在页面注入漏洞，即它返回的javascript的内容被人控制的。那么结果是什么？<br>所有调用这个 jsonp的网站都会存在漏洞。于是无法把危险控制在一个域名下…所以在使用jsonp的时候必须要保证使用的jsonp服务必须是安全可信的。</li>
 </ol>
-<h2 id="使用window-name来进行跨域"><a href="#使用window-name来进行跨域" class="headerlink" title="使用window.name来进行跨域"></a>使用window.name来进行跨域</h2><p>window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的</p>
-<h2 id="通过修改document-domain来跨子域"><a href="#通过修改document-domain来跨子域" class="headerlink" title="通过修改document.domain来跨子域"></a>通过修改document.domain来跨子域</h2><p>将子域和主域的document.domain设为同一个主域.前提条件：这两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用document.domain进行跨域。主域相同的使用document.domain</p>
+<h4 id="flash-URLLoader"><a href="#flash-URLLoader" class="headerlink" title="flash URLLoader"></a>flash URLLoader</h4><blockquote>
+<p>flash有自己的一套安全策略，服务器可以通过crossdomain.xml文件来声明能被哪些域的SWF文件访问，SWF也可以通过API来确定自身能被哪些域的SWF加载。当跨域访问资源时，例如从域www.a.com请求域www.b.com上的数据，我们可以借助flash来发送HTTP请求。首先，修改域www.b.com上的crossdomain.xml(一般存放在根目录，如果没有需要手动创建) ，把www.a.com加入到白名单。其次，通过Flash URLLoader发送HTTP请求，最后，通过Flash API把响应结果传递给JavaScript。Flash URLLoader是一种很普遍的跨域解决方案，不过需要支持iOS的话，这个方案就无能为力了。</p>
+</blockquote>
+<h4 id="Access-Control"><a href="#Access-Control" class="headerlink" title="Access Control"></a>Access Control</h4><blockquote>
+<p>Access Control是比较超越的跨域方式，目前只在很少的浏览器中得以支持，这些浏览器可以发送一个跨域的HTTP请求（Firefox, Google Chrome等通过XMLHTTPRequest实现，IE8下通过XDomainRequest实现），请求的响应必须包含一个Access- Control-Allow-Origin的HTTP响应头，该响应头声明了请求域的可访问权限。例如www.a.com对www.b.com下的 asset.php发送了一个跨域的HTTP请求，那么asset.php必须加入如下的响应头：<br>header(“Access-Control-Allow-Origin: <a href="http://www.a.com" target="_blank" rel="external">http://www.a.com</a>“);</p>
+</blockquote>
+<h4 id="使用window-name来进行跨域"><a href="#使用window-name来进行跨域" class="headerlink" title="使用window.name来进行跨域"></a>使用window.name来进行跨域</h4><ol>
+<li><p>window 对象的name属性是一个很特别的属性，当该window的location变化，然后重新加载，它的name属性可以依然保持不变。那么我们可以在页面 A中用iframe加载其他域的页面B，而页面B中用JavaScript把需要传递的数据赋值给window.name，iframe加载完成之后，页面A修改iframe的地址，将其变成同域的一个地址，然后就可以读出window.name的值了。这个方式非常适合单向的数据请求，而且协议简单、安全。不会像JSONP那样不做限制地执行外部脚本。</p>
+</li>
+<li><p>window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的</p>
+</li>
+<li><p>name 值在不同的页面（甚至不同域名）加载后依旧存在，并且可以支持非常长的 name 值（2MB）。</p>
+<pre><code>if(){
+    window.name = “dfsafsadfdsafd”;
+}
+</code></pre></li>
+</ol>
+<h4 id="server-proxy"><a href="#server-proxy" class="headerlink" title="server proxy"></a>server proxy</h4><blockquote>
+<p>在数据提供方没有提供对JSONP协议或者 window.name协议的支持，也没有对其它域开放访问权限时，我们可以通过server proxy的方式来抓取数据。例如当www.a.com域下的页面需要请求www.b.com下的资源文件asset.txt时，直接发送一个指向 www.b.com/asset.txt的Ajax请求肯定是会被浏览器阻止。这时，我们在www.a.com下配一个代理，然后把Ajax请求绑定到这个代理路径下，例如www.a.com/proxy/, 然后这个代理发送HTTP请求访问www.b.com下的asset.txt，跨域的HTTP请求是在服务器端进行的，客户端并没有产生跨域的Ajax请求。这个跨域方式不需要和目标资源签订协议，带有侵略性，另外需要注意的是实践中应该对这个代理实施一定程度的保护，比如限制他人使用或者使用频率</p>
+</blockquote>
+<h3 id="双向跨域（子域或者不同的子域之间通信）"><a href="#双向跨域（子域或者不同的子域之间通信）" class="headerlink" title="双向跨域（子域或者不同的子域之间通信）"></a>双向跨域（子域或者不同的子域之间通信）</h3><h4 id="通过修改document-domain来跨子域"><a href="#通过修改document-domain来跨子域" class="headerlink" title="通过修改document.domain来跨子域"></a>通过修改document.domain来跨子域</h4><blockquote>
+<p>将子域和主域的document.domain设为同一个主域.前提条件：这两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用document.domain进行跨域。主域相同的使用document.domain</p>
+</blockquote>
+<ol>
+<li>document.domain（bj.58.com;tj.58.com）<br>两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用document.domain进行跨域。</li>
+<li>如何设置？<br>在script中，写上就好。 document.domain = ‘58.com’;</li>
+</ol>
+<h4 id="FIM——Fragment-Identitier-Messaging"><a href="#FIM——Fragment-Identitier-Messaging" class="headerlink" title="FIM——Fragment Identitier Messaging"></a>FIM——Fragment Identitier Messaging</h4><blockquote>
+<p>不同的域之间，JavaScript只能做很有限的访问和操作，其实我们利用这些有限的访问权限就可以达到跨域通信的目的了。FIM (Fragment Identitier Messaging)就是在这个大前提下被发明的。父窗口可以对iframe进行URL读写，iframe也可以读写父窗口的URL，URL有一部分被称为frag，就是#号及其后面的字符，它一般用于浏览器锚点定位，Server端并不关心这部分，应该说HTTP请求过程中不会携带frag，所以这部分的修改不会产生HTTP请求，但是会产生浏览器历史记录。FIM的原理就是改变URL的frag部分来进行双向通信。每个window通过改变其他 window的location来发送消息，并通过监听自己的URL的变化来接收消息。这个方式的通信会造成一些不必要的浏览器历史记录，而且有些浏览器不支持onhashchange事件，需要轮询来获知URL的改变，最后，URL在浏览器下有长度限制，这个制约了每次传送的数据量。</p>
+</blockquote>
+<h4 id="Flash-LocalConnection"><a href="#Flash-LocalConnection" class="headerlink" title="Flash LocalConnection"></a>Flash LocalConnection</h4><blockquote>
+<p>页面上的双向通信也可以通过Flash来解决，Flash API中有LocalConnection这个类，该类允许两个SWF之间通过进程通信，这时SWF可以播放在独立的Flash Player或者AIR中，也可以嵌在HTML页面或者是PDF中。遵循这个通信原则，我们可以在不同域的HTML页面各自嵌套一个SWF来达到相互传递数据的目的了。SWF通过LocalConnection交换数据是很快的，但是每次的数据量有40kb的大小限制。用这种方式来跨域通信过于复杂，而且需要了2个SWF文件，实用性不强。</p>
+</blockquote>
+<h4 id="window-postMessage"><a href="#window-postMessage" class="headerlink" title="window.postMessage"></a>window.postMessage</h4><blockquote>
+<p>window.postMessage是HTML5定义的一个很新的方法，这个方法可以很方便地跨window通信。由于它是一个很新的方法，所以在很旧和比较旧的浏览器中都无法使用。</p>
+</blockquote>
+<h3 id="关于cookie的跨域使用"><a href="#关于cookie的跨域使用" class="headerlink" title="关于cookie的跨域使用"></a>关于cookie的跨域使用</h3><blockquote>
+<p>Cookie 是服务器写入浏览器的一小段信息，只有同源的网页才能共享。但是，两个网页一级域名相同，只是二级域名不同，浏览器允许通过设置document.domain共享 Cookie。</p>
+</blockquote>
 <hr>
 <h1 id="CSS和JS阻塞，JS垃圾回收"><a href="#CSS和JS阻塞，JS垃圾回收" class="headerlink" title="CSS和JS阻塞，JS垃圾回收"></a>CSS和JS阻塞，JS垃圾回收</h1><h2 id="哪些地方会出现js阻塞？"><a href="#哪些地方会出现js阻塞？" class="headerlink" title="哪些地方会出现js阻塞？"></a>哪些地方会出现js阻塞？</h2><ol>
 <li>js 的阻塞特性：所有浏览器在下载 JS 的时候，会阻止一切其他活动，比如其他资源的下载，内容的呈现等等。直到 JS 下载、解析、执行完毕后才开始继续并行下载其他资源并呈现内容。为了提高用户体验，新一代浏览器都支持并行下载 JS，但是 JS 下载仍然会阻塞其它资源的下载（例如.图片，css文件等）。</li>
@@ -540,35 +640,27 @@
 <li>在不登出A的情况下，访问危险网站B。</li>
 </ul>
 <hr>
-<h1 id="Etag"><a href="#Etag" class="headerlink" title="Etag"></a>Etag</h1><h2 id="什么是Etag"><a href="#什么是Etag" class="headerlink" title="什么是Etag"></a>什么是Etag</h2><ol>
-<li>当发送一个服务器请求时，浏览器首先会进行缓存过期判断。浏览器根据缓存过期时间判断缓存文件是否过期。</li>
-</ol>
+<h1 id="Etag"><a href="#Etag" class="headerlink" title="Etag"></a>Etag</h1><h2 id="什么是Etag"><a href="#什么是Etag" class="headerlink" title="什么是Etag"></a>什么是Etag</h2><p>当发送一个服务器请求时，浏览器首先会进行缓存过期判断。浏览器根据缓存过期时间判断缓存文件是否过期。</p>
 <ul>
 <li>情景一：若没有过期，则不向服务器发送请求，直接使用缓存中的结果，此时我们在浏览器控制台中可以看到 200 OK(from cache) ，此时的情况就是完全使用缓存，浏览器和服务器没有任何交互的。</li>
 <li>情景二：若已过期，则向服务器发送请求，此时请求中会带上①中设置的文件修改时间，和Etag</li>
 </ul>
-<ol>
-<li>然后，进行资源更新判断。服务器根据浏览器传过来的文件修改时间，判断自浏览器上一次请求之后，文件是不是没有被修改过；根据Etag，判断文件内容自上一次请求之后，有没有发生变化</li>
-</ol>
+<p>然后，进行资源更新判断。服务器根据浏览器传过来的文件修改时间，判断自浏览器上一次请求之后，文件是不是没有被修改过；根据Etag，判断文件内容自上一次请求之后，有没有发生变化</p>
 <ul>
 <li>情形一：若两种判断的结论都是文件没有被修改过，则服务器就不给浏览器发index.html的内容了，直接告诉它，文件没有被修改过，你用你那边的缓存吧—— 304 Not Modified，此时浏览器就会从本地缓存中获取index.html的内容。此时的情况叫协议缓存，浏览器和服务器之间有一次请求交互。</li>
 <li>情形二：若修改时间和文件内容判断有任意一个没有通过，则服务器会受理此次请求，之后的操作同①<br>① 只有get请求会被缓存，post请求不会</li>
 </ul>
-<h3 id="ETag应用"><a href="#ETag应用" class="headerlink" title="ETag应用"></a>ETag应用</h3><ol>
-<li>Etag由服务器端生成，客户端通过If-Match或者说If-None-Match这个条件判断请求来验证资源是否修改。常见的是使用If-None-Match。请求一个文件的流程可能如下：</li>
-</ol>
+<h3 id="ETag应用"><a href="#ETag应用" class="headerlink" title="ETag应用"></a>ETag应用</h3><p> Etag由服务器端生成，客户端通过If-Match或者说If-None-Match这个条件判断请求来验证资源是否修改。常见的是使用If-None-Match。请求一个文件的流程可能如下：</p>
 <ul>
 <li>第一次请求<ul>
 <li>客户端发起 HTTP GET 请求一个文件；</li>
 <li>服务器处理请求，返回文件内容和一堆Header，当然包括Etag(例如”2e681a-6-5d044840”)(假设服务器支持Etag生成和已经开启了Etag).状态码200</li>
 </ul>
 </li>
-</ul>
-<ol>
-<li>第二次请求</li>
-</ol>
-<ul>
+<li>第二次请求<ul>
 <li>客户端发起 HTTP GET 请求一个文件，注意这个时候客户端同时发送一个If-None-Match头，这个头的内容就是第一次请求时服务器返回的Etag：2e681a-6-5d0448402.服务器判断发送过来的Etag和计算出来的Etag匹配，因此If-None-Match为False，不返回200，返回304，客户端继续使用本地缓存</li>
+</ul>
+</li>
 </ul>
 <h2 id="cache-control"><a href="#cache-control" class="headerlink" title="cache-control"></a>cache-control</h2><ol>
 <li>网页的缓存是由HTTP消息头中的“Cache-control”来控制的，常见的取值有private、no-cache、max-age、must-revalidate等，默认为private。</li>
@@ -655,8 +747,9 @@
 <h2 id="对Node的优点和缺点提出了自己的看法"><a href="#对Node的优点和缺点提出了自己的看法" class="headerlink" title="对Node的优点和缺点提出了自己的看法"></a>对Node的优点和缺点提出了自己的看法</h2><p>优点</p>
 <ol>
 <li>因为Node是基于事件驱动和无阻塞的，所以非常适合处理并发请求，因此构建在Node上的代理服务器相比其他技术实现（如Ruby）的服务器表现要好得多。</li>
-<li>此外，与Node代理服务器交互的客户端代码是由javascript语言编写的，因此客户端和服务器端都用同一种语言编写，这是非常美妙的事情。<br>缺点<br>Node是一个相对新的开源项目，所以不太稳定，它总是一直在变，而且缺少足够多的第三方库支持。看起来，就像是Ruby/Rails当年的样子。</li>
+<li>此外，与Node代理服务器交互的客户端代码是由javascript语言编写的，因此客户端和服务器端都用同一种语言编写，这是非常美妙的事情。</li>
 </ol>
+<p>缺点<br>Node是一个相对新的开源项目，所以不太稳定，它总是一直在变，而且缺少足够多的第三方库支持。看起来，就像是Ruby/Rails当年的样子。</p>
 <h2 id="如何判断当前脚本运行在浏览器还是node环境中？"><a href="#如何判断当前脚本运行在浏览器还是node环境中？" class="headerlink" title="如何判断当前脚本运行在浏览器还是node环境中？"></a>如何判断当前脚本运行在浏览器还是node环境中？</h2><p>通过判断Global对象是否为window，如果不为window，当前脚本没有运行在浏览器中</p>
 <h2 id="检测浏览器版本版本有哪些方式"><a href="#检测浏览器版本版本有哪些方式" class="headerlink" title="检测浏览器版本版本有哪些方式"></a>检测浏览器版本版本有哪些方式</h2><p>功能检测、userAgent特征检测<br>比如：navigator.userAgent<br>“Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36<br>  (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36”</p>
 <h2 id="说说你对MVC和MVVM的理解"><a href="#说说你对MVC和MVVM的理解" class="headerlink" title="说说你对MVC和MVVM的理解"></a>说说你对MVC和MVVM的理解</h2><h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>View 传送指令到 Controller<br>Controller 完成业务逻辑后，要求 Model 改变状态<br>Model 将新的数据发送到 View，用户得到反馈<br>所有通信都是单向的。</p>
@@ -671,9 +764,9 @@
 <h2 id="有哪些地方会有缓存处理"><a href="#有哪些地方会有缓存处理" class="headerlink" title="有哪些地方会有缓存处理"></a>有哪些地方会有缓存处理</h2><blockquote>
 <p>　在css/js代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次js请求一般情况下有哪些地方会有缓存处理？<br>答案：dns缓存，cdn缓存，浏览器缓存，服务器缓存。</p>
 </blockquote>
-<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>同源策略，所谓同源，是指只有在域名、协议名、端口号都相同。不同源的客户端脚本在没有明确授权的情况下，是不能够读写对方的资源的。</p>
+<h2 id="同源策略-1"><a href="#同源策略-1" class="headerlink" title="同源策略"></a>同源策略</h2><p>同源策略，所谓同源，是指只有在域名、协议名、端口号都相同。不同源的客户端脚本在没有明确授权的情况下，是不能够读写对方的资源的。</p>
 <p>只有满足同源的脚本才可以获取资源，虽然这样确实保证了网络上的安全性，但是另一方面又限制了资源之间的互相利用，比如我们的AJAX，<br>AJAX也是通过url来获取数据，同样也会受到同源策略的限制。</p>
-<h3 id="为什么要有同源限制"><a href="#为什么要有同源限制" class="headerlink" title="为什么要有同源限制"></a>为什么要有同源限制</h3><p>比如一个黑客程序，他利用Iframe把真正的银行登录页面嵌到他的页面上，当你使用真实的用户名，密码登录时，他的页面就可以通过Javascript读取到你的表单中input中的内容，这样用户名，密码就轻松到手了。<br>大概定义为，一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合</p>
+<h3 id="为什么要有同源限制-1"><a href="#为什么要有同源限制-1" class="headerlink" title="为什么要有同源限制"></a>为什么要有同源限制</h3><p>比如一个黑客程序，他利用Iframe把真正的银行登录页面嵌到他的页面上，当你使用真实的用户名，密码登录时，他的页面就可以通过Javascript读取到你的表单中input中的内容，这样用户名，密码就轻松到手了。<br>大概定义为，一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合</p>
 <h2 id="网页验证码的作用（为了解决什么安全问题）"><a href="#网页验证码的作用（为了解决什么安全问题）" class="headerlink" title="网页验证码的作用（为了解决什么安全问题）"></a>网页验证码的作用（为了解决什么安全问题）</h2><blockquote>
 <p>区分用户是计算机还是人的公共全自动程序。可以防止恶意破解密码、刷票、论坛灌水；<br>有效防止黑客对某一个特定注册用户用特定程序暴力破解方式进行不断的登陆尝试。</p>
 </blockquote>
@@ -950,7 +1043,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机网络"><span class="nav-text">计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么"><span class="nav-text">一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP传输的三次握手"><span class="nav-text">TCP传输的三次握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP传输的四次挥手策略"><span class="nav-text">TCP传输的四次挥手策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程与进程的区别"><span class="nav-text">线程与进程的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP和HTTPS"><span class="nav-text">HTTP和HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么HTTPS安全"><span class="nav-text">为什么HTTPS安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络分层里七层模型是哪七层"><span class="nav-text">网络分层里七层模型是哪七层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每一层的作用"><span class="nav-text">每一层的作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种协议"><span class="nav-text">各种协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公钥加密和私钥加密"><span class="nav-text">公钥加密和私钥加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说说mongoDB和MySQL的区别"><span class="nav-text">说说mongoDB和MySQL的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Http-2-0-你知道多少"><span class="nav-text">关于Http 2.0 你知道多少</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http状态码有哪些？分别代表是什么意思？"><span class="nav-text">http状态码有哪些？分别代表是什么意思？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何解决跨域问题"><span class="nav-text">如何解决跨域问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP"><span class="nav-text">JSONP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jsonp的优缺点"><span class="nav-text">jsonp的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用window-name来进行跨域"><span class="nav-text">使用window.name来进行跨域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过修改document-domain来跨子域"><span class="nav-text">通过修改document.domain来跨子域</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS和JS阻塞，JS垃圾回收"><span class="nav-text">CSS和JS阻塞，JS垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#哪些地方会出现js阻塞？"><span class="nav-text">哪些地方会出现js阻塞？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-怎么会阻塞加载？"><span class="nav-text">CSS 怎么会阻塞加载？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌入JS应该放在什么位置？"><span class="nav-text">嵌入JS应该放在什么位置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript无阻塞加载具体方式"><span class="nav-text">Javascript无阻塞加载具体方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript垃圾回收方法"><span class="nav-text">Javascript垃圾回收方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标记清除（mark-and-sweep）"><span class="nav-text">标记清除（mark and sweep）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数-reference-counting"><span class="nav-text">引用计数(reference counting)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网站重构"><span class="nav-text">网站重构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对网页标准和标准制定机构重要性的理解"><span class="nav-text">对网页标准和标准制定机构重要性的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对网站重构的理解"><span class="nav-text">对网站重构的理解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见web安全及防护原理"><span class="nav-text">常见web安全及防护原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sql注入原理"><span class="nav-text">sql注入原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS原理及防范"><span class="nav-text">XSS原理及防范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS防范方法"><span class="nav-text">XSS防范方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF的防御"><span class="nav-text">CSRF的防御</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS与CSRF有什么区别吗"><span class="nav-text">XSS与CSRF有什么区别吗</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Etag"><span class="nav-text">Etag</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Etag"><span class="nav-text">什么是Etag</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ETag应用"><span class="nav-text">ETag应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cache-control"><span class="nav-text">cache-control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讲讲304缓存的原理"><span class="nav-text">讲讲304缓存的原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他相关知识点"><span class="nav-text">其他相关知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#那哪些操作会造成内存泄漏"><span class="nav-text">那哪些操作会造成内存泄漏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序的思想并实现一个快排"><span class="nav-text">快速排序的思想并实现一个快排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何评价AngularJS和BackboneJS"><span class="nav-text">如何评价AngularJS和BackboneJS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步加载和延迟加载"><span class="nav-text">异步加载和延迟加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-的适用场景"><span class="nav-text">Node.js 的适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ie-各版本和-chrome-可以并行下载多少个资源"><span class="nav-text">ie 各版本和 chrome 可以并行下载多少个资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webSocket如何兼容低浏览器"><span class="nav-text">webSocket如何兼容低浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEB应用从服务器主动推送Data到客户端有那些方式"><span class="nav-text">WEB应用从服务器主动推送Data到客户端有那些方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对Node的优点和缺点提出了自己的看法"><span class="nav-text">对Node的优点和缺点提出了自己的看法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何判断当前脚本运行在浏览器还是node环境中？"><span class="nav-text">如何判断当前脚本运行在浏览器还是node环境中？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测浏览器版本版本有哪些方式"><span class="nav-text">检测浏览器版本版本有哪些方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说说你对MVC和MVVM的理解"><span class="nav-text">说说你对MVC和MVVM的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC"><span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVVC"><span class="nav-text">MVVC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么利用多个域名来存储网站资源会更有效"><span class="nav-text">为什么利用多个域名来存储网站资源会更有效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有哪些地方会有缓存处理"><span class="nav-text">有哪些地方会有缓存处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同源策略"><span class="nav-text">同源策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要有同源限制"><span class="nav-text">为什么要有同源限制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网页验证码的作用（为了解决什么安全问题）"><span class="nav-text">网页验证码的作用（为了解决什么安全问题）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是FOUC（无样式内容闪烁）？你如何来避免-FOUC？"><span class="nav-text">什么是FOUC（无样式内容闪烁）？你如何来避免 FOUC？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机网络"><span class="nav-text">计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#域名系统DNS"><span class="nav-text">域名系统DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#域名到IP地址的解析过程的要点如下"><span class="nav-text">域名到IP地址的解析过程的要点如下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名服务器"><span class="nav-text">域名服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#因特网的域名结构"><span class="nav-text">因特网的域名结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#万维网-WWW"><span class="nav-text">万维网 WWW</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎样标志分布在整个因特网上的万维网文档？"><span class="nav-text">怎样标志分布在整个因特网上的万维网文档？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用什么样的协议来实现万维网上各种链接？"><span class="nav-text">用什么样的协议来实现万维网上各种链接？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统一资源定位符URL"><span class="nav-text">统一资源定位符URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP"><span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP的操作过程"><span class="nav-text">HTTP的操作过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Http-2-0-你知道多少"><span class="nav-text">关于Http 2.0 你知道多少</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP状态码"><span class="nav-text">HTTP状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http状态码有哪些？分别代表是什么意思？"><span class="nav-text">http状态码有哪些？分别代表是什么意思？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP和HTTPS"><span class="nav-text">HTTP和HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么HTTPS安全"><span class="nav-text">为什么HTTPS安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么"><span class="nav-text">一个页面从输入URL到页面加载显示完成，这个过程中都发生了什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP传输的三次握手"><span class="nav-text">TCP传输的三次握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP传输的四次挥手策略"><span class="nav-text">TCP传输的四次挥手策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程与进程的区别"><span class="nav-text">线程与进程的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-text">TCP和UDP的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络分层里七层模型是哪七层"><span class="nav-text">网络分层里七层模型是哪七层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每一层的作用"><span class="nav-text">每一层的作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种协议"><span class="nav-text">各种协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公钥加密和私钥加密"><span class="nav-text">公钥加密和私钥加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说说mongoDB和MySQL的区别"><span class="nav-text">说说mongoDB和MySQL的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨域"><span class="nav-text">跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#同源策略"><span class="nav-text">同源策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要有同源限制"><span class="nav-text">为什么要有同源限制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域分为单向跨域，和双向跨域两种大的类型。"><span class="nav-text">跨域分为单向跨域，和双向跨域两种大的类型。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单向跨域（单向的数据请求）"><span class="nav-text">单向跨域（单向的数据请求）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSONP"><span class="nav-text">JSONP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点"><span class="nav-text">优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flash-URLLoader"><span class="nav-text">flash URLLoader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Access-Control"><span class="nav-text">Access Control</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用window-name来进行跨域"><span class="nav-text">使用window.name来进行跨域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#server-proxy"><span class="nav-text">server proxy</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向跨域（子域或者不同的子域之间通信）"><span class="nav-text">双向跨域（子域或者不同的子域之间通信）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过修改document-domain来跨子域"><span class="nav-text">通过修改document.domain来跨子域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FIM——Fragment-Identitier-Messaging"><span class="nav-text">FIM——Fragment Identitier Messaging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Flash-LocalConnection"><span class="nav-text">Flash LocalConnection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#window-postMessage"><span class="nav-text">window.postMessage</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于cookie的跨域使用"><span class="nav-text">关于cookie的跨域使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS和JS阻塞，JS垃圾回收"><span class="nav-text">CSS和JS阻塞，JS垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#哪些地方会出现js阻塞？"><span class="nav-text">哪些地方会出现js阻塞？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-怎么会阻塞加载？"><span class="nav-text">CSS 怎么会阻塞加载？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌入JS应该放在什么位置？"><span class="nav-text">嵌入JS应该放在什么位置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript无阻塞加载具体方式"><span class="nav-text">Javascript无阻塞加载具体方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript垃圾回收方法"><span class="nav-text">Javascript垃圾回收方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标记清除（mark-and-sweep）"><span class="nav-text">标记清除（mark and sweep）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数-reference-counting"><span class="nav-text">引用计数(reference counting)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网站重构"><span class="nav-text">网站重构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对网页标准和标准制定机构重要性的理解"><span class="nav-text">对网页标准和标准制定机构重要性的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对网站重构的理解"><span class="nav-text">对网站重构的理解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见web安全及防护原理"><span class="nav-text">常见web安全及防护原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sql注入原理"><span class="nav-text">sql注入原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS原理及防范"><span class="nav-text">XSS原理及防范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS防范方法"><span class="nav-text">XSS防范方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF的防御"><span class="nav-text">CSRF的防御</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS与CSRF有什么区别吗"><span class="nav-text">XSS与CSRF有什么区别吗</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Etag"><span class="nav-text">Etag</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Etag"><span class="nav-text">什么是Etag</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ETag应用"><span class="nav-text">ETag应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cache-control"><span class="nav-text">cache-control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讲讲304缓存的原理"><span class="nav-text">讲讲304缓存的原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他相关知识点"><span class="nav-text">其他相关知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#那哪些操作会造成内存泄漏"><span class="nav-text">那哪些操作会造成内存泄漏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序的思想并实现一个快排"><span class="nav-text">快速排序的思想并实现一个快排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何评价AngularJS和BackboneJS"><span class="nav-text">如何评价AngularJS和BackboneJS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步加载和延迟加载"><span class="nav-text">异步加载和延迟加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-的适用场景"><span class="nav-text">Node.js 的适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ie-各版本和-chrome-可以并行下载多少个资源"><span class="nav-text">ie 各版本和 chrome 可以并行下载多少个资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webSocket如何兼容低浏览器"><span class="nav-text">webSocket如何兼容低浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEB应用从服务器主动推送Data到客户端有那些方式"><span class="nav-text">WEB应用从服务器主动推送Data到客户端有那些方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对Node的优点和缺点提出了自己的看法"><span class="nav-text">对Node的优点和缺点提出了自己的看法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何判断当前脚本运行在浏览器还是node环境中？"><span class="nav-text">如何判断当前脚本运行在浏览器还是node环境中？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测浏览器版本版本有哪些方式"><span class="nav-text">检测浏览器版本版本有哪些方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说说你对MVC和MVVM的理解"><span class="nav-text">说说你对MVC和MVVM的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC"><span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVVC"><span class="nav-text">MVVC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么利用多个域名来存储网站资源会更有效"><span class="nav-text">为什么利用多个域名来存储网站资源会更有效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有哪些地方会有缓存处理"><span class="nav-text">有哪些地方会有缓存处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同源策略-1"><span class="nav-text">同源策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要有同源限制-1"><span class="nav-text">为什么要有同源限制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网页验证码的作用（为了解决什么安全问题）"><span class="nav-text">网页验证码的作用（为了解决什么安全问题）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是FOUC（无样式内容闪烁）？你如何来避免-FOUC？"><span class="nav-text">什么是FOUC（无样式内容闪烁）？你如何来避免 FOUC？</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
