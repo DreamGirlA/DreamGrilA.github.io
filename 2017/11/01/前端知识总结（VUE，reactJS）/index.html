@@ -1,0 +1,1198 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="VUE,reactJS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Candice Yu_个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="VUE总结VUE和jQuery的区别
+jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端知识总结（VUE，reactJS）">
+<meta property="og:url" content="http://candiceyu.com/2017/11/01/前端知识总结（VUE，reactJS）/index.html">
+<meta property="og:site_name" content="Candice Yu_个人博客">
+<meta property="og:description" content="VUE总结VUE和jQuery的区别
+jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-10a2d807f0f569ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-5ccc018e2636a353.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-62f6cacee675f3e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-9fa2497a7f336c4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-097895cd43e7a0a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-01T04:08:54.683Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端知识总结（VUE，reactJS）">
+<meta name="twitter:description" content="VUE总结VUE和jQuery的区别
+jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5285574-10a2d807f0f569ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://candiceyu.com/2017/11/01/前端知识总结（VUE，reactJS）/"/>
+
+  <title> 前端知识总结（VUE，reactJS） | Candice Yu_个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?516d783fb114015b9b38b2ce58b5fe15";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Candice Yu_个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Candice Yu</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/aboutMe" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端知识总结（VUE，reactJS）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-01T10:41:13+08:00" content="2017-11-01">
+              2017-11-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/11/01/前端知识总结（VUE，reactJS）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/01/前端知识总结（VUE，reactJS）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="VUE总结"><a href="#VUE总结" class="headerlink" title="VUE总结"></a>VUE总结</h1><h2 id="VUE和jQuery的区别"><a href="#VUE和jQuery的区别" class="headerlink" title="VUE和jQuery的区别"></a>VUE和jQuery的区别</h2><blockquote>
+<p>jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。<br>jQuery的核心特性可以总结为：具有独特的链式语法和短小清晰的多功能接口；具有高效灵活的css选择器，并且可对CSS选择器进行扩展；拥有便捷的插件扩展机制和丰富的插件。</p>
+<p>vue是一个兴起的前端js库，是一个精简的MVVM。从技术角度讲，Vue.js 专注于 MVVM 模型的 ViewModel 层。它通过双向数据绑定把 View 层和 Model 层连接了起来，通过对数据的操作就可以完成对页面视图的渲染。Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。Vue 采用自底向上增量开发的设计，（自底向上的程序设计就是先编写出基础程序段，然后再逐步扩大规模、补充和升级某些功能，实际上是一种自底向上构造程序的过程。）它不是一个全能框架——它只聚焦于视图层。</p>
+</blockquote>
+<ul>
+<li><p>jQuery是使用选择器（$）选取DOM对象，对其进行赋值、取值、事件绑定等操作，其实和原生的HTML的区别只在于可以更方便的选取和操作DOM对象，而数据和界面是在一起的。比如需要获取label标签的内容：$(“lable”).val();,它还是依赖DOM元素的值。 </p>
+</li>
+<li><p>Vue则是通过Vue对象将数据和View完全分离开来了。对数据进行操作不再需要引用相应的DOM对象，可以说数据和View是分离的，他们通过Vue对象这个vm（VM指的是ViewModel：他是view的抽象，负责view和model之间的信息转换，将view的command传送到model）实现相互的绑定。这就是传说中的MVVM。</p>
+</li>
+</ul>
+<h2 id="VUE1-0和VUE2-0的区别"><a href="#VUE1-0和VUE2-0的区别" class="headerlink" title="VUE1.0和VUE2.0的区别"></a>VUE1.0和VUE2.0的区别</h2><ol>
+<li>beforeCompile 移除，使用 created 钩子函数替代。</li>
+<li>compiled 替换，使用 mounted 钩子函数替代。</li>
+<li><p>attached 移除，使用其他钩子函数内置的 DOM 检测(DOM check)方法。例如：</p>
+<pre><code>attached: function () {
+  doSomething()
+}
+改为如下：
+mounted: function () {
+  this.$nextTick(function () {
+    doSomething()
+  })
+}
+</code></pre></li>
+<li><p>detached 移除,改写方式，基本同上相同。</p>
+</li>
+<li>init 重新命名，使用新的 beforeCreate 钩子函数替代，本质上 beforeCreate 和 init 完全相同。init 被重新命名是为了和其他的生命周期方法的命名方式保持一致。</li>
+<li><p>ready 替换，使用新的 mounted 钩子函数替代。应该注意的是，使用 mounted 并不能保证钩子函数中的 this.$el 在 document 中。为此还应该引入 Vue.nextTick/vm.$nextTick。例如：</p>
+<pre><code>mounted: function () {
+  this.$nextTick(function () {
+    // 代码保证 this.$el 在 document 中
+  })
+}
+</code></pre></li>
+<li><p>v-for 遍历数组时的参数顺序 变更，当包含 index 时，之前遍历数组时的参数顺序是 (index, value)。现在是 (value, index) ，来和 JavaScript 的原生数组方法（例如 forEach 和 map）保持一致。</p>
+</li>
+<li>v-for 范围值 变更，之前，v-for=”number in 10” 的 number 从 0 开始到 9 结束，现在从 1 开始，到 10 结束。</li>
+<li>v-bind 的 .once和.sync 修饰符 移除，</li>
+<li>修改 Props 弃用。</li>
+<li>v-bind 真/假值 变更，在2.0中使用 v-bind 时，只有 null, undefined , 和 false 被看作是假。这意味着，0 和空字符串将被作为真值渲染。比如 v-bind:draggable=”‘’” 将被渲染为 draggable=”true”。注意，对于其它钩子函数 (如 v-if 和 v-show)， 他们依然遵循 js 对真假值判断的一般规则。</li>
+<li><p>用 v-on 监听原生事件 变更，现在在组件上使用 v-on 只会监听自定义事件（组件用 $emit 触发的事件）。如果要监听根元素的原生事件，可以使用 .native 修饰符，比如：</p>
+<pre><code>&lt;my-component v-on:click.native=&quot;doSomething&quot;&gt;&lt;/my-component&gt;
+</code></pre></li>
+</ol>
+<p>13.带有 !important 的v-bind:style 移除，</p>
+<pre><code>&lt;p v-bind:style=&quot;{ color: myColor + &apos; !important&apos; }&quot;&gt;hello&lt;/p&gt; //这样写将失效
+</code></pre><ol>
+<li>transition 参数 替换，Vue 的过渡系统有了彻底的改变，现在通过使用 <transition> 和 <transition-group> 来包裹元素实现过渡效果，而不再使用 transition 属性。</transition-group></transition></li>
+</ol>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p><img src="http://upload-images.jianshu.io/upload_images/5285574-10a2d807f0f569ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生命周期展示"><br><img src="http://upload-images.jianshu.io/upload_images/5285574-5ccc018e2636a353.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生命周期展示"><br><img src="http://upload-images.jianshu.io/upload_images/5285574-62f6cacee675f3e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生命周期展示"></p>
+<ol>
+<li><p>beforeCreate 创建前状态 ,el 和 data 并未初始化。 </p>
+<blockquote>
+<p>可以在这加个loading事件</p>
+</blockquote>
+</li>
+<li><p>created:created 创建完毕状态, 完成了data数据的初始化，el没有</p>
+<blockquote>
+<p>在这结束loading，还做一些初始化，实现函数自执行 。</p>
+</blockquote>
+</li>
+<li><p>beforeMount 挂载前状态, 完成了el和data初始化。</p>
+<blockquote>
+<p>这时el还是，应用的虚拟Dom技术，先把坑占住了。到后面mounted挂载的时候再把值渲染进去。</p>
+</blockquote>
+</li>
+<li><p>mounted 挂载结束状态, 完成挂载。   </p>
+<blockquote>
+<p>在这发起后端请求，拿回数据，配合路由钩子做一些事情</p>
+</blockquote>
+</li>
+<li><p>beforeUpdate 更新前状态。  </p>
+<blockquote>
+<p>data里的值被修改后，将会触发update的操作</p>
+</blockquote>
+</li>
+<li><p>updated 更新完成状态 </p>
+</li>
+<li><p>beforeDestroy 销毁前状态。 </p>
+<blockquote>
+<p>你确认删除XX吗？ destoryed ：当前组件已被删除，清空相关内容</p>
+</blockquote>
+</li>
+<li><p>destroyed 销毁完成状态。</p>
+<blockquote>
+<p>销毁完成后，我们再重新改变message的值，vue不再对此动作进行响应了。但是原先生成的dom元素还存在，可以这么理解，执行了destroy操作，后续就不再受vue控制了。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="计算属性computed-vs-Methods-methods"><a href="#计算属性computed-vs-Methods-methods" class="headerlink" title="计算属性computed: {} vs Methods methods: {}"></a>计算属性computed: {} vs Methods methods: {}</h2><blockquote>
+<p>计算属性是基于它们的依赖进行缓存的。计算属性只有在它的相关依赖发生改变时才会重新求值。这就意味着只要 message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。</p>
+</blockquote>
+<p>相比而言，只要发生重新渲染，method 调用总会执行该函数。</p>
+<p>我们为什么需要缓存？假设我们有一个性能开销比较大的的计算属性 A ，它需要遍历一个极大的数组和做大量的计算。然后我们可能有其他的计算属性依赖于 A 。如果没有缓存，我们将不可避免的多次执行 A 的 getter！如果你不希望有缓存，请用 method 替代。</p>
+<h2 id="Computed-属性-vs-Watched-属性"><a href="#Computed-属性-vs-Watched-属性" class="headerlink" title="Computed 属性 vs Watched 属性"></a>Computed 属性 vs Watched 属性</h2><p>Vue 确实提供了一种更通用的方式来观察和响应Vue实例上的数据变动：watch属性。当你有一些数据需要随着其它数据变动而变动时，你很容易滥用 watch——特别是如果你之前使用过 AngularJS。然而，通常更好的想法是使用 computed 属性而不是命令式的 watch 回调。</p>
+<h2 id="key管理可复用的元素"><a href="#key管理可复用的元素" class="headerlink" title="key管理可复用的元素"></a>key管理可复用的元素</h2><p> Vue 提供了一种方式来声明“这两个元素是完全独立的——不要复用它们”。只需添加一个具有唯一值的 key 属性即可</p>
+<pre><code>&lt;div id=&quot;key-example&quot;&gt;
+    &lt;div&gt;
+        &lt;template v-if=&quot;loginType === &apos;username&apos;&quot;&gt;
+            &lt;label&gt;Username&lt;/label&gt;
+            &lt;input placeholder=&quot;Enter your username&quot;  key=&quot;username-input&quot;&gt;
+        &lt;/template&gt;
+        &lt;template v-else=&quot;&quot;&gt;
+            &lt;label&gt;Email&lt;/label&gt;
+            &lt;input placeholder=&quot;Enter your email address&quot; key=&quot;email-input&quot;&gt;
+        &lt;/template&gt;
+    &lt;/div&gt;
+    &lt;button @click=&quot;toggleLoginType&quot;&gt;Toggle login type&lt;/button&gt;
+&lt;/div&gt;
+    &lt;script&gt;
+        new Vue({
+            el: &apos;#key-example&apos;,
+            data: {
+                loginType: &apos;username&apos;
+            },
+            methods: {
+                toggleLoginType: function () {
+                    return this.loginType = this.loginType === &apos;username&apos; ? &apos;email&apos; : &apos;username&apos;
+                }
+            }
+        })
+    &lt;/script&gt;
+</code></pre><p>每次切换时，输入框都将被重新渲染，但是label依旧会被复用。</p>
+<h2 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h2><p>根据条件展示元素的选项是 v-show 指令</p>
+<pre><code>&lt;h1 v-show=&quot;ok&quot;&gt;Hello!&lt;/h1&gt;
+</code></pre><p>不同的是带有 v-show 的元素始终会被渲染并保留在 DOM 中。v-show 是简单地切换元素的 CSS 属性 display 。<strong>v-show 不支持 template标签 语法，也不支持 v-else。</strong></p>
+<h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h2><p>v-for 指令根据一组数组的选项列表进行渲染。 v-for 指令需要以 item in items 形式的特殊语法， <strong>items 是源数据数组并且 item 是数组元素迭代的别名。</strong><br>v-for 还支持一个可选的第二个参数为当前项的索引。</p>
+<pre><code>&lt;ul id=&quot;example-2&quot;&gt;
+  &lt;li v-for=&quot;(item, index) in items&quot;&gt;
+    {{ friendMessage }} - {{ index }} - {{ item.message }}
+  &lt;/li&gt;
+&lt;/ul&gt;
+var example1 = new Vue({
+  el: &apos;#example&apos;,
+  data: {
+  friendMessage: &apos;friend&apos;,
+    items: [
+      {message: &apos;candice&apos; },
+      {message: &apos;yu&apos; }
+    ]
+  }
+})
+</code></pre><p>v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中。当你想为仅有的一些项渲染节点时，这种优先级的机制会十分有用。</p>
+<h2 id="事件处理器"><a href="#事件处理器" class="headerlink" title="事件处理器"></a>事件处理器</h2><h3 id="方法事件处理器"><a href="#方法事件处理器" class="headerlink" title="方法事件处理器"></a>方法事件处理器</h3><p>v-on 指令监听 DOM 事件，可以接收一个定义的方法来调用</p>
+<pre><code>&lt;div id=&quot;example&quot;&gt;
+  &lt;!-- `greet` 是在下面定义的方法名 --&gt;
+  &lt;button v-on:click=&quot;greet&quot;&gt;Greet&lt;/button&gt;
+&lt;/div&gt;
+var example = new Vue({
+  el: &apos;#example&apos;,
+  data: {
+    name: &apos;Vue.js&apos;
+  },
+  // 在 `methods` 对象中定义方法
+  methods: {
+    greet: function (event) {
+      // `this` 在方法里指当前 Vue 实例
+      alert(&apos;Hello &apos; + this.name + &apos;!&apos;)
+      // `event` 是原生 DOM 事件
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+})
+// 也可以用 JavaScript 直接调用方法
+example2.greet() // -&gt; &apos;Hello Vue.js!&apos;
+</code></pre><h3 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h3><p>methods 只有纯粹的数据逻辑，而不是去处理 DOM 事件细节,所以，v-on 提供了事件修饰符,通过由点(.)表示的指令后缀来调用修饰符</p>
+<pre><code>&lt;!-- 阻止单击事件冒泡 --&gt;
+&lt;a v-on:click.stop=&quot;doThis&quot;&gt;&lt;/a&gt;
+&lt;!-- 提交事件不再重载页面 --&gt;
+&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;
+&lt;!-- 修饰符可以串联  --&gt;
+&lt;a v-on:click.stop.prevent=&quot;doThat&quot;&gt;&lt;/a&gt;
+&lt;!-- 只有修饰符 --&gt;
+&lt;form v-on:submit.prevent&gt;&lt;/form&gt;
+&lt;!-- 添加事件侦听器时使用事件捕获模式 --&gt;
+&lt;div v-on:click.capture=&quot;doThis&quot;&gt;...&lt;/div&gt;
+&lt;!-- 只当事件在该元素本身（比如不是子元素）触发时触发回调 --&gt;
+&lt;div v-on:click.self=&quot;doThat&quot;&gt;...&lt;/div&gt;
+</code></pre><p>使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 @click.prevent.self 会阻止所有的点击，而 @click.self.prevent 只会阻止元素上的点击。</p>
+<h3 id="键值修饰符"><a href="#键值修饰符" class="headerlink" title="键值修饰符"></a>键值修饰符</h3><p>在监听键盘事件时，我们经常需要监测常见的键值。 Vue 允许为 v-on 在监听键盘事件时添加关键修饰符，</p>
+<pre><code>&lt;!-- 只有在 keyCode 是 13 时调用 vm.submit() --&gt;
+&lt;input v-on:keyup.13=&quot;submit&quot;&gt;
+&lt;!-- 同上 --&gt;
+&lt;input v-on:keyup.enter=&quot;submit&quot;&gt;
+&lt;!-- 缩写语法 --&gt;
+&lt;input @keyup.enter=&quot;submit&quot;&gt;
+</code></pre><p>全部的按键别名：.enter .tab .delete (捕获 “删除” 和 “退格” 键) .esc .space .up .down .left .right</p>
+<h2 id="表单控件绑定"><a href="#表单控件绑定" class="headerlink" title="表单控件绑定"></a>表单控件绑定</h2><ol>
+<li>用 v-model 指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。v-model </li>
+<li>本质上不过是语法糖，它负责监听用户的输入事件以更新数据，并特别处理一些极端的例子。</li>
+<li><strong>v-model 会忽略所有表单元素的 value、checked、selected 特性的初始值。</strong></li>
+<li>因为它会选择 Vue 实例数据来作为具体的值。你应该通过 JavaScript 在组件的 data 选项中声明初始值。</li>
+</ol>
+<h3 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h3><pre><code>&lt;input v-model=&quot;message&quot; placeholder=&quot;edit me&quot;&gt;
+&lt;p&gt;Message is: {{ message }}&lt;/p&gt;
+</code></pre><h3 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h3><p>多个勾选框，绑定到同一个数组：</p>
+<pre><code>&lt;input type=&quot;checkbox&quot; id=&quot;jack&quot; value=&quot;Jack&quot; v-model=&quot;checkedNames&quot;&gt;
+&lt;label for=&quot;jack&quot;&gt;Jack&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;john&quot; value=&quot;John&quot; v-model=&quot;checkedNames&quot;&gt;
+&lt;label for=&quot;john&quot;&gt;John&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;mike&quot; value=&quot;Mike&quot; v-model=&quot;checkedNames&quot;&gt;
+&lt;label for=&quot;mike&quot;&gt;Mike&lt;/label&gt;
+&lt;br&gt;
+&lt;span&gt;Checked names: {{ checkedNames }}&lt;/span&gt;
+new Vue({
+  el: &apos;...&apos;,
+  data: {
+    checkedNames: []
+  }
+})
+</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/5285574-9fa2497a7f336c4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="多选框图片"></p>
+<h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><ol>
+<li>.lazy<br>在默认情况下， v-model 在 input 事件中同步输入框的值与数据 (除了 上述 IME 部分)，但你可以添加一个修饰符 lazy ，从而转变为在 change 事件中同步</li>
+<li>.number<br>如果想自动将用户的输入值转为 Number 类型（如果原值的转换结果为 NaN 则返回原值），可以添加一个修饰符 number 给 v-model 来处理输入值</li>
+<li><p>.trim<br>如果要自动过滤用户输入的首尾空格，可以添加 trim 修饰符到 v-model 上过滤输入：</p>
+<pre><code>&lt;input v-model.trim=&quot;msg&quot;&gt;
+</code></pre></li>
+</ol>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>组件可以扩展 HTML 元素，封装可重用的代码。在较高层面上，组件是自定义元素， Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以是原生 HTML 元素的形式，以 is 特性扩展。</p>
+<h3 id="data-必须是函数-通过Vue构造器传入的各种选项大多数都可以在组件里用。-data-是一个例外，它必须是函数。"><a href="#data-必须是函数-通过Vue构造器传入的各种选项大多数都可以在组件里用。-data-是一个例外，它必须是函数。" class="headerlink" title="data 必须是函数,通过Vue构造器传入的各种选项大多数都可以在组件里用。 data 是一个例外，它必须是函数。"></a>data 必须是函数,通过Vue构造器传入的各种选项大多数都可以在组件里用。 data 是一个例外，它必须是函数。</h3><pre><code>&lt;div id=&quot;example&quot;&gt;
+  &lt;simple-counter&gt;&lt;/simple-counter&gt;
+  &lt;simple-counter&gt;&lt;/simple-counter&gt;
+  &lt;simple-counter&gt;&lt;/simple-counter&gt;
+&lt;/div&gt;
+var data = { counter: 0 }
+Vue.component(&apos;simple-counter&apos;, {
+  template: &apos;&lt;button v-on:click=&quot;counter += 1&quot;&gt;{{ counter }}&lt;/button&gt;&apos;,
+  data: function () {
+  return {
+    counter: 0
+  }
+}
+})
+new Vue({
+  el: &apos;#example&apos;
+})
+</code></pre><h3 id="构成组件"><a href="#构成组件" class="headerlink" title="构成组件"></a>构成组件</h3><ol>
+<li>组件意味着协同工作，通常父子组件会是这样的关系：组件 A 在它的模版中使用了组件 B 。它们之间必然需要相互通信：父组件要给子组件传递数据，子组件需要将它内部发生的事情告知给父组件。</li>
+<li>在 Vue 中，父子组件的关系可以总结为 props down, events up 。父组件通过 props 向下传递数据给子组件，子组件通过 events 给父组件发送消息。下图为它的工作方式：<br><img src="http://upload-images.jianshu.io/upload_images/5285574-097895cd43e7a0a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="父子组件"></li>
+</ol>
+<h3 id="使用-Prop-传递数据"><a href="#使用-Prop-传递数据" class="headerlink" title="使用 Prop 传递数据"></a>使用 Prop 传递数据</h3><p>组件实例的作用域是孤立的。这意味着不能(也不应该)在子组件的模板内直接引用父组件的数据。要让子组件使用父组件的数据，我们需要通过子组件的props选项。<br>子组件要显式地用 props 选项声明它期待获得的数据：</p>
+<pre><code>Vue.component(&apos;child&apos;, {
+  // 声明 props// camelCase in JavaScript
+  props: [&apos;myMessage&apos;],
+  // 就像 data 一样，prop 可以用在模板内
+  // 同样也可以在 vm 实例中像 “this.message” 这样使用
+  template: &apos;&lt;span&gt;{{ message }}&lt;/span&gt;&apos;
+})
+</code></pre><p>然后我们可以这样向它传入一个普通字符串：</p>
+<pre><code>&lt;!-- kebab-case in HTML --&gt;
+&lt;child my-message=&quot;hello!&quot;&gt;
+</code></pre><p>HTML 特性是不区分大小写的。所以，当使用的不是字符串模版，camelCased (驼峰式) 命名的 prop 需要转换为相对应的 kebab-case (短横线隔开式) 命名</p>
+<h4 id="动态-Prop"><a href="#动态-Prop" class="headerlink" title="动态 Prop"></a>动态 Prop</h4><p>在模板中，要动态地绑定父组件的数据到子模板的props，与绑定到任何普通的HTML特性相类似，就是用v-bind。每当父组件的数据变化时，该变化也会传导给子组件</p>
+<pre><code> &lt;div&gt;
+  &lt;input v-model=&quot;parentMsg&quot;&gt;
+  &lt;br&gt;
+  &lt;child v-bind:my-message=&quot;parentMsg&quot;&gt;&lt;/child&gt;
+&lt;/div&gt;
+</code></pre><p>v-bind 的缩写语法通常更简单：</p>
+<pre><code>&lt;child :my-message=&quot;parentMsg&quot;&gt;&lt;/child&gt;
+</code></pre><h3 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h3><ol>
+<li>prop 是单向绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。</li>
+<li>另外，每次父组件更新时，子组件的所有prop都会更新为最新值。这意味着你不应该在子组件内部改变prop。如果你这么做了，Vue会在控制台给出警告。    </li>
+<li>为什么我们会有修改prop中数据的冲动呢？通常是这两种原因：</li>
+</ol>
+<ul>
+<li>prop 作为初始值传入后，子组件想把它当作局部数据来用；</li>
+<li>prop 作为初始值传入，由子组件处理成其它数据输出。</li>
+</ul>
+<p>对这两种原因，正确的应对方式是：<br>定义一个局部变量，并用 prop 的值初始化它：</p>
+<pre><code>props: [&apos;initialCounter&apos;],
+data: function () {
+  return { counter: this.initialCounter }
+}
+</code></pre><p>定义一个计算属性，处理 prop 的值并返回。</p>
+<pre><code>props: [&apos;size&apos;],
+computed: {
+  normalizedSize: function () {
+    return this.size.trim().toLowerCase()
+  }
+}
+</code></pre><h3 id="Prop-验证"><a href="#Prop-验证" class="headerlink" title="Prop 验证"></a>Prop 验证</h3><p>我们可以为组件的 props 指定验证规格。如果传入的数据不符合规格，Vue 会发出警告。当组件给其他人使用时，这很有用。<br>要指定验证规格，需要用对象的形式，而不能用字符串数组：</p>
+<pre><code>Vue.component(&apos;example&apos;, {
+  props: {
+    // 基础类型检测 （`null` 意思是任何类型都可以）
+    propA: Number,
+    // 多种类型
+    propB: [String, Number],
+    // 必传且是字符串
+    propC: {
+      type: String,
+      required: true
+    },
+    // 数字，有默认值
+    propD: {
+      type: Number,
+      default: 100
+    },
+    // 数组／对象的默认值应当由一个工厂函数返回
+    propE: {
+      type: Object,
+      default: function () {
+        return { message: &apos;hello&apos; }
+      }
+    },
+    // 自定义验证函数
+    propF: {
+      validator: function (value) {
+        return value &gt; 10
+      }
+    }
+  }
+})
+</code></pre><h3 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h3><p>父组件是使用props传递数据给子组件，但如果子组件要把数据传递回去，应该怎样做？那就是自定义事件</p>
+<ol>
+<li><p>使用 v-on 绑定自定义事件<br> 每个 Vue 实例都实现了事件接口(Events interface)，即：</p>
+<pre><code>使用 $on(eventName) 监听事件
+使用 $emit(eventName) 触发事件
+</code></pre></li>
+</ol>
+<h2 id="子组件索引"><a href="#子组件索引" class="headerlink" title="子组件索引"></a>子组件索引</h2><p>尽管有 props 和 events，但是有时仍然需要在JavaScript中直接访问子组件。为此可以使用 ref 为子组件指定一个索引 ID 。例如：</p>
+<pre><code>&lt;div id=&quot;parent&quot;&gt;
+  &lt;user-profile ref=&quot;profile&quot;&gt;&lt;/user-profile&gt;
+&lt;/div&gt;
+var parent = new Vue({ el: &apos;#parent&apos; })
+// 访问子组件
+var child = parent.$refs.profile
+</code></pre><p>当 ref 和 v-for 一起使用时， ref 是一个数组，包含相应的子组件。</p>
+<h2 id="Vue面试题"><a href="#Vue面试题" class="headerlink" title="Vue面试题"></a>Vue面试题</h2><h3 id="Vue-js是什么"><a href="#Vue-js是什么" class="headerlink" title="Vue.js是什么"></a>Vue.js是什么</h3><blockquote>
+<ol>
+<li>Vue.js（是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。</li>
+<li>Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件</li>
+</ol>
+</blockquote>
+<h3 id="VueJS-特性："><a href="#VueJS-特性：" class="headerlink" title="VueJS 特性："></a>VueJS 特性：</h3><ul>
+<li>MVVM模式（数据变量（model）发生改变 视图（view）也改变，视图（view）改变，数据变量（model）也发生改变）</li>
+<li>组件化</li>
+<li>指令系统</li>
+<li>vue2.0开始支持虚拟dom，vue1.0是操作的是真的dom元素而不是虚拟的<br>虚拟dom：可以提升页面的刷新速度</li>
+</ul>
+<h4 id="使用MVVM模式有几大好处"><a href="#使用MVVM模式有几大好处" class="headerlink" title="使用MVVM模式有几大好处"></a>使用MVVM模式有几大好处</h4><p>　　1. 低耦合。View可以独立于Model变化和修改，一个ViewModel可以绑定到不同的View上，当View变化的时候Model可以不变，当Model变化的时候View也可以不变。<br>　　2. 可重用性。可以把一些视图的逻辑放在ViewModel里面，让很多View重用这段视图逻辑。<br>　　3. 独立开发。开发人员可以专注与业务逻辑和数据的开发(ViewModel)。设计人员可以专注于界面(View)的设计。<br>　　4. 可测试性。可以针对ViewModel来对界面(View)进行测试</p>
+<h4 id="虚拟DOM有利也有弊。"><a href="#虚拟DOM有利也有弊。" class="headerlink" title="虚拟DOM有利也有弊。"></a>虚拟DOM有利也有弊。</h4><ol>
+<li>大小 - 其中之一就是更多的功能意味着代码包中更多行的代码。幸运的是，Vue.js 2.0 依旧比 较小（当前版本 21.4kb），并<br>且也正在删除很多东西。</li>
+<li>内存 -同样，虚拟DOM需要将现有的DOM拷贝后保存在内存中，这是一个在DOM更新速度和内存使用中的权衡。</li>
+<li>并不适用所有情况 - 如果虚拟DOM可以一次性进行批量的修改是非常好的。但是如果是单独的、稀少的更新呢？这样的任何DOM更新都将会使虚拟DOM带来无意义的预计算</li>
+</ol>
+<h3 id="Vue-js特点"><a href="#Vue-js特点" class="headerlink" title="Vue.js特点"></a>Vue.js特点</h3><p>简洁：页面由HTML模板+Json数据+Vue实例组成<br>数据驱动：自动计算属性和追踪依赖的模板表达式<br>组件化：用可复用、解耦的组件来构造页面<br>轻量：代码量小，不依赖其他库<br>快速：精确有效批量DOM更新<br>模板友好：可通过npm，bower等多种方式安装，很容易融入</p>
+<h3 id="vue中的MVVM模式"><a href="#vue中的MVVM模式" class="headerlink" title="vue中的MVVM模式"></a>vue中的MVVM模式</h3><blockquote>
+<p>即Model-View-ViewModel。</p>
+</blockquote>
+<ol>
+<li>Vue是以数据为驱动的，Vue自身将DOM和数据进行绑定，一旦创建绑定，DOM和数据将保持同步，每当数据发生变化，DOM会跟着变化。</li>
+<li>ViewModel是Vue的核心，它是Vue的一个实例。Vue实例时作用域某个HTML元素上的，这个HTML元素可以是body，也可以是某个id所指代的元素。</li>
+<li>DOM Listeners和Data Bindings是实现双向绑定的关键。DOMListeners监听页面所有View层DOM元素的变化，当发生变化，Model层的数据随之变化；DataBindings监听Model层的数据，当数据发生变化，View层的DOM元素随之变化。</li>
+</ol>
+<h4 id="mvvm框架是什么？它和其它框架（jquery）的区别是什么？哪些场景适合？"><a href="#mvvm框架是什么？它和其它框架（jquery）的区别是什么？哪些场景适合？" class="headerlink" title="mvvm框架是什么？它和其它框架（jquery）的区别是什么？哪些场景适合？"></a>mvvm框架是什么？它和其它框架（jquery）的区别是什么？哪些场景适合？</h4><p>答：一个model+view+viewModel框架，数据模型model，viewModel连接两个<br>区别：vue数据驱动，通过数据来显示视图层而不是节点操作。<br>场景：数据操作比较多的场景，更加便捷</p>
+<h3 id="指令和用法"><a href="#指令和用法" class="headerlink" title="指令和用法"></a>指令和用法</h3><h4 id="说出至少4种vue当中的指令和它的用法？"><a href="#说出至少4种vue当中的指令和它的用法？" class="headerlink" title="说出至少4种vue当中的指令和它的用法？"></a>说出至少4种vue当中的指令和它的用法？</h4><p>答：v-if：判断是否隐藏；v-for：数据循环出来；v-bind:class：绑定一个属性；v-model：实现双向绑定</p>
+<h4 id="v-show指令，v-if的区别"><a href="#v-show指令，v-if的区别" class="headerlink" title="v-show指令，v-if的区别"></a>v-show指令，v-if的区别</h4><p>条件渲染指令，与v-if不同的是，无论v-show的值为true或false，元素都会存在于HTML代码中；而只有当v-if的值为true，元素才会存在于HTML代码中。v-show指令只是设置了元素CSS的style值</p>
+<h4 id="指令v-el的使用"><a href="#指令v-el的使用" class="headerlink" title="指令v-el的使用"></a>指令v-el的使用</h4><p>有时候我们想就像使用jquery那样去访问一个元素，此时就可以使用v-el指令，去给这个元素注册一个索引，方便通过所属实例的$el访问这个元素。<br>注意<br>HTML不区分大小写，所以v-el:someEl将转换为全小写。可以用v-el:some-el然后设置this.$el.someEl。<br>示例：</p>
+<pre><code>&lt;span v-el:msg&gt;hello&lt;/span&gt;
+&lt;span v-el:other-msg&gt;world&lt;/span&gt;
+this.$els.msg.textContent // -&gt; &quot;hello&quot;
+this.$els.otherMsg.textContent // -&gt; &quot;world&quot;
+this.$els.msg //-&gt;&lt;span&gt;hello&lt;/span&gt;
+</code></pre><h4 id="指令keep-alive"><a href="#指令keep-alive" class="headerlink" title="指令keep-alive"></a>指令keep-alive</h4><p>在vue-router写着keep-alive，keep-alive的含义：<br>如果把切换出去的组件保留在内存中，可以保留它的状态或避免重新渲染。为此可以添加一个keep-alive指令</p>
+<component :is="curremtView" keep-alive=""></component>
+
+<h3 id="钩子函数"><a href="#钩子函数" class="headerlink" title="钩子函数"></a>钩子函数</h3><h4 id="vue-router有哪几种导航钩子？"><a href="#vue-router有哪几种导航钩子？" class="headerlink" title="vue-router有哪几种导航钩子？"></a>vue-router有哪几种导航钩子？</h4><p>答：三种，一种是全局导航钩子：router.beforeEach(to,from,next)，作用：跳转前进行判断拦截。第二种：组件内的钩子；第三种：单独路由独享组件</p>
+<h4 id="导航钩子有哪些？它们有哪些参数？"><a href="#导航钩子有哪些？它们有哪些参数？" class="headerlink" title="导航钩子有哪些？它们有哪些参数？"></a>导航钩子有哪些？它们有哪些参数？</h4><p>答：导航钩子有：a/全局钩子和组件内独享的钩子。b/beforeRouteEnter、afterEnter、beforeRouterUpdate、beforeRouteLeave<br>参数：有to（去的那个路由）、from（离开的路由）、next（一定要用这个函数才能去到下一个路由，如果不用就拦截）最常用就这几种</p>
+<h4 id="自定义指令（v-check、v-focus）的方法有哪些？它有哪些钩子函数？还有哪些钩子函数参数？"><a href="#自定义指令（v-check、v-focus）的方法有哪些？它有哪些钩子函数？还有哪些钩子函数参数？" class="headerlink" title="自定义指令（v-check、v-focus）的方法有哪些？它有哪些钩子函数？还有哪些钩子函数参数？"></a>自定义指令（v-check、v-focus）的方法有哪些？它有哪些钩子函数？还有哪些钩子函数参数？</h4><p>答：全局定义指令：在vue对象的directive方法里面有两个参数，一个是指令名称，另外一个是函数。组件内定义指令：directives<br>钩子函数：bind（绑定事件触发）、inserted(节点插入的时候触发)、update（组件内相关更新）<br>钩子函数参数：el、binding</p>
+<h3 id="Vuejs组件"><a href="#Vuejs组件" class="headerlink" title="Vuejs组件"></a>Vuejs组件</h3><blockquote>
+<p>vuejs构建组件使用</p>
+</blockquote>
+<pre><code>Vue.component(&apos;componentName&apos;,{ /*component*/ })；   这里注意一点，组件要先注册再使用
+Vue.component(&apos;mine&apos;,{
+       template:&apos;#mineTpl&apos;,
+       props:[&apos;name&apos;,&apos;title&apos;,&apos;city&apos;,&apos;content&apos;]
+    });
+ var v=new Vue({
+      el:&apos;#vueInstance&apos;,
+      data:{
+          name:&apos;zhang&apos;,
+          title:&apos;this is title&apos;,
+         city:&apos;Beijing&apos;,
+         content:&apos;these are some desc about Blog&apos;
+     }
+});
+</code></pre><h3 id="认识vuex"><a href="#认识vuex" class="headerlink" title="认识vuex"></a>认识vuex</h3><h4 id="你是怎么认识vuex的？"><a href="#你是怎么认识vuex的？" class="headerlink" title="你是怎么认识vuex的？"></a>你是怎么认识vuex的？</h4><p>答：vuex可以理解为一种开发模式或框架。比如PHP有thinkphp，java有spring等。<br>通过状态（数据源）集中管理驱动组件的变化（好比spring的IOC容器对bean进行集中管理）。<br>应用级的状态集中放在store中； 改变状态的方式是提交mutations，这是个同步的事物； 异步逻辑应该封装在action中。</p>
+<h4 id="vuex是什么？怎么使用？哪种功能场景使用它？"><a href="#vuex是什么？怎么使用？哪种功能场景使用它？" class="headerlink" title="vuex是什么？怎么使用？哪种功能场景使用它？"></a>vuex是什么？怎么使用？哪种功能场景使用它？</h4><p>答：vue框架中状态管理。在main.js引入store，注入。新建了一个目录store，….. export 。场景有：单页应用中，组件之间的状态。音乐播放、登录状态、加入购物车</p>
+<h3 id="Vue-js-和-AngularJS-之间的区别是什么"><a href="#Vue-js-和-AngularJS-之间的区别是什么" class="headerlink" title="Vue.js 和 AngularJS 之间的区别是什么?"></a>Vue.js 和 AngularJS 之间的区别是什么?</h3><p>下面是一些选择 Vue 而不是 Angular 的可能原因；</p>
+<blockquote>
+<ol>
+<li>Vue.js 是一个更加灵活开放的解决方案。它允许你以希望的方式组织你的应用程序，而不是任何时候都必须遵循 Angular 制定的规则。它仅仅是一个视图层，所以你可以将它嵌入一个现有页面而不一定要做成一个庞大的单页应用。在结合其他库方面它给了你更大的的空间，但相应，你也需要做更多的架构决策。</li>
+<li>例如，Vue.js 核心默认不包含路由和 ajax 功能，并且通常假定你在用应用中使用了一个外部的模块构建系统。这可能是最重要的区别</li>
+<li>在 API 和内部设计方面，Vue.js 比 Angular 简单得多, 因此你可以快速地掌握它的全部特性并投入开发。</li>
+<li>Vue.js 拥有更好的性能，因为它不使用脏检查。当 watcher 越来越多时, Angular 会变得越来越慢，因为作用域内的每一次数据变更，所有的 watcher 都需要被重新求值。Vue 则根本没有这个问题，因为它采用的是基于依赖追踪的观察系统，所以所有的数据变更触发都是独立的，除非它们之间有明确的依赖关系。</li>
+<li>Vue.js 中指令和组件的概念区分得更为清晰。指令只负责封装 DOM 操作，而组件代表一个自给自足的独立单元 —— 它拥有自己的视图和数据逻辑。在 Angular 中它们两者间有不少概念上的混淆。</li>
+</ol>
+</blockquote>
+<h3 id="Vue-js-和-React-js-有什么区别"><a href="#Vue-js-和-React-js-有什么区别" class="headerlink" title="Vue.js 和 React.js 有什么区别?"></a>Vue.js 和 React.js 有什么区别?</h3><blockquote>
+<ol>
+<li>React.js 和 Vue.js 确实有一些相似——它们都提供数据驱动、可组合搭建的视图组件。然而，它们的内部实现是完全不同的。React 是基于 Virtual DOM——一种在内存中描述 DOM 树状态的数据结构。React 中的数据通常被看作是不可变的，而 DOM 操作则是通过 Virtual DOM 的 diff 来计算。</li>
+<li>与之相比，Vue.js 中的数据默认是可变的，而数据的变更会直接出发对应的 DOM 更新。相比于 Virtual DOM，Vue.js 使用实际的 DOM 作为模板，并且保持对真实节点的引用来进行数据绑定。</li>
+<li>Virtual DOM 提供了一个函数式的描述视图的方法，这很 cool。因为它不使用数据观察机制，每次更新都会重新渲染整个应用，因此从定义上保证了视图通与数据的同步。它也开辟了 JavaScript 同构应用的可能性。</li>
+<li>React 有一个问题就是组件的逻辑和视图结合得非常紧密。对于部分开发者来说，他们可能觉得这是个优点，但对那些像兼顾设计和开发的人来说，还是更偏好模板，因为模板能让我们更好地在视觉上思考设计和 CSS。JSX 和 JavaScript 逻辑的混合干扰了我将代码映射到设计的思维过程。</li>
+<li>相反，Vue.js 通过在模板中加入一个轻量级的 DSL (指令系统)，换来一个依旧直观的模板，且能够将逻辑封装进指令和过滤器中。</li>
+<li>React 的另一个问题是：由于 DOM 更新完全交由 Virtual DOM 管理，当你真的想要自己控制 DOM 是就有点棘手了（虽然理论上你可以，但这样做时你本质上在对抗 React 的设计思想）。对于需要复杂时间控制的动画来说这就变成了一项很讨人厌的限制。在这方面，Vue.js 允许更多的灵活性，并且有不少用 Vue.js 构建的富交互实例</li>
+</ol>
+</blockquote>
+<h3 id="Vue的双向数据绑定原理是什么？（vue-data是怎么实现的？）"><a href="#Vue的双向数据绑定原理是什么？（vue-data是怎么实现的？）" class="headerlink" title="Vue的双向数据绑定原理是什么？（vue data是怎么实现的？）"></a>Vue的双向数据绑定原理是什么？（vue data是怎么实现的？）</h3><blockquote>
+<p>vue.js 是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。</p>
+</blockquote>
+<p>具体步骤：<br>第一步：需要observe的数据对象进行递归遍历，包括子属性对象的属性，都加上 setter和getter<br>这样的话，给这个对象的某个值赋值，就会触发setter，那么就能监听到了数据变化<br>第二步：compile解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图<br>第三步：Watcher订阅者是Observer和Compile之间通信的桥梁，主要做的事情是:<br>1、在自身实例化时往属性订阅器(dep)里面添加自己<br>2、自身必须有一个update()方法<br>3、待属性变动dep.notice()通知时，能调用自身的update()方法，并触发Compile中绑定的回调，则功成身退。<br>第四步：MVVM作为数据绑定的入口，整合Observer、Compile和Watcher三者，通过Observer来监听自己的model数据变化，通过Compile来解析编译模板指令，最终利用Watcher搭起Observer和Compile之间的通信桥梁，达到数据变化 -&gt; 视图更新；视图交互变化(input) -&gt; 数据model变更的双向绑定效果。</p>
+<h3 id="请详细说下你对vue生命周期的理解？"><a href="#请详细说下你对vue生命周期的理解？" class="headerlink" title="请详细说下你对vue生命周期的理解？"></a>请详细说下你对vue生命周期的理解？</h3><blockquote>
+<p>总共分为8个阶段创建前/后，载入前/后，更新前/后，销毁前/后。</p>
+</blockquote>
+<p>创建前/后： 在beforeCreated阶段，vue实例的挂载元素$el和数据对象data都为undefined，还未初始化。在created阶段，vue实例的数据对象data有了，$el还没有。<br>载入前/后：在beforeMount阶段，vue实例的$el和data都初始化了，但还是挂载之前为虚拟的dom节点，data.message还未替换。在mounted阶段，vue实例挂载完成，data.message成功渲染。<br>更新前/后：当data变化时，会触发beforeUpdate和updated方法。<br>销毁前/后：在执行destroy方法后，对data的改变不会再触发周期函数，说明此时vue实例已经解除了事件监听以及和dom的绑定，但是dom结构依然存在</p>
+<h3 id="请说下封装-vue-组件的过程？"><a href="#请说下封装-vue-组件的过程？" class="headerlink" title="请说下封装 vue 组件的过程？"></a>请说下封装 vue 组件的过程？</h3><blockquote>
+<ol>
+<li>首先，组件可以提升整个项目的开发效率。能够把页面抽象成多个相对独立的模块，解决了我们传统项目开发：效率低、难维护、复用性等问题。</li>
+<li>然后，使用Vue.extend方法创建一个组件，然后使用Vue.component方法注册组件。子组件需要数据，可以在props中接受定义。而子组件修改好数据后，想把数据传递给父组件。可以采用emit方法。</li>
+</ol>
+</blockquote>
+<h3 id="vue-router插件"><a href="#vue-router插件" class="headerlink" title="vue-router插件"></a>vue-router插件</h3><h4 id="怎么定义vue-router的动态路由？怎么获取传过来的动态参数？"><a href="#怎么定义vue-router的动态路由？怎么获取传过来的动态参数？" class="headerlink" title="怎么定义vue-router的动态路由？怎么获取传过来的动态参数？"></a>怎么定义vue-router的动态路由？怎么获取传过来的动态参数？</h4><p>答：在router目录下的index.js文件中，对path属性加上/:id。  使用router对象的params.id</p>
+<h4 id="vue-router是什么？它有哪些组件？"><a href="#vue-router是什么？它有哪些组件？" class="headerlink" title="vue-router是什么？它有哪些组件？"></a>vue-router是什么？它有哪些组件？</h4><p>答：vue用来写路由一个插件。router-link、router-view</p>
+<h4 id="路由嵌套"><a href="#路由嵌套" class="headerlink" title="路由嵌套"></a>路由嵌套</h4><p>路由嵌套会将其他组件渲染到该组件内，而不是进行整个页面跳转router-view本身就是将组件渲染到该位置，想要进行页面跳转，就要将页面渲染到根组件，在起始配置路由时候写到：</p>
+<pre><code>var App = Vue.extend({ root });
+router.start(App,&apos;#app&apos;);
+</code></pre><p>这里首先将根组件注册进来，用于将路由中配置好的各个页面渲染出来，然后将根组件挂载到与#app匹配的元素上。</p>
+<h4 id="active-class是哪个组件的属性？嵌套路由怎么定义？"><a href="#active-class是哪个组件的属性？嵌套路由怎么定义？" class="headerlink" title="active-class是哪个组件的属性？嵌套路由怎么定义？"></a>active-class是哪个组件的属性？嵌套路由怎么定义？</h4><p>答：vue-router模块的router-link组件。</p>
+<h3 id="vuejs中使用事件名"><a href="#vuejs中使用事件名" class="headerlink" title="vuejs中使用事件名"></a>vuejs中使用事件名</h3><p>在vuejs中，我们经常要绑定一些事件，有时候给DOM元素绑定，有时候给组件绑定。绑定事件在HTML中用v-on:click-“event”,这时evet的名字不要出现大写，因为在1.x中不区分大小写，所以如果我们在HTML写v-on:click=”myEvent”而在js中写myEvent就出错误，所以在vuejs的1.x绑定事件时候，要尽量避免使用大写字母。在2.0中没有该限制！</p>
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><h4 id="如何让css只在当前组件中起作用"><a href="#如何让css只在当前组件中起作用" class="headerlink" title="如何让css只在当前组件中起作用"></a>如何让css只在当前组件中起作用</h4><p>在每一个vue组件中都可以定义各自的css，js，如果希望组件内写的css只对当前组件起作用，只需要在style中写入scoped，即：&lt; style scoped&gt;&lt; /style&gt;</p>
+<h4 id="v-model是什么？怎么使用？-vue中标签怎么绑定事件？"><a href="#v-model是什么？怎么使用？-vue中标签怎么绑定事件？" class="headerlink" title="v-model是什么？怎么使用？ vue中标签怎么绑定事件？"></a>v-model是什么？怎么使用？ vue中标签怎么绑定事件？</h4><p>答：可以实现双向绑定，指令（v-class、v-for、v-if、v-show、v-on）。vue的model层的data属性。绑定事件：&lt; input @click=doLog() /&gt;</p>
+<h4 id="vue-loader是什么？使用它的用途有哪些？"><a href="#vue-loader是什么？使用它的用途有哪些？" class="headerlink" title="vue-loader是什么？使用它的用途有哪些？"></a>vue-loader是什么？使用它的用途有哪些？</h4><p>答：解析.vue文件的一个加载器，跟template/js/style转换成js模块。<br>用途：js可以写es6、style样式可以scss或less、template可以加jade等</p>
+<h4 id="下列关于vue的组件说法不正确的是（-D-）"><a href="#下列关于vue的组件说法不正确的是（-D-）" class="headerlink" title="下列关于vue的组件说法不正确的是（ D   ）"></a>下列关于vue的组件说法不正确的是（ D   ）</h4><p>不一定要写style<br>template视图里可以写多个div容器<br>父组件给子组件传值需定义props属性<br>子组件与父组件通信需定义$emit属性</p>
+<h4 id="下面关于vue的声明周期说法不正确的是（-D-）"><a href="#下面关于vue的声明周期说法不正确的是（-D-）" class="headerlink" title="下面关于vue的声明周期说法不正确的是（  D  ）"></a>下面关于vue的声明周期说法不正确的是（  D  ）</h4><p>总共分为8个阶段:创建前/后、载入前/后、更新前/后、销毁前/后、<br>updated和beforeUpdate分别是更新完成和更新前<br>创建后this才可以获取属性、mounted时$el节点才被渲染<br>created创建后$el就不是undefined了</p>
+<h4 id="下面关于js框架说法正确的是（-ABD-）"><a href="#下面关于js框架说法正确的是（-ABD-）" class="headerlink" title="下面关于js框架说法正确的是（ ABD   ）"></a>下面关于js框架说法正确的是（ ABD   ）</h4><p>Vue是一个MVVM框架<br>Vue 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件<br>Vue中可以使用 v-for 指令来循环对象<br>在 input 输入框中我们可以使用 v-model 指令来实现双向数据绑定</p>
+<h1 id="ReactJS"><a href="#ReactJS" class="headerlink" title="ReactJS"></a>ReactJS</h1><h2 id="React的原理和背景"><a href="#React的原理和背景" class="headerlink" title="React的原理和背景"></a>React的原理和背景</h2><ol>
+<li>React不是完整的MVC，MVVM框架，特点就是轻，组件高度可重用，React中最重要的就是引入了虚拟DOM的机制。</li>
+<li>在Web开发中，我们总需要把变化的数据实时反映到页面的UI上，改变UI就需要操作DOM，而复杂又频繁的DOM操作通常是性能产生瓶颈的原因，因此React引入了虚拟DOM的机制：在客户端js实现了一套DOM API。</li>
+<li>基于React进行开发时，所有的DOM构造都是通过虚拟DOM进行的，每当数据发生变化时，React都会进行重新构建整个虚拟DOM树，然后React将当前整个虚拟DOM树和上一次的DOM树进行比较，得到DOM结构哪里发生了变化，然后仅仅将需要变化的部分在浏览器上进行更新。虚拟DOM是存在内存中的，相当于在内存中有一个虚拟的DOM树，在react中有个state,传值需要通过state，它会进行状态变化比较，改变了的地方进行真实的DOM操作。</li>
+<li>这个算法叫做Diff算法，这是一种基于红黑树的算法，它会计算虚拟DOM到实际渲染DOM结构的最少步骤。</li>
+<li>而且React能够批处理虚拟DOM的刷新，在一个事件循环内的两次数据变化都会合并。比如在极短的时间内，一个节点先从A变成B，再从B变回A，那么React会认为UI没有发生变化。</li>
+<li>尽管每一次都需要构造完整的DOM树，但是因为虚拟DOM是内存数据，性能极高，因而能达到提高性能的目的。并且在保证性能的同时，开发者将不再需要关注某个数据的变化如何更新到一个或者多个具体的DOM元素上，值需要关心在一个数据状态下，整个界面是如何渲染的。</li>
+</ol>
+<h2 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h2><p>在react中，你按照界面模板自然划分的方式来组织和编写你的代码，对于普通评论界面而言，整个UI是一个通过小组件构成的大组件，每个组件只关心自己部分的逻辑，彼此独立。</p>
+<h2 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h2><ol>
+<li>编译器——jsxTransformer<br>JSX代码并不能直接运行，需要将它编译成正常的JavaScript表达式才能运行，jsxTransformer.js就是这一编译器的角色。</li>
+<li>第二代编译器——babel<br>&lt;script type=”text/babel”&gt;<br>React官方博客发布了一篇文章，声明其自身用于JSX语法解析的编译器JSTransform已经过期，不再维护，React JS和React Native已经全部采用第三方Babel的JSX编译器实现。原因是两者在功能上已经完全重复，而Babel作为专门的JavaScript语法编译工具，提供了更为强大的功能。而browser.js是babel编译器的浏览器版本。<br>2.1 &lt;script&gt; 标签的 type 属性为 text/babel 。这是因为 React 独有的 JSX 语法，跟 JavaScript 不兼容。凡是使用 JSX 的地方，都要加上 type=”text/babel”<br>react.js 、react-dom.js 和 Browser.js ，它们必须首先加载。<br>2.2 react.js 是 React 的核心库，react-dom.js 是提供与 DOM 相关的功能，Browser.js的作用是将JSX语法转为JavaScript语法，这一步很消耗时间，实际上线的时候，应该将它放到服务器完成。</li>
+</ol>
+<h2 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h2><ol>
+<li><p>使用 JSX 来替代常规的 JavaScript。JSX 是一个看起来很像 XML 的 JavaScript 语法扩展。我们不需要一定使用 JSX，但它有以下优点：</p>
+<ul>
+<li>JSX 执行更快，因为它在编译为 JavaScript 代码后进行了优化。</li>
+<li>它是类型安全的，在编译过程中就能发现错误。</li>
+<li>使用 JSX 编写模板更加简单快速。</li>
+</ul>
+</li>
+<li><p>JSX 允许在模板中插入数组，数组会自动展开所有成员</p>
+<p>   var arr = [</p>
+<pre><code>  &lt;h1&gt;123&lt;/h1&gt;,
+  &lt;h2&gt;321&lt;/h2&gt;,
+];
+&lt;div&gt;{arr}&lt;/div&gt; 
+</code></pre></li>
+</ol>
+<h2 id="React-State-状态"><a href="#React-State-状态" class="headerlink" title="React State(状态)"></a>React State(状态)</h2><ol>
+<li>React 把组件看成是一个状态机（State Machines）。通过与用户的交互，实现不同状态，然后渲染 UI，让用户界面和数据保持一致。</li>
+<li>React 里，只需更新组件的 state，然后根据新的 state 重新渲染用户界面（不要操作 DOM）。</li>
+<li>创建了 XXX 组件，getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过 this.state 属性读取。当用户点击组件，导致状态变化，this.setState 方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件。</li>
+</ol>
+<h2 id="React-Props"><a href="#React-Props" class="headerlink" title="React Props"></a>React Props</h2><blockquote>
+<p>state 和 props 主要的区别在于props是不可变的，而state可以根据与用户交互来改变。这就是为什么有些容器组件需要定义 state 来更新和修改数据。 而子组件只能通过 props 来传递数据。</p>
+</blockquote>
+<ol>
+<li>Props 验证使用 propTypes，它可以保证我们的应用组件被正确使用，React.PropTypes 提供很多验证器 (validator) 来验证传入数据是否有效。当向 props 传入无效数据时，JavaScript 控制台会抛出警告。</li>
+<li>props相当于组件的数据流，它总是会从父组件向下传递至所有的子组件中。当和一个外部的JavaScript应用集成时，我们可能会需要向组件传递数据或通知React.render()组件需要重新渲染，可以使用setProps()。</li>
+<li>组件并不是真实的 DOM 节点，而是存在于内存之中的一种数据结构，叫做虚拟DOM（virtualDOM）。只有当它插入文档以后，才会变成真实的DOM。根据React的设计，所有的DOM变动，都先在虚拟DOM上发生，然后再将实际发生变动的部分，反映在真实DOM上，这种算法叫做 DOM diff ，它可以极大提高网页的性能表现。</li>
+</ol>
+<h2 id="React-组件-API"><a href="#React-组件-API" class="headerlink" title="React 组件 API"></a>React 组件 API</h2><p>设置状态：setState<br>替换状态：replaceState<br>设置属性：setProps<br>替换属性：replaceProps<br>强制更新：forceUpdate<br>获取DOM节点：findDOMNode<br>判断组件挂载状态：isMounted</p>
+<p>所谓组件，即封装起来的具有独立功能的UI部件。React推荐以组件的方式去重新思考UI构成，将UI上每一个功能相对独立的模块定义成组件，然后将小的组件通过组合或者嵌套的方式构成大的组件，最终完成整体UI的构建。</p>
+<p>将组件看成是一个状态机，一开始有一个初始状态，然后用户互动，导致状态变化，从而触发重新渲染 UI</p>
+<h2 id="React组件应该具有特征"><a href="#React组件应该具有特征" class="headerlink" title="React组件应该具有特征"></a>React组件应该具有特征</h2><ol>
+<li>可组合（Composeable）：一个组件易于和其它组件一起使用，或者嵌套在另一个组件内部。如果一个组件内部创建了另一个组件，那么说父组件拥有（own）它创建的子组件，通过这个特性，一个复杂的UI可以拆分成多个简单的UI组件；</li>
+<li>可重用（Reusable）：每个组件都是具有独立功能的，它可以被使用在多个UI场景；</li>
+<li>可维护（Maintainable）：每个小的组件仅仅包含自身的逻辑，更容易被理解和维护；</li>
+</ol>
+<h2 id="MVC模式"><a href="#MVC模式" class="headerlink" title="MVC模式"></a>MVC模式</h2><p>MVC的思想让你做到视图-数据-控制器的分离，那么组件化的思考方式则是带来了UI功能模块之间的分离</p>
+<h3 id="软件可以分为三个部分"><a href="#软件可以分为三个部分" class="headerlink" title="软件可以分为三个部分"></a>软件可以分为三个部分</h3><p>视图（View）：用户界面<br>控制器（Controller）：业务逻辑<br>模型（Model）：数据保存<br>各部分的通信方式：</p>
+<ul>
+<li>View传送指令到Controller</li>
+<li>Controller完成业务逻辑之后，要求Model改变状态</li>
+<li>Model将新的数据发送到View，用户得到反馈</li>
+<li>三者之间是一个三角关系，并且所有的通信都是单向的。<br>互动模式：<br>接受用户指令时，MVC可以分成两种方式，一种是通过View接受指令，传递给Controller，另一只是直接通过Controller接受指令。</li>
+</ul>
+<h2 id="说说react的优点和生命周期"><a href="#说说react的优点和生命周期" class="headerlink" title="说说react的优点和生命周期"></a>说说react的优点和生命周期</h2><ol>
+<li>React速度很快<br>React中最重要的就是引入了虚拟DOM的机制。<br>基于React进行开发时，所有的DOM构造都是通过虚拟DOM进行的，每当数据发生变化时，React都会进行重新构建整个虚拟DOM树，然后React将当前整个虚拟DOM树和上一次的DOM树进行比较，得到DOM结构哪里发生了变化，然后仅仅将需要变化的部分在浏览器上进行更新。<br>这个算法叫做Diff算法，这是一种基于红黑树的算法，它会计算虚拟DOM到实际渲染DOM结构的最少步骤。</li>
+<li>跨浏览器兼容<br>虚拟DOM帮助我们解决了跨浏览器问题，它为我们提供了标准化的API，甚至在IE8中都是没问题的。</li>
+<li>模块化<br>为你程序编写独立的模块化UI组件，这样当某个或某些组件出现问题是，可以方便地进行隔离。<br>每个组件都可以进行独立的开发和测试，并且它们可以引入其它组件。这等同于提高了代码的可维护性。</li>
+</ol>
+<h2 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h2><p>生命周期共提供了10个不同的API。</p>
+<ol>
+<li>getDefaultProps<br>作用于组件类，只调用一次，返回对象用于设置默认的props，对于引用值，会在实例中共享。</li>
+<li>getInitialState<br>作用于组件的实例，在实例创建时调用一次，用于初始化每个实例的state，此时可以访问this.props。</li>
+<li>componentWillMount<br>在完成首次渲染之前调用，此时仍可以修改组件的state。</li>
+<li>render<br>必选的方法，创建虚拟DOM，该方法具有特殊的规则：<br>只能通过this.props和this.state访问数据<br>可以返回null、false或任何React组件<br>只能出现一个顶级组件（不能返回数组）<br>不能改变组件的状态<br>不能修改DOM的输出</li>
+<li>componentDidMount<br>真实的DOM被渲染出来后调用，在该方法中可通过this.getDOMNode()访问到真实的DOM元素。此时已可以使用其他类库来操作这个DOM。<br>在服务端中，该方法不会被调用。</li>
+<li>componentWillReceiveProps<br>组件接收到新的props时调用，并将其作为参数nextProps使用，此时可以更改组件props及state。<br> componentWillReceiveProps: function(nextProps) {<br>   if (nextProps.bool) {<pre><code>this.setState({
+  bool: true
+});
+</code></pre>   }<br> }</li>
+<li>shouldComponentUpdate<br>组件是否应当渲染新的props或state，返回false表示跳过后续的生命周期方法，通常不需要使用以避免出现bug。在出现应用的瓶颈时，可通过该方法进行适当的优化。<br>在首次渲染期间或者调用了forceUpdate方法后，该方法不会被调用</li>
+<li>componentWillUpdate<br>接收到新的props或者state后，进行渲染之前调用，此时不允许更新props或state。</li>
+<li>componentDidUpdate<br>完成渲染新的props或者state后调用，此时可以访问到新的DOM元素。</li>
+<li>componentWillUnmount<br>组件被移除之前被调用，可以用于做一些清理工作，在componentDidMount方法中添加的所有任务都需要在该方法中撤销，比如创建的定时器或添加的事件监听器。不太用，浏览器有垃圾回收机制</li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>注释需要写在花括号中 </li>
+<li>在 JSX 中不能使用 if else 语句，但可以使用 conditional (三元运算) 表达式来替代。<br>i == 1 ? ‘True!’ : ‘False’</li>
+<li>React 会在指定元素数字后自动添加 px </li>
+<li>React 推荐使用内联样式。我们可以使用 camelCase 语法来设置内联样式. </li>
+<li>React.createClass() 方法用于生成一个组件类</li>
+<li>原生 HTML 元素名以小写字母开头，而自定义的 React 类名以大写字母开头，比如 HelloMessage 不能写成 helloMessage。除此之外还需要注意组件类只能包含一个顶层标签，否则也会报错。 通过创建多个组件来合成一个组件，即把组件的不同功能点进行分离</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>博主会持续更新，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixinprice.png" alt="Candice Yu WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zhifubaoprice.jpg" alt="Candice Yu Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/VUE/" rel="tag">#VUE</a>
+          
+            <a href="/tags/reactJS/" rel="tag">#reactJS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/31/前端知识总结（LESS，SASS）/" rel="next" title="前端知识总结（LESS，SASS）">
+                <i class="fa fa-chevron-left"></i> 前端知识总结（LESS，SASS）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/11/01/前端知识总结（VUE，reactJS）/"
+           data-title="前端知识总结（VUE，reactJS）" data-url="http://candiceyu.com/2017/11/01/前端知识总结（VUE，reactJS）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Candice Yu" />
+          <p class="site-author-name" itemprop="name">Candice Yu</p>
+          <p class="site-description motion-element" itemprop="description">I don’t want to earn my living; i want to live.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/dreamgirla" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/5329295f3aea/timeline" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-jianshu"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/#signin" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://carryguan.me/" title="Carry" target="_blank">Carry</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yuanguangxin.me/" title="yuanguangxin" target="_blank">yuanguangxin</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VUE总结"><span class="nav-text">VUE总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VUE和jQuery的区别"><span class="nav-text">VUE和jQuery的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VUE1-0和VUE2-0的区别"><span class="nav-text">VUE1.0和VUE2.0的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期"><span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算属性computed-vs-Methods-methods"><span class="nav-text">计算属性computed: {} vs Methods methods: {}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Computed-属性-vs-Watched-属性"><span class="nav-text">Computed 属性 vs Watched 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#key管理可复用的元素"><span class="nav-text">key管理可复用的元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-show"><span class="nav-text">v-show</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-for"><span class="nav-text">v-for</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件处理器"><span class="nav-text">事件处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法事件处理器"><span class="nav-text">方法事件处理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件修饰符"><span class="nav-text">事件修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键值修饰符"><span class="nav-text">键值修饰符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单控件绑定"><span class="nav-text">表单控件绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本"><span class="nav-text">文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复选框"><span class="nav-text">复选框</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修饰符"><span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件"><span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#data-必须是函数-通过Vue构造器传入的各种选项大多数都可以在组件里用。-data-是一个例外，它必须是函数。"><span class="nav-text">data 必须是函数,通过Vue构造器传入的各种选项大多数都可以在组件里用。 data 是一个例外，它必须是函数。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构成组件"><span class="nav-text">构成组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Prop-传递数据"><span class="nav-text">使用 Prop 传递数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#动态-Prop"><span class="nav-text">动态 Prop</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单向数据流"><span class="nav-text">单向数据流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prop-验证"><span class="nav-text">Prop 验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义事件"><span class="nav-text">自定义事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子组件索引"><span class="nav-text">子组件索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue面试题"><span class="nav-text">Vue面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-js是什么"><span class="nav-text">Vue.js是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VueJS-特性："><span class="nav-text">VueJS 特性：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用MVVM模式有几大好处"><span class="nav-text">使用MVVM模式有几大好处</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟DOM有利也有弊。"><span class="nav-text">虚拟DOM有利也有弊。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-js特点"><span class="nav-text">Vue.js特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue中的MVVM模式"><span class="nav-text">vue中的MVVM模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mvvm框架是什么？它和其它框架（jquery）的区别是什么？哪些场景适合？"><span class="nav-text">mvvm框架是什么？它和其它框架（jquery）的区别是什么？哪些场景适合？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指令和用法"><span class="nav-text">指令和用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说出至少4种vue当中的指令和它的用法？"><span class="nav-text">说出至少4种vue当中的指令和它的用法？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v-show指令，v-if的区别"><span class="nav-text">v-show指令，v-if的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令v-el的使用"><span class="nav-text">指令v-el的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令keep-alive"><span class="nav-text">指令keep-alive</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#钩子函数"><span class="nav-text">钩子函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-router有哪几种导航钩子？"><span class="nav-text">vue-router有哪几种导航钩子？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航钩子有哪些？它们有哪些参数？"><span class="nav-text">导航钩子有哪些？它们有哪些参数？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义指令（v-check、v-focus）的方法有哪些？它有哪些钩子函数？还有哪些钩子函数参数？"><span class="nav-text">自定义指令（v-check、v-focus）的方法有哪些？它有哪些钩子函数？还有哪些钩子函数参数？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vuejs组件"><span class="nav-text">Vuejs组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#认识vuex"><span class="nav-text">认识vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#你是怎么认识vuex的？"><span class="nav-text">你是怎么认识vuex的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vuex是什么？怎么使用？哪种功能场景使用它？"><span class="nav-text">vuex是什么？怎么使用？哪种功能场景使用它？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-js-和-AngularJS-之间的区别是什么"><span class="nav-text">Vue.js 和 AngularJS 之间的区别是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-js-和-React-js-有什么区别"><span class="nav-text">Vue.js 和 React.js 有什么区别?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue的双向数据绑定原理是什么？（vue-data是怎么实现的？）"><span class="nav-text">Vue的双向数据绑定原理是什么？（vue data是怎么实现的？）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请详细说下你对vue生命周期的理解？"><span class="nav-text">请详细说下你对vue生命周期的理解？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请说下封装-vue-组件的过程？"><span class="nav-text">请说下封装 vue 组件的过程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-router插件"><span class="nav-text">vue-router插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么定义vue-router的动态路由？怎么获取传过来的动态参数？"><span class="nav-text">怎么定义vue-router的动态路由？怎么获取传过来的动态参数？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-router是什么？它有哪些组件？"><span class="nav-text">vue-router是什么？它有哪些组件？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由嵌套"><span class="nav-text">路由嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#active-class是哪个组件的属性？嵌套路由怎么定义？"><span class="nav-text">active-class是哪个组件的属性？嵌套路由怎么定义？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vuejs中使用事件名"><span class="nav-text">vuejs中使用事件名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他问题"><span class="nav-text">其他问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何让css只在当前组件中起作用"><span class="nav-text">如何让css只在当前组件中起作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v-model是什么？怎么使用？-vue中标签怎么绑定事件？"><span class="nav-text">v-model是什么？怎么使用？ vue中标签怎么绑定事件？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-loader是什么？使用它的用途有哪些？"><span class="nav-text">vue-loader是什么？使用它的用途有哪些？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下列关于vue的组件说法不正确的是（-D-）"><span class="nav-text">下列关于vue的组件说法不正确的是（ D   ）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下面关于vue的声明周期说法不正确的是（-D-）"><span class="nav-text">下面关于vue的声明周期说法不正确的是（  D  ）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下面关于js框架说法正确的是（-ABD-）"><span class="nav-text">下面关于js框架说法正确的是（ ABD   ）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ReactJS"><span class="nav-text">ReactJS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#React的原理和背景"><span class="nav-text">React的原理和背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件化"><span class="nav-text">组件化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器"><span class="nav-text">编译器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX语法"><span class="nav-text">JSX语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-State-状态"><span class="nav-text">React State(状态)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Props"><span class="nav-text">React Props</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-组件-API"><span class="nav-text">React 组件 API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React组件应该具有特征"><span class="nav-text">React组件应该具有特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC模式"><span class="nav-text">MVC模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件可以分为三个部分"><span class="nav-text">软件可以分为三个部分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说说react的优点和生命周期"><span class="nav-text">说说react的优点和生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件生命周期"><span class="nav-text">组件生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Candice Yu</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"candiceyu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+</body>
+</html>
