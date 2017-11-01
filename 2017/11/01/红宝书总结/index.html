@@ -1,0 +1,1636 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="BOM,DOM,JS,事件,闭包,原型," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Candice Yu_个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="基本类型，引用类型和变量基本数据类型：Number,String,Boolean,Null,undefined。混合数据类型：object引用数据类型：Array,Date,RegExp,Functiontypeof数据类型：object,number,function,boolean,undefined
+ECMAScript变量包括两种不同数据类型的值：基本类型值和引用类型值。基本类型值：简单的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="红宝书总结">
+<meta property="og:url" content="http://candiceyu.com/2017/11/01/红宝书总结/index.html">
+<meta property="og:site_name" content="Candice Yu_个人博客">
+<meta property="og:description" content="基本类型，引用类型和变量基本数据类型：Number,String,Boolean,Null,undefined。混合数据类型：object引用数据类型：Array,Date,RegExp,Functiontypeof数据类型：object,number,function,boolean,undefined
+ECMAScript变量包括两种不同数据类型的值：基本类型值和引用类型值。基本类型值：简单的">
+<meta property="og:updated_time" content="2017-11-01T12:08:32.181Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="红宝书总结">
+<meta name="twitter:description" content="基本类型，引用类型和变量基本数据类型：Number,String,Boolean,Null,undefined。混合数据类型：object引用数据类型：Array,Date,RegExp,Functiontypeof数据类型：object,number,function,boolean,undefined
+ECMAScript变量包括两种不同数据类型的值：基本类型值和引用类型值。基本类型值：简单的">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://candiceyu.com/2017/11/01/红宝书总结/"/>
+
+  <title> 红宝书总结 | Candice Yu_个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?516d783fb114015b9b38b2ce58b5fe15";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Candice Yu_个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Candice Yu</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/aboutMe" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                红宝书总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-01T18:31:09+08:00" content="2017-11-01">
+              2017-11-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/11/01/红宝书总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/01/红宝书总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="基本类型，引用类型和变量"><a href="#基本类型，引用类型和变量" class="headerlink" title="基本类型，引用类型和变量"></a>基本类型，引用类型和变量</h1><p>基本数据类型：Number,String,Boolean,Null,undefined。混合数据类型：object<br>引用数据类型：Array,Date,RegExp,Function<br>typeof数据类型：object,number,function,boolean,undefined</p>
+<p>ECMAScript变量包括两种不同数据类型的值：基本类型值和引用类型值。<br>基本类型值：简单的数据段<br>引用类型值：指可能由多个值构成的对象；引用类型的值是保存在内存中的对象。<br>JavaScript不允许直接访问内存中的位置，也就是说，不能直接操作对象的内存空间。在操作对象时，实际上是在操作对象的引用而不是实际对象。</p>
+<p>原始数据类型和引用数据类型的区别<br>存储位置不同<br>原始数据类型直接存储在栈中的简单数据段，占据空间小，大小固定，属于被频繁使用的数据，所以放入栈中存储<br>引用数据类型存储在堆中的对象，占据空间大，大小不固定，如果存储在栈中，将会影响程序运行的性能，引用数据类型在栈中存储指针，改指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索栈中的地址，取得地址后从堆中获得实体。</p>
+<p>定义基本类型值和引用类型值得方式是类似的：创建一个变量并为该变量赋值，当这个值保存到变量中以后，对不同类型值可执行的操作大相径庭。对于引用类型的值，可以为其添加属性和方法，也可以改变和删除其属性和方法。</p>
+<h2 id="复制变量值"><a href="#复制变量值" class="headerlink" title="复制变量值"></a>复制变量值</h2><p>如果从一个变量向另一个变量复制基本类型的值，会在变量对象上创建一个新值，然后把该值复制到新变量分配的位置上。<br>当从一个变量向另一个变量复制引用类型的值时，同样也会将存储在变量对象中的值复制一份到新变量分配空间中。不同的是，这个值得副本是一个指针，而这个指针指向存储在堆中的一个对象。复制操作结束后，两个变量实际上引用同一个对象，因此，改变其中一个变量，就会影响另一个变量。<br>例：</p>
+<ol>
+<li>var num1 = 5; var num2 = num1;<br>num1中保存的值为5，Num1的值来初始化num2时，num2中也保存了值5，但num2中的5与num1中的5是完全独立的，该值只是num1中5的一个副本。此后两个变量可以参与任何操作而不会相互影响。</li>
+<li>var obj = new Object();var obj2 = obj1;obj1.name = “ABC”;alert(obj2.name);//“ABC”<br>obj1保存一个对象的新实例，这个值被复制到obj2，obj1,obj2都指同一个对象。obj1添加name属性，obj2也可以访问这个属性。</li>
+</ol>
+<h2 id="类型检测"><a href="#类型检测" class="headerlink" title="类型检测"></a>类型检测</h2><p>要检测一个变量是不是基本数据类型，typeof操作符是最佳工具<br>typeof操作符是确定一个变量是字符串（string）,number(NaN也是数据),boolean,undefined的最佳工具<br>如果是个对象null，则返回”object”，是个函数返回”function”<br>检测引用类型的值时，使用Instanceof操作符，返回true/false<br><strong> instanceof Object   </strong> instanceof Array  ** instanceof RegExp</p>
+<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><p>执行环境及作用域<br>每个函数都有自己的执行环境，当执行流进入一个函数时，函数的环境就会被推入一个环境栈中，而函数执行之后，栈将其环境弹出，把控制权返回给之前的执行环境。</p>
+<p>当代码在一个环境中执行时，会创建变量对象的一个作用域链。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数，则将其活动对象作为变量对象。<br>活动对象在最开始只包含一个变量，即argument对象（这个对象在全局还款中不存在的），作用域链中的下一变量对象来自包含（外部）环境，而再下一个变量对象则来自下一个包含环境。这样，一直延续到全局执行环境；全局执行环境的变量对象始终都是作用域链中的最后一个对象。</p>
+<p>内部环境可以通过作用域链访问所有的外部环境，但外部环境不能访问内部环境中的任何变量和函数。这些环境之间的联系是线性，有次序的，每个环境都可以向上搜索作用域链，以查询变量和函数名；但任何环境都不能通过向下搜索作用域链而进入另一个执行环境。</p>
+<h1 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h1><p>JavaScript具有自动垃圾收集机制，执行环境会负责管理代码执行过程中使用的内存。垃圾收集机制的原理：找出那些不再继续使用的变量，然后释放其占用的内存。为此，垃圾收集器会按照固定的时间间（或代码执行中预定的收集时间），周期性地执行这一操作。</p>
+<p>局部变量的正常生命周期<br>局部变量只在函数执行的过程中存在。而再这个过程中，会为局部变量在栈（或堆）内存上分配相应的空间，以便存储它们的值。然后在函数中使用这些变量，直至函数执行结束。此时，局部变量就没有存在的必要了，因此，可以释放它们的内存以供将来使用。并非所有情况下都这么容易就能得到结论。</p>
+<p>垃圾收集必须跟踪哪个变量有用哪个变量没用，对于不再有用的变量打上记号，以备将来收回其占用的内存。用于标识无用变量的策略可能会因实现而异，通常有两个策略。</p>
+<h2 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h2><p>常用的垃圾收集方式是标记清除。当变量进入环境（例如：在函数中声明一个变量）时，就将这个变量标记为“进入环境”。从逻辑上讲，永远不能释放进入环境的变量所占用的内存，因为只要执行流进入相应的环境，就可能用到它们。而当变量离开环境时，则将其标记为“离开环境”</p>
+<p>可以使用任何方式来标记变量。比如，可以通过翻转某个特殊的位来记录一个变量何时进入环境，或使用一个“进入环境”的变量列表及一个“离开环境”的变量列表来跟踪哪个变量发生了变化。</p>
+<p>垃圾收集器在运行的时候，给存储在内存中的所有变量都加上标记。然后它会去掉环境中的变量以及被环境只能怪的变量引用的变量，原因是环境中的变量已经无法访问到这些变量了，最后，垃圾收集器完成内存清除工作，销毁那些带标记的值并回收它们所占的内存空间。</p>
+<h2 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h2><p>含义：跟踪记录每个值被引用的次数。<br>当声明了一个变量并将一个引用类型值赋给该变量时，则这个值得引用次数就是1.<br>如果同一个值又被赋给一个变量，则该值得引用次数加1.相反，如果包含对这个值引用的变量又取得了另一个值，则这个值得引用次数减1.当这个值得引用次数变成0时，则说明没有办法再访问这个值了，因而就可以将其占用的内存空间回收回来。这样，当垃圾收集器下次再运行时，它就会释放那些引用次数为0的值所占用的内存。<br>例：</p>
+<pre><code>fnction problem(){
+    var objectA = new Object();
+    var objectB = new Object();
+    objectA.someone = objectB;
+    objectB.someone = objectA;
+}
+</code></pre><p>objectA,objectB通过各自属性相互作用，引用次数都为2。<br>标记清除，由于函数执行之后，这两个对象都离开了作用域，因此，这种相互引用不是问题。但是引用计数，当函数执行完毕后，objectA,objectB还将继续存在，因为它们引用次数永远不是0.假如这个函数被重复调用，就会导致大量内存得不到回收。</p>
+<p>为了避免类似这样的循环引用问题，最好是在不使用它们的时候手工断开，原生JavaScript对象与DOM元素之间的连接。可以使用下面代码消除循环引用：<br>objectA.someone = null;  objectB.someone = null;<br>将变量设置为null意味着切断变量与它此前引用的值之间的连接。当垃圾收集器下次运行时，就会删除这些值并回收它们占用的内存。<br>为了解决上述问题，IE9把BOM和DOM对象都转换成了真正的JavaScript对象。这样避免了两种垃圾回收算法并存导致的问题，也清除了常见的内存泄漏现象。</p>
+<h1 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h1><p>引用类型的值（对象）是引用类型的一个实例。<br>引用类型有时候也被称为对象定义，因为它们描述的是一类对象所具有的属性和方法。<br>新对象是使用new操作符后跟一个构造函数来创建的。构造函数本身就是一个函数，只不过该函数是出于创建新对象的目的而定义。</p>
+<p>object类型 原生引用类型<br>大多数引用类型值都是object类型的实例；<br>创建object实例的方式有两种：<br>1.使用new操作符后跟Object构造函数  var person = new Object();<br>2.对象字面量表示法。是对象定义的一种简写形式，简化创建包含大量属性的对象的过程。<br>var person = {“name”:”ABC”};<br>在使用对象字面量语法时，属性名也可以使用字符串<br>var person = {“name”:”ABC”,”age”:29,5:true};5也会自动转为字符串</p>
+<p>一般来说，访问对象属性时使用的都是点表示法，JavaScript也可以使用方括号表示法来访问对象的属性。方括号语法的优点是可以通过变量来访问属性。建议使用点表示法<br>var propertype = “name”;<br>alert(person[propertype]);”ABC”</p>
+<h1 id="Array类型（本地对象）"><a href="#Array类型（本地对象）" class="headerlink" title="Array类型（本地对象）"></a>Array类型（本地对象）</h1><p>改变原数组：reverse,sort,push,pop,shift,unshift,splice<br>不改变原数组：concat,join,splite,slice</p>
+<p>ECMAScript数组的每一项可以保存任何类型的数据。<br>数组的大小是可以动态调整的，即可以随着数据的添加自动增长以容纳新数据。</p>
+<p>创建数组基本方式两种：</p>
+<ol>
+<li>Array构造函数 var color = new Array(); var colors = new Array(20); length=20<br>如果预先知道保存的项目数量，也可以给构造函数传递该数量。也可以向Array构造函数传递数组中应该包含的项。<br>var colors = new Array(“blue”,”green”,”red”);<br>在使用Array构造函数时可以省略new操作符</li>
+<li>使用数组字面量表示法<br>数组字面量由一对包含数组项的方括号表示，多个数组项之间以逗号隔开。<br>var colors = [“red”,”blue”,”block”];<br>var name = [];创建一个空数组</li>
+</ol>
+<p>数组的length属性很有特点，它不只读。可以从数组的末尾移除项或向数组中添加新项，新增项不赋值都是undefined。</p>
+<p>instanceof操作符的问题在于，它假设只有一个全局执行环境。如果网页中包含多个框架，那实际上就存在两个以上不同的全局执行环境，从而存在两个以上不同版本的Array构造函数。为了解决这个问题，ECMAScript5新增了Array.isArray()方法。这个方法的目的是最终确定某个值到底是不是数组，而不管它是在哪个全局执行环境中创建的。if(Array.isArray(value)){…}</p>
+<h2 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h2><p>所有的对象都具有toLocationString(),toString()和valueof()方法<br>调用数组的toString()方法会返回数组中每一个值得字符串形式拼接而成的一个以逗号分隔的字符串。<br>调用valueof()返回的还是数组<br>alert()要接收字符串参数，所以会在后台调用toString()方法<br>调用数组的toLocationString()方法时，也会创建一个数组的以逗号为分隔的字符串，为了取得数组的toLocationString()方法，而不是toString()方法。</p>
+<h2 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h2><p>栈是一种后进先出的数据结构。栈中项的插入（推入）和移除（弹出），从发生在栈的顶部，push()和pop()方法<br>push() 返回修改后数组的长度。插入加到数组的最后<br>pop() 返回移除的项。删除数组的最后一个元素</p>
+<h2 id="队列方法"><a href="#队列方法" class="headerlink" title="队列方法"></a>队列方法</h2><p>队列方法，先进先出，队列在列表的末端添加项，从列表的前端移除项。从数组前端取得项<br>shift() 移除数组中第一项并返回该项。删除<br>unshift() 在数组前端添加任意个项并返回新数组的长度。插入</p>
+<h2 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h2><p>reverse()和sort()<br>sort() 从小到大排序，会调用每个数组项的toString()方法，比较得到的字符串，已确定如何排序<br>var values = [0,1,5,10,15];<br>values.sort();<br>alert(values);//0,1,10,15,5<br>调用sort()方法会把根据测试字符串的结果改变原来的顺序，不是最佳方案<br>sort()方法可以接收一个比较函数作为参数，以便我们制定哪个值位于哪个值前面</p>
+<pre><code>function compare(value1,value2){
+    if(value1 &lt; value2){
+        return -1l
+    }else if(value1 &gt; value2){
+        return 1;
+    }else{
+        return 0;
+    }
+}    
+var values = [0,1,5,10,15];
+values.sort(compare);
+alert(values);//0,1,5,10,15
+</code></pre><p>对于数值类型或其valueof()方法会返回数值类型的对象类型</p>
+<pre><code>function compare(value1,value2){
+    return value2 - value1;
+}
+</code></pre><h2 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h2><ol>
+<li>concat()方法 先创建当前数组的一个副本，将接收到的参数添加到这个副本的末尾，最后返回新构建的数组。（包含，增加）</li>
+<li>slice()方法 接收一或两个参数，即要返回项的起始和结束为止。（截取） 不影响原始数组<br>一个参数，返回从指定位置开始到当前数组末尾的所有项<br>两个参数，返回起始和结束之间的项，但不包括结束位置的项</li>
+<li>splice()方法 向数组的中部插入项<br>删除：2个参数，删除的第一项的位置和要删除的项数。splice(0,2)删除前两项<br>插入：3个参数，起始位置，0（要删除的项数），要插入的项。splice(2,0,”green”,”red”);从当前数组的位置2开始插入字符串”green”,”red”<br>替换：指定位置插入的任意数量的项，且同时删除任意数量的项，3个参数：起始位置，要删除的项数和要插入的任意数量的项。插入的项数不必与删除项相等。splice(2,1,”red”,”green”);删除当前数组位置2的项，从位置2插入。splice()返回从原始数组中删除的项（没删除项，返回空数组）</li>
+</ol>
+<h2 id="位置方法"><a href="#位置方法" class="headerlink" title="位置方法"></a>位置方法</h2><p>indexOf() 从头开始向后查找的项和（可选的）表示查找起点位置的索引。<br>lastIndexOf() 从末尾向前查找的项和（可选的）表示查找起点位置的索引。<br>var numbers = [1,2,3,4,5,4,3,2,1];<br>alert(number.indexOf(4));//3<br>alert(number.lastIndexOf(4));//5</p>
+<h2 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h2><p>每个方法都会有运行的函数，这个函数接收三个参数：数组项的值，该项在数组中的位置和数组对象本身。</p>
+<ol>
+<li>every() 对数组中的每一项运行给定函数，如果该函数对每一项都返回true，则返回true</li>
+<li>filter() 对数组中的每一项运行给定函数，返回该函数会返回true的项组成的数组</li>
+<li>foreach() 对数组中的每一项运行给定函，没有返回值</li>
+<li>map() 对数组中的每一项运行给定函，返回每次函数调用的结果组成的数组</li>
+<li><p>some（） 对数组中的每一项运行给定函，如果该函数对任一项返回true，则返回true</p>
+<p> var numbers = [1,2,3,4,5,4,3,2,1];<br> var everyResult = numbers.every(function(item,index,array){</p>
+<pre><code>    return (item &gt; 2);
+})
+</code></pre><p> alert(everyResult);//false</p>
+</li>
+<li><p>map() 返回一个数组，而这个数组的每一项都是在原始数组中的对应项上运行传入函数的结果。例：给数组每一项乘以2，返回乘积组成的数组</p>
+<p> var numbers = [1,2,3,4,5,4,3,2,1];<br> var everyResult = numbers.map(function(item,index,array){</p>
+<pre><code>    return (item * 2);
+})
+</code></pre><p> alert(everyResult);//[2,4,6,8,10,8,6,4]</p>
+<p> 1,2,3,4,5都不会修改数组中包含值</p>
+</li>
+</ol>
+<h2 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h2><p>reduce()和reduceRight() 这两个方法都会迭代数组的所有项，然后构建一个最终返回的值。reduce() 从数组的第一项开始，逐个遍历到最后，reduceRight()相反。这两个方法都接收两个参数：一个在每一项上调用的函数和（可选的）作为归并基础的初始值。<br>4个参数：前一个值，当前值，项的索引和数组对象。这个函数返回的任何值都会作为第一个参数自动传给下一项。<br>使用reduce()方法可以执行求数组中所有值之和的操作。</p>
+<pre><code>var values = [1,2,3,4,5];
+var sum = values.reduce(function(pre,cur,index,array){
+            return pre + cur;
+})
+alert(sum);//15
+第一次执行回调函数，prev是1，cur是2，第二次，prev是3，（1+2=3），cur是3（数组的第三项），这个过程会持续到把数组中的每一项访问一遍，返回结果。
+</code></pre><h1 id="Date类型"><a href="#Date类型" class="headerlink" title="Date类型"></a>Date类型</h1><p>Date类型使用自UTC 1970年1月1日午夜（零时）开始经过的毫秒数来保存日期<br>Date.parse()方法接收一个表示日期的字符串参数，然后尝试根据这个字符串返回相应日期的毫秒数<br>Date.parse()方法的行为因实现而异，而且通常是因地区而异<br>美国： “月/日/年”  “英文月，日，年”   “英文星期几 英文月 日 年 时：分：秒 时区”<br>var someDate = new Date(Date.parse(“May 25,2004”));<br>var someDate = new Date(“May 25,2004”); 等价，后台自动调用Date.parse()<br>Date.now()方法，返回表示调用这个方法时的日期和时间的毫秒数。<br>例： </p>
+<pre><code>var start = Date.now();  //取得开始时间
+dosomething(); //调用函数
+var stop = Date.now();  //取得停止时间或 var stop = + new Date();
+result = stop - start; 在不支持它的浏览器中，使用+操作符获取Date对象时间戳
+</code></pre><h1 id="RegExp类型（本地对象）"><a href="#RegExp类型（本地对象）" class="headerlink" title="RegExp类型（本地对象）"></a>RegExp类型（本地对象）</h1><ol>
+<li>var expression = /pattern/flags;  字面量形式来定义的正则表达式<br>flags：标明正则表达式的行为<br>g：表示全局模式。即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止<br>i：表示不区分大小写模式<br>m：表示多行模式<br>与其他语言中的正在表达式类似，模式中使用的所有元字符都必须转义。<br>正则表达式中元字符：( [ { \ ^ $ | ) ? * + . ] }</li>
+<li>使用RegExp构造函数，两个参数：要匹配的字符串模式，可选的标志字符串<br>var pattern = new RegExp(“\[bc\at”,”i”);<br>RegExp对象的主要方法是exct()，专门捕获组而设计的<br>第二个方法是test()，接收一个字符串参数，在模式与该参数匹配的情况下返回true。</li>
+</ol>
+<h1 id="Function类型"><a href="#Function类型" class="headerlink" title="Function类型"></a>Function类型</h1><p>函数实际上是对象<br>由于函数是对象，因此函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定</p>
+<ol>
+<li><p>函数声明语法</p>
+<p> function sum(num1,num2){<br>   return num1+num2;<br> }</p>
+</li>
+<li><p>函数表达式定义函数</p>
+<p> var sum = function(num1,num2){<br>   return num1 + num2;<br> }</p>
+</li>
+<li><p>使用function构造函数，可以接收任意数量参数，最后一个参数是在被看成函数体</p>
+<p> var sum = new Function(“num1”,”num2”,”return num1+num2”);不推荐</p>
+</li>
+</ol>
+<p>由于函数名仅仅是指向函数的指针，因此函数名与包含对象指针的其他变量没什么不同。<br>一个函数肯会有好几个名字</p>
+<pre><code>function sum(num1,num2){
+    return num1+num2;
+}
+alert(sum(10,10));//20
+var anotherSum = sum;
+alert(anotherSum(10,10));//20
+sum = null;
+alert(anotherSum(10,10));//20
+</code></pre><p>声明变量anotherSum，并将其设置为与sum相等（将sum的值赋给anotherSum），注意！使用不带圆括号的函数名是访问函数指针，而非调用函数。此时，anotherSum和sumd都指向同一个函数，sum设为null，也不影响anothersum。</p>
+<p>没有重载<br>声明两个同名函数，而结果则是后面的函数覆盖了前面的函数</p>
+<h1 id="函数声明与函数表达式"><a href="#函数声明与函数表达式" class="headerlink" title="函数声明与函数表达式"></a>函数声明与函数表达式</h1><p>解析器在向执行环境中加载数据时，对函数声明和函数表达式并非一视同仁。解析器会率先读取函数声明，并使其在执行任何代码之前可用（可以访问）；函数表达式，则必须等到解析器执行到它所在的代码才行，才会真正被解释执行。</p>
+<h1 id="函数内部属性"><a href="#函数内部属性" class="headerlink" title="函数内部属性"></a>函数内部属性</h1><p>函数内部，两个特殊对象：arguments和this<br>arguments是一个类数组对象，包含着传入函数中的所有参数<br>虽然arguments的主要用途是保存函数参数，但是这个对象还有一个名叫callee的属性，这个属性是一个执行，指向拥有这个arguments对象的函数<br>阶乘例：函数执行的与函数名factrial紧紧耦合在一起，消除耦合使用arguments.callee</p>
+<pre><code>function factrial(num){
+    if(num &lt;= 1){
+        return 1;
+    }else{
+        return num * factrial(num-1);
+    }
+}
+function factrial(num){
+    if(num &lt;= 1){
+        return 1;
+    }else{
+        return num * arguments.callee(num-1);
+    }
+}
+var trueFactorial = factorial;
+factorial = function(){
+    return 0;
+}
+alert(trueFactorial(5));//120
+alert(factorial(5));//0
+</code></pre><h1 id="this对象"><a href="#this对象" class="headerlink" title="this对象"></a>this对象</h1><p>this引用的是函数据以执行的环境对象，或者可以说是（当在网页的全局作用域中调用函数时，this对象引用的就是window）</p>
+<pre><code>window.color = &quot;red&quot;;
+var o = {color:&quot;blue&quot;};
+function saycolor(){
+    alert(this.color);
+}
+saycolor();//red
+o.saycolor() = saycolor;
+o.saycolor();//blue
+</code></pre><p>注意！函数的名字仅仅是一个包含指针的变量而已。即使是在不同的环境中执行，全局的saycolor()函数与o.saycolor()指向的仍然是同一个函数</p>
+<p>caller是函数对象的一个属性，该属性保存着调用当前函数的函数<br>这个属性中保存着调用当前函数的引用，如果是在全局作用域中调用当前函数，返回null</p>
+<pre><code>function outer(){
+    inner();
+}
+function inner(){
+    alert(inner.caller);
+}
+outer();
+</code></pre><p>弹出显示outer()函数的源代码，outer()调用inner(),所以inner.caller就指向outer()为了实现更松散的耦合，通过arguments.caller</p>
+<pre><code>function outer(){
+    inner();
+}
+function inner(){
+    alert(arguments.callee.caller);
+}
+outer();
+</code></pre><p>严格模式下，访问arguments.callee会导致错误<br>ECMAScript还定义了arguments.caller属性，严格模式下也会错误，非严格始终是undefined，这属性是为了分清arguments.caller和函数caller属性。<br>以上变化都是为了加强这门语言的安全性，这样第三方代码就不能在相同的环境窥视其让代码了。严格模式下：不能为函数的caller属性赋值，会报错</p>
+<p>函数属性和方法<br>函数是对象，所以函数也有属性和方法<br>两个属性：length和prototype<br>lenght属性表示函数希望接收的命名参数的个数</p>
+<h1 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h1><p>对于ECMAScript中的引用类型而言，prototpye是保存它们所有实例方法的真正所在。诸如：toString()和valueOf()等方法，实际上都保存在prototype名下，只不过是通过各自对象的实例访问罢了。<br>prototype属性是不可枚举的，使用for-in无法发现。<br>每个函数都是包含两个非继承而来的方法：apply()和call()。这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数的作用域，另一个是参数数组</p>
+<pre><code>function sum(num1,num2){
+    return num1 + num2;
+}
+function callSum(num1,num2){
+    return sum.apply(this,arguments);//sum.apply(this,a[num1,num2]);
+}
+alert(callSum(10,10));
+</code></pre><p>callSum()在执行Sum()函数时传入this作为this值（因为是在全局作用域中调用的，所以传入的就是window对象）和arguments对象。在严格模式下，未指定环境对象而调用函数，则this值不会转型为window只会是undefined。</p>
+<p>call()方法与apply()作用相同，第一个参数还是this值，其余参数都直接传递给函数。传递函数的参数必须逐个举例出来。</p>
+<pre><code>function callSum(num1,num2){
+    return sum.call(this,num1,num2);
+}
+alert(callSum(10,10));//20
+</code></pre><p>apply,call()真正用武之地是能扩充函数赖以运行的作用域。</p>
+<pre><code>window.color = &quot;red&quot;;
+var o = {color:&quot;blue&quot;};
+function saycolor(){
+    alert(this.color);
+}
+saycolor();//red
+</code></pre><p>这样的好处是对象不需要与方法有任何耦合关系</p>
+<pre><code>saycolor.call(this);//red
+saycolor.call(window);//red
+saycolor.call(o);//blue
+</code></pre><p>bind()方法 创建一个函数的实例，其this值会被绑定到传给bind()函数的值。</p>
+<pre><code>window.color = &quot;red&quot;;
+var o = {color:&quot;blue&quot;};
+function saycolor(){
+    alert(this.color);
+}
+var objectsayColor = sayclor.bind(0);
+objectsayColor(); //blue
+</code></pre><p>saycolor()调用bind()并传入对象o，创建了objectsayColor()函数。objectsayColor()函数的this值o，因此即使在全局作用域中调用这个函数，也会看到”blue”。</p>
+<h1 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h1><p>为了方便操作基本类型值。ECMAScript提供了3个特殊的引用类型：Boolean，Number和String<br>var s1 = “some text”;<br>var s2 = s1.substring(2);<br>基本类型值不是对象，逻辑上它们不应该有方法。<br>当第二行代码访问s1时，访问过程处于一种读取模式，也就是要从中读取这个字符串的值。而在读取模式中访问字符串时，后台都会自动完成下列处理。基本的字符串值就变得跟对象一样了。</p>
+<p>1.创建String类型的一个实例<br>2.在实例上调用指定的方法<br>3.销毁这个实例<br>var s1 = new String(“some text”);<br>var s2 = s1.substring(2);<br>s1 = null;</p>
+<h2 id="引用类型与基本包装类型的主要区别是对象的生存期"><a href="#引用类型与基本包装类型的主要区别是对象的生存期" class="headerlink" title="引用类型与基本包装类型的主要区别是对象的生存期"></a>引用类型与基本包装类型的主要区别是对象的生存期</h2><p>使用new操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中。而自动创建的基本包装类型的对象，则只存在于一行代码的执行瞬间，然后，立即被销毁。这意味着我们不能再运行时为基本类型值添加属性和方法。<br>对基本包装类型的实例调用typeof会返回”object”，所有基本包装类型的对象都会被转换为布尔值true。</p>
+<h1 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h1><p>toString()方法传递一个表达基数的参数，告诉它返回几进制数值的字符串形式。<br>var num = 10;<br>alert(num.toString());//“10”<br>alert(num.toSting(2));//“1010” 2进制<br>toFixed()按照指定的小数位返回数值的字符串表示<br>alert(num.toFixed(2));//“10.00”<br>var num = 10.005;<br>alert(num.toFixed(2));//“10.01”自动舍入</p>
+<h1 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h1><p>每个实例都有一个length属性</p>
+<h2 id="字符方法"><a href="#字符方法" class="headerlink" title="字符方法"></a>字符方法</h2><p>两个用于访问字符串中特定字符的方法：charAt()和charCodeAt()<br>charAt()方法以单字符字符串的形式返回给定位置的那个字符<br>var stringvalue = “hello world”;<br>alert(stringvalue.charAt(1));//“e”<br>charCodeAt() 得到的是字符编码<br>alert(stringvalue.charCodeAt(1));//“101”<br>可以使用方括号加数字索引来访问字符串的特定字符<br>alert(stringvalue[1]);//“e” IE7以前返回undefined</p>
+<h2 id="字符串操作方法"><a href="#字符串操作方法" class="headerlink" title="字符串操作方法"></a>字符串操作方法</h2><ol>
+<li><p>concat()方法 将一或多个字符串拼接起来，返回拼接得到的新字符串<br>var result = stringvalue.concat(“!”); 可接受多个参数，不影响原来字符串<br>alert(result);//“hello world!”<br>拼接字符串更多还是加号操作符（+）</p>
+</li>
+<li><p>ECMAScript提供了三个基于子字符串创建新字符串的方法：slice()，substr()，substring()都会返回被操作字符串的一个子字符串，而且也都接受一或两个参数，不会修改字符串本身</p>
+</li>
+</ol>
+<ul>
+<li>第一个参数指定子字符串的开始位置，slice()和substring()的第二个参数指定的子字符最后一个字符串后面的位置，而substr()的第二个参数指定的而是返回的字符个数</li>
+<li>参数是负值<br>slice()方法会将传入的负值与字符串的长度相加，<br>substr()方法将负的第一个参数加上字符串的长度，将负的第二个参数转换为0,，<br>substring()方法会把所有的负值参数转为0</li>
+</ul>
+<ol>
+<li><p>字符串位置方法<br>从字符串查找字符串的方法：indeOf()和lastIndexOf()返回子字符串的位置<br>都可以接受可选的第二个参数，表示从字符串中的哪个位置开始搜索</p>
+</li>
+<li><p>tirm()方法<br>创建一个字符串的副本，删除前置及后缀的所有空格，然后返回结果<br>var str = “   hello   “;alert(str.trim());//“hello”</p>
+</li>
+<li><p>字符串大小写转换方法<br>toLowerCase(),toLocaleLowerCase(),toUpperCase(),toLocaleUpperCase()</p>
+</li>
+<li><p>字符串的模式匹配方法</p>
+</li>
+</ol>
+<ul>
+<li><p>match() 本质与调用RegExp的exec()方法相同，只接受一个参数正则表达式/RegExp对象<br>var text = “cat,bat,sat,fat”;<br>var pattern = /.at/;  //与pattern.exec(text);相同<br>var matches = text.match(pattern);<br>alert(matches.index); //0<br>alert(matches[0]);  //“cat”<br>alert(pattern.lastIndexOf());// “0”</p>
+</li>
+<li><p>查找模式的方法是search()<br>返回字符串中的第一个匹配项的索引<br>var text = “cat,bat,sat,fat”;<br>var pos = text.search(/at/);<br>alert(pos);//“at”在字符串中第一次出现的位置</p>
+</li>
+<li><p>replace()方法<br>两个参数，RegExp对象或一个字符串，一个字符串或一个函数<br>var text = “cat,bat,sat,fat”;<br>var result = text.replace(/at/g,”ond”);<br>alert(result);//“cond”,”bond”,”sond”,”fond”</p>
+</li>
+<li><p>split()方法<br>指定的分隔符将一个字符串分隔成多个子字符串，并将结果放在一个数组中，分隔符可以是字符串，也可以是一个RegExp对象，2个参数可选指定数组的大小<br>var colorText = “red,blue,green,yellow”;<br>var color1 = colorText.split(“,”);//[“red”,”blue”,”green”,”yellow”]<br>var color2 = colorText.split(“,”,2);//[“red”,”blue”]</p>
+</li>
+</ul>
+<ol>
+<li><p>localeCompare()方法，比较两个字符串，按字母表中排序规则</p>
+</li>
+<li><p>formCharCode()方法，接收一或多个字符编码，然后将它们转换成一个字符串，charCodeAt()执行的是相反的操作</p>
+</li>
+</ol>
+<h1 id="单体内置对象-gload-Math不可以实例化的"><a href="#单体内置对象-gload-Math不可以实例化的" class="headerlink" title="单体内置对象 (gload,Math不可以实例化的)"></a>单体内置对象 (gload,Math不可以实例化的)</h1><p>ECMAScript-262定义：由EXMAScript实现提供的，不依赖于宿主环境的对象，这些对象这些对象在ECMAScript程序执行之前就已经存在了。Global和Math<br>所有在全局作用域中定义的属性和函数，都是Global对象的属性</p>
+<ol>
+<li><p>URI编码方法<br>Global对象的encodeURI()和encodeURIComponent()方法可以对URI（通用资源标识符）进行编码，以便发送给浏览器</p>
+</li>
+<li><p>eval()方法<br>eval()方法就像是一个完整的ECMAScript解析器，它只接受一个参数，要执行的ECMAScript（或JavaScript）字符串<br>eval(“alert(“hi”));等价于alert(“hi”);<br>eval()执行的代码可以引用在包含环境中定义的变量<br>var msg = “hello world”;eval(“alert(msg)”);//“hello world”<br>eval()中创建的任何变量或函数都不会被提升，因为解析代码的时候，它们被包含在一个字符串中，只在eval()执行的时候创建</p>
+</li>
+</ol>
+<h1 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h1><p>ECMAScript没有指出如何直接访问Global对象，但Web浏览器都是将这个全局对象作为window对象的一部分加以实现的，因此，在全局作用域中，声明的所有变量和函数，就都成了window对象的属性。<br>另一种取得Global对象方法</p>
+<pre><code>var global = function(){
+    return this;
+}();
+</code></pre><p>立即执行函数，返回this值，没有给函数指明指定this值得情况下，this值等于Global对象</p>
+<h1 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h1><ol>
+<li><p>min()和max()方法<br>要找到数组中最大或最小值，如下：<br>var val = [1,2,3,4,5,6,7,8];<br>var max = Math.max.apply(Math,val);<br>把Math对象作为apply的第一个参数，从而正确设置this值</p>
+</li>
+<li><p>舍入方法<br>Math.ceil() 向上舍入 Math.ceil(25.9);//26<br>Math.floor() 执行向下舍入 Math.floor(25.9);//25<br>Math.round() 标准舍入 25.9-&gt;26  25.5-&gt;26 25.1-&gt;25</p>
+</li>
+<li><p>rondom()方法<br>返回大于等于0小于1的一个随机数<br>值 = Math.floor(Math.random() <em> 可能值得总数 + 第一个可能的值)<br>1到10之间 var num - Math.float(Math.random() </em> 10 + 1)</p>
+</li>
+</ol>
+<h1 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h1><p>定义函数的方式：一种是函数声明。二种是函数表达式<br>函数声明特征：函数声明提升，在执行代码之前先读取函数声明<br>函数表达式：创建一个函数并将它函数给变量functionName，这种情况下创建爱你的函数叫做匿名函数（拉姆达函数），使用前必须先赋值<br>//①不要这样做</p>
+<pre><code>if(condition){
+    function sayHi(){
+        alert(&quot;Hi&quot;);
+    }
+}else{
+    function sayHi(){
+        alert(&apos;&quot;Yo!&apos;);
+    }
+}
+</code></pre><p>//②可以这样做</p>
+<pre><code>var sayHi;
+if(condition){
+    sayHi = function(){
+        alert(&quot;Hi!&quot;);
+    }
+}else{
+    sayHi = function(){
+        alert(&quot;Yo!&quot;);
+    }
+}
+</code></pre><p>①是属于无效语法，JS引擎会尝试修正错误，将其转换为合理状态。但浏览器尝试修复正错误做法并不一致</p>
+<h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><p>递归函数是在一个函数通过名字调用自身的情况下构成的<br>arguments.callee是一个指向正在执行的函数的指针，因此可以用它来实现对函数的递归调用</p>
+<pre><code>function factorial(num){
+    if(num&lt;=1){
+        return 1;
+    }else{
+        return num * arguments.callee(num-1);//arguments.callee代替函数名，可以确保无论怎样调用函数都不会出问题。
+    }
+}
+</code></pre><p>严格模式下，不能通过脚本访问arguments.callee</p>
+<pre><code>var factorial = (function f(num){//使用命名函数表达式
+    if(num&lt;=1){
+        return 1;
+    }else{
+        return num * f(num-1);
+    }
+})
+</code></pre><h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>闭包是指有权访问另一个函数作用域中的变量的函数<br>常见的创建闭包的方法：在一个函数内部创建另一个函数<br>当某个函数被调用时，会创建一个一个执行环境及相应的作用域链。然后，使用arguments和其他命名参数的值来初始化函数的活动对象。</p>
+<pre><code>function compare(value1,value2){
+    if(value1 &lt; value2){
+        return -1;
+    }else if(value1 &gt; value2){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+</code></pre><ol>
+<li>后台的每个执行环境都有一个表示变量的对象  —— 变量对象</li>
+<li>全局环境的变量对象始终存在，而像compare()函数这样的局部环境变量的对象，则只在函数执行的过程存在。</li>
+<li>作用域链本质上是一个指向变量对象的指针列表，只是引用但不实际包含变量对象</li>
+<li>函数中当我一个变量时，就会从作用域链中搜索具有相应名字的变量。</li>
+<li>当函数执行完毕后，一般，局部活动对象就会被销毁，内存中仅保存全局作用域（全局执行环境的变量对象），但闭包情况不同。</li>
+<li>在另一个函数内部定义的函数会将包含函数（外部函数）的活动对象添加到它的作用域链中。<br>这样外部函数执行完毕之后，其活动对象也不会被销毁，因为内部函数的作用域链仍然在引用这个活动对象。外部函数的作用域链会被销毁，但活动对象仍会留在内存中；直至内部函数被销毁后，外部函数的活动对象才会被销毁。</li>
+</ol>
+<p>//创建函数<br>var compareNamed = createCompareFunction(“name”);<br>//调用函数<br>var result = compareNames({name:”ABC”},{name:”DRF”});<br>//解除对匿名函数的引用（以便释放内存）<br>compareNames = null;</p>
+<p>创建的比较函数被保存在变量compareNames中，通过将compareNames设置为等于null解除该函数的引用，就等于通知垃圾回收例程将其清除，随着匿名函数的作用域链被销毁，其他作用域（除了全局作用域）也都可以安全地销毁。</p>
+<p>闭包只能取得包含函数中任何变量的最后一个值</p>
+<pre><code>function createFunction(){
+    var result = new Array();
+    for(var i=0;i&lt;10;i++){
+        result[i] = function(){
+            return i;
+        }
+    }
+    return result;
+}
+</code></pre><p>返回一个数组，但每个函数都返回10,。因为每个函数作用域中都保存着createFunction()函数的活动对象，引用都是同一个变量i，每个函数都引用这个保存变量的同一个变量对象，所以函数内容i都是10</p>
+<p>通过创建另一个匿名函数强制让闭包的行为符合预期</p>
+<pre><code>function createFunction(){
+    var result = new Array();
+    for(var i=0;i&lt;10;i++){
+        result[i] = function(num){
+            return function(){
+                return num;
+            };
+        }(i);
+    }
+    return result;
+}
+</code></pre><p>定义了一个匿名函数，并将立即执行该匿名函数的结果赋给数组。在调用每个匿名函数时，我们传入变量i。<br>由于函数参数是按值传递的，所以就会将变量i的当前复制给参数num。而这个匿名函数内部，又创建并返回了一个访问num的闭包。result数组中的每个函数都有自己num变量的一个副本，因此就可以返回各自不同的数值。</p>
+<h1 id="关于this对象"><a href="#关于this对象" class="headerlink" title="关于this对象"></a>关于this对象</h1><p>this对象是在运行时基于函数的执行环境绑定的；全局函数中，this等于window，而当函数的执行环境具有全局性，this对象通常指向window。</p>
+<pre><code>var name = &quot;The window&quot;;
+var object = {
+    name:&quot;My Object&quot;,
+    getNameFun:function(){
+        return function(){
+            return this.name;
+        }
+    }
+}
+alert(object.getNameFun());//&quot;The Window&quot;（非严格模式下）
+</code></pre><p>为什么不是”My Objdect”？<br>每个函数在被调用时都会自动取得两个特殊变量：this和arguments内部函数在搜索这两个变量时，只会搜索到其活动对象为止，因此永远不可能直接访问外部函数中的这两个变量。</p>
+<p>把外部作用域中的this对象保存在一个闭包能够访问到的变量里，就可以让闭包访问该对象了</p>
+<pre><code>var name = &quot;The window&quot;;
+var object = {
+    name:&quot;My Object&quot;,
+    getNameFun:function(){
+        return function(){
+            var that = this; 
+            return that.name;//&quot;My Object&quot;
+        }
+    }
+}
+</code></pre><p>特殊情况下，this值可能会改变</p>
+<pre><code>var name = &quot;The window&quot;;
+var object = {
+    name:&quot;My Object&quot;,
+    getNameFun:function(){
+        return function(){
+            return this.name;
+        }
+    }
+}
+①object.getName();//&quot;My Objedt&quot;
+②(object.getName())();//&quot;My Object&quot;
+③(object.getName = object.getName)();//&quot;The window&quot;非严格模式下
+③先执行一条赋值语句然后再调用赋值后的结果，这个赋值表达式的值是函数本身，所以this的值不能维持，&quot;The window&quot;
+</code></pre><h2 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h2><p>如果闭包的作用域链中保存着一个HTML元素，那么就意味着该元素将无法被销毁</p>
+<pre><code>function assignHandler(){
+    var element = document.getElementById(&quot;someElement&quot;);
+    element.onclick = function(){
+        alert(element.id);
+    }
+}
+</code></pre><p>匿名函数保存了assignHandler()的活动对象的引用，因此就会导致无法减少element的引用数。只要匿名函数存在，element的引用数至少也是1，因此它所占的内存就永远不会被回收</p>
+<pre><code>function assignHandler(){
+    var element = document.getElementById(&quot;someElement&quot;);
+    var id = element.id
+    element.onclick = function(){
+        alert(id);
+    };
+    element = null;
+}
+</code></pre><p>element.id的一个副本保存在一个变量中，并在闭包中引用该变量消除了循环引用，闭包会引用包含函数的整个活动对象，而其中包含element。<br>即使闭包不直接引用element，包含函数的活动对象中也仍然会保存一个引用。有必要把element变量设置为null，这样就能解除对DOM对象的引用顺利地减少，确保正常回收其占用的内存。</p>
+<p>私有变量<br>JS中没有私有成员的概念；任何在函数中定义的变量，都可以认为是私有变量，因此不能再函数的外部访问这些变量，私有变量包括函数的参数，局部变量和在函数内部定义的其他函数。</p>
+<h1 id="面向对象的程序设计"><a href="#面向对象的程序设计" class="headerlink" title="面向对象的程序设计"></a>面向对象的程序设计</h1><p>面向对象的语言有一个标志，那就是它，恩都有类的概念，而通过类可以创建任意多个具有属性相同的方法的对象<br>ECMAScript中没有类的概念，因此它的对象也与基于类的语言中的对象不同<br>ECMA-262把对象定义为：“无序属性的集合，其属性可以包含基本值，对象或函数”。严格来讲，就是相当于说对象是一组没有特定顺序的值<br>把ECMAScript的对象想象成散列表：无非就是一组名值对，其中值可以是数据或函数</p>
+<p>属性类型<br>ECMA-262第5版在定义只有内部才用的特性（attribute）时，描述了属性(property)的各种特征。为了表示特性是内部值，把它们放在两对方括号中。[[Elementrable]]。<br>ECMAScript中有两种属性：数据属性和访问器属性</p>
+<p>创建对象<br>虽然object构造函数或对象字面量都可以用来创建单个对象，但这些方式有个缺点：使用同个接口创建很多对象，会产生大量的重复代码。解决这个问题，人们采用工厂模式。</p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>这种模式抽象了创建具体对象的过程</p>
+<pre><code>function creatPerson(name,age){
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.sayName = function(){
+        alert(this.name);
+    };
+    return o;//返回该对象
+}
+var person = createPerson(&quot;ABC&quot;,23);
+</code></pre><p>函数createPerson()能够接受的参数来构建一个包含所有必要信息的Person对象<br>工厂模式虽然解决了创建多个相似对象的问题，但没有解决对象识别的问题。<br>在函数中定义对象，并定义对象的各种属性，引用该对象时，使用的是var person = createPerson(…);而不是加了new的</p>
+<h2 id="构建函数模式"><a href="#构建函数模式" class="headerlink" title="构建函数模式"></a>构建函数模式</h2><p>① ECMAScript中的构造函数可用来创建特定类型的对象<br>② 像Object和Array这样的原生构造函数，在运行时会自动出现执行环境中，此外，也可以创建自定义的构造函数，从而定义自定义对象类型的属性和方法</p>
+<pre><code>function Person(name,age){
+    this.name = name;
+    this.age = age;
+    this.sayName = function(){
+        alert(this.name);
+    };
+}
+var person1 = new Person(&quot;ABC&quot;,23);
+</code></pre><p>与工厂方式相比，使用构造函数方式创建对象，无需在函数内部创建，使用this指代，并而函数无需明确return。<br>③ 构造函数始终都应该以一个大写字母开头<br>var person2 = new Person(“DEF”,24);<br>④ person1,person2分别保存着Person的一个不同的实例，这两个对象都有一个construstor（构造函数）属性，该属性指向Person<br>⑤ 对象的construstor属性最初是用来标识对象类型的，但instanceof更可靠<br>⑥ 要创建Person的新实例，必须使用new操作符，以这种方式调用的构造函数经历下列4个步骤：</p>
+<ol>
+<li>创建一个新对象</li>
+<li>将构造函数的作用域赋给对象（因此this就指向这个新对象）</li>
+<li>执行构造函数中的代码（为这个新对象添加属性）</li>
+<li>返回新对象</li>
+</ol>
+<p>创建自定义的构造函数意味着将来可以将它的实例标识为一种特定的类型</p>
+<p>上述例子中创建的所有对象既是Person，也是Object的实例<br>不同实例上的同名函数是不相等的</p>
+<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>① 我们创建的每个函数都有一个prototype（原型）属性，这个属性是一个指针，指向一个对象（原型对象），而这个对象的用途是包含可以呦特定类型的所有实例共享的属性和方法。<br>② prototype就是通过调用构造函数而创建的那个对象实例的原型对象。<br>③ 使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法，不必在构造函数中定义对象实例的信息，而是可以将这些信息直接添加到原型对象中。</p>
+<pre><code>function Person(){
+    Person.prototype.name = &quot;ABC&quot;;
+    Person.prototype.sayName = function(){
+        alert(&quot;this.name&quot;);
+    }
+    var person1 = new Person();
+    person1.sayName();//&quot;ABC&quot;
+    var person2 = new Person();
+    person2.sayName();//&quot;ABC&quot;
+}
+alert(person1.sayName == person2.sayName);//true
+</code></pre><p>函数中不对属性进行定义，利用prototype属性对属性进行定义。<br>通过调用构造函数来创建对象，而新对象还会具有相同的属性和方法。新对象的这些属性和方法是由所有实例共享的，person1,person2访问的都是同一组属性，同一个sayName()</p>
+<p>更简单的原型语法</p>
+<pre><code>function Person(){}
+Person.prototype = {
+    constructor:Person,//重新设回适当的值，但是会导致[[Enumerable]]特性被设置为true，原生constructor属性不可枚举，兼容写法不在对象字面量中添加
+    name:&quot;ABC&quot;,
+    sayName:function(){alert(this.name);}
+};
+</code></pre><p>结果相同，但有一个例外：constructor属性不再指向Person，等于Object。</p>
+<pre><code>Object.defineProperty(Person.prototype,&quot;constructor&quot;,{
+    enumerable:false,
+    value:Person
+})
+</code></pre><h2 id="理解原型对象"><a href="#理解原型对象" class="headerlink" title="理解原型对象"></a>理解原型对象</h2><p>① 在JavaScript中，原型也是一个对象，通过原型可以实现对象的属性继承<br>② 只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个prototype属性，这属性指向函数的原型对象<br>③ 在默认情况下，所有原型对象都会自动获得一个constructor（构造属性）属性，这个属性包含一个指向prototype属性所在函数的指针。<br>④ 创建了自定义的构造函数之后，其原型对象默认只会取得constructor属性，其他方法都是从Object继承来的。<br>⑤ 当调用构造函数创建一个新实例后，该实例的内部将包含一个指针（内部属性），指向构造函数的原型对象。ECMA-262第5版中管这个指针叫做[[prototype]]。<br>⑥ Firefox,safari,Chrome在每个对象上都支持一个属性<em>proto</em>来访问指针<br>以前面使用Person构造函数和Person.prototype创建实例的代码为例，各个对象的关系：<br>图片<br>⑦ 虽然这两个实例都不包含属性和方法，但我们也可以调用person1.sayName()，这是通过查找对象属性的过程来实现的<br>⑧ 虽然在所有实现中都无法访问到[[prototype]]，但可以通过isPrototypeOf()方法来确定对象之间是否存在这种关系。如果[[prototype]]指向调用isPrototypeOf()方法的对象（Person.prototpe），那么这个方法就返回true。<br>⑨ ECMAScript5增加了一个新方法mObject.getPrototypeOf()返回[[prototype]]的值，方便取得一个对象的原型。<br>alert(Object.getPrototypeOf(person1) == Person.prototype);//true<br>alert(Object.getPrototypeOf(person1).name);//“ABC”</p>
+<p>⑩ 每当代码读取某个对象的某个属性时，都会执行一次搜索，目标是具有给定名字的属性。搜索首先从对象实例本身开始，如果实例中找到具有给定名字的值，则返回该属性的值，如果没找到，则继续搜索指针指向的原型对象，在原型对象值查找具有给定名字的属性，如果原型对象中找到了这个属性，则返回属性的值。</p>
+<p>我们调用person1.sayName()时，执行两次搜索，解析器会问“实例person1有sayName属性吗？”，“没有”，继续搜索，问“person1的原型有sayName属性吗？”，答“有”  它就读取那个保存在原型对象的函数。</p>
+<p>虽然可以通过对象实例访问保存在原型中的值，但却不能通过对象实例重写原型中的值。如果我们在实例中添加一个属性，而该属性与实例原型中的一个属性同名，那么我们就在实例中创建该属性，该属性将会屏蔽原型中的那个属性<br>例：<br>person1.name = “DEF”;<br>① alert(person1.name);//“DEF”——来自实例<br>② alert(person2.name);//“ABC”——来自原型</p>
+<p>添加这个属性只会阻止我们访问原型中的那个属性，但不会修改那个属性。<br>即使这个属性没有null，也只会在实例中设置这个属性，而不会恢复其指向原型的连接<br>delete可以完全删除实例属性，从而让我们重新访问原型中的的属性<br>delete(person1.name);<br>alert(person1.name);//“ABC”——来自原型</p>
+<p>hasOwnProperty()方法可以检测一个属性是存在实例中，还是存在原型中。只在给定属性存在于对象实例中，才会返回true。<br>alert(person1.hasOwnProperty(“name”));//true<br>alert(person2.hasOwnProperty(“name”));//false<br>只有当person1重写name属性后才会返回true，因为只有这时候name才是实例属性，而非原型属性。</p>
+<h3 id="原型与in操作符"><a href="#原型与in操作符" class="headerlink" title="原型与in操作符"></a>原型与in操作符</h3><p>两种方式使用in操作符：单独使用和for-in循环使用<br>单独使用，in操作符会在通过对象能够访问给定属性时，返回true，无论该属性存在于实例中还是原型中<br>alert(person1.hasOwnProperty(“name”));//true<br>alert(“name” in person1);//true<br>alert(person2.hasOwnProperty(“name”));//false<br>alert(“name” in person2);//true<br>定义函数hasOwnProtypeProperty()<br>function hasOwnProtypeProperty(object,name){<br>    return !object.hasProperty(name) &amp;&amp; (name in Object);<br>}<br>在原型中返回true，在实例中返回flase<br>alert(hasOwnProtypeProperty(person,”name”));//true</p>
+<p>在使用for-in循环时，返回的是所有能够通过对象访问的，可枚举的属性，包括存在实例中的属性，也包括原型中的属性<br>var o = {toString:function(){return “my Object”}};<br>for(var prop in o){<br>    if(prop == “toString”){<br>        alert(“Found toString”);//在IE中不会显示，IE中，由于其实现认为原型toString方法被打上了值fasle的[[Enumberable]]标记，因此跳过该属性<br>    }<br>}</p>
+<p>要取得对象上所有可枚举的实例属性，可以使用ECMAScript5的Object.keys()方法，接收一个对象作为参数，返回一个包含所有可枚举属性的字符串数组<br>var keys = Object.keys(Person.prototype);<br>alert(keys);//“name,sayName”<br>如果你想要得到多有实例属性，无论是否可枚举，都可以使用Object.getOwnPropertyNames()<br>var keys = Object.getOwnPropertyNames(Person.prototype);<br>alert(keys);//“constructor(不可枚举）,name,sayName”</p>
+<h3 id="原型的动态性"><a href="#原型的动态性" class="headerlink" title="原型的动态性"></a>原型的动态性</h3><p>① 由于在原型中查找值的过程是一次搜索，因此我们对原型对象所做的任何修改都能够立即从实例上反映出来——即使先创建了实例后修改原型也照样。</p>
+<pre><code>var friend = new Person();
+person.prototype.sayHi = function(){
+    alert(&quot;hi&quot;);
+}
+friens.sayHi();//&quot;hi&quot;
+</code></pre><p>② 能访问的原因是：实例与原型之间的松散连接关系<br>③ 当我们调用friend.sayHi()时，首先在实例中搜索名为sayHi的属性，没找到，会继续搜索原型。因为实例与原型之间的连接，只不过是一个指针，而非副本，因此，就可以在原型中找到sayHi属性并返回保存在那里的函数<br>④ 如果重写整个原型对象，就不能访问了，调用构造函数时会为实例添加一个指向最初原型的[[prototype]]指针，而把原型修改为另外一个对象就等于切断了构造函数与最初原型之间的联系<br>⑤ 实例中的指针仅指向原型，而不是指向构造函数</p>
+<h3 id="原型对象的问题"><a href="#原型对象的问题" class="headerlink" title="原型对象的问题"></a>原型对象的问题</h3><p>原型模式的缺点：①它省略了为构造函数传递初始化参数环节，结果所有实例在默认情况下都将取得相同的属性值。②由其共享的本性导致的</p>
+<pre><code>Person.prototype = function(){
+    friends:[&quot;shelby&quot;,&quot;court&quot;];
+};
+person1.friends.push(&quot;van&quot;);
+alert(person1.friends);//&quot;shelby,court,van&quot;
+alert(person2.friends);//&quot;shelby,court,van&quot;只修改person1，person2也会被修改
+</code></pre><p>组合使用构造函数模式和原型模式<br>构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性<br>每个实例都会有自己的一份实例属性的副本，但同时又共享着对方法的引用，最大限度地节省了内存。另外，这种混成模式还支持向构造函数传递参数，重写代码</p>
+<pre><code>function Person(name){
+    this.name = name;
+    this.friends:[&quot;shelby&quot;,&quot;court&quot;];
+} 
+
+Person.prototype = {
+    constructor:person;
+    sayName:function(){
+        alert(this.name);
+    }
+};
+var person1 = new Person(&quot;Candy&quot;);
+var person2 = new Person(&quot;Greg&quot;);
+person1.friends.push(&quot;van&quot;);
+alert(person1.friends);//&quot;shelby,court,van&quot;
+alert(person2.friends);//&quot;shelby,court&quot;
+</code></pre><h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h3><p>动态原型模式，它把信息都封装在了构造函数中，而通过在构造函数中初始化原型（仅在必要的情况下），有保存了同时使用构造函数和原型优点。<br>可以通过检查某个应该存在的方法是否有效，来决定是否需要初始化原型</p>
+<pre><code>function Person(name){
+    this.name = name;
+}
+① if(typeOf this.sayName != &quot;function&quot;){
+②    Person.prototype.sayName = function(){
+③        alert(this.name);
+④    }
+⑤ }
+var friend = new Person(&quot;ABC&quot;);
+friend.sayName();
+</code></pre><p>①②③④⑤只有sayName()方法不存在的情况下，才会将它添加到原型中。<br>这段代码只会在初次调用构造函数时才会执行。此后已经完成初始化，不需要什么修改了。对原型所做的修改，能够立即在所有实例中得到反映。<br>在使用动态原型模式时，不能使用对象的字面量写原型。如果在已创建了实例的情况下重写原型，那么会切断现有的实例与新原型之间的联系。</p>
+<h2 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h2><p>基本思想：创建一个函数，该函数的作用仅仅是封装创建对象的代码，然后再返回新创建的对象。</p>
+<pre><code>function Person(name){
+    var o = new Object();
+    o.name = name;
+    o.sayName = function(){
+        alert(&quot;this.name&quot;);
+    }
+    return o;
+}
+var friend = new Person(&quot;Nicholas&quot;);
+friend.sayName();//Nicholas
+除了使用new操作符并使用的包装函数叫做构造函数之外，这个模式跟工厂模式时一模一样的。
+</code></pre><p>说明：构造函数返回的对象与构造函数外部创建的对象没有什么不同。不能依赖Instanceof操作符来确定对象类型。（最好不用这种模式）</p>
+<h2 id="稳妥构造函数模式"><a href="#稳妥构造函数模式" class="headerlink" title="稳妥构造函数模式"></a>稳妥构造函数模式</h2><p>稳妥对象，指的是没有公共属性，而且其他方法也不引用this的对象。<br>与寄生构造函数类似的模式，两点不同：①新创建对象的实例方法不引用this。②不使用new操作符调用构造函数<br>function Person(name){<br>    var o = new Object();<br>    //在这里定义私有变量和函数<br>    o.sayName = function(){<br>        alert(name);<br>    }<br>}<br>没有 别的方法访问数据成员，只能调用sayName()。</p>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>ECMAScript只支持实现继承，而且其实继承主要是依靠原型链来实现的</p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>因为每个对象和原型都有原型，对象的原型指向原型对象，而父的原型又指向父的父，这种原型层层连接起来的就构成了原型链</p>
+<p>基本思想：利用原型让一个引用类型继承另一个引用类型的属性和方法。<br>构造函数，原型，实例的关系：每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针。</p>
+<p>原型链的基本概念：<br>让原型对象等于另一个类型的实例，此时的原型对象将包含一个指向另一个原型的指针，另一个原型中也包含着一个指向另一个构造函数的指针。假设另一个原型又是另一个类型的实例，那么上述关系依然成立，如此层层递进，就够成了实例与原型的链条。<br>实现原型链的一种基本模式：</p>
+<pre><code>function SuperType(){
+    this.property = true;
+}
+SuperType.prototype.getSuperValue = function(){
+    return this.property;
+}
+fucntion SubType(){
+    this.subproperty = fasle;
+}
+//继承了superType属性和方法
+SubType.prototype = new SuperType();
+SubType.prototype.getSubValue = function(){
+    return this.Subproperty;
+}
+var instance = new SubType();
+alert(instance.getSuperValue);//true
+</code></pre><p>subType继承了SuperType，继承是通过创建SuperType的实例，并将该实例赋给subType.prototype实现的<br>实现的本质是重写原型对象，代之以一个新类型的实例。</p>
+<p>例子中的实例以及构造函数和原型之间的关系图<br>图片</p>
+<p>① 上面代码，我们没有通过SubType默认原型，而是给换了一个新原型，就是SuperType的实例。新原型仅有作为一个SuperType的实例所拥有的全部属性和方法，内部还有一个指针，指向了SuperType的原型。<br>② getSuperValue()方法仍然还是在SuperType.prototype中，但property则位于SubType.prototype中、因此property是一个实例属性，而getSuperValue()则是一个原型方法。既然SubType.prototype现在是SuperType的实例，那么property当然就位于该实例中了。<br>③ 在通过原型链实现继承的情况下，搜索过程就是以沿着原型链继续向上。<br>④ 调用instance.getSuperValue会经历三个搜索步骤：①搜索实例 ②搜索SubType.prototype ③搜索SuperType.prototype</p>
+<ol>
+<li>别忘记默认的原型<br>所有函数的默认原型都是Object的实例，因此默认原型都会包含一个内部指针，指向Object.prototype，这也是所有自定义类型都会继承toString()，valueof()等默认方法的根本原因。</li>
+<li>确定原型和实例的关系<br>两种方法：① 使用instanceof()操作符，测试实例与原型链中出现过的构造函数，结果就会返回true。<br>alert(instance instanceof SuperType);//true       Object，SuperType，SubType都返回true<br>②使用isPrototypeOf()方法，只要在原型中出现过的原型，都可以说是该原型链所派生的实例的原型<br>alert(Object.prototype.isPrototypeOf(instance));//true</li>
+<li>谨慎地定义方法<br>子类型有时候需要覆盖类型中的某个方法，或者需要添加超类型中的某个方法。但不管怎样，给原型添加方法的代码一定要放在替换原型的语句之后<br>SubType.prototype = new SuperType();<br>SubType.prototype.getSubValue = function(){//添加方法<br> return this.Subproperty;<br>}<br>SubType.prototype.getSuperValue = function(){//重新写超类型的方法调用重写的这个方法<br> return false;<br>}<br>在通过原型链实现继承时，不能使用对象字母量创建原型的方法。这样会重写原型链</li>
+<li>原型链的问题<br>最主要的问题来自包含引用类型值的原型<br>在通过原型来实现继承时，原型实际上会变成另一个类型的实例。于是，原先的实例属性也就是顺理成章地变成了现在的原型属性了。（共享问题）<br>第二个问题是：创建子类型的实例时，不能向超类型的构造函数中传递参数。</li>
+</ol>
+<h2 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h2><p>① 解决原型中包含引用类型值所带来的问题，采用借用构造函数的技术（伪造对象或经典继承）。<br>思想：在子类型构造函数的内部调用超类型构造函数。<br>② 函数只不过是在特定环境中执行代码的对象，因此使用apply(),call()方法也可以在（将来）新创建的对象上执行构造函数。</p>
+<pre><code>function SuperType(){
+    this.colors = [&quot;red&quot;,&quot;green&quot;,&quot;black&quot;];
+}
+fucntion SubType(){
+    SuperType.call(this);//继承SuperType
+}
+var instance1 = new SubType();
+var instance2 = new SubType();
+instance1.colors.push(&quot;blue&quot;);
+alert(instance1.colors);//&quot;red,green,black,blue&quot;
+alert(instance2.colors);//&quot;red,green,black&quot;
+</code></pre><p>③ “借调”了超类型的构造函数。使用call()方法，我们实际上是在（为了将要）新创建的SubType实例的环境下调用SuperType构造函数。这样一来，就会在新SubType对象上执行SuperType()函数中定义的所有对象初始化代码。结果，SubType的每个实例都会具有自己的colors属性的副本了。</p>
+<ol>
+<li><p>传递参数<br>可以在子类型构造函数中向超类型构造函数传递参数</p>
+<p> function SuperType(){<br>   this.name = name;<br> }<br> fucntion SubType(){<br>   Super.call(this,”abc”);//继承SuperType，同时还传参<br>   this.age = 29;//实例属性<br> }<br> var instance = new SubType();<br> alert(instance.name);//“abc”<br> alert(instance.age);//“29”</p>
+</li>
+<li><p>借用构造函数的问题<br>无法避免构造函数模式存在的问题——方法都在构造函数中定义，因此函数复用就无从谈起了</p>
+</li>
+</ol>
+<h2 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h2><p>也叫经典继承，指的是将原型链和借用构造函数的技术组合到一起，发挥二者之长的一种继承模式。<br>思路：使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。既通过在原型上定义方法实现了函数复用，又能保证每个实例都有它自己的属性。</p>
+<pre><code>function SuperType(name){//定义两个属性name,colors
+    this.name = name;
+    this.colors = [&quot;red&quot;,&quot;green&quot;,&quot;black&quot;];
+}
+SuperType.prototype.sayName = function(){//SuperType原型定义一个方法
+    return this.name;
+}
+function SubType(name,age){
+    SuperType.call(this,name);//SubType调用SuperType时传入name参数，定义自己的属性age
+    this.age = age;
+}
+SubType.prototype = new SuperType();//SubType的实例赋值给SubType
+SubType.prototype。constructor = SubType;
+SubType.prototype.satAge = function(){
+    alert(this.age);
+}
+//定义方法这样一来，可以让两个不同的subType实例既分别拥有自己属性包括colors属性也可以使用相同的方法了
+var instance1 = new SubType(&quot;abc&quot;,29);
+instance1.colors.push(&quot;black&quot;);
+alert(instance1.colors);//&quot;red,green,blue,black&quot;
+instance1.sayName();//&quot;abc&quot;
+instance.sayAge();//29
+var instance2 = new SubType(&quot;Greg&quot;,21);
+alert(instance1.colors);//&quot;red,green,blue&quot;
+instance1.sayName();//&quot;Greg&quot;
+instance.sayAge();//21
+</code></pre><h2 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h2><p>道格拉斯·克罗克福德的想法是借助原型可以基于已有的对象创建新对象，同时不必因此创建自定义类型</p>
+<pre><code>function object(o){
+    function F(){}
+    F.prototype = o;
+    return new F();
+}
+var person = {                     //另一个对象基础是person对象
+    name:&quot;A&quot;;
+    friends:[&quot;B&quot;,&quot;C&quot;,&quot;D&quot;];
+}
+var anotherperson = Object(person);
+anotherperson.name = &quot;E&quot;;
+anotherperson.friends.push(&quot;F&quot;);
+
+var yetAnotherperson = Object(person);
+yetAnotherperson.name = &quot;H&quot;;
+yetAnotherperson.friends.push(&quot;I&quot;);
+alert(person.friends);//&quot;B,C,D,F,I&quot;
+</code></pre><p>在object()函数内部，先创建了一个临时性构造函数，然后将传入的对象作为这个构造函数的原型，最后返回了这个临时类型的一个新实例。<br>本质上讲，object()对传入其中的对象执行了一次浅复制。<br>把它传入到object()函数中，该函数返回一个新对象。新对象将person作为原型。所以它的原型中就包含一个基本类型值属性和一个引用类型属性。person.friends不仅仅属于person，也被anotherPerson，yetAnotherperson共享。相当于又创建person对象两个副本。</p>
+<p>原型式继承，要求你必须有一个对象可以作为另一个对象的基础。如果有这么一个对象的话，可以把它传递给object函数，然后再根据具体需求得到对象加以修饰即可。</p>
+<p>ECMAScript5通过新增Object.create()方法规范了原型式继承。两个参数：一个用作新对象原型的对象和（可选）一个为新对象定义额外属性的对象。与Oject()方法行为相同<br>var anotherperson = Object(person); 替换为 var anotherperson = Object.create(person);<br>var yetAnotherperson = Object(person); 替换为 var yetAnotherperson = Object。create(person);</p>
+<h2 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h2><p>创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后再像真地是它做了所有工作一样返回对象</p>
+<pre><code>function createAnother(original){
+    var clone = Object(original);//通过调用函数创建一个新对象
+    clone.sayHi = function(){//以某种方式来增强这个对象
+        alert(&quot;Hi&quot;);
+    }
+    return clone;//返回这个对象
+}
+var person = {
+    name:&quot;A&quot;,
+    friends:[&quot;B&quot;,&quot;C&quot;,&quot;D&quot;];
+}
+var anotherPerson = createAnother(person);
+anotherPerson.sayHi();//&quot;Hi&quot;
+</code></pre><p>person返回了一个新对象——anotherPreson，新对象不仅具有person所有属性和方法，而且还有自己的sayHi()方法。<br>使用寄生式继承来为对象添加函数，会由于不能做到函数复用而降低效率。</p>
+<h2 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h2><p>组合继承最大的问题是无论什么情况下，都会调用两次超类型构造函数：一次是在创建子类原型的时候，另一次是在子类构造函数内部。<br>子类型最终会包含超类型对象的全部实例属性，但我们不得不在调用子类型构造函数时重写这些属性，</p>
+<pre><code>function SuperType(name){
+    this.name = name;
+    this.colors = [&quot;red&quot;,&quot;green&quot;,&quot;black&quot;];
+}
+SuperType.prototype.sayName = function(){
+    alert(this.name);
+}
+function SubType(name,age){
+    SuperType.call(this,name);//第二次调用superType()在新对象上创建了实例属性name,colors这两个属性就屏蔽了原型中的两个同名属性
+    this.age = age;
+}
+SubType.prototype = new SuperType();//第一次调用superType()，得到两个属性都是superType的实例属性。
+SubType.prototype。constructor = SubType;
+SubType.prototype.satAge = function(){
+    alert(this.age);
+}
+</code></pre><p>这样写，有两组name和colors属性，一组在实例上，一组在subType原型中</p>
+<p>① 寄生组合继承，即通过借用构造函数来继承属性，通过原型链的混成形式来继承方法。<br>② 基本思路：不必为了指定子类型的原型而调用超类型的构造函数，我们所需要的无非就是超类型原型的一个副本而已。<br>③ 本质：就是使用寄生式继承类继承超类型的原型，然后再将结果指定给子类型的原型。</p>
+<pre><code>function inheritPrototype(subType,superType){
+    var prototype = Object(superType.prototype);//创建对象 创建超类型原型的副本
+    prototype.construcoter = subType;//增强对象，为创建的副本添加constructor属性
+    subType.prototype = prototype;//指定对象，为新创建的对象（副本）赋值给子类型的原型
+}
+</code></pre><p>④ 上面例子①②替换掉，变为inheritPrototype(SubType,SuperType);<br>⑤ 这样，提高效率在于只调用了一次SuperType构造函数，并且因此避免了在SubType.prototype上面创建不必要的多余的属性。与此同时，原型链还能保持不变，因此，能够正常使用instanceof和isPrototypeOf()。</p>
+<h1 id="BOM（浏览器对象模型）"><a href="#BOM（浏览器对象模型）" class="headerlink" title="BOM（浏览器对象模型）"></a>BOM（浏览器对象模型）</h1><p>ECMAScript是JavaScript的核心，在web中使用JavaScript,BOM则无疑才是真正的核心。BOM提供了很多对象，用于访问浏览器的功能，这些功能与任何网页内容无关。</p>
+<ol>
+<li><p>window对象<br>BOM的核心对象是window，表示浏览器的一个实例。<br>在浏览器中，window对象既是通过JavaScript访问浏览器窗口的一个接口，又是ECMAScript规定的Global对象。</p>
+</li>
+<li><p>全局作用域<br>window对象同时扮演着ECMAScript中Global对象的角色，因此所有全局作用域中声明的变量。函数都会变成window对象的属性和方法。<br>全局变量不能通过delete操作符删除，而直接在window对象上的定义的属性可以。</p>
+</li>
+<li><p>窗口大小</p>
+<p> var pageWidth = window.innerWidth;<br> var pageHeight = window.innerHeight;<br> if(typeof pageWidth != “number”){<br>   if(document.compatMode == “CSS1Compat”){</p>
+<pre><code>pageWidth = document.documentElement.clientWidth;//IE,Firefox,Safari,Opera.Chrome保存信息
+pageHeight = document.documentElement.clientHeight;
+</code></pre><p>   }else{</p>
+<pre><code>pageWidth = document.body.clientWidth;//IE6中标准模式,以上属性可获得
+pageHeight = document.body.clientHeight;//混杂模式使用body
+</code></pre><p>   }<br> }<br>检查pageWidth保存的是不是一个数值，确定页面是否处于标准模式。<br>移动设备window.innerWidth和window.innerHeight保存着可见视口，屏幕上可视页面区域。<br>其他移动浏览器中，document.documentElement度量的是布局视口，即渲染后页面的实际大小（与可见视口不同，可见视口只是整个页面中的一小部分）。移动IE浏览器把布局视口的信息保存在document.body.clientWidth/clientHeight中。这些值不会随页面而缩放变化。</p>
+</li>
+</ol>
+<p>使用resizeTo()和resizeBy()方法可以调整浏览器窗口的大小。resizeTo()两个参数：新宽度，新高度。resizeBy()两个参数：新窗口与原窗口的宽高差。<br>window.resizeTo(100,100);//调整到100 <em> 100<br>window.resizeBy(100,50);//调整到200 </em> 150</p>
+<ol>
+<li>导航和打开窗口<br>window.open()可以导航到一个特定的URL，可以打开一个新的浏览器窗口，<br>4个参数：加载的URL，窗口目标，特性字符串，新页面是否取代浏览器。历史记录中当前加载页面的布尔值。（第4个参数只在不打开新窗口的情况下使用）<br>&lt; a href=”<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>“ target=”topFrame”&gt;&lt;/ a&gt;//同等于<br>window.open(“<a href="http://www.baidu.com&quot;,&quot;topFarme" target="_blank" rel="external">http://www.baidu.com&quot;,&quot;topFarme</a>“);<br>如果一个名叫”topFrame”的窗口或框架，就在该窗口或框架加载这个URL，否则会创建一个新窗口将其命名为”topFrame”，<br>第二个参数：_self,_top,_blank,_parent。</li>
+<li>间歇调用和超时调用</li>
+</ol>
+<h2 id="超时调用-setTimeout"><a href="#超时调用-setTimeout" class="headerlink" title="超时调用 setTimeout()"></a>超时调用 setTimeout()</h2><p>超时调用：指定的时间过后执行代码 setTimeout()方法<br>超时调用使用window对象的setTimeout()方法。两个参数：要执行的代码和以毫秒表示的时间</p>
+<pre><code>setTimeout(function(){
+    alert(&quot;Hello world!&quot;);
+},1000);//推荐使用
+setTimeout(&quot;alert(&apos;Hello world&apos;)&quot;,1000);//可能导致性能损失，不建议以字符串作为第一个参数
+</code></pre><p>后指定的代码不一定执行<br>JavaScript是一个单线程序的解释器，因此一定时间内只能执行一段代码。<br>为了控制要执行的代码，就有一个JavaScript任务队列。这些任务会按照将它们添加到队列的顺序执行。第二个参数告诉JavaScript再过多久把当前任务添加到队列中。<br>调用setTimeout()之后，该方法会返回一个数值ID，表示超时调用。这个超时调用ID是计划执行代码的唯一标识符，可以通过它来取消超时调用。<br>要取消尚未执行的超时调用计划，可以调用clearTimeout()方法，并将相应的超时调用ID作为参数传递给它。</p>
+<pre><code>var timeId = setTimeout(function(){
+    alert(&quot;Hi&quot;);
+},1000);
+clearTimeout(timeId);
+</code></pre><p>超时调用的代码都是在全局作用域中执行的，因此函数中this的值在非严格模式下指向window对象，在严格模式下是undefined。</p>
+<h2 id="间歇调用-setInterval"><a href="#间歇调用-setInterval" class="headerlink" title="间歇调用 setInterval()"></a>间歇调用 setInterval()</h2><p>按照指定的时间间隔重复执行代码，直至间歇调用被取消或页面被卸载。<br>setInterval() 参数与setTimeout()相同<br>setInterval()方法同样也会返回一个间歇调用ID，该ID可用于在将来某个时刻取消间歇调用。clearInterval()取消间歇调用。<br>在开发环境下，很少使用真正的间歇调用，原因是后一个间歇调用可能会在前一个间歇调用结束之前启动。超时调用完全可以避免这一点，所以最好不用使用间歇调用。</p>
+<ol>
+<li><p>系统对话框<br>alert()方法，向用户显示一个系统对话框，其中包含指定的文本和一个OK（”确定”）按钮。<br>confirm()方法，”警告”对话框，OK按钮，cancel按钮，消息。为了确定用户是单击了OK还是Concel，可以检查confirm()返回的布尔值，OK=true,cancel=false<br>prompt()方法，”提示”框，提示用户输入一些文本。OK，cancel按钮，文本输入域，两个参数：要显示给用户的文本提示和文本输入域的默认值（可以是一个空字符串）</p>
+</li>
+<li><p>location对象<br>location提供了当前窗口中加载的文档有关的信息，还提供了一些导航功能。<br>既是window对象的属性，也是document对象的属性，<br>location对象的用处不只表现在它保存着当前文档的信息，还表现在它将URL解析为独立的片段，让开发人员可以通过不同的属性访问这些片段。<br>图片</p>
+</li>
+<li><p>查询字符串参数<br>创建一个函数，可以解析查询字符串，然后返回包含所有参数的一个对象。<br>图片</p>
+</li>
+<li><p>位置操作<br>改变浏览器的位置，使用assign()方法并为其传递一个URL。<br>location.assign(“<a href="http://wwww.baidu.com" target="_blank" rel="external">http://wwww.baidu.com</a>“);<br>立即打开新URL，在浏览器的历史记录中生成一条记录<br>window.location = “<a href="http://wwww.baidu.com&quot;;//也会调用assign()方法，效果一样" target="_blank" rel="external">http://wwww.baidu.com&quot;;//也会调用assign()方法，效果一样</a><br>location.href = “<a href="http://wwww.baidu.com&quot;;//也会调用assign()方法，效果一样,常用" target="_blank" rel="external">http://wwww.baidu.com&quot;;//也会调用assign()方法，效果一样,常用</a><br>location.replace(“<a href="http://wwww.baidu.com" target="_blank" rel="external">http://wwww.baidu.com</a>“);<br>这个方法虽然会导致浏览器位置改变，但不会在历史记录中生成新纪录，用户不能单击“后退”回到前一个页面<br>location.reload();//重新加载（有可能从缓存中加载）<br>location.reload(true);//重新加载（从服务器重新加载）</p>
+</li>
+</ol>
+<h1 id="DOM文档对象模型"><a href="#DOM文档对象模型" class="headerlink" title="DOM文档对象模型"></a>DOM文档对象模型</h1><p>DOM是针对HTML和XML文档的一个API（应用程序编程接口），描绘了一个层次化的节点树，IE中的所有DOM对象都是以COM对象的形式实现的。IE中的DOM对象与原生JavaScript对象的行为或活动特点并不一致。</p>
+<p>节点层次<br>DOM可以将任何HTML或XML文档描绘成一个多层节点构成的结构。<br>文档元素是文档的最外层元素，HTML页面中，文档元素始终是<html>元素</html></p>
+<h2 id="Node类型"><a href="#Node类型" class="headerlink" title="Node类型"></a>Node类型</h2><p>DOM1级定义了一个Node接口，该接口将由DOM中的所有节点类型实现。这个Node接口在JavaScript中是作为Node类型实现的；除IE之外，其他所有浏览器中都可以访问到这个类型。JavaScript中的所有节点类型都继承自Node类型，因此所有节点类型都共享着相同的基本属性和方法。每个节点都有一个nodeType属性，用于表明节点的类型。</p>
+<h3 id="nodeName和nodeValue属性"><a href="#nodeName和nodeValue属性" class="headerlink" title="nodeName和nodeValue属性"></a>nodeName和nodeValue属性</h3><p>if(someNode.nodeType == 1){//检测节点类型是不是元素<br>     value = someNode.nodeName;//nodeName的值是元素的标签名<br>}</p>
+<h3 id="节点关系"><a href="#节点关系" class="headerlink" title="节点关系"></a>节点关系</h3><p>每个节点都有一个childNodes属性，其中保存值一个NodeList属性，Nodelist是一种类数组对象，保存一组有序的节点，可以通过为止来访问这些节点。虽然可以通过[]语法来访问Nodelist值，也有length值，但它不是Array的实例。<br>它（Nodelist）实际上是基于DOM结构动态执行查询的结果，DOM结构的变化能够自动反应在Nodelist对象中。<br>可以通过方括号，item()方法访问，NodeList中的节点，例：<br>var firstchild = someNode.childNode[0];<br>var secondchild = someNode.childNodes.item(1);<br>var count = someNode.childNodes.length;</p>
+<p>将类数组转为数组<br>对argument对象使用Array.prototype.slice()方法可以将其转换为数组，同样，也可以将NodeList对象转换为数组。</p>
+<pre><code>var arrayNodes = Array.prototype.slice.call(someNode.childNodes,0);//IE8之前无效
+function convertToArray(node){
+    var array = null;
+    try{
+        array = Array.prototype.slice.call(nodes,0);//非IE浏览器
+    }catch(ex){
+        array = new Array();
+        for(var i = 0,len = nodes.length;i&lt;len;++){
+            array.push(nodes[i]);
+        }
+    }
+    return array;
+}
+</code></pre><p>每个节点都有一个parentNode属性，该属性指向文档树中的父节点<br>它包含在childNodes列表中的所有节点都有相同的父节点，每个节点之间都是同胞节点，使用列表中每个节点的previousSibling和nextSibling属性，可以访问同一列表中的其他节点。<br>someNode.firstChild的值始终等于someNode.childNodes[0].<br>someNode,lastChild的值始终等于someNode.childNodes[someNode.childNodes.length-1]<br>hasChildNodes()这个方法在节点包含一或多个子节点的情况下返回true。</p>
+<h3 id="操作节点"><a href="#操作节点" class="headerlink" title="操作节点"></a>操作节点</h3><p>① appendChilld():向childNodes列表的末尾添加一个节点<br>任何DOM节点也不能同时出现在文档的多个位置上<br>如果在调用appendChild()时传入父节点的第一个子节点，那么该节点就会成为父节点的最后一个子节点<br>var returnNode = someNode.appendChild(someNode.firstChild);//someNode有多个子节点<br>alert(returnNode == someNode.firstChild);//fasle<br>alert(returnNode == someNode.lastChild);//true<br>② insetBefore()：把节点放在childNodes列表中某个指定的位置上<br>两个参数：要插入的节点和作为参照的节点。被插入的节点会变成或参照节点的前一个同胞节点。<br>③ replaceBefor()：替换节点，两个参数：要插入的节点和替换的节点。<br>从技术上讲，被替换的节点仍然还在文档中，但它在文档中已经没有了自己的位置<br>④ removeChild()：一个参数要移除的节点。<br>⑤ cloneNode()：创建调用这个方法的节点的一个完全相同的副本。一个参数：布尔值，是否执行深复制。深复制true：复制节点以及整个子节点树。false浅复制：只复制节点本身。<br>⑥ normalize()：处理文档树中的文本节点。</p>
+<h2 id="Document类型"><a href="#Document类型" class="headerlink" title="Document类型"></a>Document类型</h2><p>JavScript通过Document类型表示文档，在浏览器中，document对象是HTMLDocument（继承自Document类型）的一个实例，表示整个HTML页面，而且，document对象是window对象的一个属性，因此可以将其作为全局对象来访问。</p>
+<h3 id="文档的子节点"><a href="#文档的子节点" class="headerlink" title="文档的子节点"></a>文档的子节点</h3><p>DOM标准规定Document节点的子节点可以是DocumentType（文档类型），Element（元素），Processing Instructuin（处理指令）或Comment（注释节点）。还有两个内置的访问其子节点的快捷方式。第一个是documentElement属性，始终指向HTML页面中的&lt; html &gt;元素，另一个是通过childNodes列表访问文档元素。</p>
+<pre><code>&lt; html&gt;
+    &lt; body&gt;&lt;/body&gt;
+&lt; /html&gt;
+</code></pre><p>var html = document.documentElement;//取得对html的引用<br>alert(html == document.childNodes[0]);//true<br>alert(html == document.firstChild);//true<br>var body = document.body;//取得对&lt; body &gt;的引用<br>var doctype = document.doctype;//取得对&lt; !DOCTYPE &gt;的引用</p>
+<h3 id="文档信息"><a href="#文档信息" class="headerlink" title="文档信息"></a>文档信息</h3><p>document对象，还有一些标准的Document对象所有的属性。<br>① title属性，包含着title元素中的文本——显示浏览器的标题或标签页上<br>var title = document.title;//取得文档标签<br>document.title = “New page title”;//设置文档标题<br>② URL属性，包含页面完整的URL<br>③ domain属性，中包含页面的域名<br>④ referrer属性，保存着链接到当前页面的那个页面的URL，没有来源页面的情况下，可能是空字符串</p>
+<p>当页面中包含来自其他子域的框架或内嵌框架时，能够设置document.domain就非常方便了，由于跨域安全限制，来自不同子域的页面无法通过JavaScript通信。通过将每个页面的document.domain设置为相同的值，这些页面就可以互相访问对方包含的JavaScript对象了。<br>浏览器对domain属性还有一个限制，即：如果域名一开始是“松散的”，那么不能将它再设置为“紧绷的”，也就是将document.domain设置为”wrox.com”，就不能再将其设置回”p2p.erox.com”，否则报错。</p>
+<h3 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h3><p>取得元素的操作：Document类型为此提供两个方法：getElementById/getElementsByTagName<br>① getElementById()，取得元素的ID，有相应ID，返回元素，区分大小写<br>多个元素ID相同，只返回文档类型第一次出现的元素。<br>IE7及较低版本的浏览器为此方法添加个“怪癖”：name特性与给定ID匹配的表单元素（input,textare,button,select)也会被该方法返回。如果哪个表单元素的name特性等于指定的ID，而且该元素在文档中位于带有ID的元素前面，IE返回表单元素</p>
+<p>② getElementsByTagName() 一个参数，取得元素的标签名，返回包含0或多个元素的NodeList，在HTML文档中，这个方法返回一个HTMLCollection对象，作为“动态”集合</p>
+<pre><code>var imgs = document.getElementsByTagName(&quot;img&quot;);
+alert(imgs.length);
+alert(imgs[0].src);
+alert(imgs.item(0).src);//第一张图片元素的src特性
+</code></pre><p>HTMLCollection对象还有个方法，叫做namedItem()，可以通过元素的name特性取得集合中的项。</p>
+<pre><code>&lt;img src=&quot;..&quot; name=&quot;myImage&quot;&gt;
+var myImg = imgs.nameItem(&quot;myImage&quot;);//取得img元素
+</code></pre><p>HTMLCollection还支持按名称访问项</p>
+<pre><code>var myImg = imgs[&quot;myImage&quot;];
+document.getElementsByTagName(&quot; * &quot;); //取得文档所有元素
+</code></pre><h2 id="Element类型"><a href="#Element类型" class="headerlink" title="Element类型"></a>Element类型</h2><p>Element用于表现XML或HTML元素，提供了对元素标签名，子节点及特性的访问，访问元素的标签名，使用nodeName属性，tagName属性。<br>在HTML中，标签名始终都以全部大写表示，XML，与源码表示一致。</p>
+<ol>
+<li><p>HTML元素<br>所有HTML元素都由HTMLElement类型表示，或它的子类表示。HTMLElement类型直接继承Element并添加了一些属性。添加的属性存在标准特性：<br>id唯一标识符，title元素附加说明，lang语言代码，语言方向，className元素指定css类，以上属性都可以用来取得或修改相应的特性值。</p>
+</li>
+<li><p>取得特性<br>每个元素都有一或多个特性，这些特性的用途是给出相应或其内容的附加信息<br>操作特性的DOM方法：getAttribute(),setAttribute(),removeAttribut()<br>① 传给getAttribute()的特性名与实际特性名相同，想得到class值，传入class而不是className<br>② 可以取得自定义特性（标准HTML语言中没有的特性）div.getAttribute(“class”);//取div的class<br>③ 特性的名称是不区分大小写的</p>
+</li>
+<li><p>设置特性<br>setAttribute()两个参数，要设置的特性名和值 div.setAttribute(“class”,”left”);<br>通过setAttribute()方法可以操作HTML特性也可以操作自定义特性。设置的特性名统一小写，<br>使用className  div.className = “abc”;设置class</p>
+</li>
+<li><p>删除特性<br>removeAttribute()彻底删除元素的特性。不仅清除特性的值，也会从元素中完全删除特性 div.removeAttribute(“class”);</p>
+</li>
+<li><p>创建元素<br>document.createElement()创建新元素，一个参数，创建元素的标签名（HTML不区分大小写，XML区分大小写）<br>要把新元素添加到文档树，可以使用appendChild()，insertBefore()，replaceChild()方法<br>docuemnt.body.appendChild(div);//新创建的元素添加到文档&lt; body &gt;中或var div = document.createElement(“&lt; div id=\”myNewDiv\”&gt;&lt;/ div&gt;”)</p>
+</li>
+<li><p>元素子节点<br>元素的childNodes属性中包含了它的所有子节点，这些子节点有可能是元素，文本节点，注释，处理指令，不同浏览器看待节点方面存在差异</p>
+<p> <ul id="myList"></ul></p>
+<pre><code>&lt;li&gt;1&lt;/li&gt;
+&lt;li&gt;2&lt;/li&gt;
+&lt;li&gt;3&lt;/li&gt;
+</code></pre><p> <br>IE解析,ul元素有3个节点，其他浏览器解析ul有7个元素3个li元素，4个文本节点（li元素之间的空白符）<br>所以先检查一下nodeTye属性</p>
+<pre><code>for(var i = 0;len = element.childNodes.length;i&lt;len;i++){
+   if(element.childNode[i].nodeType == 1){
+    //只存在子节点的NodeType等于1（元素节点）时，才执行
+   }
+}
+</code></pre></li>
+</ol>
+<p>想取得前面ul元素中包含的所有div元素<br>var ul = document.getElementById(“myList”);<br>var items = document.getElementsByTagName(“li”);<br>这是ul的后代只包含直接子元素。不过如果它包含多层的后代，那么各个层次中包含的li元素也都会返回。</p>
+<h2 id="Text类型"><a href="#Text类型" class="headerlink" title="Text类型"></a>Text类型</h2><ol>
+<li>创建文本节点<br>document.createTextNode()创建新文本节点，一个参数，要插入节点中的文本<br>var element = document.createElement(“div”);<br>element.className = “message”;<br>var textNode = document.createTextNode(“Hi~”);<br>element.appendChild(textNode);<br>document.body.appendChild(element);//在浏览器中可看到新的元素和文本</li>
+</ol>
+<h1 id="DOM扩展"><a href="#DOM扩展" class="headerlink" title="DOM扩展"></a>DOM扩展</h1><p>选择API<br>Selectors API是由w3c发起制定的一个标准，致力于让浏览器原生支持css查询<br>querySelector()方法<br>querySelector()接收一个css选择符，返回与该模式匹配的第一个元素，如果没有找到匹配的元素，返回null。<br>var div = document.querySelector(“#myDiv”);//取得id为myDiv的元素<br>var selected = document.querySelector(“.selected”);//取得类为”selected”的第一个元素<br>querySelectorAll()方法<br>返回的是一个NodeList的实例，（带有属性和方法的NodeList）。底层实现则类似于一组元素的快照，而非不断对文档进行搜索的动态查询。没有找到，NodeList为空<br>var ems = document.getElementById(“myDid”).querySelectorAll(“em”);//取得div中所有em<br>var selectors = document.querySelectorAll(“.selected”);//取得类似为”selected”的所有元素<br>var strongs = document.querySelectorAll(“p strong”);//取得所有p元素中的所有strong</p>
+<h1 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h1><p>与类相关的扩充<br>getElementsByClassName()方法<br>接收一个参数，即一个包含一或者多个类名的字符串，返回带有指定类的所有元素的NodeList<br>var selected = document.getElementById(“myDiv”).getElementsByClassName(“selected”);<br>//取得ID为”myDiv”的元素中带有类名”selected”的所有元素。</p>
+<h2 id="classList属性"><a href="#classList属性" class="headerlink" title="classList属性"></a>classList属性</h2><p>操作类名的方式，为所有元素添加classList属性。这个classList属性是新集合类型</p>
+<pre><code>&lt;div class=&quot;bd user disabled&quot;&gt;&lt;/div&gt;
+div.classList.remove(&quot;user&quot;);//删除指定的类
+div.classList.add(&quot;current&quot;);//添加current类
+div.classList.taggle(value);//列表中已经在给定的值删除它，没有，添加它
+</code></pre><h2 id="HTMLDocument的变化"><a href="#HTMLDocument的变化" class="headerlink" title="HTMLDocument的变化"></a>HTMLDocument的变化</h2><p>readyState属性<br>Document的readyState属性有两个可能的值：loading，正在加载文档。complete，已经加载文档。<br>使用document.readyState通过它来实现一个指示文档已经加载完成的指示器。</p>
+<h2 id="兼容模式"><a href="#兼容模式" class="headerlink" title="兼容模式"></a>兼容模式</h2><p>在标准模式才，document.compatMode的值等于”CSS1Compat”。<br>在混杂模式下，document.compatMode的值等于”BackCompat”。</p>
+<h2 id="head属性"><a href="#head属性" class="headerlink" title="head属性"></a>head属性</h2><p>引用文档的head元素<br>var head = document.head || document.getElementsByTagName(“head”)[0];</p>
+<h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><p>JavaScript与HTML之间的交互是通过事件实现的。事件，就是文档或浏览器窗口中发送的一些特定的交互瞬间。使用侦听器（或处理程序）来预定事件，以便事件发生时执行相应的代码。这种在传统软件工程中被称为观察员模式的模型，支持页面的行为与页面的外观（HTML,CSS）之间的松散耦合。</p>
+<p>事件流<br>在单击按钮的同时，你也单击了按钮的容器元素，甚至也单击了整个页面。<br>事件流描述的是从页面中接收事件的顺序。<br>但，IE的事件流是事件冒泡，NetScape Communicator的事件流是事件捕获流。</p>
+<h1 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h1><p>IE的事件流叫做事件冒泡，即事件开始时由最具体的元素（文档中嵌套层次最深的那个节点）接收，然后逐级向上传播到较为不具体的节点。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Event&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;Click Me&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>单击页面中的div元素。click事件会按如下顺序传播：</p>
+<ol>
+<li>div</li>
+<li>body</li>
+<li>html </li>
+<li>document对象<br>click事件在div元素上发生，click事件沿DOM树向上传播，在每一级节点上都会发生，直到document对象。</li>
+</ol>
+<p>所有浏览器都支持事件冒泡，IE5.5及更早版本中事件冒泡跳过html元素，IE9，Firefox，Chrome，Safari，则将事件一直冒泡到window对象。</p>
+<h1 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h1><p>事件捕获的思想是不太具体的节点应该更早接收事件，最具体的节点应该最后接收到事件。<br>事件捕获的用意在于在事件到达预定目标之前捕获它。<br>上述例子，在事件捕获的情况下，单击div元素以下顺序触发事件</p>
+<ol>
+<li>document </li>
+<li>html</li>
+<li>body</li>
+<li>div<br>事件捕获是Netscape Communicator唯一支持的事件流模型，IE9，Safari,Chrome,Opera,FireFox都支持，但这些浏览器都是从window对象开始捕获事件的，版本浏览器不支持，所以尽可能使用事件冒泡</li>
+</ol>
+<h1 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h1><p>“DOM2级事件”规定事件流包括三个阶段：事件捕获阶段，处于目标阶段，事件冒泡。<br>首先发生的是事件捕获，为截获事件提供了机会，然后是实际的目标接收到事件。最后一个阶段冒泡阶段，也可以在这个阶段对事件做出响应。<br>前面html页面为例，触发事件的顺序：</p>
+<p>捕获阶段</p>
+<ol>
+<li>Document</li>
+<li>Element html</li>
+<li>Element body</li>
+</ol>
+<p>冒泡阶段</p>
+<ol>
+<li>Element div</li>
+<li>Element body</li>
+<li>Element html</li>
+<li>Document</li>
+</ol>
+<p>在DOM事件流中，实际的目标（div元素）在捕获阶段不会接收到事件。这意味着在捕获阶段，事件从document到html到body后就停止了。下一阶段是”处于目标”阶段，于是事件div上发生，并在事件处理中被看成冒泡阶段的一部分，然后，冒泡阶段发生，事件又传播回文档。</p>
+<p>IE8以及更早版本不支持DOM事件流，即使”DOM2级事件”规定明确要求捕获阶段不会涉及事件目标，但IE9，Safari,Chrome,Opera9.5及更高版本会在捕获阶段触发事件对象上的事件。结果就是有两个机会在目标对象上面操作事件。</p>
+<h1 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h1><p>对”事件处理程序过多”问题的解决方案就是事件委托<br>事件委托利用了事件冒泡，只是指定一个事件处理程序，就可以管理某一类型的所有事件。例，click事件会一直冒泡到document层次。我们为整个页面指定一个onclick事件处理程序，而不必给每个壳蛋鸡的元素分别添加事件处理程序。</p>
+<pre><code>&lt;ul&gt;
+    &lt;li id=&quot;goSomewhere&quot;&gt;Go somewhere&lt;/li&gt;
+    &lt;li id=&quot;doSomething&quot;&gt;Do something&lt;/li&gt;
+    &lt;li id=&quot;sayHi&quot;&gt;Say Hi&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>按照传统的做法，需要为它们添加3个事件处理程序<br>使用事件委托，只需要在DOM树中尽量最高的层次上添加一个事件处理程序</p>
+<pre><code>var list = document.getElementById(&quot;myList&quot;);
+EventUtil.addHandler(list,&quot;click&quot;,function(event){
+    event = EventUtil.getEvent(event);
+    var target = EventUtil.getTarget(event);
+    switch(target.id){
+        case &quot;doSomething&quot;:
+            document.title = &quot;I change the document&apos;s title&quot;;
+            break;
+        case &quot;goSomewhere&quot;:
+            location.href = &quot;http://baidu.com&quot;
+            break;
+        case &quot;sayHi&quot;:
+            alert(&quot;Hi&quot;);
+            break;
+    }
+})
+</code></pre><p>由于所有列表项都是这个元素的子节点，而且它们的事件会冒泡，所以单击事件最终会被这个函数处理，事件目标是被单击的列表项，故而可以通过检查id属性来决定采取适当的操作。适合采用事件委托技术的事件：click,mouseup,keydown,keyup</p>
+<h1 id="移除事件处理程序"><a href="#移除事件处理程序" class="headerlink" title="移除事件处理程序"></a>移除事件处理程序</h1><p>每当将事件处理程序指定给元素时，运行中的浏览器代码与支持页面交互的JavaScript代码之间就会建立一个连接，这种连接越多，页面执行起来越慢。事件委托限制连接数量，另外，在不需要的时候移除事件处理程序，也是解决这个问题的一种方案。<br>内存中留有那些过时不用的”空事件出程序”，也是造成web应用程序内存与性能问题的主要原因。<br>两种情况，造成上述问题：一、从文档中移除带有事件处理程序的元素时，可能是通过纯粹的DOM操作，例：removeChild()，replaceChild()方法，但更多地是发生在使用innerHTML替换页面中的某一部分的时候，如果带有事件处理程序的元素innerHTML删除了，那么原来添加到元素。例：</p>
+<pre><code>&lt;div id=&quot;myDiv&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;Click Me&quot; id=&quot;mybutton&quot;&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var btn = document.getElementById(&quot;myBtn&quot;);
+    btn.onclick = function(){
+        //先执行某些操作
+        btn.onclick = null;//手工移除事件处理程序
+        document.getElementById(&quot;myDiv&quot;).innreHTML = &apos;Processing ...&apos;;
+        }
+    }
+&lt;/script&gt;
+</code></pre><p>在div元素上设置innerHTML可以把按钮移走，但事件处理程序仍然与按钮保持着引用关系。有的浏览器（尤其IE<br>）在这种情况下不会作出恰当地处理，很可能将对元素，事件处理程序的引用保存在内存中。最好手工移除事件处理程序。</p>
+<p>二、导致”空事件处理程序”另一种情况，写在页面的时候<br>如果在页面被卸载之前没有清理干净事件处理程序，那么它们就会滞留在内存中。每次加载完页面在卸载页面时（可能是在页面来回切换，也可以是刷新），内存中滞留的对象数目就会增加，因为事件处理程序占用的内存并没有被释放。</p>
+<p>最好的做法是在页面卸载之前，先通过onunload事件处理程序移除事件处理程序。只要通过onload事件处理程序添加的东西，最后都要通过onunload事件处理程序将它们移除。</p>
+<h1 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h1><p>事件就是用户或浏览器自身执行的某种动作。click,load和mouseover都是事件名字。响应某个事件的函数就叫做事件处理程序（或事件侦听器），事件处理程序的名字以”on”开关，因此click事件的事件处理程序就是onclick。</p>
+<h2 id="HTML事件处理程序"><a href="#HTML事件处理程序" class="headerlink" title="HTML事件处理程序"></a>HTML事件处理程序</h2><p>某个元素支持的每种事件，都可以使用一个与相应事件处理程序同名的HTML特定来指定。这个特性值应该是能够执行的JavaScript代码。</p>
+<p>&lt; input type=”button” value=”Click me” onclick=”alert(‘clicked’);”&gt;<br>单击这个按钮时，就会显示一个警告框，这个操作是通过指定onclick特性并将一些JavaScript代码作为它的值来定义的。这个值是JavaScript，因为不能在其中使用未经转义的HTML语法字符。<br>在HTML中定义的事件处理程序可以包含要执行的具体动作，也可以调用在页面其他地方定义的脚本。例：<br>&lt; input type=”button” value=”Click me” onclick=”show()”&gt;<br>这样指定事件处理程序具有一些独到之处。首先，这样会创建一个封装着元素属性值的函数。这个函数中有一个局部变量event，也就是事件对象。<br>&lt; input type=”button” value=”Click me” onclick=”alert(event,type)”&gt;<br>通过event变量，可以直接访问事件对象。this值等于事件的目标元素。（函数内部）</p>
+<p>在HTML中指定事件处理程序有两个缺点。①时差问题 ②扩展事件处理程序的作用域链在不同浏览器中会导致不同结果。 ③ HTML与JavaScript代码紧密耦合<br>① 因为用户可能会在HTML元素一出现在页面上就触发相应的事件，但当时的事件处理程序有可能尚不具备执行条件。</p>
+<h2 id="DOM0级事件处理程序"><a href="#DOM0级事件处理程序" class="headerlink" title="DOM0级事件处理程序"></a>DOM0级事件处理程序</h2><p>通过JavaScript指定事件处理程序的传统方式，就是将一个函数赋值给一个事件处理程序的属性。至今浏览器仍然支持，原因一、简单，二、跨浏览器的优势<br>要使用JavaScript指定事件处理程序，首先必须取得一个要操作的对象的引用。<br>每个元素（包括window,document）都有自己的事件处理程序属性。例：onclick<br>将这种属性的值设置为一个函数，就可以指定事件处理程序。例</p>
+<pre><code>var btn = doxument.getElementById(&quot;myBtn&quot;);
+btn.onclick = function(){
+    alert(&quot;clicked&quot;);
+}
+使用DOM0级方法指定的事件处理程序被认为是元素的方法。这时候的事件处理程序是在元素的作用域中运行，程序中的this引用当前元素。例：
+var btn = document.getElementById(&quot;myBtn&quot;);
+btn.onclick = function(){
+    alert(this.id);
+}
+btn.onclick = null;//删除事件处理程序
+</code></pre><h2 id="DOM2级事件"><a href="#DOM2级事件" class="headerlink" title="DOM2级事件"></a>DOM2级事件</h2><p>两个方法，用于处理指定和删除事件处理程序的操作：addEventLister()和removeEventListener()。所有DOM节点中都包含这两个方法，3个参数：要处理的事件名，作为事件处理程序的函数和一个布尔值。true，捕获阶段调用处理程序，false，冒泡<br>var btn = document.getElementById(“myBtn”);<br>bn.addEventListener(“click”,function(){alert(this.id)},false);<br>好处：可以添加多个事件处理程序。例：</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.addEventListener(&quot;click&quot;,function(){alert(this.id);}.false);
+btn.addEventListener(&quot;click&quot;,function(){alert(&quot;Hello World&quot;);}.false);
+</code></pre><p>按顺序触发<br>只能使用removeEventListener()来移除，移除时传入的参数与添加的相同。意味着通过addEventListener()添加的匿名函数将无法移除。</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+var handler = function(){alert(this.id)};
+btn.addEventListener(&quot;click&quot;,handler,false);
+btn.removeEventListener(&quot;click&quot;,hander,false);//有效
+</code></pre><p>大多数情况下，都是将事件处理程序添加到事件流的冒泡阶段，这样可以最大限度地兼容各种浏览器。最后只在需要在事件到达目标之前截获它的时候将事件处理程序添加到捕获阶段。</p>
+<h2 id="IE事件处理程序"><a href="#IE事件处理程序" class="headerlink" title="IE事件处理程序"></a>IE事件处理程序</h2><p>attachEvent()和datachEvent()。两个参数：事件处理程序名称，事件处理程序函数<br>var btn = document.getElementById(“myBtn”);<br>btn.attachEvent(“onclick”,function(){alert(“clicked”)});//第一个参数是onclick<br>在使用attachEvent()方法，事件处理程序会在全局作用域中运行，this等于window。<br>attachEvent()方法也可以用来为一个元素添加多个事件处理程序。相反的顺序被触发<br>提供相同的参数，用detchEvent()移除attachEvent()</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+var handler = function(){alert(&quot;clicked&quot;)};
+btn.attachEvent(&quot;onclick&quot;,handler);
+btn.detchEvent(&quot;onclick&quot;,handler);//移除事件处理程序
+</code></pre><h2 id="跨浏览器的事件处理程序"><a href="#跨浏览器的事件处理程序" class="headerlink" title="跨浏览器的事件处理程序"></a>跨浏览器的事件处理程序</h2><p>要保证处理的代码能在大多数浏览器下一致，只需要关注冒泡阶段。<br>第一要创建的方法是addHandler()，它的职责是视情况分别使用DOM0级方法，DOM2级方法，IE方法来添加事件。这个方法属于叫EventUtil对象。<br>3个参数：要操作的元素，事件名称和事件处理程序函数<br>像下面这样使用EventUtil对象（详细看354页）</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+var handler = function(){
+    alert(&quot;clicked&quot;);
+}
+Event.addHandler(btn,&quot;click&quot;,handler);
+Event.removeHandler(btn,&quot;click&quot;,handler);
+</code></pre><h1 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h1><p>触发DOM上的某个事件时，会产生一个事件对象event，这个对象中包含着所有与事件有关的信息。包括导致事件的元素，事件的类型，其他与特定事件相关的信息</p>
+<h2 id="DOM中的事件对象"><a href="#DOM中的事件对象" class="headerlink" title="DOM中的事件对象"></a>DOM中的事件对象</h2><p>兼容DOM的浏览器会将一个event对象传入到事件处理程序中，无论DOM0，DOM2级都会传入event对象</p>
+<pre><code>var btn = document.getElementById(&quot;myBtn&quot;);
+btn.onclick = function(){
+    alert(event.type);
+}//click
+btn.addEventListener(&quot;click&quot;,function(event){alert(event.type)},false);//&quot;click&quot;
+</code></pre><p>在事件处理程序内部，对象this始终等于currentTarget的值，而target则只包含事件的实际目标currentTarget：其事件处理程序当前正在处理事件的那个元素。<br>target：事件目标</p>
+<pre><code>document.body.onclick = function(event){
+    alert(event.currentTarget === document.body);//true
+    alert(this === document.body);//true
+    alert(event.target === document.getElementById(&quot;myBtn&quot;));//true
+}
+</code></pre><p>事件处理程序是注册在document.body这个元素上的，click真正目标是按钮元素<br>在需要通过一个函数处理多个事件时，可以使用type属性。</p>
+<p>阻止特定事件的默认行为，可以使用preventDefalut()方法<br>只有cancaelable属性设为true的事件，才可以使用preventDefalut()来取消默认行为。<br>stopPropagation()方法用于立即停止事件在DOM层次中的传播，即取消进一步的事件捕获或冒泡。<br>例：</p>
+<pre><code>var link = document.getElementById(&quot;myLink&quot;);
+link.onclick = function(event){
+    event.preventDefault();
+}
+var btn = document.getElementById(&quot;myBtn&quot;);
+btn.onclick = function(event){
+    alert(&quot;clicked&quot;);
+    event.stopPropagation();
+}
+</code></pre><p>事件对象的eventPhase属性，可以用来确定事件当前正位于事件流的哪个阶段。<br>event.eventPhase 1.捕获阶段 2.事件处理程序处于目标对象上 3.冒泡阶段</p>
+<h2 id="IE中的事件对象"><a href="#IE中的事件对象" class="headerlink" title="IE中的事件对象"></a>IE中的事件对象</h2><p>DOM级方法添加事件处理器时，event对象作为window对象的一个属性存在</p>
+<pre><code>btn.onclick = function(){
+    var event = window.event;
+    alert(event.type);//&quot;clicl&quot;
+}
+</code></pre><p>attachEvent()添加的，那么会有一个event对象作为参数被传入事件处理程序函数中。<br>btn.attachEvent(“onclick”,function(event){alert(event.type)})//click<br>event.srcElement 事件目标（与DOM中的target作用相同）<br>returnValue等于false取消默认行为，window.event/event.returnValue = false;<br>cancelBubble停止事件冒泡 window.event/event.cancelBubble = true;</p>
+<h2 id="跨浏览器的事件对象"><a href="#跨浏览器的事件对象" class="headerlink" title="跨浏览器的事件对象"></a>跨浏览器的事件对象</h2><p>前面EventUtil对象加以增强<br>getEvent()：返回对event对象的引用event = EventUtil.getEvent(event);//DOM-&gt;event IE-&gt;window.event<br>getTarget()：返回事件的目标 var target = EventUtil.getTarget(event);<br>preventDefailt()：取消事件的默认行为 检测是否存在preventDefault()存在调用，不存在将returnValue设为false</p>
+<pre><code>link.onclick = function(event){
+    event = EventUtil.getEvent(event);
+    EventUtil.preventDefault(event);
+}
+</code></pre><p>stopPropagation()：停止冒泡，尝试使用DOM方法阻止，否则使用cancelBubble</p>
+<h1 id="页面坐标位置"><a href="#页面坐标位置" class="headerlink" title="页面坐标位置"></a>页面坐标位置</h1><p>页面坐标通过事件对象的pageX和pageY属性，能告诉你事件是在页面中的什么位置发生的。<br>这两个属性表示鼠标光标在页面中的位置，因此坐标是从页面本身而非视口的左边和顶边计算的。<br>页面没有滚动的情况下，pageX和pageY的值与clientX和clientY的值相等。<br>IE8及更早版本不支持事件对象的页面坐标，可以用客户区坐标和滚动信息计算出来。<br>用到document.body（混杂模式）或document.documentElement（标准模式）中的scrollLeft和scrollTop属性</p>
+<pre><code>EventYtil.addHandler(div,&quot;click&quot;,function(event){
+    event = Event.getEvent(event);
+    var pageX = event.pageX;
+    var pageY = event.pageY;
+    if(pageX == undefined){
+        pageX = event.clientX+(document.body.scrollLeft||document.docuemntElement.scrollLeft);
+    }
+    if(pageY == undefined){
+        pageX = event.clientY+(document.body.scrollTop||document.docuemntElement.scrollTop);
+    }
+    alert(&quot;page&quot; + pageX +&quot;,&quot; + pageY);
+})
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>博主会持续更新，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixinprice.png" alt="Candice Yu WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zhifubaoprice.jpg" alt="Candice Yu Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BOM/" rel="tag">#BOM</a>
+          
+            <a href="/tags/DOM/" rel="tag">#DOM</a>
+          
+            <a href="/tags/JS/" rel="tag">#JS</a>
+          
+            <a href="/tags/事件/" rel="tag">#事件</a>
+          
+            <a href="/tags/闭包/" rel="tag">#闭包</a>
+          
+            <a href="/tags/原型/" rel="tag">#原型</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/01/前端相关知识总结/" rel="next" title="前端相关知识总结">
+                <i class="fa fa-chevron-left"></i> 前端相关知识总结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/11/01/红宝书总结/"
+           data-title="红宝书总结" data-url="http://candiceyu.com/2017/11/01/红宝书总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Candice Yu" />
+          <p class="site-author-name" itemprop="name">Candice Yu</p>
+          <p class="site-description motion-element" itemprop="description">I don’t want to earn my living; i want to live.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/dreamgirla" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/5329295f3aea/timeline" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-jianshu"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/#signin" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-zhihu"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://carryguan.me/" title="Carry" target="_blank">Carry</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yuanguangxin.me/" title="yuanguangxin" target="_blank">yuanguangxin</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本类型，引用类型和变量"><span class="nav-text">基本类型，引用类型和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#复制变量值"><span class="nav-text">复制变量值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型检测"><span class="nav-text">类型检测</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域"><span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#垃圾收集"><span class="nav-text">垃圾收集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标记清除"><span class="nav-text">标记清除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用计数"><span class="nav-text">引用计数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用类型"><span class="nav-text">引用类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Array类型（本地对象）"><span class="nav-text">Array类型（本地对象）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#转换方法"><span class="nav-text">转换方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈方法"><span class="nav-text">栈方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列方法"><span class="nav-text">队列方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重排序方法"><span class="nav-text">重排序方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作方法"><span class="nav-text">操作方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位置方法"><span class="nav-text">位置方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代方法"><span class="nav-text">迭代方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并方法"><span class="nav-text">归并方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Date类型"><span class="nav-text">Date类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RegExp类型（本地对象）"><span class="nav-text">RegExp类型（本地对象）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function类型"><span class="nav-text">Function类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数声明与函数表达式"><span class="nav-text">函数声明与函数表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数内部属性"><span class="nav-text">函数内部属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this对象"><span class="nav-text">this对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#prototype"><span class="nav-text">prototype</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本包装类型"><span class="nav-text">基本包装类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引用类型与基本包装类型的主要区别是对象的生存期"><span class="nav-text">引用类型与基本包装类型的主要区别是对象的生存期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Number类型"><span class="nav-text">Number类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String类型"><span class="nav-text">String类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符方法"><span class="nav-text">字符方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串操作方法"><span class="nav-text">字符串操作方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单体内置对象-gload-Math不可以实例化的"><span class="nav-text">单体内置对象 (gload,Math不可以实例化的)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#window对象"><span class="nav-text">window对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Math对象"><span class="nav-text">Math对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数表达式"><span class="nav-text">函数表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归"><span class="nav-text">递归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#闭包"><span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于this对象"><span class="nav-text">关于this对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存泄漏"><span class="nav-text">内存泄漏</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象的程序设计"><span class="nav-text">面向对象的程序设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式"><span class="nav-text">工厂模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建函数模式"><span class="nav-text">构建函数模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型模式"><span class="nav-text">原型模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理解原型对象"><span class="nav-text">理解原型对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型与in操作符"><span class="nav-text">原型与in操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型的动态性"><span class="nav-text">原型的动态性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型对象的问题"><span class="nav-text">原型对象的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态原型模式"><span class="nav-text">动态原型模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄生构造函数模式"><span class="nav-text">寄生构造函数模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#稳妥构造函数模式"><span class="nav-text">稳妥构造函数模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#借用构造函数"><span class="nav-text">借用构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合继承"><span class="nav-text">组合继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型式继承"><span class="nav-text">原型式继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄生式继承"><span class="nav-text">寄生式继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄生组合式继承"><span class="nav-text">寄生组合式继承</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM（浏览器对象模型）"><span class="nav-text">BOM（浏览器对象模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#超时调用-setTimeout"><span class="nav-text">超时调用 setTimeout()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#间歇调用-setInterval"><span class="nav-text">间歇调用 setInterval()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM文档对象模型"><span class="nav-text">DOM文档对象模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node类型"><span class="nav-text">Node类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nodeName和nodeValue属性"><span class="nav-text">nodeName和nodeValue属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点关系"><span class="nav-text">节点关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作节点"><span class="nav-text">操作节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Document类型"><span class="nav-text">Document类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文档的子节点"><span class="nav-text">文档的子节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档信息"><span class="nav-text">文档信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找元素"><span class="nav-text">查找元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element类型"><span class="nav-text">Element类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Text类型"><span class="nav-text">Text类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM扩展"><span class="nav-text">DOM扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML5"><span class="nav-text">HTML5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#classList属性"><span class="nav-text">classList属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTMLDocument的变化"><span class="nav-text">HTMLDocument的变化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容模式"><span class="nav-text">兼容模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#head属性"><span class="nav-text">head属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件"><span class="nav-text">事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件冒泡"><span class="nav-text">事件冒泡</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件捕获"><span class="nav-text">事件捕获</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM事件流"><span class="nav-text">DOM事件流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件委托"><span class="nav-text">事件委托</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移除事件处理程序"><span class="nav-text">移除事件处理程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件处理程序"><span class="nav-text">事件处理程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML事件处理程序"><span class="nav-text">HTML事件处理程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM0级事件处理程序"><span class="nav-text">DOM0级事件处理程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM2级事件"><span class="nav-text">DOM2级事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE事件处理程序"><span class="nav-text">IE事件处理程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨浏览器的事件处理程序"><span class="nav-text">跨浏览器的事件处理程序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件对象"><span class="nav-text">事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM中的事件对象"><span class="nav-text">DOM中的事件对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE中的事件对象"><span class="nav-text">IE中的事件对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨浏览器的事件对象"><span class="nav-text">跨浏览器的事件对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#页面坐标位置"><span class="nav-text">页面坐标位置</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Candice Yu</span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"candiceyu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+</body>
+</html>
