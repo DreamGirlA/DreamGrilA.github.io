@@ -68,11 +68,17 @@ ECMAScript变量包括两种不同数据类型的值：基本类型值和引用�
 <meta property="og:site_name" content="Candice Yu_个人博客">
 <meta property="og:description" content="基本类型，引用类型和变量基本数据类型：Number,String,Boolean,Null,undefined。混合数据类型：object引用数据类型：Array,Date,RegExp,Functiontypeof数据类型：object,number,function,boolean,undefined
 ECMAScript变量包括两种不同数据类型的值：基本类型值和引用类型值。基本类型值：简单的">
-<meta property="og:updated_time" content="2017-11-01T12:08:32.181Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-5e04f3a94b1fecfe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-5cb9f90231d11735.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-ce04bc0557da9e27.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-3612c6680e8267d4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5285574-1d040f8b3ad390b9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-02T03:50:18.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="红宝书总结">
 <meta name="twitter:description" content="基本类型，引用类型和变量基本数据类型：Number,String,Boolean,Null,undefined。混合数据类型：object引用数据类型：Array,Date,RegExp,Functiontypeof数据类型：object,number,function,boolean,undefined
 ECMAScript变量包括两种不同数据类型的值：基本类型值和引用类型值。基本类型值：简单的">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5285574-5e04f3a94b1fecfe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -365,18 +371,20 @@ alert(values);//0,1,5,10,15
 <li>foreach() 对数组中的每一项运行给定函，没有返回值</li>
 <li>map() 对数组中的每一项运行给定函，返回每次函数调用的结果组成的数组</li>
 <li><p>some（） 对数组中的每一项运行给定函，如果该函数对任一项返回true，则返回true</p>
-<p> var numbers = [1,2,3,4,5,4,3,2,1];<br> var everyResult = numbers.every(function(item,index,array){</p>
-<pre><code>    return (item &gt; 2);
-})
-</code></pre><p> alert(everyResult);//false</p>
-</li>
+<pre><code>var numbers = [1,2,3,4,5,4,3,2,1];
+var everyResult = numbers.every(function(item,index,array){
+        return (item &gt; 2);
+    })
+alert(everyResult);//false
+</code></pre></li>
 <li><p>map() 返回一个数组，而这个数组的每一项都是在原始数组中的对应项上运行传入函数的结果。例：给数组每一项乘以2，返回乘积组成的数组</p>
-<p> var numbers = [1,2,3,4,5,4,3,2,1];<br> var everyResult = numbers.map(function(item,index,array){</p>
-<pre><code>    return (item * 2);
-})
-</code></pre><p> alert(everyResult);//[2,4,6,8,10,8,6,4]</p>
-<p> 1,2,3,4,5都不会修改数组中包含值</p>
-</li>
+<pre><code>var numbers = [1,2,3,4,5,4,3,2,1];
+var everyResult = numbers.map(function(item,index,array){
+        return (item * 2);
+    })
+alert(everyResult);//[2,4,6,8,10,8,6,4]
+1,2,3,4,5都不会修改数组中包含值
+</code></pre></li>
 </ol>
 <h2 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h2><p>reduce()和reduceRight() 这两个方法都会迭代数组的所有项，然后构建一个最终返回的值。reduce() 从数组的第一项开始，逐个遍历到最后，reduceRight()相反。这两个方法都接收两个参数：一个在每一项上调用的函数和（可选的）作为归并基础的初始值。<br>4个参数：前一个值，当前值，项的索引和数组对象。这个函数返回的任何值都会作为第一个参数自动传给下一项。<br>使用reduce()方法可以执行求数组中所有值之和的操作。</p>
 <pre><code>var values = [1,2,3,4,5];
@@ -758,7 +766,8 @@ Person.prototype = {
     enumerable:false,
     value:Person
 })
-</code></pre><h2 id="理解原型对象"><a href="#理解原型对象" class="headerlink" title="理解原型对象"></a>理解原型对象</h2><p>① 在JavaScript中，原型也是一个对象，通过原型可以实现对象的属性继承<br>② 只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个prototype属性，这属性指向函数的原型对象<br>③ 在默认情况下，所有原型对象都会自动获得一个constructor（构造属性）属性，这个属性包含一个指向prototype属性所在函数的指针。<br>④ 创建了自定义的构造函数之后，其原型对象默认只会取得constructor属性，其他方法都是从Object继承来的。<br>⑤ 当调用构造函数创建一个新实例后，该实例的内部将包含一个指针（内部属性），指向构造函数的原型对象。ECMA-262第5版中管这个指针叫做[[prototype]]。<br>⑥ Firefox,safari,Chrome在每个对象上都支持一个属性<em>proto</em>来访问指针<br>以前面使用Person构造函数和Person.prototype创建实例的代码为例，各个对象的关系：<br>图片<br>⑦ 虽然这两个实例都不包含属性和方法，但我们也可以调用person1.sayName()，这是通过查找对象属性的过程来实现的<br>⑧ 虽然在所有实现中都无法访问到[[prototype]]，但可以通过isPrototypeOf()方法来确定对象之间是否存在这种关系。如果[[prototype]]指向调用isPrototypeOf()方法的对象（Person.prototpe），那么这个方法就返回true。<br>⑨ ECMAScript5增加了一个新方法mObject.getPrototypeOf()返回[[prototype]]的值，方便取得一个对象的原型。<br>alert(Object.getPrototypeOf(person1) == Person.prototype);//true<br>alert(Object.getPrototypeOf(person1).name);//“ABC”</p>
+</code></pre><h2 id="理解原型对象"><a href="#理解原型对象" class="headerlink" title="理解原型对象"></a>理解原型对象</h2><p>① 在JavaScript中，原型也是一个对象，通过原型可以实现对象的属性继承<br>② 只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个prototype属性，这属性指向函数的原型对象<br>③ 在默认情况下，所有原型对象都会自动获得一个constructor（构造属性）属性，这个属性包含一个指向prototype属性所在函数的指针。<br>④ 创建了自定义的构造函数之后，其原型对象默认只会取得constructor属性，其他方法都是从Object继承来的。<br>⑤ 当调用构造函数创建一个新实例后，该实例的内部将包含一个指针（内部属性），指向构造函数的原型对象。ECMA-262第5版中管这个指针叫做[[prototype]]。<br>⑥ Firefox,safari,Chrome在每个对象上都支持一个属性<em>proto</em>来访问指针<br>以前面使用Person构造函数和Person.prototype创建实例的代码为例，各个对象的关系：<br><img src="http://upload-images.jianshu.io/upload_images/5285574-5e04f3a94b1fecfe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="各个对象的关系"></p>
+<p>⑦ 虽然这两个实例都不包含属性和方法，但我们也可以调用person1.sayName()，这是通过查找对象属性的过程来实现的<br>⑧ 虽然在所有实现中都无法访问到[[prototype]]，但可以通过isPrototypeOf()方法来确定对象之间是否存在这种关系。如果[[prototype]]指向调用isPrototypeOf()方法的对象（Person.prototpe），那么这个方法就返回true。<br>⑨ ECMAScript5增加了一个新方法mObject.getPrototypeOf()返回[[prototype]]的值，方便取得一个对象的原型。<br>alert(Object.getPrototypeOf(person1) == Person.prototype);//true<br>alert(Object.getPrototypeOf(person1).name);//“ABC”</p>
 <p>⑩ 每当代码读取某个对象的某个属性时，都会执行一次搜索，目标是具有给定名字的属性。搜索首先从对象实例本身开始，如果实例中找到具有给定名字的值，则返回该属性的值，如果没找到，则继续搜索指针指向的原型对象，在原型对象值查找具有给定名字的属性，如果原型对象中找到了这个属性，则返回属性的值。</p>
 <p>我们调用person1.sayName()时，执行两次搜索，解析器会问“实例person1有sayName属性吗？”，“没有”，继续搜索，问“person1的原型有sayName属性吗？”，答“有”  它就读取那个保存在原型对象的函数。</p>
 <p>虽然可以通过对象实例访问保存在原型中的值，但却不能通过对象实例重写原型中的值。如果我们在实例中添加一个属性，而该属性与实例原型中的一个属性同名，那么我们就在实例中创建该属性，该属性将会屏蔽原型中的那个属性<br>例：<br>person1.name = “DEF”;<br>① alert(person1.name);//“DEF”——来自实例<br>② alert(person2.name);//“ABC”——来自原型</p>
@@ -845,7 +854,7 @@ SubType.prototype.getSubValue = function(){
 var instance = new SubType();
 alert(instance.getSuperValue);//true
 </code></pre><p>subType继承了SuperType，继承是通过创建SuperType的实例，并将该实例赋给subType.prototype实现的<br>实现的本质是重写原型对象，代之以一个新类型的实例。</p>
-<p>例子中的实例以及构造函数和原型之间的关系图<br>图片</p>
+<p>例子中的实例以及构造函数和原型之间的关系图<br><img src="http://upload-images.jianshu.io/upload_images/5285574-5cb9f90231d11735.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="实例以及构造函数和原型"></p>
 <p>① 上面代码，我们没有通过SubType默认原型，而是给换了一个新原型，就是SuperType的实例。新原型仅有作为一个SuperType的实例所拥有的全部属性和方法，内部还有一个指针，指向了SuperType的原型。<br>② getSuperValue()方法仍然还是在SuperType.prototype中，但property则位于SubType.prototype中、因此property是一个实例属性，而getSuperValue()则是一个原型方法。既然SubType.prototype现在是SuperType的实例，那么property当然就位于该实例中了。<br>③ 在通过原型链实现继承的情况下，搜索过程就是以沿着原型链继续向上。<br>④ 调用instance.getSuperValue会经历三个搜索步骤：①搜索实例 ②搜索SubType.prototype ③搜索SuperType.prototype</p>
 <ol>
 <li>别忘记默认的原型<br>所有函数的默认原型都是Object的实例，因此默认原型都会包含一个内部指针，指向Object.prototype，这也是所有自定义类型都会继承toString()，valueof()等默认方法的根本原因。</li>
@@ -868,8 +877,17 @@ alert(instance2.colors);//&quot;red,green,black&quot;
 </code></pre><p>③ “借调”了超类型的构造函数。使用call()方法，我们实际上是在（为了将要）新创建的SubType实例的环境下调用SuperType构造函数。这样一来，就会在新SubType对象上执行SuperType()函数中定义的所有对象初始化代码。结果，SubType的每个实例都会具有自己的colors属性的副本了。</p>
 <ol>
 <li><p>传递参数<br>可以在子类型构造函数中向超类型构造函数传递参数</p>
-<p> function SuperType(){<br>   this.name = name;<br> }<br> fucntion SubType(){<br>   Super.call(this,”abc”);//继承SuperType，同时还传参<br>   this.age = 29;//实例属性<br> }<br> var instance = new SubType();<br> alert(instance.name);//“abc”<br> alert(instance.age);//“29”</p>
-</li>
+<pre><code>function SuperType(){
+  this.name = name;
+}
+fucntion SubType(){
+  Super.call(this,&quot;abc&quot;);//继承SuperType，同时还传参
+  this.age = 29;//实例属性
+}
+var instance = new SubType();
+alert(instance.name);//&quot;abc&quot;
+alert(instance.age);//&quot;29&quot;
+</code></pre></li>
 <li><p>借用构造函数的问题<br>无法避免构造函数模式存在的问题——方法都在构造函数中定义，因此函数复用就无从谈起了</p>
 </li>
 </ol>
@@ -968,13 +986,18 @@ SubType.prototype.satAge = function(){
 <li><p>全局作用域<br>window对象同时扮演着ECMAScript中Global对象的角色，因此所有全局作用域中声明的变量。函数都会变成window对象的属性和方法。<br>全局变量不能通过delete操作符删除，而直接在window对象上的定义的属性可以。</p>
 </li>
 <li><p>窗口大小</p>
-<p> var pageWidth = window.innerWidth;<br> var pageHeight = window.innerHeight;<br> if(typeof pageWidth != “number”){<br>   if(document.compatMode == “CSS1Compat”){</p>
-<pre><code>pageWidth = document.documentElement.clientWidth;//IE,Firefox,Safari,Opera.Chrome保存信息
-pageHeight = document.documentElement.clientHeight;
-</code></pre><p>   }else{</p>
-<pre><code>pageWidth = document.body.clientWidth;//IE6中标准模式,以上属性可获得
-pageHeight = document.body.clientHeight;//混杂模式使用body
-</code></pre><p>   }<br> }<br>检查pageWidth保存的是不是一个数值，确定页面是否处于标准模式。<br>移动设备window.innerWidth和window.innerHeight保存着可见视口，屏幕上可视页面区域。<br>其他移动浏览器中，document.documentElement度量的是布局视口，即渲染后页面的实际大小（与可见视口不同，可见视口只是整个页面中的一小部分）。移动IE浏览器把布局视口的信息保存在document.body.clientWidth/clientHeight中。这些值不会随页面而缩放变化。</p>
+<pre><code>var pageWidth = window.innerWidth;
+var pageHeight = window.innerHeight;
+if(typeof pageWidth != &quot;number&quot;){
+  if(document.compatMode == &quot;CSS1Compat&quot;){
+     pageWidth = document.documentElement.clientWidth;//IE,Firefox,Safari,Opera.Chrome保存信息
+     pageHeight = document.documentElement.clientHeight;
+  }else{
+     pageWidth = document.body.clientWidth;//IE6中标准模式,以上属性可获得
+     pageHeight = document.body.clientHeight;//混杂模式使用body
+  }
+}
+</code></pre><p>检查pageWidth保存的是不是一个数值，确定页面是否处于标准模式。<br>移动设备window.innerWidth和window.innerHeight保存着可见视口，屏幕上可视页面区域。<br>其他移动浏览器中，document.documentElement度量的是布局视口，即渲染后页面的实际大小（与可见视口不同，可见视口只是整个页面中的一小部分）。移动IE浏览器把布局视口的信息保存在document.body.clientWidth/clientHeight中。这些值不会随页面而缩放变化。</p>
 </li>
 </ol>
 <p>使用resizeTo()和resizeBy()方法可以调整浏览器窗口的大小。resizeTo()两个参数：新宽度，新高度。resizeBy()两个参数：新窗口与原窗口的宽高差。<br>window.resizeTo(100,100);//调整到100 <em> 100<br>window.resizeBy(100,50);//调整到200 </em> 150</p>
@@ -997,9 +1020,9 @@ clearTimeout(timeId);
 <ol>
 <li><p>系统对话框<br>alert()方法，向用户显示一个系统对话框，其中包含指定的文本和一个OK（”确定”）按钮。<br>confirm()方法，”警告”对话框，OK按钮，cancel按钮，消息。为了确定用户是单击了OK还是Concel，可以检查confirm()返回的布尔值，OK=true,cancel=false<br>prompt()方法，”提示”框，提示用户输入一些文本。OK，cancel按钮，文本输入域，两个参数：要显示给用户的文本提示和文本输入域的默认值（可以是一个空字符串）</p>
 </li>
-<li><p>location对象<br>location提供了当前窗口中加载的文档有关的信息，还提供了一些导航功能。<br>既是window对象的属性，也是document对象的属性，<br>location对象的用处不只表现在它保存着当前文档的信息，还表现在它将URL解析为独立的片段，让开发人员可以通过不同的属性访问这些片段。<br>图片</p>
+<li><p>location对象<br>location提供了当前窗口中加载的文档有关的信息，还提供了一些导航功能。<br>既是window对象的属性，也是document对象的属性，<br>location对象的用处不只表现在它保存着当前文档的信息，还表现在它将URL解析为独立的片段，让开发人员可以通过不同的属性访问这些片段。<br><img src="http://upload-images.jianshu.io/upload_images/5285574-ce04bc0557da9e27.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="location对象"></p>
 </li>
-<li><p>查询字符串参数<br>创建一个函数，可以解析查询字符串，然后返回包含所有参数的一个对象。<br>图片</p>
+<li><p>查询字符串参数<br>创建一个函数，可以解析查询字符串，然后返回包含所有参数的一个对象。<br><img src="http://upload-images.jianshu.io/upload_images/5285574-3612c6680e8267d4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查询字符串参数"><br><img src="http://upload-images.jianshu.io/upload_images/5285574-1d040f8b3ad390b9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查询字符串参数"></p>
 </li>
 <li><p>位置操作<br>改变浏览器的位置，使用assign()方法并为其传递一个URL。<br>location.assign(“<a href="http://wwww.baidu.com" target="_blank" rel="external">http://wwww.baidu.com</a>“);<br>立即打开新URL，在浏览器的历史记录中生成一条记录<br>window.location = “<a href="http://wwww.baidu.com&quot;;//也会调用assign()方法，效果一样" target="_blank" rel="external">http://wwww.baidu.com&quot;;//也会调用assign()方法，效果一样</a><br>location.href = “<a href="http://wwww.baidu.com&quot;;//也会调用assign()方法，效果一样,常用" target="_blank" rel="external">http://wwww.baidu.com&quot;;//也会调用assign()方法，效果一样,常用</a><br>location.replace(“<a href="http://wwww.baidu.com" target="_blank" rel="external">http://wwww.baidu.com</a>“);<br>这个方法虽然会导致浏览器位置改变，但不会在历史记录中生成新纪录，用户不能单击“后退”回到前一个页面<br>location.reload();//重新加载（有可能从缓存中加载）<br>location.reload(true);//重新加载（从服务器重新加载）</p>
 </li>
